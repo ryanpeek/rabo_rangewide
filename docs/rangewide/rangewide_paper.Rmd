@@ -1,0 +1,226 @@
+---
+title: Range-wide Assessment of *Rana boylii*
+
+# Use letters for affiliations
+author:
+  - name: Ryan Peek
+    affiliation: a
+  - name: Michael Miller
+    affiliation: b
+address:
+  - code: a
+    address: Center for Watershed Sciences, University of California, Davis, CA, 95616
+  - code: b
+    address: Department of Animal Science, University of California, Davis, CA, 95616
+
+# For footer text  TODO(fold into template, allow free form two-authors)
+lead_author_surname: Peek and Miller
+
+# Place DOI URL or CRAN Package URL here
+doi: "https://cran.r-project.org/package=YourPackage"
+
+# Abstract
+abstract: |
+  As freshwater systems and biota are rapidly declining globally; conservation efforts will require assessment of the adaptive capacity of populations to rapid environmental change. Small populations with limited genetic diversity may have reduced adaptive potential and difficulty responding to future environmental change. Identifying these populations is crucial for effective conservation prioritization and management. We characterize population structure and genetic variation in *Rana boylii* across the geographically rich landscale of California in Oregon. We identify 5 major genetically distinct groups and provide further detail within each group using RADSeq RAPTURE with over 8,000 putative loci. 
+
+# Acknowledgements
+acknowledgements: |
+  This work builds upon work by Amy Lind and Brad Shaffer and extends work from [Lind et al.](https://link.springer.com/article/10.1007/s10592-010-0138-0), and uses the excellent  [rticles](https://cran.r-project.org/package=rticles) and [pinp](http://dirk.eddelbuettel.com/code/pinp.html) packages.
+
+# One or more keywords
+keywords:
+  - rivers
+  - flow regime
+  - dams
+  - genomics
+  - frogs
+
+# Bibliography TODO(also still needed in body) # instead of pinp use ~/Dropbox/JabRef/Peek-bibkey-2016.bib
+bibliography: ~/Dropbox/JabRef/Peek-bibkey-2016
+
+# Enable a watermark on the document
+watermark: true
+
+# Customize footer, eg by referencing the vignette
+footer_contents: "YourPackage Vignette"
+
+# Our style
+output: pinp::pinp
+---
+
+## Introduction {#intro .unnumbered}
+
+This *pinp is not PNAS* template started when the introduction to
+[Rcpp](http://dirk.eddelbuettel.com/code/rcpp.html) by \cite{PeerJ:Rcpp} 
+was converted into this updated
+[Rcpp Introduction](https://eddelbuettel.github.io/pinp/Rcpp-introduction.pdf)
+vignette.  It is based on the
+[pnas_article](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates/pnas_article)
+template of the wonderful [rticles](https://cran.r-project.org/package=rticles) package by
+\cite{CRAN:rticles}. The conversion from markdown to latex is facilitated by
+[rmarkdown](https://cran.r-project.org/package=rmarkdown)
+\citep{CRAN:rmarkdown} and [knitr](https://cran.r-project.org/package=knitr)
+\citep{CRAN:knitr}. The underlying LaTeX macros are from
+[pnas.org](http://www.pnas.org/site/authors/latex.xhtml).
+
+The remainder of the document carries over from the corresponding
+[pnas_article](https://github.com/rstudio/rticles/tree/master/inst/rmarkdown/templates/pnas_article)
+template document. but has been edited and updated to our use case.  A
+few specific tips follow.  In general, for fine-tuning some knowledge
+of LaTeX is helpful.
+
+Please note that LaTeX typesetting in two-column mode with several
+floating objects can be fragile.  You may need to iterate.
+
+
+## Author Affiliations {#author-affiliations .unnumbered}
+
+Per common academic best practice, you can include your department,
+institution, and complete address, with the ZIP/postal code, for each
+author. Use lower case letters to match authors with institutions, as
+shown in the example. Authors with an ORCID ID may supply this
+information at submission.
+
+## Document Options
+
+We support several options via the YAML header
+
+- Setting a DOI or URL footer, for example for the CRAN package URL,
+  which is placed in the bottom-left footer of the title page and even pages;
+- Setting a footer label, for example _YourPackage Vignette_ stating
+  your package, which is placed in the bottom-right footer on odd
+  pages;
+- Setting a free-form author field used on the inside footer;
+- Optional _Draft_ watermarking;
+
+<!-- ## Format {#format .unnumbered}
+
+Many authors find it useful to organize their manuscripts with the
+following order of sections; Title, Author Affiliation, Keywords,
+Abstract, Significance Statement, Results, Discussion, Materials and
+methods, Acknowledgments, and References. Other orders and headings are
+permitted. -->
+
+
+## References {#references .unnumbered}
+
+Here we differ from PNAS and suggest natbib. References will appear in
+author-year form. Use `\citet{}`, `\citep{}`, etc as usual.
+
+We default to the `Chicago.bst` style. To switch to a different bibliography
+style, please use `biblio-style: style` in the YAML header.
+
+
+## Inline R Code {#inliner .unnumbered}
+
+The PNAS sample included a fixed PNG image here, but this document prefers
+to show the results and embedding of _R_ code. 
+
+```{r figex, fig.width=3, fig.height=3, cache=TRUE, echo=TRUE, fig.cap="Narrow ggplot2 figure"}
+library(ggplot2)
+ggplot(mtcars, aes(wt, mpg)) +
+    geom_point(size=3, aes(colour=factor(cyl))) +
+    theme(legend.position="none")
+```
+
+Here we use a standard knitr bloc with explicit options for
+
+- figure width and height (`fig.width`, `fig.height`), both set to three inches;
+- whether the code is shown (`echo=TRUE`); and
+- the caption (`fig.cap`) as shown above.
+
+
+## Digital Figures {#sec:figures .unnumbered}
+
+Markdown, Pandoc and LaTeX support `.eps` and `.pdf` files.
+
+Figures and Tables should be labelled and referenced in the standard way
+using the `\label{}` and `\ref{}` commands.
+
+The R examples above show how to insert a column-wide
+figure. To insert a figure wider than one column, please use the
+`\begin{figure*}...\end{figure*}` environment. 
+
+One (roundabout) way of doing this is to _not_ actually plot a figure, but to
+save it in a file as the following segment shows:
+
+```{r densityPlot, echo=TRUE}
+library(ggplot2)
+p <- ggplot(data = midwest,
+            mapping = aes(x = area,
+                          fill = state,
+                          color = state)) +
+    geom_density(alpha = 0.3)
+## save to file
+suppressMessages(ggsave("densities.pdf", p))
+```
+
+This file is then included via standard LaTeX commands.
+
+\begin{figure*}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth, height=4in]{densities} 
+  \end{center}
+  \caption{Wide ggplot2 figure}\label{fig}
+\end{figure*}
+
+
+## Typeset Code (But Do Not Run It) {#typeset .unnumbered}
+
+We can also just show code.
+
+```r
+xx <- faithful[,"eruptions"]
+fit <- density(xx)
+plot(fit)
+```
+
+This simply used a pandoc bloc started and ended by tree backticks,
+with `r` as the language choice.  Similarly, _many_ other languages
+can be typset directly simply by relying on pandoc.
+
+
+## Single column equations {#single-column-equations .unnumbered}
+
+Authors may use 1- or 2-column equations in their article, according to
+their preference.
+
+To allow an equation to span both columns, options are to use the
+`\begin{figure*}...\end{figure*}` environment mentioned above for
+figures, or to use the `\begin{widetext}...\end{widetext}` environment
+as shown in equation \ref{eqn:example} below.
+
+Please note that this option may run into problems with floats and
+footnotes, as mentioned in the [cuted package
+documentation](http://texdoc.net/pkg/cuted). In the case of problems
+with footnotes, it may be possible to correct the situation using
+commands `\footnotemark` and `\footnotetext`.
+
+\begin{equation}
+  \begin{aligned}
+(x+y)^3&=(x+y)(x+y)^2\\
+       &=(x+y)(x^2+2xy+y^2) \\
+       &=x^3+3x^2y+3xy^3+x^3. 
+       \label{eqn:example} 
+  \end{aligned}
+\end{equation}
+
+
+<!-- pandoc writes all tables using longtable, which fails in 2-column mode
+
+  Species                    CBS     CV     G3
+  ----------------------- ------ ------ ------
+  1\. Acetaldehyde           0.0    0.0    0.0
+  2\. Vinyl alcohol          9.1    9.6   13.5
+  3\. Hydroxyethylidene     50.8   51.2   54.0
+
+  : Comparison of the fitted potential energy surfaces and ab initio
+  benchmark electronic energy calculations
+
+-->
+
+
+<!-- Leave these lines as they are at the end of your .Rmd file to ensure placement of methods & acknowledgements sections before the references-->
+\showmatmethods
+\showacknow
+\pnasbreak 
