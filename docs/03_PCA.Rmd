@@ -1,0 +1,42 @@
+---
+title: "03 PCA"
+author: "Ryan Peek"
+date: "*Updated: `r format(Sys.Date())`*"
+output: 
+  html_document:
+    keep_md: true
+    toc: yes
+    toc_float: yes
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+```
+
+## Plot PCA
+
+Following scripts 01 and 02, use 03 to plot PCA's interactively or statically.
+
+Below is just an example.
+
+```{r pcaALL, message=FALSE, warning=FALSE}
+
+# source the function to plot
+source(paste0(here(),"/scripts/f_read_covar.R"))
+
+# load the metadata
+load(file = paste0(here(), "/data_output/rapture06_metadata_sierra.rda"))
+
+# set site/reads for bamlist/covar filepaths:
+reads <- "25k_thresh"
+sitea <- "all_rubyubfea_25k"
+covarpath<- paste0(here(), "/data_output/angsd/", sitea, ".covMat")
+site <- "all_rubyubfea"
+bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist")
+
+# run function
+(read_covar(covarpath, bampath, metadat, c(2,3),plotlyplot = TRUE))
+
+```
