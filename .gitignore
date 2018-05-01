@@ -2,6 +2,12 @@
 .Rhistory
 .Rapp.history
 
+# ignore OSX file
+.DS_Store
+
+# ignore Rmd html files
+.html
+
 # Session Data files
 .RData
 
