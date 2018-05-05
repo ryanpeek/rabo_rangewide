@@ -19,3 +19,16 @@ df_locs<- st_as_sf(df,
                    remove=F,
                    crs=4326)
 mapview(df_locs)
+
+
+
+
+# MAP HUC8 ----------------------------------------------------------------
+
+
+h8 <- st_read(unzip("data/HUC8_named_westcoast.zip"))
+
+# then remove raw files since file is added in memory
+file.remove(list.files(pattern = "HUC8_named_westcoast*",recursive = F))
+
+mapview(h8)
