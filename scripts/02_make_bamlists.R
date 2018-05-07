@@ -21,6 +21,8 @@ set.seed(111) # for repeatable random sampling
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-25
 
+site <- "all_rabo"
+
 # 02. LOAD METADATA --------------------------------------------
 
 metadat <- read_csv("data/rapture_metadata_rabo.csv") %>% arrange(Seq)
@@ -41,7 +43,6 @@ subsamp<-bamNo*1000
 # Fix the name in bamlist (based on subsample output)
 bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = "", bams$X1)
 
-
 # 04a. NORTHCOAST ---------------------------------------------------------
 
 # set site name (will be appended into filename)
@@ -58,6 +59,9 @@ summary(as.factor(metadat$EcoRegion))
 dat <- filter(metadat, grepl("^North Coast|North Coast$", EcoRegion))
 summary(as.factor(metadat$HU_8_NAME))
 
+
+# 04b. SIERRAS/BASIN RANGE ------------------------------------------------
+
 # Sierras/BASIN
 # dat <- filter(metadat, SPP_ID=="RABO" | SPP_pc1=="RABO") %>%
 #   filter(EcoRegion=="Sierra Nevada" | EcoRegion=="Sierra/Basin Range")
@@ -67,7 +71,7 @@ summary(as.factor(metadat$HU_8_NAME))
 ## SFY-SpringCk RAP 122
 
 
-# 4c. FILTER BY SITE NAME -------------------------------------------------
+# 04c. FILTER BY SITE NAME -------------------------------------------------
 
 # NFA
 #dat <- filter(metadat, SPP_ID=="RABO", grepl('^NFA', Locality)) 
@@ -97,52 +101,33 @@ summary(as.factor(metadat$HU_8_NAME))
 #dat <- metadat[startsWith(x = metadat$Locality, "MFA")| startsWith(x = metadat$Locality, "RUB"),]
 
 
-
-# 04. FILTER METADAT TO SAMPLES OF INTEREST ------------------------
-
-# filter out hybrids
-#datHYB <- metadat %>% filter(grepl("RAP1745|RAP1587", SampleID))
-
-# metadat %>% filter(!SPP_ID2=="RANA") %>% 
-#   group_by(watershed, SPP_ID2) %>% 
-#   tally
-
-# ALL SIERRAS: sample even number in each watershed and of each species:
-# dat <- metadat %>% filter(!(SPP_ID2=="RANA"), !watershed=="Bear") %>% 
-#   filter(!(grepl("^MFA-|^NFA|SFA-CAMI|SFY-HUMBUG", Locality)), # american
-#          !(grepl("FEA-SFRockCk|^NFF-Poe|^NFF-EBNFF|^FEA-EBNFF", Locality)), # Feather
-#          !(grepl("RAP1745|RAP1587", SampleID)), # Hybrids
-#          !(grepl("RAP-122", SampleID)), # weird older sample
-#          !(grepl("RUB-Zitella", Locality)), # Yuba RASI
-#          !(grepl("FORD-NorthCkTrib|FORD-Mossy-P1|FORD-Mossy-P2|FORD-Mossy-P3", Locality)), # Yuba RASI
-#          !(grepl("Bean45", LabID)), # Hybrids
-#          !(grepl("^NFY|^MFY|^DEER|^SFY-Scotc",Locality))) %>%  # all other sites
-#   group_by(watershed, SPP_ID2) %>% 
-#   sample_n(size = 15)
-
-# # double check:
-# dat %>% group_by(watershed, SPP_ID2) %>% tally
-
 # 05. JOIN WITH RAW BAMLIST -----------------------------------------
+
+dat <- metadat
 
 # check col names for join...should be BAMFILE name with plate/well ID
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
-# dfout %>% group_by(watershed, SPP_ID2) %>% tally
-# dfout %>% group_by(Locality, SPP_ID2) %>% tally
+# check tally's of groups
+dfout %>% group_by(River, SPP_ID) %>% tally
+dfout %>% group_by(Locality, SPP_ID) %>% tally
 
-#dfout %>% filter(is.na(watershed)) %>% tally
-# dfout %>% filter(is.na(Locality)) %>% tally
+# check tallys of NA
+#dfout %>% filter(is.na(River)) %>% tally
+#dfout %>% filter(is.na(Locality)) %>% tally
 
 # 06. WRITE TO BAMLIST SINGLE ----------------------------------------
 
 # Write to bamlist for angsd call (for IBS, no bamNo)
-write_delim(as.data.frame(paste0("/home/rapeek/projects/rasi_hybrid/alignments/", dfout2$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
+write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", dfout$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
 
 # 07. PUT BAMLIST ON CLUSTER -----------------------------------------
 
+# go to local dir with bamlists
+# cd data_output/bamlists/
+
 # farmer (sftp)
-# cd projects/....
+# cd projects/rangewide/pop_gen
 paste0("put ",site,"_*",bamNo,"k*.bamlist") # (this goes from local to cluster)
 
 # 08. ANGSD PCA (IBS) ------------------------------------------------
@@ -151,7 +136,7 @@ paste0("put ",site,"_*",bamNo,"k*.bamlist") # (this goes from local to cluster)
 lsite<- tolower(site)
 
 # NEW IBS METHOD
-paste0("sbatch -p high -t 48:00:00 --mail-type ALL --mail-user rapeek@ucdavis.edu scripts/03a_pca_new.sh ",site,"_",bamNo,"k_thresh.bamlist", " ", lsite, "_",bamNo,"k", " bamlists")
+paste0("sbatch -p high -t 2880 --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k_thresh.bamlist", " ", lsite, "_",bamNo,"k")
 
 
 
