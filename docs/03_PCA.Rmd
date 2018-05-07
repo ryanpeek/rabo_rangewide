@@ -24,17 +24,16 @@ Below is just an example.
 ```{r pcaALL, message=FALSE, warning=FALSE}
 
 # source the function to plot
-source(paste0(here(),"/scripts/f_read_covar.R"))
+source(paste0(here(),"/scripts/functions/f_read_covar.R"))
 
 # load the metadata
-load(file = paste0(here(), "/data_output/rapture06_metadata_sierra.rda"))
+metadat <- read_csv(file = paste0(here(), "/data/rapture_metadata_rabo.csv"))
 
 # set site/reads for bamlist/covar filepaths:
-reads <- "25k_thresh"
-sitea <- "all_rubyubfea_25k"
-covarpath<- paste0(here(), "/data_output/angsd/", sitea, ".covMat")
-site <- "all_rubyubfea"
-bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist")
+reads <- "25k"
+site <- "all_rabo"
+covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
+bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
 
 # run function
 (read_covar(covarpath, bampath, metadat, c(2,3),plotlyplot = TRUE))

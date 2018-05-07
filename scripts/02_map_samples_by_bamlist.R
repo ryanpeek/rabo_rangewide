@@ -6,6 +6,8 @@ library(mapview)
 
 
 site <- "rub_rasi"
+
+# need to fix this to work
 siterds <- readRDS(paste0(here(), "/data_output/bamlist_dat_", site, "_25k_thresh.rds"))
 
 summary(siterds)
@@ -19,8 +21,6 @@ df_locs<- st_as_sf(df,
                    remove=F,
                    crs=4326)
 mapview(df_locs)
-
-
 
 
 # MAP HUC8 ----------------------------------------------------------------
