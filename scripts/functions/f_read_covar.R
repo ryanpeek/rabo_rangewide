@@ -4,6 +4,8 @@ read_covar <- function(covmat, # @path to covar file
                        bamlist, # @path to bamlist
                        metadata, # the name of pre-loaded metadata that contains "Seq" colname with full seq
                        pcs, # the PC to plot as c(1, 2)
+                       colvar, # the value for the color
+                       shapevar, # the col name for shape: Pop (River), ecoreg, HUC6, HU_8_NAME
                        plotlyplot=TRUE){
   
   if(!require(viridis)) { install.packages("viridis"); require(viridis, warn.conflicts = F)}
@@ -26,12 +28,14 @@ read_covar <- function(covmat, # @path to covar file
   colnames(PC) <- gsub("V", "PC", colnames(PC))
   
   # these are all local variables that can be added...ultimately up to personal pref for plot
-  PC$Pop <- factor(annot$watershed)
+  PC$Pop <- factor(annot$River)
   PC$Locality <- factor(annot$Locality) 
   PC$ID <- factor(annot$SampleID)
   PC$HU_12_NAME <- factor(annot$HU_12_NAME)
   PC$HU_8_NAME <- factor(annot$HU_8_NAME)
+  PC$HUC6 <- factor(annot$HUC_6)
   PC$LabID <- factor(annot$LabID)
+  PC$ecoreg <- factor(annot$EcoRegion)
   
   # set up plot
   
@@ -50,8 +54,8 @@ read_covar <- function(covmat, # @path to covar file
                ggplot(data=PC, 
                       aes_string(x=paste0("PC",pc1), 
                                  y=paste0("PC",pc2), 
-                                 color=quote(Locality), 
-                                 shape=quote(Pop), 
+                                 color=colvar, 
+                                 shape=shapevar, # can be Pop, HU_8_NAME, HUC6, ecoreg etc 
                                  text=quote((paste0("ID: ", ID, 
                                                     " <br> River: ",
                                                     Locality))))) +

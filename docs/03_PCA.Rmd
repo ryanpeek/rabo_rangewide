@@ -8,6 +8,7 @@ output:
     toc: yes
     toc_float: yes
     code_folding: hide
+    theme: cosmo # my favs are cerulean, flatly, spacelab, cosmo, lumen
 ---
 
 ```{r setup, include=FALSE}
@@ -19,12 +20,17 @@ library(here)
 
 Following scripts 01 and 02, use 03 to plot PCA's interactively or statically.
 
-Below is just an example.
+### All Samples
 
-```{r pcaALL, message=FALSE, warning=FALSE}
+```{r pcaAll, message=FALSE, warning=FALSE}
+
+suppressPackageStartupMessages(library(tidyverse))
+
+# sftp in and cd projects/rangewide/pop_gen/results_pca
+# get get ncoast_rabo*covMat
 
 # source the function to plot
-source(paste0(here(),"/scripts/functions/f_read_covar.R"))
+source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
 
 # load the metadata
 metadat <- read_csv(file = paste0(here(), "/data/rapture_metadata_rabo.csv"))
@@ -36,6 +42,64 @@ covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
 bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
 
 # run function
-(read_covar(covarpath, bampath, metadat, c(2,3),plotlyplot = TRUE))
+## Specify the colvar as any of the following: Pop (River), Locality, HU_12_NAME, etc
+## Specify the shapevar as any of the following: ecoreg, HUC6, HU_8_NAME, 
+(read_covar(covarpath, bampath, metadat, c(1,2), "ecoreg", "ecoreg", plotlyplot = TRUE))
 
 ```
+
+**Notes**
+
+There are a number of outliers, future PCA should probably not include these (or we should double check):
+
+ - **RAP-092** S. Coast, Dry-Cantua_AL, in middle nearest Sierras
+ - **RAP-104** N Coast, Mad, Redwood Ck 2, oriented with North Coast  but on outskirts.
+ - **RAP-122** Sierras, SFY-Spring Creek, clusters with N Coast, I suspect it's mis-labeled
+ - **RAP-226** N Coast, Smith, aggregated towards feather, in middle
+ - **RAP-278** Sierras, Bear-Missouri Canyon, in middle of all samples
+ - **RAP-335** N. Coast, SF Eel Elder, aggregates closest to NFF Poe samples
+ - **RAP-346** Sierras, NFA-Shirttail
+ - **RAP-347** Sierras, CAL-Esperanza Creek, near the S. Coast samples
+ - **RAP-348** Sierras, NFA- in middle of all samples
+ - **RAP-1649** Sierras, MF Feather, in ballpark of NFFeather samples, but definitely diff than all NFF 
+ - The two PIT samples aggregated with the Sierra Nevada Samples, nearest the Yubas, not sure about these labeling/location wise so should probably drop?
+ - NFF Samples are definitely different than all other samples in NF Feather basin...significantly.
+ - All Dry Creek Samples are odd, they seem to be oriented toward the North Coast samples more than the S/Central Coast (see RAP-213, RAP-215, RAP-083).
+
+### North Coast
+
+```{r pcaNorthCoast, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages(library(tidyverse))
+
+# sftp in and cd projects/rangewide/pop_gen/results_pca
+# get get ncoast_rabo*covMat
+
+# source the function to plot
+source(paste0(here(),"/scripts/functions/f_read_covar.R"))
+
+# load the metadata
+metadat <- read_csv(file = paste0(here(), "/data/rapture_metadata_rabo.csv"))
+
+# set site/reads for bamlist/covar filepaths:
+reads <- "25k"
+site <- "ncoast_rabo"
+covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
+bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
+
+# run function
+(read_covar(covarpath, bampath, metadat, c(1,3), "Pop", "HU_8_NAME", plotlyplot = TRUE))
+
+```
+
+A few notes:
+
+ - The **SMITH-HurdyGurdy** seems to parse out differently from all other pops in the north coast, along with 
+ - The **MAD-RedwoodCreek**
+ - **RAP-109**: Gual: SF Gualala-Salmon, cluster with Mad and Trinity
+ - **RAP-111**: On Mad river is different from other Mad samples on PCA.
+ - **RAP-229**: Also seems to be an outlier compared to other points in SF Trinity Cluster
+ - **RAP-321**: Seems to be an outlier that sits between the Smith and other pops
+ - **RAP-344, RAP-335**: SF Eel Elder, seem a bit odd but cluster with Mad and Trinity samples
+ - **RAP1418**: Also seems to be an outlier compared to other points within SMITH-HurdyGurdy Creek Cluster
+ 
+ - The **Klamath** samples definitely cluster slightly closer to the SMITH samples than any of the other rivers (including MAD, MAT VanDUZ, SF Eel, Tinity)
