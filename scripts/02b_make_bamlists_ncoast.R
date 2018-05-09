@@ -21,7 +21,8 @@ set.seed(111) # for repeatable random sampling
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-25
 
-site <- "all_rabo"
+# set site name (will be appended into filename)
+site <- "ncoast_rabo_n4"
 
 # 02. LOAD METADATA --------------------------------------------
 
@@ -45,37 +46,59 @@ bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = ""
 
 # 04a. NORTHCOAST ---------------------------------------------------------
 
-# set site name (will be appended into filename)
-site <- "ncoast_rabo"
-
-# By HUC8 (Wide Range)
-dat<- filter(metadat, HU_8_NAME %in% c("Mad-Redwood", "Mattole", "Lower Eel", "Russion", "Tomales-Drake Bays", "Trinity", "South Fork Trinity", "Smith", "Lower Klamath", "Gualala-Salmon"))
-summary(as.factor(dat$HU_8_NAME))
-summary(as.factor(dat$EcoRegion))
-
 # By EcoRgions
 dat <- filter(metadat, grepl("^North Coast|North Coast$|^Northern CA Coastal", EcoRegion))
 summary(as.factor(dat$HU_8_NAME))
 summary(as.factor(dat$EcoRegion))
+summary(as.factor(dat$River))
 
-# 05. JOIN WITH RAW BAMLIST -----------------------------------------
+# 05a. JOIN WITH RAW BAMLIST -----------------------------------------
 
 # check col names for join...should be BAMFILE name with plate/well ID
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
 # check tally's of groups
-dfout %>% group_by(River, SPP_ID) %>% tally
-tst<-dfout %>% group_by(Locality, SPP_ID) %>% tally
+dfout %>% group_by(River) %>% 
+  arrange(River) %>% tally 
+#dfout %>% group_by(Locality) %>% tally %>% as.data.frame
 
-dfout %>% group_by(River) %>% tally
+# sample 10 from every River where possible, drop singles (GUAL) 
+(dfout_subsampled <- dfout %>% group_by(River) %>% 
+    arrange(River) %>% # order by river
+    nest %>% # collapse data 
+    mutate(n=unlist(map(data, tally))) %>% # count number per group
+    filter(n >=4) %>%  # filter to a minimum of 4 samples or more
+    mutate(samples=map2(data, 4, sample_n, replace = F)) %>% # sample 4 per group
+    select(River, samples) %>% # pull out the grouping and sample data only
+    unnest()) # IT WORKS!!!!
 
-# sample at least a given number of individuals? Try slice?
-dfout %>% group_by(River) %>% slice(which.min(5))
+dfout_subsampled %>% group_by(River) %>% tally
+
+
+# 05b. MAKE QUICK MAP ----------------------------------------------------------
+
+library(mapview)
+library(sf)
+
+# jitter coords slightly for viewing
+dfout_sf <- dfout_subsampled
+dfout_sf$lat_jitter <- jitter(dfout_sf$lat, factor = 0.001)
+dfout_sf$lon_jitter <- jitter(dfout_sf$lon, factor = 0.01)
+dfout_sf <- dfout_sf %>% select(-lat, -lon)
+
+# make sf:
+dfout_sf <- st_as_sf(dfout_sf, 
+                   coords = c("lon_jitter", "lat_jitter"), 
+                   remove = F, # don't remove these lat/lon cols from df
+                   crs = 4326) # add projection
+
+
+mapview(dfout_sf)
 
 # 06. WRITE TO BAMLIST SINGLE ----------------------------------------
 
 # Write to bamlist for angsd call (for IBS, no bamNo)
-write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", dfout$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
+write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", dfout_subsampled$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
 
 # 07. PUT BAMLIST ON CLUSTER -----------------------------------------
 
@@ -84,15 +107,17 @@ write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", 
 
 # farmer (sftp)
 # cd projects/rangewide/pop_gen
+
+# get file
 paste0("put ",site,"_*",bamNo,"k*.bamlist") # (this goes from local to cluster)
 
 # 08. ANGSD PCA (IBS) ------------------------------------------------
 
-# create command:
+# make sure site is all lowercase
 lsite<- tolower(site)
 
 # NEW IBS METHOD
-paste0("sbatch -p high -t 2880 --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k_thresh.bamlist", " ", lsite, "_",bamNo,"k")
+paste0("sbatch -t 2880 --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k_thresh.bamlist", " ", lsite, "_",bamNo,"k")
 
 
 

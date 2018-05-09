@@ -22,6 +22,8 @@ Following scripts 01 and 02, use 03 to plot PCA's interactively or statically.
 
 ### All Samples
 
+Includes 888 samples, not balanced.
+
 ```{r pcaAll, message=FALSE, warning=FALSE}
 
 suppressPackageStartupMessages(library(tidyverse))
@@ -66,7 +68,45 @@ There are a number of outliers, future PCA should probably not include these (or
  - NFF Samples are definitely different than all other samples in NF Feather basin...significantly.
  - All Dry Creek Samples are odd, they seem to be oriented toward the North Coast samples more than the S/Central Coast (see RAP-213, RAP-215, RAP-083).
 
+
+
+### All Samples: Filt01
+
+Remove outliers and rerun...still includes 879 samples and not equally balanced.
+
+```{r pcaAllfilt01, message=FALSE, warning=FALSE}
+
+suppressPackageStartupMessages(library(tidyverse))
+
+# sftp in and cd projects/rangewide/pop_gen/results_pca
+# get get ncoast_rabo*covMat
+
+# source the function to plot
+source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
+
+# load the metadata
+metadat <- read_csv(file = paste0(here(), "/data/rapture_metadata_rabo.csv"))
+
+# set site/reads for bamlist/covar filepaths:
+reads <- "25k"
+site <- "all_rabo_filt01"
+covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
+bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
+
+# run function
+## Specify the colvar as any of the following: Pop (River), Locality, HU_12_NAME, etc
+## Specify the shapevar as any of the following: ecoreg, HUC6, HU_8_NAME, 
+(read_covar(covarpath, bampath, metadat, c(1,2), "ecoreg", "ecoreg", plotlyplot = TRUE))
+
+```
+
+**Notes**
+
+
+
 ### North Coast
+
+263 samples, not balanced.
 
 ```{r pcaNorthCoast, message=FALSE, warning=FALSE}
 suppressPackageStartupMessages(library(tidyverse))
