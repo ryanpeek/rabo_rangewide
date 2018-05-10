@@ -6,7 +6,8 @@
 .DS_Store
 
 # ignore Rmd html files
-.html
+docs/*.html
+*html
 
 # Session Data files
 .RData
