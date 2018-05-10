@@ -44,34 +44,69 @@ bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = ""
 # 04a. RANGEWIDE Filter Outliers ---------------------------------------------------------
 
 # set site name (will be appended into filename)
-site <- "all_rabo_filt01" # all_rabo
+site <- "all_rabo_n4" # all_rabo, all_rabo_filt01
 
-filt01 <- c("RAP-092","RAP-104","RAP-122", "RAP-226", "RAP-278", "RAP-335", 
-            "RAP-346", "RAP-347", "RAP-348", "RAP-1649")
+# filt01 <- c("RAP-092","RAP-104","RAP-122", "RAP-226", "RAP-278", "RAP-335", 
+#            "RAP-346", "RAP-347", "RAP-348", "RAP-1649")
+
 # NO FILTER
-#dat <- metadat # all samples, NO FILTER
+dat <- metadat # all samples, NO FILTER
 
 # FILTER out outlier samples (after first run)
-dat <- filter(metadat, !SampleID %in% filt01)
+# dat <- filter(metadat, !SampleID %in% filt01)
+
 summary(as.factor(metadat$HU_8_NAME))
 
-# 05. JOIN WITH RAW BAMLIST -----------------------------------------
+# 05a. JOIN WITH RAW BAMLIST -----------------------------------------
 
 # check col names for join...should be BAMFILE name with plate/well ID
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
 # check tally's of groups
-dfout %>% group_by(River, SPP_ID) %>% tally
-dfout %>% group_by(Locality, SPP_ID) %>% tally
+dfout %>% group_by(River) %>% 
+  tally %>% 
+  arrange(n) %>%
+  as.data.frame
 
-# check tallys of NA
-#dfout %>% filter(is.na(River)) %>% tally
-#dfout %>% filter(is.na(Locality)) %>% tally
+# sample x from every River where possible, drop singles (GUAL) 
+(dfout_subsampled <- dfout %>% group_by(River) %>% 
+    arrange(River) %>% # order by river
+    nest %>% # collapse data 
+    mutate(n=unlist(map(data, tally))) %>% # count number per group
+    filter(n > 4) %>%  # filter to a minimum of 4 samples or more
+    mutate(samples=map2(data, 5, sample_n, replace = F)) %>% # sample 4 per group
+    select(River, samples) %>% # pull out the grouping and sample data only
+    unnest()) # IT WORKS!!!!
+
+dfout_subsampled %>% group_by(River) %>% tally
+
+# re-add the samples of interest: (PIT, TUO, STAN, CACHE)
+dfout_subsampled <- bind_rows(dfout_subsampled, (dfout %>% filter(grepl("TUO|PIT|STAN|CACHE", River))))
+
+# 05b. MAKE QUICK MAP ----------------------------------------------------------
+
+library(mapview)
+library(sf)
+
+# jitter coords slightly for viewing
+dfout_sf <- dfout_subsampled
+dfout_sf$lat_jitter <- jitter(dfout_sf$lat, factor = 0.001)
+dfout_sf$lon_jitter <- jitter(dfout_sf$lon, factor = 0.01)
+dfout_sf <- dfout_sf %>% filter(!is.na(lat)) %>%  select(-lat, -lon)
+
+# make sf:
+dfout_sf <- st_as_sf(dfout_sf, 
+                     coords = c("lon_jitter", "lat_jitter"), 
+                     remove = F, # don't remove these lat/lon cols from df
+                     crs = 4326) # add projection
+
+
+mapview(dfout_sf) %>% addMouseCoordinates()
 
 # 06. WRITE TO BAMLIST SINGLE ----------------------------------------
 
 # Write to bamlist for angsd call (for IBS, no bamNo)
-write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", dfout$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
+write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", dfout_subsampled$Seq, ".sortflt.mrg.bam")), path = paste0("data_output/bamlists/",site,"_",bamNo,"k_thresh.bamlist"), col_names = F)
 
 # 07. PUT BAMLIST ON CLUSTER -----------------------------------------
 

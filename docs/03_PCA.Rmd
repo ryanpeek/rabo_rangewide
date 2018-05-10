@@ -143,3 +143,30 @@ A few notes:
  - **RAP1418**: Also seems to be an outlier compared to other points within SMITH-HurdyGurdy Creek Cluster
  
  - The **Klamath** samples definitely cluster slightly closer to the SMITH samples than any of the other rivers (including MAD, MAT VanDUZ, SF Eel, Tinity)
+
+### North Coast (n=4)
+
+```{r pcaNorthCoastn4, message=FALSE, warning=FALSE}
+suppressPackageStartupMessages({library(tidyverse);
+                               library(here)})
+
+# sftp in and cd projects/rangewide/pop_gen/results_pca
+# get get ncoast_rabo*covMat
+
+# source the function to plot
+source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
+
+# load the metadata
+metadat <- read_csv(file = paste0(here(), "/data/rapture_metadata_rabo.csv"))
+
+# set site/reads for bamlist/covar filepaths:
+reads <- "25k"
+site <- "ncoast_rabo_n4"
+covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
+bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
+
+# run function
+(read_covar(covarpath, bampath, metadat, c(2,5), "Pop", "HU_8_NAME", plotlyplot = TRUE))
+
+```
+
