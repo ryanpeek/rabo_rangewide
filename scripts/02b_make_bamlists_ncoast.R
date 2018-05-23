@@ -60,7 +60,7 @@ dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 # check tally's of groups
 dfout %>% group_by(River) %>% 
   arrange(River) %>% tally 
-#dfout %>% group_by(Locality) %>% tally %>% as.data.frame
+dfout %>% group_by(Locality) %>% tally %>% as.data.frame
 
 # sample 10 from every River where possible, drop singles (GUAL) 
 (dfout_subsampled <- dfout %>% group_by(River) %>% 
@@ -76,6 +76,10 @@ dfout_subsampled %>% group_by(River) %>% tally
 
 
 # 05b. MAKE QUICK MAP ----------------------------------------------------------
+
+# load function, requires a bamlist ending in ".bamlist"
+#source("scripts/functions/f_map_from_bamlists.R")
+#make_map_from_bamlist("fea_rasi", 25)
 
 library(mapview)
 library(sf)

@@ -44,7 +44,7 @@ bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = ""
 # 04a. RANGEWIDE Filter Outliers ---------------------------------------------------------
 
 # set site name (will be appended into filename)
-site <- "all_rabo_n4" # all_rabo, all_rabo_filt01
+site <- "all_rabo_n10" # all_rabo, all_rabo_filt01
 
 # filt01 <- c("RAP-092","RAP-104","RAP-122", "RAP-226", "RAP-278", "RAP-335", 
 #            "RAP-346", "RAP-347", "RAP-348", "RAP-1649")
@@ -55,6 +55,7 @@ dat <- metadat # all samples, NO FILTER
 # FILTER out outlier samples (after first run)
 # dat <- filter(metadat, !SampleID %in% filt01)
 
+summary(as.factor(metadat$HU_8_NAME))
 summary(as.factor(metadat$HU_8_NAME))
 
 # 05a. JOIN WITH RAW BAMLIST -----------------------------------------

@@ -61,10 +61,10 @@ metadat <- metadat %>%
 
 summary(as.factor(metadat$HUC_8))
 
-## FILTER OUT NON-RABO SAMPLES
+## FILTER OUT NON-RABO SAMPLES and 
 
 metadat <- metadat %>% 
-  filter(SPP_ID=="RABO" | SPP_pc1 == "RABO")
+  filter(SPP_ID=="RABO" | SPP_pc1 == "RABO" | SPP_pc1 == "RANA" )
 
 # SUMMARIZE ---------------------------------------------------------------
 
