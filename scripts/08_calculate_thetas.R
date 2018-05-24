@@ -99,8 +99,7 @@ ggplot() + theme_bw(base_size = 9) +
   labs(title=expression(paste("GW: ", theta[w]," = open circles,", theta[pi]," = filled"))) + 
   facet_grid(region~., scales = "free_y")
 
-#ggsave(filename = paste0("figs/thetas_Tw_Tp_",subsample,".png"), width = 8, height = 7, units = "in", dpi=200)
-
+ggsave(filename = paste0("figs/thetas_Tp-Tw_rangewide_n5-9.png"), width = 11, height = 8, units = "in", dpi=300)
 
 # Tdiff by Locality ----------------------------------------------------------
 
@@ -111,6 +110,8 @@ ggplot() + theme_bw(base_size = 9) +
   labs(title=expression(paste("GW: ", theta[w]," = open circles,", theta[pi]," = filled"))) + 
   geom_vline(xintercept = 0, col="gray", lty=2) +
   facet_grid(region~., scales = "free_y")
+
+ggsave(filename = paste0("figs/thetas_Tdiff_p-w_rangewide_n5-9.png"), width = 11, height = 8, units = "in", dpi=300)
 
 # WOW
 
