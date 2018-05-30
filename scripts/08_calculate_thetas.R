@@ -64,7 +64,8 @@ dat <- dat %>%
 dat$ID <- reorder(dat$ID, dat$Tdiff)
 dat$River <- reorder(dat$River, dat$Tdiff)
 #dat$region <- reorder(dat$region, dat$Tdiff)
-dat$region <- factor(dat$region, levels = c("north_coast","central_coast", "south_coast", "sierras"))
+dat$region <- factor(dat$region, levels = c("north_coast","central_coast", "south_coast", "sierras"), 
+                     labels=c("North Coast", "Central Coast", "South Coast", "Sierra Nevada"))
 
 # Tw vs. Tpi by River -----------------------------------------------------
 
@@ -79,7 +80,6 @@ ggplot() + theme_bw(base_size = 9) +
 
 
 # Tdiff by River ----------------------------------------------------------
-
 
 ggplot() + theme_bw(base_size = 9) +
   geom_point(data=dat, aes(y = River, x = Tdiff), color="gray40", size = 3, shape=21) +
@@ -124,3 +124,47 @@ ggplotly(ggplot() + theme_bw(base_size = 9) +
          facet_grid(region~., scales = "free_y")
 )
 
+
+# BOXPLOTS ----------------------------------------------------------------
+
+library(ggsignif)
+
+
+dat_region <- dat %>% select(region, Tw, Tp, Tdiff, nsites) %>% 
+  group_by(region) %>%
+  summarise_all(c("mean", "sd", "median", "IQR"), na.rm=TRUE)
+
+
+# stats Kruskal wallis rank sum test and ggpubr (http://www.sthda.com/english/wiki/kruskal-wallis-test-in-r)
+kruskal.test(Tdiff_mean ~ region, data = dat_region)
+#Kruskal-Wallis chi-squared = 10.698, df = 2, p-value = 0.004754
+
+# pairwise wilcox test:
+pairwise.wilcox.test(dat$Tdiff, dat$region, p.adjust.method = "BH")
+pairwise.wilcox.test(dat$Tdiff, dat$region, p.adjust.method = "bonferroni")
+
+# color palette
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# theta plot w/ wilcox test of signif
+(group_box <- ggplot() + theme_bw(base_size = 8, base_family = "Helvetica") +
+    
+    geom_hline(yintercept = 0, col="gray", lty=2, size=1.5) +
+    #ylim(-.0009,0.00055)+
+    geom_boxplot(data=dat, aes(y=Tdiff, x=region, fill=region), show.legend = T) +
+    scale_fill_viridis_d()+
+    # scale_fill_manual("Regulation Type", values = c("Unregulated"=cbbPalette[3], 
+    #                                                 "Bypass"=cbbPalette[2], 
+    #                                                 "Hydropeaking"=cbbPalette[7]),
+    #                   guide=guide_legend(reverse=TRUE)) +
+    labs(y = expression(paste("Tajima's ", theta, 
+                              " - Watterson's ", theta, " (", Delta, " ", theta, ")")),
+         x="") +
+    #theme(legend.position = c(0.1, 0.75), axis.text.y=element_blank()) +
+    geom_signif(data=dat, aes(y=Tdiff, x=region), comparisons = list(c("Sierra Nevada", "North Coast"), 
+                                                                     c("Sierra Nevada", "Central Coast")), 
+                y_position = c(.0014, 0.0011),
+                map_signif_level=TRUE)) #+ coord_flip())
+
+
+ggsave(filename = "figs/rangewide_theta_boxplot_region_signif.png", width = 8, height = 6.5, units = "in", dpi = 300)
