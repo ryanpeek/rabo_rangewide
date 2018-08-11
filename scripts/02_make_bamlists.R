@@ -19,7 +19,7 @@ options(scipen = 12)
 set.seed(111) # for repeatable random sampling
 
 # set the reads threshold (number of minimum reads subsampled
-bamNo<-25
+bamNo<-50
 
 site <- "all_rabo"
 

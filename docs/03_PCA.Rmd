@@ -27,7 +27,7 @@ Rerun with equal samples (n=5), except TUO/STAN/PIT/CACHE.
 
 ```{r pcaAlln5, message=FALSE, warning=FALSE}
 
-suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages({library(tidyverse); library(here)})
 
 # sftp in and cd projects/rangewide/pop_gen/results_pca
 # get get ncoast_rabo*covMat
@@ -45,7 +45,53 @@ covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads,".covMat")
 bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
 
 # run function
-(read_covar(covarpath, bampath, metadat, c(1,3), "ecoreg", "ecoreg", plotlyplot = TRUE))
+(read_covar(covarpath, bampath, metadat, c(1,2), "ecoreg", "HUC6", plotlyplot = T))
+
+
+# RAW GGPLOT
+
+# read covar file
+covar <- read.table(file = covarpath, stringsAsFactors = F)
+# get bamlist for spp
+bams <- read.table(bampath, stringsAsFactors = F, header = F) # read in the bamlist
+bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
+annot <- inner_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
+  
+  # Eigenvalues
+eig <- eigen(covar, symm=TRUE)
+eig$val <- eig$val/sum(eig$val)
+PC <- as.data.frame(eig$vectors)
+colnames(PC) <- gsub("V", "PC", colnames(PC))
+  
+# these are all local variables that can be added...ultimately up to personal pref for plot
+PC$Pop <- factor(annot$River)
+PC$Locality <- factor(annot$Locality) 
+PC$ID <- factor(annot$SampleID)
+PC$HU_12_NAME <- factor(annot$HU_12_NAME)
+PC$HU_8_NAME <- factor(annot$HU_8_NAME)
+PC$HUC6 <- factor(annot$HUC_6)
+PC$LabID <- factor(annot$LabID)
+PC$ecoreg <- factor(annot$EcoRegion)
+  
+# set up plot  # PC's:
+pc1 <- 1
+pc2 <- 2
+  
+# Title: (% explained)
+title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc2," (",signif(eig$val[pc2], digits=3)*100,"%)", sep="",collapse="")
+
+ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
+                           color=quote(ecoreg),
+                           text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
+  
+  geom_point(size=4, alpha=0.8) +
+  #ggforce::geom_mark_circle(aes(group=watershed))+
+  theme_bw(base_family = "Roboto Condensed") +
+  #theme(legend.position="bottom") +
+  scale_color_viridis_d("River") + 
+  ggtitle(paste0(title))
+
+ggsave(filename = "figs/general_pca_rangewide_n5.png", width = 8, height=7, units = "in", dpi=300)
 
 ```
 
