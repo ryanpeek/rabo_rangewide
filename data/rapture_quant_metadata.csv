@@ -1,4 +1,4 @@
-Seq,PlateID,SampleID,LabID,SPP_ID,YYYY,SampleType,dna_quant_adj_ng_ul,ng_ul,total_extract_ul,Locality
+Seq,PlateID,SampleID,LabID,SPP_ID,YYYY,SampleType,dna_quant_adj_ng_ul,conc_ng_ul,total_extract_ul,Locality
 SOMM165_AAATGG_RA_GGAAACATCGTGCAGG,DNA-A-194,RAP-436,NA,RABO,2003,Tissue,121,0.62170088,40,SOQUEL-EBSC
 SOMM165_AAATGG_RA_GGAACAACCATGCAGG,DNA-A-194,RAP-170,NA,RABO,2002,Tissue,13856,20.76099707,40,Arroyo Mocho Creek
 SOMM165_AAATGG_RA_GGAACCGAGATGCAGG,DNA-A-194,RAP-164,NA,RABO,2002,Tissue,3143,5.052785924,40,Arroyo Mocho Creek
