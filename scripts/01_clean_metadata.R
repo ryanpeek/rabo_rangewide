@@ -116,8 +116,8 @@ datfilt %>% group_by(EcoRegion) %>% distinct() %>% tally()
 
 # WRITE OUT RAW RABO DATA -------------------------------------------------
 
-write_csv(datfilt, path = "data_output/rapture_metadata_rabo_raw.csv")
-save(datfilt, file = "data_output/rapture_metadata_rabo_raw.rda")
+#write_csv(datfilt, path = "data_output/rapture_metadata_rabo_raw.csv")
+#save(datfilt, file = "data_output/rapture_metadata_rabo_raw.rda")
 
 # SELECT COLS -------------------------------------------------------------
 
@@ -152,7 +152,7 @@ datfilt_out2 <- datfilt_out2 %>% select(-SampleType, -DNA_type) %>%
 
 # RECODE SAMPLE TYPES -----------------------------------------------------
 
-datfilt_out2 <- datfilt_out2 %>% 
+datfilt_out3 <- datfilt_out2 %>% 
   mutate(DNA_Category=case_when(
     grepl("Tail|Tissue|Toe|Web|Tadpole", DNA_Type) ~ "Tissue",
     grepl("Buccal", DNA_Type) ~ "Buccal",
@@ -161,13 +161,28 @@ datfilt_out2 <- datfilt_out2 %>%
   )
 
 
-table(datfilt_out2$DNA_Type)
-table(datfilt_out2$DNA_Category)
+table(datfilt_out3$DNA_Type)
+table(datfilt_out3$DNA_Category)
 
-datfilt_out2[duplicated(datfilt_out2$SampleID, incomparables = NA),] %>% select(seqID, SampleID, LabID, River, Site, SPP_ID:ng_ul) %>% View
+datfilt_out3[duplicated(datfilt_out3$SampleID, incomparables = NA),] %>% select(seqID, SampleID, LabID, River, Site, SPP_ID:ng_ul) %>% tally
 
-datfilt_out2[duplicated(datfilt_out2$LabID, incomparables = NA),] %>% select(seqID, SampleID, LabID, River, Site, SPP_ID:ng_ul) %>% arrange(LabID) %>% View
+datfilt_out3[duplicated(datfilt_out2$LabID, incomparables = NA),] %>% select(seqID, SampleID, LabID, River, Site, SPP_ID:ng_ul) %>% arrange(LabID) %>% tally()
 
+# ADD SEQ FIELD -----------------------------------------------------------
+
+datfilt_out3 <- datfilt_out3 %>% 
+  separate(seqID, into = c("barcode", "wellcode"), remove = F) %>% 
+  mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG")) %>% 
+  select(Seq, seqID, everything())
+  
+# CHECK FOR DUPLICATES ----------------------------------------------------
+
+datfilt_out3[duplicated(datfilt_out3$Seq, incomparables = NA),] %>% select(Seq, seqID, SampleID, LabID, River, Site, SPP_ID:ng_ul) %>% arrange(Seq) %>% View
+
+# drop dups:
+
+datfilt_final <- datfilt_out3 %>% 
+  distinct(Seq, .keep_all = T)
 
 # ADD DNA QUANT DATA ------------------------------------------------------
 
@@ -179,6 +194,7 @@ datfilt_out2[duplicated(datfilt_out2$LabID, incomparables = NA),] %>% select(seq
 
 
 # WRITE OUT ---------------------------------------------------------------
-
-write_csv(datfilt_out2, path="data_output/rapture_metadata_rabo_quant.csv")
-write_rds(x = datfilt_out2, "data_output/rapture_metadata_rabo_quant.rds")
+metadata <- datfilt_final
+write_csv(metadata, path="data_output/rapture_metadata_rabo_quant.csv")
+write_rds(x = metadata, "data_output/rapture_metadata_rabo_quant.rds")
+save(metadata,file = "data_output/rapture_metadata_rabo_quant.rda")

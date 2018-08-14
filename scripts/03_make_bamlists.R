@@ -37,7 +37,12 @@ metadat <- metadat %>% separate(seqID, into = c("barcode", "wellcode"), drop=T)
 
 # now make the merge field
 metadat <- metadat %>% 
-  mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
+  mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG")) %>% 
+  distinct(Seq, .keep_all = T) # without this there are 10 dups, should have 1103 tot
+
+# check for duplicates:
+metadat[duplicated(metadat$Seq),] %>% arrange(SampleID) %>% View()
+
 
 # 03. READ FULL BAMLIST --------------------------------------------------
 
@@ -49,6 +54,9 @@ subsamp<-bamNo*1000
 
 # Fix the name in bamlist (based on subsample output)
 bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = "", bams$X1)
+
+# check for duplicates:
+bams[duplicated(bams$X1),] # yay
 
 # 04a. ALL SAMPLES --------------------------------------------------------
 

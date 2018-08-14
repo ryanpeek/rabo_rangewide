@@ -1,6 +1,6 @@
 # function to read in covar and plot 
 
-read_covar <- function(covmat, # @path to covar file 
+read_covar_range <- function(covmat, # @path to covar file 
                        bamlist, # @path to bamlist
                        metadata, # the name of pre-loaded metadata that contains "Seq" colname with full seq
                        pcs, # the PC to plot as c(1, 2)
@@ -85,13 +85,3 @@ read_covar <- function(covmat, # @path to covar file
 
 }
 
-# TO RUN:
-reads <- "25k_thresh"
-site <- "rasi_rubyubfea"
-
-covarpath<- paste0(here(), "/data_output/angsd/", site, ".covMat")
-bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist")
-
-#read_covar(covarpath, bampath, metadat, c(1,2),plotlyplot = TRUE)
-
-#read_covar(covarpath, bampath, metadat, c(1,2),plotlyplot = FALSE)

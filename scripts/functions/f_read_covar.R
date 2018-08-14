@@ -86,11 +86,11 @@ read_covar <- function(covmat, # @path to covar file
 }
 
 # TO RUN:
-reads <- "25k_thresh"
-site <- "rasi_rubyubfea"
+#reads <- "25k_thresh"
+#site <- "rasi_rubyubfea"
 
-covarpath<- paste0(here(), "/data_output/angsd/", site, ".covMat")
-bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist")
+#covarpath<- paste0(here(), "/data_output/angsd/", site, ".covMat")
+#bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist")
 
 #read_covar(covarpath, bampath, metadat, c(1,2),plotlyplot = TRUE)
 
