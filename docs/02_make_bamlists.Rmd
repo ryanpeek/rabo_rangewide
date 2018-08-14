@@ -1,0 +1,50 @@
+---
+title: "02_Make_Bamlists"
+author: "Ryan Peek"
+author: "Ryan Peek"
+date: "*Updated: `r format(Sys.Date())`*"
+output: 
+  html_document:
+#    keep_md: true
+    toc: yes
+    toc_float: yes
+    code_folding: hide
+    theme: cosmo # my favs are cerulean, flatly, spacelab, cosmo, lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+library(here)
+```
+
+## Making Bamlists
+
+This is just a record of what bamlists have been made and why, where, etc.
+
+```{r libs}
+suppressPackageStartupMessages({
+  library(sf)
+  library(here)
+  library(dplyr)
+  library(readr)
+  library(mapview)
+})
+
+options(scipen = 12)
+options(tibble.print_min = Inf) # print all rows 
+```
+
+To start using all samples at 25k and 50k. Made these bamlists **2018-08-13**:  
+
+ - `all_rabo_25k_thresh.bamilst` (n=891)
+ - `all_rabo_50k_thresh.bamlist` (n=807)
+
+## Running PCA
+
+Using IBS PCA with following call:
+
+```{bash, echo=T, eval=F}
+
+sbatch -p high -t 2880 --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh all_rabo_25k_thresh.bamlist all_rabo_25k
+
+```

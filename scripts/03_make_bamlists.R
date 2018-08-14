@@ -18,11 +18,10 @@ options(tibble.print_min = Inf) # print all rows
 options(scipen = 12)
 set.seed(111) # for repeatable random sampling
 
-
 # SET SITES AND SUBSAMPLE LEVEL -------------------------------------------
 
 # set the reads threshold (number of minimum reads subsampled
-bamNo<-50
+bamNo<-25
 
 site <- "all_rabo"
 
@@ -33,10 +32,16 @@ metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
 # view summary of data:
 metadat %>% group_by(HUC_8) %>% tally %>% print(n=Inf)
 
+# need to make a new field to match the bam names (this is lame but whatever)
+metadat <- metadat %>% separate(seqID, into = c("barcode", "wellcode"), drop=T)
+
+# now make the merge field
+metadat <- metadat %>% 
+  mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
+
 # 03. READ FULL BAMLIST --------------------------------------------------
 
 # this can be a full bamlist (all bams) or subsampled bamlist
-
 bams <- read_tsv(paste0("data_output/bamlists/bamlist_flt_mrg_",bamNo,"k"), col_names = F)
 
 # remove the *000 component for join, requires fixing scipen for digits
@@ -45,7 +50,11 @@ subsamp<-bamNo*1000
 # Fix the name in bamlist (based on subsample output)
 bams$X1<-gsub(pattern = paste0(".sortflt.mrg_",subsamp,".bam"), replacement = "", bams$X1)
 
-# 04a. NORTHCOAST ---------------------------------------------------------
+# 04a. ALL SAMPLES --------------------------------------------------------
+
+dat <- metadat # for all samples if no filter needed
+
+# 04b. NORTHCOAST ---------------------------------------------------------
 
 # set site name (will be appended into filename)
 site <- "ncoast_rabo"
@@ -62,7 +71,7 @@ dat <- filter(metadat, grepl("^North Coast|North Coast$", EcoRegion))
 summary(as.factor(metadat$HU_8_NAME))
 
 
-# 04b. SIERRAS/BASIN RANGE ------------------------------------------------
+# 04c. SIERRAS/BASIN RANGE ------------------------------------------------
 
 # Sierras/BASIN
 # dat <- filter(metadat, SPP_ID=="RABO" | SPP_pc1=="RABO") %>%
@@ -73,7 +82,7 @@ summary(as.factor(metadat$HU_8_NAME))
 ## SFY-SpringCk RAP 122
 
 
-# 04c. FILTER BY SITE NAME -------------------------------------------------
+# 04d. FILTER BY SITE NAME -------------------------------------------------
 
 # NFA
 #dat <- filter(metadat, SPP_ID=="RABO", grepl('^NFA', Locality)) 
@@ -105,8 +114,6 @@ summary(as.factor(metadat$HU_8_NAME))
 
 # 05. JOIN WITH RAW BAMLIST -----------------------------------------
 
-dat <- metadat
-
 # check col names for join...should be BAMFILE name with plate/well ID
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
@@ -128,8 +135,8 @@ write_delim(as.data.frame(paste0("/home/rapeek/projects/rangewide/alignments/", 
 # go to local dir with bamlists
 # cd data_output/bamlists/
 
-# farmer (sftp)
-# cd projects/rangewide/pop_gen
+# farmer2 (sftp)
+# cd projects/rangewide/pop_gen/bamlists
 paste0("put ",site,"_*",bamNo,"k*.bamlist") # (this goes from local to cluster)
 
 # 08. ANGSD PCA (IBS) ------------------------------------------------
