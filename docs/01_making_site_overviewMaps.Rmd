@@ -1,0 +1,132 @@
+---
+title: "Range Maps"
+author: "Ryan Peek"
+date: "*Updated: `r format(Sys.Date())`*"
+output: 
+  html_document:
+#    keep_md: true
+    toc: yes
+    toc_float: yes
+    code_folding: hide
+    theme: cosmo # my favs are cerulean, flatly, spacelab, cosmo, lumen
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+
+```
+
+## Site Maps and Summary
+
+Load the libraries were going to use and set a few global defaults for printing purposes.
+
+```{r showlibs, eval=F, echo=T}
+library(sf)
+library(here)
+library(dplyr)
+library(readr)
+library(mapview)
+options(scipen = 12)
+options(tibble.print_min = Inf) # print all rows 
+```
+
+```{r loadlibs, echo=F, eval=T}
+suppressPackageStartupMessages({
+  library(sf)
+  library(here)
+  library(dplyr)
+  library(readr)
+  library(mapview)
+})
+
+options(scipen = 12)
+options(tibble.print_min = Inf) # print all rows 
+
+```
+
+
+### Load Data and "*Spatialize*"
+
+Next we want to load up our data and get things into a spatial format. This data has already been filtered and cleaned a fair amount using the `01_clean_metadata` script. Here we load data and view the number of samples per HUC8 watershed.
+
+```{r getData, eval=T, echo=T}
+
+siterds <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
+
+df_locs<- st_as_sf(siterds, 
+                   coords=c("lon", "lat"),
+                   remove=F,
+                   crs=4326)
+
+# total per HUC8
+df_locs %>% group_by(HUC_8) %>% tally 
+
+```
+
+Next we can plot the watersheds where we have 3 or fewer samples using the `mapview` function.
+
+```{r mapH8limited, eval=T, echo=T}
+
+# HUC8's with fewer than 8 samples:
+df_locs %>% group_by(HUC_8) %>% mutate(tot_n=n()) %>% 
+  filter(tot_n < 3) %>% mapview()
+
+```
+
+### Prepping Watershed HUCs
+
+Next we need to load the HUC data. We could plot just points, but the map is more informative if we can view various HUC levels and assess genetic diversity and F~ST~ at different scales, all in one map.
+
+```{r getHUCs, eval=T, echo=T}
+
+h8 <- st_read(unzip(paste0(here(),"/data/HUC8_named_westcoast.zip")))
+
+# then remove raw files since file is added in memory
+file.remove(list.files(pattern = "HUC8_named_westcoast*",recursive = F))
+
+# add h6 field
+h8$HUC_6 <- strtrim(as.character(h8$HUC_8), width = 6)
+
+```
+
+Now we can aggregate our data and dissolve to boundaries at a H6 level. This is where the `sf` package really shines, this codes is fairly simple and yet does a complex task, very quickly. This can be exported as a new shp, geopackage, kml, etc.
+
+```{r makeH6, eval=T, echo=T}
+
+h6 <- h8 %>%  
+  group_by(HUC_6) %>% summarize()
+mapview(h6)
+
+```
+
+### Make a Few Final Summary Maps
+
+Now we have all the layers we want, let's plot. First we want to join some data summarized from the location data with the new h6 layer.
+
+```{r joinH6locs , eval=T, echo=T}
+
+# HUC6's with fewer than 8 samples:
+df_h6_tally <- df_locs %>% group_by(HUC_6) %>% tally %>% 
+  rename(n_h6_samples = n) %>% 
+  as.data.frame() %>% # remove geometry
+  select(HUC_6, n_h6_samples) %>% 
+  mutate(HUC_6=as.character(HUC_6))
+DT::datatable(df_h6_tally)
+
+# now join with H6 spatial layer
+h6 <- left_join(h6, df_h6_tally, by="HUC_6")
+
+# view a summary
+summary(h6)
+
+```
+
+Finally, a color coded chloropleth map with locs on top of the H6. So color corresponds to number of total samples in that group.
+
+```{r mapH6Samples, eval=T, echo=T}
+
+mapview(h6, zcol="n_h6_samples") + mapview(df_locs)
+
+```
+

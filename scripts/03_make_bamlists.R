@@ -1,7 +1,7 @@
 ## Create Bamlists for Analysis
 ## R. Peek 2018
 
-# Fri May  4 21:30:29 2018 ------------------------------
+# Mon Aug 13 16:25:48 2018 ------------------------------
 
 # This script can be used to generate bamlists for different analyses. Typically this requires a few components:
 ## A data_output folder
@@ -13,10 +13,13 @@
 # 01. LOAD LIBRARIES & Global Settings ---------------------------
 
 suppressPackageStartupMessages(library(tidyverse))
-
+options(tibble.print_min = Inf) # print all rows 
 # Global Setting: set digits to 12 to avoid paste function/joining issues
 options(scipen = 12)
 set.seed(111) # for repeatable random sampling
+
+
+# SET SITES AND SUBSAMPLE LEVEL -------------------------------------------
 
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-50
@@ -25,11 +28,10 @@ site <- "all_rabo"
 
 # 02. LOAD METADATA --------------------------------------------
 
-metadat <- read_csv("data/rapture_metadata_rabo.csv") %>% arrange(Seq)
+metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
 
 # view summary of data:
-#metadat %>% group_by(HUC_8) %>% tally
-#summary(as.factor(metadat$HUC_8))
+metadat %>% group_by(HUC_8) %>% tally %>% print(n=Inf)
 
 # 03. READ FULL BAMLIST --------------------------------------------------
 

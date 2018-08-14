@@ -181,4 +181,4 @@ datfilt_out2[duplicated(datfilt_out2$LabID, incomparables = NA),] %>% select(seq
 # WRITE OUT ---------------------------------------------------------------
 
 write_csv(datfilt_out2, path="data_output/rapture_metadata_rabo_quant.csv")
-save(datfilt_out2, file="data_output/rapture_metadata_rabo_quant.rda")
+write_rds(x = datfilt_out2, "data_output/rapture_metadata_rabo_quant.rds")
