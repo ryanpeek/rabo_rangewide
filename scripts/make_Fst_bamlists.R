@@ -395,3 +395,9 @@ for(i in 1:ncol(sitepairs)){
 # cat *finalfstout > FST_all
 # ls *finalfstout > FST_names
 # paste FST_all FST_names > ALL_FST
+
+
+# GET FILES FROM RSYNC ----------------------------------------------------
+
+# rsync -avh -e "ssh -p 2022" rapeek@farm.cse.ucdavis.edu:~rapeek/projects/rangewide/pop_gen/results_fst/all_global_fst.txt
+

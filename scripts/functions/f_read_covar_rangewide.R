@@ -5,7 +5,7 @@ read_covar_range <- function(covmat, # @path to covar file
                        metadata, # the name of pre-loaded metadata that contains "Seq" colname with full seq
                        pcs, # the PC to plot as c(1, 2)
                        colvar, # the value for the color
-                       shapevar, # the col name for shape: Pop (River), ecoreg, HUC6, HU_8_NAME
+                       #shapevar, # the col name for shape: Pop (River), ecoreg, HUC6, HU_8_NAME
                        plotlyplot=TRUE){
   
   if(!require(viridis)) { install.packages("viridis"); require(viridis, warn.conflicts = F)}
@@ -70,7 +70,7 @@ read_covar_range <- function(covmat, # @path to covar file
   } else {
     
     (ggpca <- ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
-                               color=quote(Locality), shape=quote(Pop),
+                               color=quote(colvar), shape=quote(shapevar),
                                text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
     
     geom_point(size=4, alpha=0.8) +

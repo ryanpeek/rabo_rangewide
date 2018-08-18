@@ -21,13 +21,13 @@ metadat <- metadat %>%
 
 
 # set site/reads for bamlist/covar filepaths:
-reads <- "25k"
-site <- "all_rabo_filt01" # "all_rabo_filt01", "all_rabo_n4", "all_rabo_25k"
-covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat")
-bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
+reads <- "50k"
+siteCovar <- "all_rabo_50k_nInd2" # "all_rabo_filt01", "all_rabo_n4", "all_rabo_25k"
+covarpath<- paste0(here(), "/data_output/pca/", siteCovar, ".covMat")
+bampath <- paste0(here(), "/data_output/bamlists/", siteCovar,"_thresh.bamlist")
 
 # run function
-#(read_covar_range(covarpath, bampath, metadat, c(2,3),plotlyplot = TRUE))
+(read_covar_range(covarpath, bampath, metadat, c(1,2),colvar = "HUC6", plotlyplot = TRUE))
 
 
 # THE INNER BITS ----------------------------------------------------------
