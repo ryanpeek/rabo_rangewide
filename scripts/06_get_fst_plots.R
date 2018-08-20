@@ -45,4 +45,14 @@ fsts2$fst_weight <- gsub(x=fsts2$fst_weight, pattern="Fst.Weight:", "")
 
 
 fsts2 <- fsts2 %>% 
-  mutate_at(c("no_obs_loci", "fst_unweighted", "fst_weight"), .funs = as.numeric)
+  mutate_at(c("no_obs_loci", "fst_unweighted", "fst_weight"), .funs = as.numeric) %>%
+  mutate(sitepair = paste0(siteA, "_", siteB))
+
+
+# TEST PLOTS: POINTS ------------------------------------------------------
+
+ggplot() + 
+  geom_point(data=fsts2, aes(y=fst_weight/(1-fst_weight), x=siteA, color=fst_weight)) + 
+  theme_bw(base_family = "Roboto Condensed")
+
+
