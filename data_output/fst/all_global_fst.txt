@@ -2014,8 +2014,6 @@ FST.Unweight[nObs:1652657]:0.277864 Fst.Weight:0.313446
 gcalav-esperck.nfa-shic_25k.folded.fst.idx
 calav-esperck.nfa-shic_25k.folded.fst.gz
 FST.Unweight[nObs:1652641]:0.295906 Fst.Weight:0.299530
-gcalav-esperck.nfa-slar_25k.folded.fst.idx
-Problem opening file: 'calav-esperck.nfa-slar_25k.folded.fst.idx'
 gcalav-esperck.nff-poe_25k.folded.fst.idx
 calav-esperck.nff-poe_25k.folded.fst.gz
 FST.Unweight[nObs:1649881]:0.230951 Fst.Weight:0.324441
