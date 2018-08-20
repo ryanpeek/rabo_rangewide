@@ -17,7 +17,7 @@ options(scipen = 12)
 set.seed(111) # for repeatable random sampling
 
 # set the reads threshold (number of minimum reads subsampled
-bamNo<-50
+bamNo<-25
 
 # set site name (will be appended into filename)
 #site <- "ncoast_rabo_n9" # all_rabo, all_rabo_filt01
@@ -97,9 +97,11 @@ dfout[duplicated(dfout$Seq),] %>% arrange(SampleID) %>% tally()
 # 05b. SUBSAMPLE SITES AND SPLIT INTO LIST --------------------------------
 
 # split out sites with less than 9 samples (to rejoin later):
-dfout_low_n <- dfout %>% filter(n_site < 11)
+dfout_low_n <- dfout %>% filter(n_site < 11, n_site>2)
 dfout_low_n %>% filter(SPP_ID=="RABO") %>% group_by(Locality) %>% tally %>% 
   arrange(n) %>% as.data.frame
+
+dfout_low_n %>% group_by(River, Site) %>% tally %>% View()
 
 # now sample down to 10 per Locality :
 dfout_sampled <- dfout %>% filter(n_site > 10) %>% group_by(Locality) %>% 
@@ -122,7 +124,9 @@ library(sf)
 dfout_sf <- dfout_bind
 dfout_sf$lat_jitter <- jitter(dfout_sf$lat, factor = 0.001)
 dfout_sf$lon_jitter <- jitter(dfout_sf$lon, factor = 0.01)
-dfout_sf <- dfout_sf %>% filter(!is.na(lat)) %>%  select(-lat, -lon)
+dfout_sf <- dfout_sf %>% filter(!is.na(lat)) %>%  
+  distinct(lat,.keep_all = T) %>% 
+  select(River, Site, SampleID, LabID, SPP_ID, lat, lon, elev_m:Locality,Locality_details, EcoRegion, n_site:lon_jitter)
 
 # make sf:
 dfout_sf <- st_as_sf(dfout_sf, 
@@ -130,6 +134,7 @@ dfout_sf <- st_as_sf(dfout_sf,
                      remove = F, # don't remove these lat/lon cols from df
                      crs = 4326) # add projection
 
+st_write(dfout_sf, "data_output/sites_25k_n3.shp", delete_dsn = T)
 
 mapview(dfout_sf) %>% addMouseCoordinates()
 

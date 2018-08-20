@@ -24,11 +24,10 @@ library(tidyverse)
 
 # GET INPUT FILE ----------------------------------------------------------
 
-input <- "theta_counts_gw.txt"
+input <- "theta_counts_gw_25k_n3.txt"
 input.file <- paste("data_output/thetas/",input, sep = "")
 
 dat <- read_delim(input.file, col_names = c("ID", "Tw", "Tp", "tD","nsites"), skip = 1, delim = " ")
-
 
 # TIDY AND ADD RIVER-WATERSHED --------------------------------------------
 
@@ -41,6 +40,14 @@ dat$ID <- gsub(pattern = "mfy-us-oh", replacement = "mfy-usoh", dat$ID)
 dat$ID <- gsub(pattern ="fea-spanish-bgulch", replacement="fea-spanish_bgulch", dat$ID)
 dat$ID <- gsub(pattern = "rub-lc-us", replacement = "rub-lcus", dat$ID)
 
+# get rid of a few:
+#filtout <- c("cache-wfsulphurck", "fea-spanish-rockck", "fea-spanish-wapaunsie",
+#             "nfa-nfnfa", "nfy-slate", "sancarp-sancarpoforock", "sfeel", "stan-roseck")
+
+dat <- dat %>% filter(!grepl("cache-wfsulphurck_25k$|fea-spanish-rockck_25k$|fea-spanish-wapaunsie_25k$|
+                             nfa-nfnfa_25k$|nfy-slate_25k$|sancarp-sancarpoforock_25k$|
+                             sfeel_25k$|stan-roseck_25k$", ID))
+
 # split out
 dat <- dat %>% separate(ID, c("River", "Site"), "-", remove = FALSE)
 
@@ -50,8 +57,8 @@ dat <- dat %>% mutate(Site=if_else(is.na(Site), "mainstem", Site))
 # add region
 dat <- dat %>% 
   mutate(region = as.factor(case_when(
-    grepl("eel|lagun|klam|mad|mat|russ|sfeel|smith|ssantiam|sumpqua|trin|vandz", ID) ~ "north_coast",
-    grepl("sfy|rub|nfy|mfy|nfmfa|nfa|mfa|fea|calav|bear", ID) ~ "sierras",
+    grepl("eel|cache|lagun|klam|mad|mat|russ|sfeel|smith|ssantiam|sumpqua|trin|vandz", ID) ~ "north_coast",
+    grepl("sfa|tuo|deer|nff|sfy|rub|nfy|mfy|nfmfa|nfa|mfa|fea|calav|bear", ID) ~ "sierras",
     grepl("ala|put|soquel", ID) ~ "central_coast",
     grepl("paj|salin|sancarp|dry", ID) ~ "south_coast"
     ))) %>% 

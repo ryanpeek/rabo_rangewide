@@ -1,0 +1,21 @@
+# files that have less than 1
+cache-sulphurck_50k_thresh.bamlist
+cache-wfsulphurck_25k_thresh.bamlist
+cache-wfsulphurck_50k_thresh.bamlist
+calav-esperck_50k_thresh.bamlist
+dry-cantua_al_50k_thresh.bamlist
+fea-spanish-rockck_25k_thresh.bamlist
+fea-spanish-rockck_50k_thresh.bamlist
+fea-spanish-wapaunsie_25k_thresh.bamlist
+fea-spanish-wapaunsie_50k_thresh.bamlist
+nfa-nfnfa_25k_thresh.bamlist
+nfa-nfnfa_50k_thresh.bamlist
+nfy-slate_25k_thresh.bamlist
+nfy-slate_50k_thresh.bamlist
+sancarp-sancarpoforock_25k_thresh.bamlist
+sancarp-sancarpoforock_50k_thresh.bamlist
+sfeel_25k_thresh.bamlist
+sfeel_50k_thresh.bamlist
+smith_50k_thresh.bamlist
+stan-roseck_25k_thresh.bamlist
+stan-roseck_50k_thresh.bamlist
