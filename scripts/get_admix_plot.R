@@ -82,6 +82,18 @@ abline(v = 624, col="black", lty=2)
 dev.off()
 
 
+# PLOT LOGLIKS ------------------------------------------------------------
+
+k <- c(2:7)
+logs <- c(-33148006.008206, -31793778.761774, -30793224.392646, 
+          -30546187.662216, -30316365.727090, -30121297.356706)
+#nsites 69425 # nind 635
+admixLogs <- tibble(k=k, bestLik=logs)
+
+ggplot() + geom_point(data=admixLogs, aes(x=k, y=bestLik), col="maroon", size=3) +
+  theme_bw() + 
+  labs(x="Number of groups (k)", y="Likelihood Scores")
+
 # POPHELPER ---------------------------------------------------------------
 
 library(pophelper)
@@ -134,23 +146,5 @@ p1 <- plotQ(poplist[9],
 dev.off()
 print(p1$plot[[1]])
 
-# ADMIXTURE 25k thresh ------------------------------------------------------
-
-colnames(q) <- c("k", "proportion")
-q2 <- bind_cols(annot, q)
-
-# join with annot data
-ord <- order(q2$proportion)
-
-#write_csv(q2, path = "data_output/admixture_25k_thresh_meta_qopt.csv")
-
-# Plot them (ordered by population)
-#par(mar=c(7,3,1,1))
-barplot(t(q2[,c("k","proportion")])[,ord],col=viridis(2),names=annot$SPP_ID2[ord],las=2,ylab="Admixture proportions",cex.names=0.6, border=NA)
-
-# ggplot version
-#ggplot() + geom_col(data=q2[ord,], aes(x=row.names(q2), y=proportion, 
-#                                 fill=SPP_ID2), position = "stack"#) + 
-#  scale_fill_viridis_d() + theme_classic()
 
 

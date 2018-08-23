@@ -1,0 +1,3906 @@
+0.084609 0.372475	ala-arroyomocho.bear_100k.finalfstout
+0.094612 0.398503	ala-arroyomocho.bear-grhn_100k.finalfstout
+0.091734 0.396009	ala-arroyomocho.bear-sth2_100k.finalfstout
+0.078428 0.383857	ala-arroyomocho.bear-stha_100k.finalfstout
+0.117446 0.390239	ala-arroyomocho.bear-sthc_100k.finalfstout
+0.089671 0.400274	ala-arroyomocho.deer-clec_100k.finalfstout
+0.066314 0.303931	ala-arroyomocho.eel_100k.finalfstout
+0.093684 0.441955	ala-arroyomocho.fea-beanck_100k.finalfstout
+0.088710 0.449680	ala-arroyomocho.fea-spanish-bgulch_100k.finalfstout
+0.117675 0.437894	ala-arroyomocho.fea-spanishck_100k.finalfstout
+0.093935 0.430177	ala-arroyomocho.fea-spanish-silverck_100k.finalfstout
+0.091718 0.318527	ala-arroyomocho.mad-mapleck_100k.finalfstout
+0.049977 0.307086	ala-arroyomocho.mad-redwoodck_100k.finalfstout
+0.056391 0.306359	ala-arroyomocho.mad-redwoodck2_100k.finalfstout
+0.068760 0.312734	ala-arroyomocho.mat-bearriver_100k.finalfstout
+0.080700 0.323767	ala-arroyomocho.mat-lowermattole_100k.finalfstout
+0.084354 0.372584	ala-arroyomocho.mfa-amec_100k.finalfstout
+0.091501 0.379808	ala-arroyomocho.mfa-gasc_100k.finalfstout
+0.100642 0.386698	ala-arroyomocho.mfa-todc_100k.finalfstout
+0.085543 0.388722	ala-arroyomocho.mfy-oregck_100k.finalfstout
+0.123902 0.381747	ala-arroyomocho.mfy-us-oh_100k.finalfstout
+0.108595 0.370667	ala-arroyomocho.nfa_100k.finalfstout
+0.130055 0.385729	ala-arroyomocho.nfa-bunc_100k.finalfstout
+0.089468 0.405282	ala-arroyomocho.nfa-euchds_100k.finalfstout
+0.084224 0.410329	ala-arroyomocho.nfa-euchus_100k.finalfstout
+0.139277 0.384814	ala-arroyomocho.nfa-indc_100k.finalfstout
+0.087335 0.383790	ala-arroyomocho.nfa-pond_100k.finalfstout
+0.084109 0.374715	ala-arroyomocho.nfa-robr_100k.finalfstout
+0.092420 0.415059	ala-arroyomocho.nfa-saic_100k.finalfstout
+0.126221 0.358702	ala-arroyomocho.nfa-shic_100k.finalfstout
+0.108978 0.388841	ala-arroyomocho.nfa-slar_100k.finalfstout
+0.089041 0.361736	ala-arroyomocho.nff-poe_100k.finalfstout
+0.141187 0.403896	ala-arroyomocho.nfmfa-sc_100k.finalfstout
+0.099263 0.394515	ala-arroyomocho.nfy_100k.finalfstout
+0.119943 0.410361	ala-arroyomocho.nfy-slate-cgrav_100k.finalfstout
+0.049484 0.197806	ala-arroyomocho.paj-clearck_100k.finalfstout
+0.098370 0.200813	ala-arroyomocho.paj-sanbenito_100k.finalfstout
+0.125942 0.408517	ala-arroyomocho.put-cold_100k.finalfstout
+0.130210 0.373462	ala-arroyomocho.put-wildhorseck_100k.finalfstout
+0.084518 0.410382	ala-arroyomocho.rub-lc-us_100k.finalfstout
+0.139210 0.418923	ala-arroyomocho.rub-usph_100k.finalfstout
+0.048144 0.322646	ala-arroyomocho.russ-mwsprngck_100k.finalfstout
+0.122526 0.432463	ala-arroyomocho.salin-losburros_100k.finalfstout
+0.117999 0.446813	ala-arroyomocho.sancarp-dutrack_100k.finalfstout
+0.093404 0.427032	ala-arroyomocho.sfa-cami_100k.finalfstout
+0.095715 0.317639	ala-arroyomocho.sfeel-cedar_100k.finalfstout
+0.089059 0.413740	ala-arroyomocho.sfy-fallck_100k.finalfstout
+0.086971 0.406971	ala-arroyomocho.sfy-loga_100k.finalfstout
+0.087495 0.405994	ala-arroyomocho.sfy-misc_100k.finalfstout
+0.064717 0.407036	ala-arroyomocho.sfy-rockck_100k.finalfstout
+0.137124 0.391100	ala-arroyomocho.sfy-shadyck_100k.finalfstout
+0.070743 0.411786	ala-arroyomocho.sfy-springck_100k.finalfstout
+0.051167 0.330262	ala-arroyomocho.smith-hurdygurdyck_100k.finalfstout
+0.094270 0.092075	ala-arroyomocho.soquel-ebsc_100k.finalfstout
+0.085901 0.471946	ala-arroyomocho.ssantiam_100k.finalfstout
+0.071235 0.298996	ala-arroyomocho.trin-sftrinity_100k.finalfstout
+0.064719 0.314117	ala-arroyomocho.trin-sftrinity-sandybar_100k.finalfstout
+0.077159 0.313741	ala-arroyomocho.trin-tishtang_100k.finalfstout
+0.087638 0.472086	ala-arroyomocho.tuo-clavey_100k.finalfstout
+0.063114 0.307948	ala-arroyomocho.vandz-dinsmore_100k.finalfstout
+0.099060 0.331949	ala-arroyomocho.vandz-rootcreek_100k.finalfstout
+0.082151 0.345116	ala-arroyomocho.vandz-shanty_100k.finalfstout
+0.052757 0.062966	bear.bear-grhn_100k.finalfstout
+0.046965 0.031316	bear.bear-sth2_100k.finalfstout
+0.032147 0.034361	bear.bear-stha_100k.finalfstout
+0.052643 0.026746	bear.bear-sthc_100k.finalfstout
+0.050006 0.089593	bear.deer-clec_100k.finalfstout
+0.046903 0.201381	bear.eel_100k.finalfstout
+0.053253 0.251788	bear.fea-beanck_100k.finalfstout
+0.061727 0.239200	bear.fea-spanish-bgulch_100k.finalfstout
+0.068059 0.246857	bear.fea-spanishck_100k.finalfstout
+0.073101 0.221628	bear.fea-spanish-silverck_100k.finalfstout
+0.047686 0.056352	bear-grhn.bear-sth2_100k.finalfstout
+0.071614 0.090009	bear-grhn.bear-stha_100k.finalfstout
+0.031358 0.050680	bear-grhn.bear-sthc_100k.finalfstout
+0.049604 0.088046	bear-grhn.deer-clec_100k.finalfstout
+0.032872 0.209335	bear-grhn.eel_100k.finalfstout
+0.027366 0.261328	bear-grhn.fea-beanck_100k.finalfstout
+0.062668 0.259283	bear-grhn.fea-spanish-bgulch_100k.finalfstout
+0.036462 0.259179	bear-grhn.fea-spanishck_100k.finalfstout
+0.101252 0.250148	bear-grhn.fea-spanish-silverck_100k.finalfstout
+0.054484 0.221643	bear-grhn.mad-mapleck_100k.finalfstout
+0.019035 0.215974	bear-grhn.mad-redwoodck_100k.finalfstout
+0.020012 0.201776	bear-grhn.mad-redwoodck2_100k.finalfstout
+0.041952 0.215904	bear-grhn.mat-bearriver_100k.finalfstout
+0.075634 0.225264	bear-grhn.mat-lowermattole_100k.finalfstout
+0.066218 0.140378	bear-grhn.mfa-amec_100k.finalfstout
+0.057308 0.117692	bear-grhn.mfa-gasc_100k.finalfstout
+0.043104 0.126877	bear-grhn.mfa-todc_100k.finalfstout
+0.025812 0.089098	bear-grhn.mfy-oregck_100k.finalfstout
+0.040608 0.079842	bear-grhn.mfy-us-oh_100k.finalfstout
+0.015037 0.052185	bear-grhn.nfa_100k.finalfstout
+0.034805 0.064153	bear-grhn.nfa-bunc_100k.finalfstout
+0.050946 0.076552	bear-grhn.nfa-euchds_100k.finalfstout
+0.061865 0.082423	bear-grhn.nfa-euchus_100k.finalfstout
+0.055393 0.056889	bear-grhn.nfa-indc_100k.finalfstout
+0.063146 0.065338	bear-grhn.nfa-pond_100k.finalfstout
+0.024620 0.057253	bear-grhn.nfa-robr_100k.finalfstout
+0.048318 0.092338	bear-grhn.nfa-saic_100k.finalfstout
+0.028349 0.049807	bear-grhn.nfa-shic_100k.finalfstout
+0.047322 0.064113	bear-grhn.nfa-slar_100k.finalfstout
+0.092661 0.203022	bear-grhn.nff-poe_100k.finalfstout
+0.036714 0.104223	bear-grhn.nfmfa-sc_100k.finalfstout
+0.031477 0.089594	bear-grhn.nfy_100k.finalfstout
+0.146228 0.144858	bear-grhn.nfy-slate-cgrav_100k.finalfstout
+0.081099 0.423742	bear-grhn.paj-clearck_100k.finalfstout
+0.067045 0.429059	bear-grhn.paj-sanbenito_100k.finalfstout
+0.070068 0.314376	bear-grhn.put-cold_100k.finalfstout
+0.063675 0.279969	bear-grhn.put-wildhorseck_100k.finalfstout
+0.045301 0.114588	bear-grhn.rub-lc-us_100k.finalfstout
+0.059957 0.125090	bear-grhn.rub-usph_100k.finalfstout
+0.029391 0.242493	bear-grhn.russ-mwsprngck_100k.finalfstout
+0.075997 0.483972	bear-grhn.salin-losburros_100k.finalfstout
+0.061759 0.497429	bear-grhn.sancarp-dutrack_100k.finalfstout
+0.066151 0.272196	bear-grhn.sfa-cami_100k.finalfstout
+0.041441 0.219756	bear-grhn.sfeel-cedar_100k.finalfstout
+0.063347 0.095963	bear-grhn.sfy-fallck_100k.finalfstout
+0.071785 0.086923	bear-grhn.sfy-loga_100k.finalfstout
+0.053064 0.084663	bear-grhn.sfy-misc_100k.finalfstout
+0.036506 0.094815	bear-grhn.sfy-rockck_100k.finalfstout
+0.050949 0.085621	bear-grhn.sfy-shadyck_100k.finalfstout
+0.055449 0.096819	bear-grhn.sfy-springck_100k.finalfstout
+0.018969 0.245184	bear-grhn.smith-hurdygurdyck_100k.finalfstout
+0.069609 0.400377	bear-grhn.soquel-ebsc_100k.finalfstout
+0.060031 0.402485	bear-grhn.ssantiam_100k.finalfstout
+0.073873 0.202214	bear-grhn.trin-sftrinity_100k.finalfstout
+0.042739 0.207389	bear-grhn.trin-sftrinity-sandybar_100k.finalfstout
+0.043484 0.207040	bear-grhn.trin-tishtang_100k.finalfstout
+0.095248 0.363860	bear-grhn.tuo-clavey_100k.finalfstout
+0.041049 0.208331	bear-grhn.vandz-dinsmore_100k.finalfstout
+0.120189 0.230857	bear-grhn.vandz-rootcreek_100k.finalfstout
+0.107704 0.242203	bear-grhn.vandz-shanty_100k.finalfstout
+0.066255 0.211330	bear.mad-mapleck_100k.finalfstout
+0.033715 0.211708	bear.mad-redwoodck_100k.finalfstout
+0.035114 0.197114	bear.mad-redwoodck2_100k.finalfstout
+0.052613 0.207481	bear.mat-bearriver_100k.finalfstout
+0.067471 0.208840	bear.mat-lowermattole_100k.finalfstout
+0.061918 0.133392	bear.mfa-amec_100k.finalfstout
+0.057414 0.112266	bear.mfa-gasc_100k.finalfstout
+0.060601 0.124836	bear.mfa-todc_100k.finalfstout
+0.045427 0.094893	bear.mfy-oregck_100k.finalfstout
+0.066582 0.082984	bear.mfy-us-oh_100k.finalfstout
+0.044344 0.056173	bear.nfa_100k.finalfstout
+0.066743 0.069843	bear.nfa-bunc_100k.finalfstout
+0.050198 0.075241	bear.nfa-euchds_100k.finalfstout
+0.048044 0.078371	bear.nfa-euchus_100k.finalfstout
+0.078116 0.062475	bear.nfa-indc_100k.finalfstout
+0.055255 0.065324	bear.nfa-pond_100k.finalfstout
+0.040190 0.058233	bear.nfa-robr_100k.finalfstout
+0.051097 0.086804	bear.nfa-saic_100k.finalfstout
+0.059276 0.053948	bear.nfa-shic_100k.finalfstout
+0.061128 0.065917	bear.nfa-slar_100k.finalfstout
+0.070561 0.185267	bear.nff-poe_100k.finalfstout
+0.076491 0.105596	bear.nfmfa-sc_100k.finalfstout
+0.055260 0.097252	bear.nfy_100k.finalfstout
+0.096547 0.123786	bear.nfy-slate-cgrav_100k.finalfstout
+0.058895 0.388216	bear.paj-clearck_100k.finalfstout
+0.091206 0.410293	bear.paj-sanbenito_100k.finalfstout
+0.089676 0.302182	bear.put-cold_100k.finalfstout
+0.089903 0.270993	bear.put-wildhorseck_100k.finalfstout
+0.054243 0.113270	bear.rub-lc-us_100k.finalfstout
+0.085375 0.122970	bear.rub-usph_100k.finalfstout
+0.036875 0.233693	bear.russ-mwsprngck_100k.finalfstout
+0.097452 0.463615	bear.salin-losburros_100k.finalfstout
+0.094582 0.479646	bear.sancarp-dutrack_100k.finalfstout
+0.067198 0.254363	bear.sfa-cami_100k.finalfstout
+0.065327 0.212829	bear.sfeel-cedar_100k.finalfstout
+0.055954 0.098417	bear.sfy-fallck_100k.finalfstout
+0.054049 0.088451	bear.sfy-loga_100k.finalfstout
+0.054079 0.091124	bear.sfy-misc_100k.finalfstout
+0.029954 0.093261	bear.sfy-rockck_100k.finalfstout
+0.078932 0.092291	bear.sfy-shadyck_100k.finalfstout
+0.036555 0.094737	bear.sfy-springck_100k.finalfstout
+0.030636 0.235172	bear.smith-hurdygurdyck_100k.finalfstout
+0.095088 0.384465	bear.soquel-ebsc_100k.finalfstout
+0.066683 0.378681	bear.ssantiam_100k.finalfstout
+0.058587 0.057635	bear-sth2.bear-stha_100k.finalfstout
+0.031674 0.019127	bear-sth2.bear-sthc_100k.finalfstout
+0.049598 0.090788	bear-sth2.deer-clec_100k.finalfstout
+0.035797 0.208111	bear-sth2.eel_100k.finalfstout
+0.034119 0.260810	bear-sth2.fea-beanck_100k.finalfstout
+0.064113 0.259789	bear-sth2.fea-spanish-bgulch_100k.finalfstout
+0.045285 0.257262	bear-sth2.fea-spanishck_100k.finalfstout
+0.095628 0.251015	bear-sth2.fea-spanish-silverck_100k.finalfstout
+0.058099 0.221484	bear-sth2.mad-mapleck_100k.finalfstout
+0.021945 0.215542	bear-sth2.mad-redwoodck_100k.finalfstout
+0.022764 0.201104	bear-sth2.mad-redwoodck2_100k.finalfstout
+0.044176 0.215037	bear-sth2.mat-bearriver_100k.finalfstout
+0.073281 0.223831	bear-sth2.mat-lowermattole_100k.finalfstout
+0.064694 0.140249	bear-sth2.mfa-amec_100k.finalfstout
+0.057095 0.116830	bear-sth2.mfa-gasc_100k.finalfstout
+0.047059 0.126097	bear-sth2.mfa-todc_100k.finalfstout
+0.028860 0.089247	bear-sth2.mfy-oregck_100k.finalfstout
+0.046851 0.081344	bear-sth2.mfy-us-oh_100k.finalfstout
+0.019519 0.048932	bear-sth2.nfa_100k.finalfstout
+0.041544 0.064098	bear-sth2.nfa-bunc_100k.finalfstout
+0.047846 0.070790	bear-sth2.nfa-euchds_100k.finalfstout
+0.055126 0.076066	bear-sth2.nfa-euchus_100k.finalfstout
+0.060433 0.052677	bear-sth2.nfa-indc_100k.finalfstout
+0.059446 0.061764	bear-sth2.nfa-pond_100k.finalfstout
+0.026902 0.054979	bear-sth2.nfa-robr_100k.finalfstout
+0.048923 0.087195	bear-sth2.nfa-saic_100k.finalfstout
+0.034189 0.046815	bear-sth2.nfa-shic_100k.finalfstout
+0.049650 0.058217	bear-sth2.nfa-slar_100k.finalfstout
+0.087580 0.202889	bear-sth2.nff-poe_100k.finalfstout
+0.045284 0.100503	bear-sth2.nfmfa-sc_100k.finalfstout
+0.036313 0.094088	bear-sth2.nfy_100k.finalfstout
+0.134596 0.145196	bear-sth2.nfy-slate-cgrav_100k.finalfstout
+0.073740 0.421191	bear-sth2.paj-clearck_100k.finalfstout
+0.074777 0.427572	bear-sth2.paj-sanbenito_100k.finalfstout
+0.076767 0.313397	bear-sth2.put-cold_100k.finalfstout
+0.071743 0.279052	bear-sth2.put-wildhorseck_100k.finalfstout
+0.044471 0.108343	bear-sth2.rub-lc-us_100k.finalfstout
+0.066804 0.120382	bear-sth2.rub-usph_100k.finalfstout
+0.030902 0.241344	bear-sth2.russ-mwsprngck_100k.finalfstout
+0.082188 0.481461	bear-sth2.salin-losburros_100k.finalfstout
+0.070877 0.495734	bear-sth2.sancarp-dutrack_100k.finalfstout
+0.065885 0.270087	bear-sth2.sfa-cami_100k.finalfstout
+0.047571 0.217332	bear-sth2.sfeel-cedar_100k.finalfstout
+0.060296 0.098066	bear-sth2.sfy-fallck_100k.finalfstout
+0.066171 0.091907	bear-sth2.sfy-loga_100k.finalfstout
+0.053554 0.091899	bear-sth2.sfy-misc_100k.finalfstout
+0.033920 0.095750	bear-sth2.sfy-rockck_100k.finalfstout
+0.058843 0.087962	bear-sth2.sfy-shadyck_100k.finalfstout
+0.049216 0.100406	bear-sth2.sfy-springck_100k.finalfstout
+0.021572 0.244085	bear-sth2.smith-hurdygurdyck_100k.finalfstout
+0.077325 0.398574	bear-sth2.soquel-ebsc_100k.finalfstout
+0.061853 0.400743	bear-sth2.ssantiam_100k.finalfstout
+0.072645 0.201201	bear-sth2.trin-sftrinity_100k.finalfstout
+0.043717 0.205118	bear-sth2.trin-sftrinity-sandybar_100k.finalfstout
+0.046238 0.206306	bear-sth2.trin-tishtang_100k.finalfstout
+0.087542 0.361916	bear-sth2.tuo-clavey_100k.finalfstout
+0.043015 0.207688	bear-sth2.vandz-dinsmore_100k.finalfstout
+0.115258 0.230773	bear-sth2.vandz-rootcreek_100k.finalfstout
+0.097497 0.241743	bear-sth2.vandz-shanty_100k.finalfstout
+0.044160 0.057042	bear-stha.bear-sthc_100k.finalfstout
+0.099006 0.115454	bear-stha.deer-clec_100k.finalfstout
+0.026525 0.208691	bear-stha.eel_100k.finalfstout
+0.035261 0.270581	bear-stha.fea-beanck_100k.finalfstout
+0.064107 0.260954	bear-stha.fea-spanish-bgulch_100k.finalfstout
+0.050387 0.262356	bear-stha.fea-spanishck_100k.finalfstout
+0.076382 0.228607	bear-stha.fea-spanish-silverck_100k.finalfstout
+0.073711 0.220609	bear-stha.mad-mapleck_100k.finalfstout
+0.014088 0.222808	bear-stha.mad-redwoodck_100k.finalfstout
+0.013545 0.207895	bear-stha.mad-redwoodck2_100k.finalfstout
+0.034760 0.218715	bear-stha.mat-bearriver_100k.finalfstout
+0.068960 0.215365	bear-stha.mat-lowermattole_100k.finalfstout
+0.053622 0.154660	bear-stha.mfa-amec_100k.finalfstout
+0.066660 0.130929	bear-stha.mfa-gasc_100k.finalfstout
+0.057698 0.148454	bear-stha.mfa-todc_100k.finalfstout
+0.030896 0.120785	bear-stha.mfy-oregck_100k.finalfstout
+0.064066 0.102166	bear-stha.mfy-us-oh_100k.finalfstout
+0.022330 0.084832	bear-stha.nfa_100k.finalfstout
+0.061346 0.098317	bear-stha.nfa-bunc_100k.finalfstout
+0.095661 0.100518	bear-stha.nfa-euchds_100k.finalfstout
+0.084696 0.103437	bear-stha.nfa-euchus_100k.finalfstout
+0.113198 0.088122	bear-stha.nfa-indc_100k.finalfstout
+0.058164 0.092688	bear-stha.nfa-pond_100k.finalfstout
+0.025126 0.083435	bear-stha.nfa-robr_100k.finalfstout
+0.114895 0.108635	bear-stha.nfa-saic_100k.finalfstout
+0.044689 0.075134	bear-stha.nfa-shic_100k.finalfstout
+0.081261 0.090579	bear-stha.nfa-slar_100k.finalfstout
+0.081986 0.192798	bear-stha.nff-poe_100k.finalfstout
+0.065492 0.135803	bear-stha.nfmfa-sc_100k.finalfstout
+0.044207 0.127851	bear-stha.nfy_100k.finalfstout
+0.109313 0.135380	bear-stha.nfy-slate-cgrav_100k.finalfstout
+0.120099 0.397049	bear-stha.paj-clearck_100k.finalfstout
+0.107163 0.423266	bear-stha.paj-sanbenito_100k.finalfstout
+0.130291 0.321785	bear-stha.put-cold_100k.finalfstout
+0.113806 0.286449	bear-stha.put-wildhorseck_100k.finalfstout
+0.046850 0.144187	bear-stha.rub-lc-us_100k.finalfstout
+0.114020 0.148777	bear-stha.rub-usph_100k.finalfstout
+0.014066 0.240360	bear-stha.russ-mwsprngck_100k.finalfstout
+0.126416 0.474951	bear-stha.salin-losburros_100k.finalfstout
+0.091764 0.491974	bear-stha.sancarp-dutrack_100k.finalfstout
+0.081480 0.271145	bear-stha.sfa-cami_100k.finalfstout
+0.052303 0.223814	bear-stha.sfeel-cedar_100k.finalfstout
+0.068394 0.124843	bear-stha.sfy-fallck_100k.finalfstout
+0.079776 0.114738	bear-stha.sfy-loga_100k.finalfstout
+0.055323 0.122092	bear-stha.sfy-misc_100k.finalfstout
+0.101262 0.112585	bear-stha.sfy-rockck_100k.finalfstout
+0.094523 0.117285	bear-stha.sfy-shadyck_100k.finalfstout
+0.100798 0.115761	bear-stha.sfy-springck_100k.finalfstout
+0.009457 0.242908	bear-stha.smith-hurdygurdyck_100k.finalfstout
+0.118125 0.397123	bear-stha.soquel-ebsc_100k.finalfstout
+0.063488 0.400830	bear-stha.ssantiam_100k.finalfstout
+0.038997 0.194053	bear-stha.trin-sftrinity_100k.finalfstout
+0.032609 0.210385	bear-stha.trin-sftrinity-sandybar_100k.finalfstout
+0.039975 0.208798	bear-stha.trin-tishtang_100k.finalfstout
+0.100846 0.351606	bear-stha.tuo-clavey_100k.finalfstout
+0.027123 0.209809	bear-stha.vandz-dinsmore_100k.finalfstout
+0.079601 0.223955	bear-stha.vandz-rootcreek_100k.finalfstout
+0.109100 0.218415	bear-stha.vandz-shanty_100k.finalfstout
+0.025762 0.086942	bear-sthc.deer-clec_100k.finalfstout
+0.043068 0.214358	bear-sthc.eel_100k.finalfstout
+0.026624 0.253516	bear-sthc.fea-beanck_100k.finalfstout
+0.062147 0.246609	bear-sthc.fea-spanish-bgulch_100k.finalfstout
+0.029707 0.251457	bear-sthc.fea-spanishck_100k.finalfstout
+0.114125 0.243574	bear-sthc.fea-spanish-silverck_100k.finalfstout
+0.047429 0.225015	bear-sthc.mad-mapleck_100k.finalfstout
+0.028637 0.220715	bear-sthc.mad-redwoodck_100k.finalfstout
+0.029028 0.206862	bear-sthc.mad-redwoodck2_100k.finalfstout
+0.054831 0.220297	bear-sthc.mat-bearriver_100k.finalfstout
+0.085176 0.227531	bear-sthc.mat-lowermattole_100k.finalfstout
+0.081883 0.136304	bear-sthc.mfa-amec_100k.finalfstout
+0.050132 0.112984	bear-sthc.mfa-gasc_100k.finalfstout
+0.037859 0.122804	bear-sthc.mfa-todc_100k.finalfstout
+0.028879 0.086389	bear-sthc.mfy-oregck_100k.finalfstout
+0.028804 0.080827	bear-sthc.mfy-us-oh_100k.finalfstout
+0.017419 0.046975	bear-sthc.nfa_100k.finalfstout
+0.026383 0.060133	bear-sthc.nfa-bunc_100k.finalfstout
+0.026662 0.070351	bear-sthc.nfa-euchds_100k.finalfstout
+0.043221 0.073796	bear-sthc.nfa-euchus_100k.finalfstout
+0.026915 0.052233	bear-sthc.nfa-indc_100k.finalfstout
+0.068244 0.060578	bear-sthc.nfa-pond_100k.finalfstout
+0.029899 0.052389	bear-sthc.nfa-robr_100k.finalfstout
+0.017917 0.083226	bear-sthc.nfa-saic_100k.finalfstout
+0.023680 0.046951	bear-sthc.nfa-shic_100k.finalfstout
+0.028467 0.058110	bear-sthc.nfa-slar_100k.finalfstout
+0.098653 0.201203	bear-sthc.nff-poe_100k.finalfstout
+0.026581 0.095226	bear-sthc.nfmfa-sc_100k.finalfstout
+0.030300 0.088690	bear-sthc.nfy_100k.finalfstout
+0.170618 0.138333	bear-sthc.nfy-slate-cgrav_100k.finalfstout
+0.065605 0.412291	bear-sthc.paj-clearck_100k.finalfstout
+0.047251 0.421281	bear-sthc.paj-sanbenito_100k.finalfstout
+0.039574 0.307973	bear-sthc.put-cold_100k.finalfstout
+0.040843 0.278060	bear-sthc.put-wildhorseck_100k.finalfstout
+0.050086 0.105488	bear-sthc.rub-lc-us_100k.finalfstout
+0.031012 0.115385	bear-sthc.rub-usph_100k.finalfstout
+0.043272 0.248665	bear-sthc.russ-mwsprngck_100k.finalfstout
+0.052406 0.474349	bear-sthc.salin-losburros_100k.finalfstout
+0.047823 0.488661	bear-sthc.sancarp-dutrack_100k.finalfstout
+0.058149 0.261802	bear-sthc.sfa-cami_100k.finalfstout
+0.039400 0.221601	bear-sthc.sfeel-cedar_100k.finalfstout
+0.059865 0.092248	bear-sthc.sfy-fallck_100k.finalfstout
+0.062669 0.085344	bear-sthc.sfy-loga_100k.finalfstout
+0.055515 0.084953	bear-sthc.sfy-misc_100k.finalfstout
+0.010343 0.092658	bear-sthc.sfy-rockck_100k.finalfstout
+0.029118 0.084981	bear-sthc.sfy-shadyck_100k.finalfstout
+0.029469 0.094916	bear-sthc.sfy-springck_100k.finalfstout
+0.026715 0.250127	bear-sthc.smith-hurdygurdyck_100k.finalfstout
+0.046800 0.394571	bear-sthc.soquel-ebsc_100k.finalfstout
+0.060172 0.386873	bear-sthc.ssantiam_100k.finalfstout
+0.113365 0.209395	bear-sthc.trin-sftrinity_100k.finalfstout
+0.057965 0.210178	bear-sthc.trin-sftrinity-sandybar_100k.finalfstout
+0.051494 0.211290	bear-sthc.trin-tishtang_100k.finalfstout
+0.092859 0.347150	bear-sthc.tuo-clavey_100k.finalfstout
+0.057086 0.213068	bear-sthc.vandz-dinsmore_100k.finalfstout
+0.167232 0.232574	bear-sthc.vandz-rootcreek_100k.finalfstout
+0.113400 0.243562	bear-sthc.vandz-shanty_100k.finalfstout
+0.069722 0.190561	bear.trin-sftrinity_100k.finalfstout
+0.050936 0.199107	bear.trin-sftrinity-sandybar_100k.finalfstout
+0.055446 0.199505	bear.trin-tishtang_100k.finalfstout
+0.073517 0.333434	bear.tuo-clavey_100k.finalfstout
+0.048983 0.200447	bear.vandz-dinsmore_100k.finalfstout
+0.100847 0.214531	bear.vandz-rootcreek_100k.finalfstout
+0.073085 0.218126	bear.vandz-shanty_100k.finalfstout
+0.024343 0.207853	deer-clec.eel_100k.finalfstout
+0.021922 0.258311	deer-clec.fea-beanck_100k.finalfstout
+0.059460 0.256675	deer-clec.fea-spanish-bgulch_100k.finalfstout
+0.029298 0.254234	deer-clec.fea-spanishck_100k.finalfstout
+0.099843 0.245177	deer-clec.fea-spanish-silverck_100k.finalfstout
+0.045655 0.219407	deer-clec.mad-mapleck_100k.finalfstout
+0.013023 0.216479	deer-clec.mad-redwoodck_100k.finalfstout
+0.012818 0.200620	deer-clec.mad-redwoodck2_100k.finalfstout
+0.033109 0.214450	deer-clec.mat-bearriver_100k.finalfstout
+0.072063 0.221384	deer-clec.mat-lowermattole_100k.finalfstout
+0.061363 0.159087	deer-clec.mfa-amec_100k.finalfstout
+0.055621 0.137374	deer-clec.mfa-gasc_100k.finalfstout
+0.037170 0.148558	deer-clec.mfa-todc_100k.finalfstout
+0.017203 0.090806	deer-clec.mfy-oregck_100k.finalfstout
+0.028489 0.080963	deer-clec.mfy-us-oh_100k.finalfstout
+0.007344 0.079976	deer-clec.nfa_100k.finalfstout
+0.027197 0.090738	deer-clec.nfa-bunc_100k.finalfstout
+0.060993 0.107288	deer-clec.nfa-euchds_100k.finalfstout
+0.077339 0.115031	deer-clec.nfa-euchus_100k.finalfstout
+0.049548 0.084224	deer-clec.nfa-indc_100k.finalfstout
+0.064128 0.088705	deer-clec.nfa-pond_100k.finalfstout
+0.019585 0.084261	deer-clec.nfa-robr_100k.finalfstout
+0.062765 0.124546	deer-clec.nfa-saic_100k.finalfstout
+0.018367 0.072146	deer-clec.nfa-shic_100k.finalfstout
+0.043270 0.089824	deer-clec.nfa-slar_100k.finalfstout
+0.094878 0.200721	deer-clec.nff-poe_100k.finalfstout
+0.026567 0.129350	deer-clec.nfmfa-sc_100k.finalfstout
+0.020610 0.089685	deer-clec.nfy_100k.finalfstout
+0.149389 0.142142	deer-clec.nfy-slate-cgrav_100k.finalfstout
+0.102570 0.425829	deer-clec.paj-clearck_100k.finalfstout
+0.060659 0.432111	deer-clec.paj-sanbenito_100k.finalfstout
+0.067096 0.316801	deer-clec.put-cold_100k.finalfstout
+0.059199 0.281436	deer-clec.put-wildhorseck_100k.finalfstout
+0.040387 0.140085	deer-clec.rub-lc-us_100k.finalfstout
+0.051897 0.147936	deer-clec.rub-usph_100k.finalfstout
+0.021392 0.238658	deer-clec.russ-mwsprngck_100k.finalfstout
+0.071832 0.486629	deer-clec.salin-losburros_100k.finalfstout
+0.051324 0.500287	deer-clec.sancarp-dutrack_100k.finalfstout
+0.065353 0.285812	deer-clec.sfa-cami_100k.finalfstout
+0.029383 0.216600	deer-clec.sfeel-cedar_100k.finalfstout
+0.062665 0.097507	deer-clec.sfy-fallck_100k.finalfstout
+0.080122 0.091982	deer-clec.sfy-loga_100k.finalfstout
+0.049136 0.088383	deer-clec.sfy-misc_100k.finalfstout
+0.058331 0.095278	deer-clec.sfy-rockck_100k.finalfstout
+0.037502 0.087637	deer-clec.sfy-shadyck_100k.finalfstout
+0.084859 0.099597	deer-clec.sfy-springck_100k.finalfstout
+0.013091 0.242986	deer-clec.smith-hurdygurdyck_100k.finalfstout
+0.062842 0.401922	deer-clec.soquel-ebsc_100k.finalfstout
+0.053763 0.404777	deer-clec.ssantiam_100k.finalfstout
+0.063334 0.199127	deer-clec.trin-sftrinity_100k.finalfstout
+0.034280 0.204774	deer-clec.trin-sftrinity-sandybar_100k.finalfstout
+0.033402 0.204961	deer-clec.trin-tishtang_100k.finalfstout
+0.101604 0.374404	deer-clec.tuo-clavey_100k.finalfstout
+0.031830 0.207022	deer-clec.vandz-dinsmore_100k.finalfstout
+0.112407 0.229354	deer-clec.vandz-rootcreek_100k.finalfstout
+0.125253 0.237728	deer-clec.vandz-shanty_100k.finalfstout
+0.042433 0.256922	eel.fea-beanck_100k.finalfstout
+0.041149 0.240889	eel.fea-spanish-bgulch_100k.finalfstout
+0.047267 0.253079	eel.fea-spanishck_100k.finalfstout
+0.057664 0.227636	eel.fea-spanish-silverck_100k.finalfstout
+0.022876 0.026476	eel.mad-mapleck_100k.finalfstout
+0.021752 0.042627	eel.mad-redwoodck_100k.finalfstout
+0.023290 0.046132	eel.mad-redwoodck2_100k.finalfstout
+0.027938 0.028047	eel.mat-bearriver_100k.finalfstout
+0.025992 0.027514	eel.mat-lowermattole_100k.finalfstout
+0.059565 0.222985	eel.mfa-amec_100k.finalfstout
+0.039715 0.217969	eel.mfa-gasc_100k.finalfstout
+0.041464 0.229184	eel.mfa-todc_100k.finalfstout
+0.040539 0.212989	eel.mfy-oregck_100k.finalfstout
+0.042184 0.206876	eel.mfy-us-oh_100k.finalfstout
+0.044307 0.206883	eel.nfa_100k.finalfstout
+0.046553 0.216057	eel.nfa-bunc_100k.finalfstout
+0.025907 0.216798	eel.nfa-euchds_100k.finalfstout
+0.031493 0.218961	eel.nfa-euchus_100k.finalfstout
+0.041814 0.208517	eel.nfa-indc_100k.finalfstout
+0.049298 0.199917	eel.nfa-pond_100k.finalfstout
+0.040308 0.204148	eel.nfa-robr_100k.finalfstout
+0.022200 0.227416	eel.nfa-saic_100k.finalfstout
+0.044786 0.196655	eel.nfa-shic_100k.finalfstout
+0.035366 0.209077	eel.nfa-slar_100k.finalfstout
+0.041607 0.131094	eel.nff-poe_100k.finalfstout
+0.052068 0.243286	eel.nfmfa-sc_100k.finalfstout
+0.041543 0.212354	eel.nfy_100k.finalfstout
+0.099896 0.227254	eel.nfy-slate-cgrav_100k.finalfstout
+0.023314 0.324464	eel.paj-clearck_100k.finalfstout
+0.045316 0.348050	eel.paj-sanbenito_100k.finalfstout
+0.031113 0.115018	eel.put-cold_100k.finalfstout
+0.033282 0.081845	eel.put-wildhorseck_100k.finalfstout
+0.046932 0.235318	eel.rub-lc-us_100k.finalfstout
+0.043550 0.250113	eel.rub-usph_100k.finalfstout
+0.028568 0.075787	eel.russ-mwsprngck_100k.finalfstout
+0.049754 0.412488	eel.salin-losburros_100k.finalfstout
+0.053557 0.431971	eel.sancarp-dutrack_100k.finalfstout
+0.042016 0.295468	eel.sfa-cami_100k.finalfstout
+0.025905 0.024039	eel.sfeel-cedar_100k.finalfstout
+0.041982 0.220974	eel.sfy-fallck_100k.finalfstout
+0.039420 0.213789	eel.sfy-loga_100k.finalfstout
+0.045357 0.216773	eel.sfy-misc_100k.finalfstout
+0.005573 0.207964	eel.sfy-rockck_100k.finalfstout
+0.043269 0.215565	eel.sfy-shadyck_100k.finalfstout
+0.014508 0.214692	eel.sfy-springck_100k.finalfstout
+0.024162 0.090765	eel.smith-hurdygurdyck_100k.finalfstout
+0.046713 0.316255	eel.soquel-ebsc_100k.finalfstout
+0.037869 0.261898	eel.ssantiam_100k.finalfstout
+0.063706 0.047110	eel.trin-sftrinity_100k.finalfstout
+0.031463 0.041674	eel.trin-sftrinity-sandybar_100k.finalfstout
+0.028581 0.042820	eel.trin-tishtang_100k.finalfstout
+0.046091 0.340409	eel.tuo-clavey_100k.finalfstout
+0.028707 0.025022	eel.vandz-dinsmore_100k.finalfstout
+0.069666 0.037505	eel.vandz-rootcreek_100k.finalfstout
+0.021165 0.045820	eel.vandz-shanty_100k.finalfstout
+0.014276 0.010642	fea-beanck.fea-spanish-bgulch_100k.finalfstout
+0.013407 0.008786	fea-beanck.fea-spanishck_100k.finalfstout
+0.033309 0.017456	fea-beanck.fea-spanish-silverck_100k.finalfstout
+0.038251 0.268400	fea-beanck.mad-mapleck_100k.finalfstout
+0.033276 0.259548	fea-beanck.mad-redwoodck_100k.finalfstout
+0.033114 0.252908	fea-beanck.mad-redwoodck2_100k.finalfstout
+0.052726 0.265208	fea-beanck.mat-bearriver_100k.finalfstout
+0.069084 0.274288	fea-beanck.mat-lowermattole_100k.finalfstout
+0.079958 0.298761	fea-beanck.mfa-amec_100k.finalfstout
+0.044775 0.285839	fea-beanck.mfa-gasc_100k.finalfstout
+0.034309 0.291893	fea-beanck.mfa-todc_100k.finalfstout
+0.034046 0.254071	fea-beanck.mfy-oregck_100k.finalfstout
+0.023781 0.246369	fea-beanck.mfy-us-oh_100k.finalfstout
+0.026578 0.246400	fea-beanck.nfa_100k.finalfstout
+0.025671 0.254970	fea-beanck.nfa-bunc_100k.finalfstout
+0.027153 0.282162	fea-beanck.nfa-euchds_100k.finalfstout
+0.041577 0.285310	fea-beanck.nfa-euchus_100k.finalfstout
+0.023585 0.255870	fea-beanck.nfa-indc_100k.finalfstout
+0.069644 0.260166	fea-beanck.nfa-pond_100k.finalfstout
+0.035312 0.252804	fea-beanck.nfa-robr_100k.finalfstout
+0.016129 0.292128	fea-beanck.nfa-saic_100k.finalfstout
+0.025811 0.239455	fea-beanck.nfa-shic_100k.finalfstout
+0.027313 0.261986	fea-beanck.nfa-slar_100k.finalfstout
+0.054548 0.190263	fea-beanck.nff-poe_100k.finalfstout
+0.026758 0.285470	fea-beanck.nfmfa-sc_100k.finalfstout
+0.031813 0.247027	fea-beanck.nfy_100k.finalfstout
+0.128195 0.278494	fea-beanck.nfy-slate-cgrav_100k.finalfstout
+0.042499 0.462807	fea-beanck.paj-clearck_100k.finalfstout
+0.033329 0.463880	fea-beanck.paj-sanbenito_100k.finalfstout
+0.023366 0.340506	fea-beanck.put-cold_100k.finalfstout
+0.026425 0.313493	fea-beanck.put-wildhorseck_100k.finalfstout
+0.054642 0.297766	fea-beanck.rub-lc-us_100k.finalfstout
+0.022973 0.303542	fea-beanck.rub-usph_100k.finalfstout
+0.050715 0.288411	fea-beanck.russ-mwsprngck_100k.finalfstout
+0.039624 0.511515	fea-beanck.salin-losburros_100k.finalfstout
+0.038270 0.521669	fea-beanck.sancarp-dutrack_100k.finalfstout
+0.044165 0.381296	fea-beanck.sfa-cami_100k.finalfstout
+0.034138 0.263674	fea-beanck.sfeel-cedar_100k.finalfstout
+0.054297 0.276409	fea-beanck.sfy-fallck_100k.finalfstout
+0.051853 0.270902	fea-beanck.sfy-loga_100k.finalfstout
+0.051445 0.264968	fea-beanck.sfy-misc_100k.finalfstout
+0.008511 0.273780	fea-beanck.sfy-rockck_100k.finalfstout
+0.023244 0.252760	fea-beanck.sfy-shadyck_100k.finalfstout
+0.021198 0.277065	fea-beanck.sfy-springck_100k.finalfstout
+0.030564 0.279568	fea-beanck.smith-hurdygurdyck_100k.finalfstout
+0.033949 0.440092	fea-beanck.soquel-ebsc_100k.finalfstout
+0.041217 0.415222	fea-beanck.ssantiam_100k.finalfstout
+0.130393 0.252964	fea-beanck.trin-sftrinity_100k.finalfstout
+0.058213 0.249482	fea-beanck.trin-sftrinity-sandybar_100k.finalfstout
+0.046829 0.251049	fea-beanck.trin-tishtang_100k.finalfstout
+0.064799 0.439723	fea-beanck.tuo-clavey_100k.finalfstout
+0.059231 0.258812	fea-beanck.vandz-dinsmore_100k.finalfstout
+0.156945 0.279600	fea-beanck.vandz-rootcreek_100k.finalfstout
+0.077376 0.284174	fea-beanck.vandz-shanty_100k.finalfstout
+0.023319 0.010786	fea-spanish-bgulch.fea-spanishck_100k.finalfstout
+0.059610 0.020547	fea-spanish-bgulch.fea-spanish-silverck_100k.finalfstout
+0.062045 0.256073	fea-spanish-bgulch.mad-mapleck_100k.finalfstout
+0.026295 0.244889	fea-spanish-bgulch.mad-redwoodck_100k.finalfstout
+0.028781 0.236804	fea-spanish-bgulch.mad-redwoodck2_100k.finalfstout
+0.049562 0.251975	fea-spanish-bgulch.mat-bearriver_100k.finalfstout
+0.071772 0.263877	fea-spanish-bgulch.mat-lowermattole_100k.finalfstout
+0.074824 0.291310	fea-spanish-bgulch.mfa-amec_100k.finalfstout
+0.067920 0.278842	fea-spanish-bgulch.mfa-gasc_100k.finalfstout
+0.062753 0.285178	fea-spanish-bgulch.mfa-todc_100k.finalfstout
+0.046140 0.249741	fea-spanish-bgulch.mfy-oregck_100k.finalfstout
+0.065596 0.239212	fea-spanish-bgulch.mfy-us-oh_100k.finalfstout
+0.049203 0.236930	fea-spanish-bgulch.nfa_100k.finalfstout
+0.067309 0.248444	fea-spanish-bgulch.nfa-bunc_100k.finalfstout
+0.064462 0.284573	fea-spanish-bgulch.nfa-euchds_100k.finalfstout
+0.069901 0.291035	fea-spanish-bgulch.nfa-euchus_100k.finalfstout
+0.083650 0.251174	fea-spanish-bgulch.nfa-indc_100k.finalfstout
+0.075547 0.259141	fea-spanish-bgulch.nfa-pond_100k.finalfstout
+0.046171 0.242629	fea-spanish-bgulch.nfa-robr_100k.finalfstout
+0.061832 0.295827	fea-spanish-bgulch.nfa-saic_100k.finalfstout
+0.064701 0.228786	fea-spanish-bgulch.nfa-shic_100k.finalfstout
+0.068953 0.258044	fea-spanish-bgulch.nfa-slar_100k.finalfstout
+0.072610 0.187040	fea-spanish-bgulch.nff-poe_100k.finalfstout
+0.071265 0.281178	fea-spanish-bgulch.nfmfa-sc_100k.finalfstout
+0.054679 0.243616	fea-spanish-bgulch.nfy_100k.finalfstout
+0.126253 0.282270	fea-spanish-bgulch.nfy-slate-cgrav_100k.finalfstout
+0.070112 0.475262	fea-spanish-bgulch.paj-clearck_100k.finalfstout
+0.082321 0.471179	fea-spanish-bgulch.paj-sanbenito_100k.finalfstout
+0.081473 0.349814	fea-spanish-bgulch.put-cold_100k.finalfstout
+0.079362 0.313513	fea-spanish-bgulch.put-wildhorseck_100k.finalfstout
+0.062075 0.298108	fea-spanish-bgulch.rub-lc-us_100k.finalfstout
+0.083028 0.303166	fea-spanish-bgulch.rub-usph_100k.finalfstout
+0.034249 0.270553	fea-spanish-bgulch.russ-mwsprngck_100k.finalfstout
+0.090367 0.519749	fea-spanish-bgulch.salin-losburros_100k.finalfstout
+0.081929 0.529424	fea-spanish-bgulch.sancarp-dutrack_100k.finalfstout
+0.071734 0.383667	fea-spanish-bgulch.sfa-cami_100k.finalfstout
+0.056489 0.252141	fea-spanish-bgulch.sfeel-cedar_100k.finalfstout
+0.072553 0.280632	fea-spanish-bgulch.sfy-fallck_100k.finalfstout
+0.073068 0.273094	fea-spanish-bgulch.sfy-loga_100k.finalfstout
+0.065728 0.265156	fea-spanish-bgulch.sfy-misc_100k.finalfstout
+0.044907 0.278848	fea-spanish-bgulch.sfy-rockck_100k.finalfstout
+0.076681 0.247066	fea-spanish-bgulch.sfy-shadyck_100k.finalfstout
+0.056458 0.283310	fea-spanish-bgulch.sfy-springck_100k.finalfstout
+0.021993 0.266019	fea-spanish-bgulch.smith-hurdygurdyck_100k.finalfstout
+0.084795 0.443022	fea-spanish-bgulch.soquel-ebsc_100k.finalfstout
+0.063762 0.436173	fea-spanish-bgulch.ssantiam_100k.finalfstout
+0.073583 0.233915	fea-spanish-bgulch.trin-sftrinity_100k.finalfstout
+0.048567 0.238510	fea-spanish-bgulch.trin-sftrinity-sandybar_100k.finalfstout
+0.051712 0.237302	fea-spanish-bgulch.trin-tishtang_100k.finalfstout
+0.085594 0.457938	fea-spanish-bgulch.tuo-clavey_100k.finalfstout
+0.047891 0.242130	fea-spanish-bgulch.vandz-dinsmore_100k.finalfstout
+0.109287 0.273411	fea-spanish-bgulch.vandz-rootcreek_100k.finalfstout
+0.086462 0.278601	fea-spanish-bgulch.vandz-shanty_100k.finalfstout
+0.044260 0.263914	fea-spanishck.mad-mapleck_100k.finalfstout
+0.034871 0.257143	fea-spanishck.mad-redwoodck_100k.finalfstout
+0.034649 0.250136	fea-spanishck.mad-redwoodck2_100k.finalfstout
+0.060650 0.262543	fea-spanishck.mat-bearriver_100k.finalfstout
+0.086039 0.269234	fea-spanishck.mat-lowermattole_100k.finalfstout
+0.100657 0.297845	fea-spanishck.mfa-amec_100k.finalfstout
+0.057859 0.284234	fea-spanishck.mfa-gasc_100k.finalfstout
+0.040975 0.290304	fea-spanishck.mfa-todc_100k.finalfstout
+0.037983 0.251700	fea-spanishck.mfy-oregck_100k.finalfstout
+0.025955 0.243116	fea-spanishck.mfy-us-oh_100k.finalfstout
+0.026626 0.244598	fea-spanishck.nfa_100k.finalfstout
+0.027887 0.253881	fea-spanishck.nfa-bunc_100k.finalfstout
+0.035196 0.276355	fea-spanishck.nfa-euchds_100k.finalfstout
+0.058112 0.280916	fea-spanishck.nfa-euchus_100k.finalfstout
+0.024784 0.251486	fea-spanishck.nfa-indc_100k.finalfstout
+0.090770 0.257288	fea-spanishck.nfa-pond_100k.finalfstout
+0.040842 0.249645	fea-spanishck.nfa-robr_100k.finalfstout
+0.020132 0.285990	fea-spanishck.nfa-saic_100k.finalfstout
+0.026789 0.236102	fea-spanishck.nfa-shic_100k.finalfstout
+0.031871 0.257946	fea-spanishck.nfa-slar_100k.finalfstout
+0.078355 0.189273	fea-spanishck.nff-poe_100k.finalfstout
+0.027398 0.284775	fea-spanishck.nfmfa-sc_100k.finalfstout
+0.035975 0.245588	fea-spanishck.nfy_100k.finalfstout
+0.175673 0.274923	fea-spanishck.nfy-slate-cgrav_100k.finalfstout
+0.058444 0.456577	fea-spanishck.paj-clearck_100k.finalfstout
+0.036378 0.459818	fea-spanishck.paj-sanbenito_100k.finalfstout
+0.025455 0.335951	fea-spanishck.put-cold_100k.finalfstout
+0.028603 0.310090	fea-spanishck.put-wildhorseck_100k.finalfstout
+0.066163 0.294510	fea-spanishck.rub-lc-us_100k.finalfstout
+0.024729 0.300943	fea-spanishck.rub-usph_100k.finalfstout
+0.053976 0.284767	fea-spanishck.russ-mwsprngck_100k.finalfstout
+0.042700 0.507723	fea-spanishck.salin-losburros_100k.finalfstout
+0.040106 0.517529	fea-spanishck.sancarp-dutrack_100k.finalfstout
+0.056519 0.378677	fea-spanishck.sfa-cami_100k.finalfstout
+0.037289 0.259815	fea-spanishck.sfeel-cedar_100k.finalfstout
+0.071499 0.271109	fea-spanishck.sfy-fallck_100k.finalfstout
+0.074063 0.267208	fea-spanishck.sfy-loga_100k.finalfstout
+0.068549 0.263074	fea-spanishck.sfy-misc_100k.finalfstout
+0.015869 0.267157	fea-spanishck.sfy-rockck_100k.finalfstout
+0.024909 0.249259	fea-spanishck.sfy-shadyck_100k.finalfstout
+0.035532 0.271409	fea-spanishck.sfy-springck_100k.finalfstout
+0.030597 0.275897	fea-spanishck.smith-hurdygurdyck_100k.finalfstout
+0.036819 0.436243	fea-spanishck.soquel-ebsc_100k.finalfstout
+0.050451 0.410017	fea-spanishck.ssantiam_100k.finalfstout
+0.145994 0.249373	fea-spanishck.trin-sftrinity_100k.finalfstout
+0.066605 0.246193	fea-spanishck.trin-sftrinity-sandybar_100k.finalfstout
+0.053726 0.247295	fea-spanishck.trin-tishtang_100k.finalfstout
+0.086430 0.434490	fea-spanishck.tuo-clavey_100k.finalfstout
+0.067180 0.255662	fea-spanishck.vandz-dinsmore_100k.finalfstout
+0.188425 0.276270	fea-spanishck.vandz-rootcreek_100k.finalfstout
+0.104139 0.278625	fea-spanishck.vandz-shanty_100k.finalfstout
+0.051579 0.012342	fea-spanish-silverck.fea-spanishck_100k.finalfstout
+0.098378 0.242094	fea-spanish-silverck.mad-mapleck_100k.finalfstout
+0.038701 0.236467	fea-spanish-silverck.mad-redwoodck_100k.finalfstout
+0.042164 0.227034	fea-spanish-silverck.mad-redwoodck2_100k.finalfstout
+0.064736 0.238611	fea-spanish-silverck.mat-bearriver_100k.finalfstout
+0.084307 0.243932	fea-spanish-silverck.mat-lowermattole_100k.finalfstout
+0.082895 0.277812	fea-spanish-silverck.mfa-amec_100k.finalfstout
+0.097021 0.266390	fea-spanish-silverck.mfa-gasc_100k.finalfstout
+0.102944 0.276601	fea-spanish-silverck.mfa-todc_100k.finalfstout
+0.076318 0.243885	fea-spanish-silverck.mfy-oregck_100k.finalfstout
+0.120052 0.231019	fea-spanish-silverck.mfy-us-oh_100k.finalfstout
+0.093968 0.233426	fea-spanish-silverck.nfa_100k.finalfstout
+0.126730 0.246293	fea-spanish-silverck.nfa-bunc_100k.finalfstout
+0.102385 0.271301	fea-spanish-silverck.nfa-euchds_100k.finalfstout
+0.092495 0.275834	fea-spanish-silverck.nfa-euchus_100k.finalfstout
+0.154090 0.243940	fea-spanish-silverck.nfa-indc_100k.finalfstout
+0.086682 0.247366	fea-spanish-silverck.nfa-pond_100k.finalfstout
+0.072415 0.235565	fea-spanish-silverck.nfa-robr_100k.finalfstout
+0.108574 0.281504	fea-spanish-silverck.nfa-saic_100k.finalfstout
+0.119863 0.222644	fea-spanish-silverck.nfa-shic_100k.finalfstout
+0.118900 0.249089	fea-spanish-silverck.nfa-slar_100k.finalfstout
+0.080483 0.172157	fea-spanish-silverck.nff-poe_100k.finalfstout
+0.138170 0.280099	fea-spanish-silverck.nfmfa-sc_100k.finalfstout
+0.093793 0.239867	fea-spanish-silverck.nfy_100k.finalfstout
+0.109144 0.259220	fea-spanish-silverck.nfy-slate-cgrav_100k.finalfstout
+0.092517 0.450827	fea-spanish-silverck.paj-clearck_100k.finalfstout
+0.140568 0.457741	fea-spanish-silverck.paj-sanbenito_100k.finalfstout
+0.145239 0.339327	fea-spanish-silverck.put-cold_100k.finalfstout
+0.140320 0.303410	fea-spanish-silverck.put-wildhorseck_100k.finalfstout
+0.084102 0.292120	fea-spanish-silverck.rub-lc-us_100k.finalfstout
+0.153521 0.297859	fea-spanish-silverck.rub-usph_100k.finalfstout
+0.037038 0.257181	fea-spanish-silverck.russ-mwsprngck_100k.finalfstout
+0.150569 0.506899	fea-spanish-silverck.salin-losburros_100k.finalfstout
+0.140572 0.519681	fea-spanish-silverck.sancarp-dutrack_100k.finalfstout
+0.103900 0.369946	fea-spanish-silverck.sfa-cami_100k.finalfstout
+0.094763 0.240860	fea-spanish-silverck.sfeel-cedar_100k.finalfstout
+0.090463 0.268388	fea-spanish-silverck.sfy-fallck_100k.finalfstout
+0.089467 0.259645	fea-spanish-silverck.sfy-loga_100k.finalfstout
+0.085184 0.258545	fea-spanish-silverck.sfy-misc_100k.finalfstout
+0.077563 0.261872	fea-spanish-silverck.sfy-rockck_100k.finalfstout
+0.143603 0.242227	fea-spanish-silverck.sfy-shadyck_100k.finalfstout
+0.081685 0.265155	fea-spanish-silverck.sfy-springck_100k.finalfstout
+0.029770 0.253908	fea-spanish-silverck.smith-hurdygurdyck_100k.finalfstout
+0.146796 0.430672	fea-spanish-silverck.soquel-ebsc_100k.finalfstout
+0.090507 0.424684	fea-spanish-silverck.ssantiam_100k.finalfstout
+0.058880 0.213534	fea-spanish-silverck.trin-sftrinity_100k.finalfstout
+0.058999 0.225362	fea-spanish-silverck.trin-sftrinity-sandybar_100k.finalfstout
+0.072341 0.222629	fea-spanish-silverck.trin-tishtang_100k.finalfstout
+0.101642 0.440440	fea-spanish-silverck.tuo-clavey_100k.finalfstout
+0.056744 0.228317	fea-spanish-silverck.vandz-dinsmore_100k.finalfstout
+0.094292 0.254443	fea-spanish-silverck.vandz-rootcreek_100k.finalfstout
+0.090489 0.251383	fea-spanish-silverck.vandz-shanty_100k.finalfstout
+ala-arroyomocho.bear_100k.finalfstout	mad-mapleck.mad-redwoodck_100k.finalfstout
+ala-arroyomocho.bear-grhn_100k.finalfstout	mad-mapleck.mad-redwoodck2_100k.finalfstout
+ala-arroyomocho.bear-sth2_100k.finalfstout	mad-mapleck.mat-bearriver_100k.finalfstout
+ala-arroyomocho.bear-stha_100k.finalfstout	mad-mapleck.mat-lowermattole_100k.finalfstout
+ala-arroyomocho.bear-sthc_100k.finalfstout	mad-mapleck.mfa-amec_100k.finalfstout
+ala-arroyomocho.deer-clec_100k.finalfstout	mad-mapleck.mfa-gasc_100k.finalfstout
+ala-arroyomocho.eel_100k.finalfstout	mad-mapleck.mfa-todc_100k.finalfstout
+ala-arroyomocho.fea-beanck_100k.finalfstout	mad-mapleck.mfy-oregck_100k.finalfstout
+ala-arroyomocho.fea-spanish-bgulch_100k.finalfstout	mad-mapleck.mfy-us-oh_100k.finalfstout
+ala-arroyomocho.fea-spanishck_100k.finalfstout	mad-mapleck.nfa_100k.finalfstout
+ala-arroyomocho.fea-spanish-silverck_100k.finalfstout	mad-mapleck.nfa-bunc_100k.finalfstout
+ala-arroyomocho.mad-mapleck_100k.finalfstout	mad-mapleck.nfa-euchds_100k.finalfstout
+ala-arroyomocho.mad-redwoodck_100k.finalfstout	mad-mapleck.nfa-euchus_100k.finalfstout
+ala-arroyomocho.mad-redwoodck2_100k.finalfstout	mad-mapleck.nfa-indc_100k.finalfstout
+ala-arroyomocho.mat-bearriver_100k.finalfstout	mad-mapleck.nfa-pond_100k.finalfstout
+ala-arroyomocho.mat-lowermattole_100k.finalfstout	mad-mapleck.nfa-robr_100k.finalfstout
+ala-arroyomocho.mfa-amec_100k.finalfstout	mad-mapleck.nfa-saic_100k.finalfstout
+ala-arroyomocho.mfa-gasc_100k.finalfstout	mad-mapleck.nfa-shic_100k.finalfstout
+ala-arroyomocho.mfa-todc_100k.finalfstout	mad-mapleck.nfa-slar_100k.finalfstout
+ala-arroyomocho.mfy-oregck_100k.finalfstout	mad-mapleck.nff-poe_100k.finalfstout
+ala-arroyomocho.mfy-us-oh_100k.finalfstout	mad-mapleck.nfmfa-sc_100k.finalfstout
+ala-arroyomocho.nfa_100k.finalfstout	mad-mapleck.nfy_100k.finalfstout
+ala-arroyomocho.nfa-bunc_100k.finalfstout	mad-mapleck.nfy-slate-cgrav_100k.finalfstout
+ala-arroyomocho.nfa-euchds_100k.finalfstout	mad-mapleck.paj-clearck_100k.finalfstout
+ala-arroyomocho.nfa-euchus_100k.finalfstout	mad-mapleck.paj-sanbenito_100k.finalfstout
+ala-arroyomocho.nfa-indc_100k.finalfstout	mad-mapleck.put-cold_100k.finalfstout
+ala-arroyomocho.nfa-pond_100k.finalfstout	mad-mapleck.put-wildhorseck_100k.finalfstout
+ala-arroyomocho.nfa-robr_100k.finalfstout	mad-mapleck.rub-lc-us_100k.finalfstout
+ala-arroyomocho.nfa-saic_100k.finalfstout	mad-mapleck.rub-usph_100k.finalfstout
+ala-arroyomocho.nfa-shic_100k.finalfstout	mad-mapleck.russ-mwsprngck_100k.finalfstout
+ala-arroyomocho.nfa-slar_100k.finalfstout	mad-mapleck.salin-losburros_100k.finalfstout
+ala-arroyomocho.nff-poe_100k.finalfstout	mad-mapleck.sancarp-dutrack_100k.finalfstout
+ala-arroyomocho.nfmfa-sc_100k.finalfstout	mad-mapleck.sfa-cami_100k.finalfstout
+ala-arroyomocho.nfy_100k.finalfstout	mad-mapleck.sfeel-cedar_100k.finalfstout
+ala-arroyomocho.nfy-slate-cgrav_100k.finalfstout	mad-mapleck.sfy-fallck_100k.finalfstout
+ala-arroyomocho.paj-clearck_100k.finalfstout	mad-mapleck.sfy-loga_100k.finalfstout
+ala-arroyomocho.paj-sanbenito_100k.finalfstout	mad-mapleck.sfy-misc_100k.finalfstout
+ala-arroyomocho.put-cold_100k.finalfstout	mad-mapleck.sfy-rockck_100k.finalfstout
+ala-arroyomocho.put-wildhorseck_100k.finalfstout	mad-mapleck.sfy-shadyck_100k.finalfstout
+ala-arroyomocho.rub-lc-us_100k.finalfstout	mad-mapleck.sfy-springck_100k.finalfstout
+ala-arroyomocho.rub-usph_100k.finalfstout	mad-mapleck.smith-hurdygurdyck_100k.finalfstout
+ala-arroyomocho.russ-mwsprngck_100k.finalfstout	mad-mapleck.soquel-ebsc_100k.finalfstout
+ala-arroyomocho.salin-losburros_100k.finalfstout	mad-mapleck.ssantiam_100k.finalfstout
+ala-arroyomocho.sancarp-dutrack_100k.finalfstout	mad-mapleck.trin-sftrinity_100k.finalfstout
+ala-arroyomocho.sfa-cami_100k.finalfstout	mad-mapleck.trin-sftrinity-sandybar_100k.finalfstout
+ala-arroyomocho.sfeel-cedar_100k.finalfstout	mad-mapleck.trin-tishtang_100k.finalfstout
+ala-arroyomocho.sfy-fallck_100k.finalfstout	mad-mapleck.tuo-clavey_100k.finalfstout
+ala-arroyomocho.sfy-loga_100k.finalfstout	mad-mapleck.vandz-dinsmore_100k.finalfstout
+ala-arroyomocho.sfy-misc_100k.finalfstout	mad-mapleck.vandz-rootcreek_100k.finalfstout
+ala-arroyomocho.sfy-rockck_100k.finalfstout	mad-mapleck.vandz-shanty_100k.finalfstout
+ala-arroyomocho.sfy-shadyck_100k.finalfstout	mad-redwoodck2.mat-bearriver_100k.finalfstout
+ala-arroyomocho.sfy-springck_100k.finalfstout	mad-redwoodck2.mat-lowermattole_100k.finalfstout
+ala-arroyomocho.smith-hurdygurdyck_100k.finalfstout	mad-redwoodck2.mfa-amec_100k.finalfstout
+ala-arroyomocho.soquel-ebsc_100k.finalfstout	mad-redwoodck2.mfa-gasc_100k.finalfstout
+ala-arroyomocho.ssantiam_100k.finalfstout	mad-redwoodck2.mfa-todc_100k.finalfstout
+ala-arroyomocho.trin-sftrinity_100k.finalfstout	mad-redwoodck2.mfy-oregck_100k.finalfstout
+ala-arroyomocho.trin-sftrinity-sandybar_100k.finalfstout	mad-redwoodck2.mfy-us-oh_100k.finalfstout
+ala-arroyomocho.trin-tishtang_100k.finalfstout	mad-redwoodck2.nfa_100k.finalfstout
+ala-arroyomocho.tuo-clavey_100k.finalfstout	mad-redwoodck2.nfa-bunc_100k.finalfstout
+ala-arroyomocho.vandz-dinsmore_100k.finalfstout	mad-redwoodck2.nfa-euchds_100k.finalfstout
+ala-arroyomocho.vandz-rootcreek_100k.finalfstout	mad-redwoodck2.nfa-euchus_100k.finalfstout
+ala-arroyomocho.vandz-shanty_100k.finalfstout	mad-redwoodck2.nfa-indc_100k.finalfstout
+bear.bear-grhn_100k.finalfstout	mad-redwoodck2.nfa-pond_100k.finalfstout
+bear.bear-sth2_100k.finalfstout	mad-redwoodck2.nfa-robr_100k.finalfstout
+bear.bear-stha_100k.finalfstout	mad-redwoodck2.nfa-saic_100k.finalfstout
+bear.bear-sthc_100k.finalfstout	mad-redwoodck2.nfa-shic_100k.finalfstout
+bear.deer-clec_100k.finalfstout	mad-redwoodck2.nfa-slar_100k.finalfstout
+bear.eel_100k.finalfstout	mad-redwoodck2.nff-poe_100k.finalfstout
+bear.fea-beanck_100k.finalfstout	mad-redwoodck2.nfmfa-sc_100k.finalfstout
+bear.fea-spanish-bgulch_100k.finalfstout	mad-redwoodck2.nfy_100k.finalfstout
+bear.fea-spanishck_100k.finalfstout	mad-redwoodck2.nfy-slate-cgrav_100k.finalfstout
+bear.fea-spanish-silverck_100k.finalfstout	mad-redwoodck2.paj-clearck_100k.finalfstout
+bear-grhn.bear-sth2_100k.finalfstout	mad-redwoodck2.paj-sanbenito_100k.finalfstout
+bear-grhn.bear-stha_100k.finalfstout	mad-redwoodck2.put-cold_100k.finalfstout
+bear-grhn.bear-sthc_100k.finalfstout	mad-redwoodck2.put-wildhorseck_100k.finalfstout
+bear-grhn.deer-clec_100k.finalfstout	mad-redwoodck2.rub-lc-us_100k.finalfstout
+bear-grhn.eel_100k.finalfstout	mad-redwoodck2.rub-usph_100k.finalfstout
+bear-grhn.fea-beanck_100k.finalfstout	mad-redwoodck2.russ-mwsprngck_100k.finalfstout
+bear-grhn.fea-spanish-bgulch_100k.finalfstout	mad-redwoodck2.salin-losburros_100k.finalfstout
+bear-grhn.fea-spanishck_100k.finalfstout	mad-redwoodck2.sancarp-dutrack_100k.finalfstout
+bear-grhn.fea-spanish-silverck_100k.finalfstout	mad-redwoodck2.sfa-cami_100k.finalfstout
+bear-grhn.mad-mapleck_100k.finalfstout	mad-redwoodck2.sfeel-cedar_100k.finalfstout
+bear-grhn.mad-redwoodck_100k.finalfstout	mad-redwoodck2.sfy-fallck_100k.finalfstout
+bear-grhn.mad-redwoodck2_100k.finalfstout	mad-redwoodck2.sfy-loga_100k.finalfstout
+bear-grhn.mat-bearriver_100k.finalfstout	mad-redwoodck2.sfy-misc_100k.finalfstout
+bear-grhn.mat-lowermattole_100k.finalfstout	mad-redwoodck2.sfy-rockck_100k.finalfstout
+bear-grhn.mfa-amec_100k.finalfstout	mad-redwoodck2.sfy-shadyck_100k.finalfstout
+bear-grhn.mfa-gasc_100k.finalfstout	mad-redwoodck2.sfy-springck_100k.finalfstout
+bear-grhn.mfa-todc_100k.finalfstout	mad-redwoodck2.smith-hurdygurdyck_100k.finalfstout
+bear-grhn.mfy-oregck_100k.finalfstout	mad-redwoodck2.soquel-ebsc_100k.finalfstout
+bear-grhn.mfy-us-oh_100k.finalfstout	mad-redwoodck2.ssantiam_100k.finalfstout
+bear-grhn.nfa_100k.finalfstout	mad-redwoodck2.trin-sftrinity_100k.finalfstout
+bear-grhn.nfa-bunc_100k.finalfstout	mad-redwoodck2.trin-sftrinity-sandybar_100k.finalfstout
+bear-grhn.nfa-euchds_100k.finalfstout	mad-redwoodck2.trin-tishtang_100k.finalfstout
+bear-grhn.nfa-euchus_100k.finalfstout	mad-redwoodck2.tuo-clavey_100k.finalfstout
+bear-grhn.nfa-indc_100k.finalfstout	mad-redwoodck2.vandz-dinsmore_100k.finalfstout
+bear-grhn.nfa-pond_100k.finalfstout	mad-redwoodck2.vandz-rootcreek_100k.finalfstout
+bear-grhn.nfa-robr_100k.finalfstout	mad-redwoodck2.vandz-shanty_100k.finalfstout
+bear-grhn.nfa-saic_100k.finalfstout	mad-redwoodck.mad-redwoodck2_100k.finalfstout
+bear-grhn.nfa-shic_100k.finalfstout	mad-redwoodck.mat-bearriver_100k.finalfstout
+bear-grhn.nfa-slar_100k.finalfstout	mad-redwoodck.mat-lowermattole_100k.finalfstout
+bear-grhn.nff-poe_100k.finalfstout	mad-redwoodck.mfa-amec_100k.finalfstout
+bear-grhn.nfmfa-sc_100k.finalfstout	mad-redwoodck.mfa-gasc_100k.finalfstout
+bear-grhn.nfy_100k.finalfstout	mad-redwoodck.mfa-todc_100k.finalfstout
+bear-grhn.nfy-slate-cgrav_100k.finalfstout	mad-redwoodck.mfy-oregck_100k.finalfstout
+bear-grhn.paj-clearck_100k.finalfstout	mad-redwoodck.mfy-us-oh_100k.finalfstout
+bear-grhn.paj-sanbenito_100k.finalfstout	mad-redwoodck.nfa_100k.finalfstout
+bear-grhn.put-cold_100k.finalfstout	mad-redwoodck.nfa-bunc_100k.finalfstout
+bear-grhn.put-wildhorseck_100k.finalfstout	mad-redwoodck.nfa-euchds_100k.finalfstout
+bear-grhn.rub-lc-us_100k.finalfstout	mad-redwoodck.nfa-euchus_100k.finalfstout
+bear-grhn.rub-usph_100k.finalfstout	mad-redwoodck.nfa-indc_100k.finalfstout
+bear-grhn.russ-mwsprngck_100k.finalfstout	mad-redwoodck.nfa-pond_100k.finalfstout
+bear-grhn.salin-losburros_100k.finalfstout	mad-redwoodck.nfa-robr_100k.finalfstout
+bear-grhn.sancarp-dutrack_100k.finalfstout	mad-redwoodck.nfa-saic_100k.finalfstout
+bear-grhn.sfa-cami_100k.finalfstout	mad-redwoodck.nfa-shic_100k.finalfstout
+bear-grhn.sfeel-cedar_100k.finalfstout	mad-redwoodck.nfa-slar_100k.finalfstout
+bear-grhn.sfy-fallck_100k.finalfstout	mad-redwoodck.nff-poe_100k.finalfstout
+bear-grhn.sfy-loga_100k.finalfstout	mad-redwoodck.nfmfa-sc_100k.finalfstout
+bear-grhn.sfy-misc_100k.finalfstout	mad-redwoodck.nfy_100k.finalfstout
+bear-grhn.sfy-rockck_100k.finalfstout	mad-redwoodck.nfy-slate-cgrav_100k.finalfstout
+bear-grhn.sfy-shadyck_100k.finalfstout	mad-redwoodck.paj-clearck_100k.finalfstout
+bear-grhn.sfy-springck_100k.finalfstout	mad-redwoodck.paj-sanbenito_100k.finalfstout
+bear-grhn.smith-hurdygurdyck_100k.finalfstout	mad-redwoodck.put-cold_100k.finalfstout
+bear-grhn.soquel-ebsc_100k.finalfstout	mad-redwoodck.put-wildhorseck_100k.finalfstout
+bear-grhn.ssantiam_100k.finalfstout	mad-redwoodck.rub-lc-us_100k.finalfstout
+bear-grhn.trin-sftrinity_100k.finalfstout	mad-redwoodck.rub-usph_100k.finalfstout
+bear-grhn.trin-sftrinity-sandybar_100k.finalfstout	mad-redwoodck.russ-mwsprngck_100k.finalfstout
+bear-grhn.trin-tishtang_100k.finalfstout	mad-redwoodck.salin-losburros_100k.finalfstout
+bear-grhn.tuo-clavey_100k.finalfstout	mad-redwoodck.sancarp-dutrack_100k.finalfstout
+bear-grhn.vandz-dinsmore_100k.finalfstout	mad-redwoodck.sfa-cami_100k.finalfstout
+bear-grhn.vandz-rootcreek_100k.finalfstout	mad-redwoodck.sfeel-cedar_100k.finalfstout
+bear-grhn.vandz-shanty_100k.finalfstout	mad-redwoodck.sfy-fallck_100k.finalfstout
+bear.mad-mapleck_100k.finalfstout	mad-redwoodck.sfy-loga_100k.finalfstout
+bear.mad-redwoodck_100k.finalfstout	mad-redwoodck.sfy-misc_100k.finalfstout
+bear.mad-redwoodck2_100k.finalfstout	mad-redwoodck.sfy-rockck_100k.finalfstout
+bear.mat-bearriver_100k.finalfstout	mad-redwoodck.sfy-shadyck_100k.finalfstout
+bear.mat-lowermattole_100k.finalfstout	mad-redwoodck.sfy-springck_100k.finalfstout
+bear.mfa-amec_100k.finalfstout	mad-redwoodck.smith-hurdygurdyck_100k.finalfstout
+bear.mfa-gasc_100k.finalfstout	mad-redwoodck.soquel-ebsc_100k.finalfstout
+bear.mfa-todc_100k.finalfstout	mad-redwoodck.ssantiam_100k.finalfstout
+bear.mfy-oregck_100k.finalfstout	mad-redwoodck.trin-sftrinity_100k.finalfstout
+bear.mfy-us-oh_100k.finalfstout	mad-redwoodck.trin-sftrinity-sandybar_100k.finalfstout
+bear.nfa_100k.finalfstout	mad-redwoodck.trin-tishtang_100k.finalfstout
+bear.nfa-bunc_100k.finalfstout	mad-redwoodck.tuo-clavey_100k.finalfstout
+bear.nfa-euchds_100k.finalfstout	mad-redwoodck.vandz-dinsmore_100k.finalfstout
+bear.nfa-euchus_100k.finalfstout	mad-redwoodck.vandz-rootcreek_100k.finalfstout
+bear.nfa-indc_100k.finalfstout	mad-redwoodck.vandz-shanty_100k.finalfstout
+bear.nfa-pond_100k.finalfstout	mat-bearriver.mat-lowermattole_100k.finalfstout
+bear.nfa-robr_100k.finalfstout	mat-bearriver.mfa-amec_100k.finalfstout
+bear.nfa-saic_100k.finalfstout	mat-bearriver.mfa-gasc_100k.finalfstout
+bear.nfa-shic_100k.finalfstout	mat-bearriver.mfa-todc_100k.finalfstout
+bear.nfa-slar_100k.finalfstout	mat-bearriver.mfy-oregck_100k.finalfstout
+bear.nff-poe_100k.finalfstout	mat-bearriver.mfy-us-oh_100k.finalfstout
+bear.nfmfa-sc_100k.finalfstout	mat-bearriver.nfa_100k.finalfstout
+bear.nfy_100k.finalfstout	mat-bearriver.nfa-bunc_100k.finalfstout
+bear.nfy-slate-cgrav_100k.finalfstout	mat-bearriver.nfa-euchds_100k.finalfstout
+bear.paj-clearck_100k.finalfstout	mat-bearriver.nfa-euchus_100k.finalfstout
+bear.paj-sanbenito_100k.finalfstout	mat-bearriver.nfa-indc_100k.finalfstout
+bear.put-cold_100k.finalfstout	mat-bearriver.nfa-pond_100k.finalfstout
+bear.put-wildhorseck_100k.finalfstout	mat-bearriver.nfa-robr_100k.finalfstout
+bear.rub-lc-us_100k.finalfstout	mat-bearriver.nfa-saic_100k.finalfstout
+bear.rub-usph_100k.finalfstout	mat-bearriver.nfa-shic_100k.finalfstout
+bear.russ-mwsprngck_100k.finalfstout	mat-bearriver.nfa-slar_100k.finalfstout
+bear.salin-losburros_100k.finalfstout	mat-bearriver.nff-poe_100k.finalfstout
+bear.sancarp-dutrack_100k.finalfstout	mat-bearriver.nfmfa-sc_100k.finalfstout
+bear.sfa-cami_100k.finalfstout	mat-bearriver.nfy_100k.finalfstout
+bear.sfeel-cedar_100k.finalfstout	mat-bearriver.nfy-slate-cgrav_100k.finalfstout
+bear.sfy-fallck_100k.finalfstout	mat-bearriver.paj-clearck_100k.finalfstout
+bear.sfy-loga_100k.finalfstout	mat-bearriver.paj-sanbenito_100k.finalfstout
+bear.sfy-misc_100k.finalfstout	mat-bearriver.put-cold_100k.finalfstout
+bear.sfy-rockck_100k.finalfstout	mat-bearriver.put-wildhorseck_100k.finalfstout
+bear.sfy-shadyck_100k.finalfstout	mat-bearriver.rub-lc-us_100k.finalfstout
+bear.sfy-springck_100k.finalfstout	mat-bearriver.rub-usph_100k.finalfstout
+bear.smith-hurdygurdyck_100k.finalfstout	mat-bearriver.russ-mwsprngck_100k.finalfstout
+bear.soquel-ebsc_100k.finalfstout	mat-bearriver.salin-losburros_100k.finalfstout
+bear.ssantiam_100k.finalfstout	mat-bearriver.sancarp-dutrack_100k.finalfstout
+bear-sth2.bear-stha_100k.finalfstout	mat-bearriver.sfa-cami_100k.finalfstout
+bear-sth2.bear-sthc_100k.finalfstout	mat-bearriver.sfeel-cedar_100k.finalfstout
+bear-sth2.deer-clec_100k.finalfstout	mat-bearriver.sfy-fallck_100k.finalfstout
+bear-sth2.eel_100k.finalfstout	mat-bearriver.sfy-loga_100k.finalfstout
+bear-sth2.fea-beanck_100k.finalfstout	mat-bearriver.sfy-misc_100k.finalfstout
+bear-sth2.fea-spanish-bgulch_100k.finalfstout	mat-bearriver.sfy-rockck_100k.finalfstout
+bear-sth2.fea-spanishck_100k.finalfstout	mat-bearriver.sfy-shadyck_100k.finalfstout
+bear-sth2.fea-spanish-silverck_100k.finalfstout	mat-bearriver.sfy-springck_100k.finalfstout
+bear-sth2.mad-mapleck_100k.finalfstout	mat-bearriver.smith-hurdygurdyck_100k.finalfstout
+bear-sth2.mad-redwoodck_100k.finalfstout	mat-bearriver.soquel-ebsc_100k.finalfstout
+bear-sth2.mad-redwoodck2_100k.finalfstout	mat-bearriver.ssantiam_100k.finalfstout
+bear-sth2.mat-bearriver_100k.finalfstout	mat-bearriver.trin-sftrinity_100k.finalfstout
+bear-sth2.mat-lowermattole_100k.finalfstout	mat-bearriver.trin-sftrinity-sandybar_100k.finalfstout
+bear-sth2.mfa-amec_100k.finalfstout	mat-bearriver.trin-tishtang_100k.finalfstout
+bear-sth2.mfa-gasc_100k.finalfstout	mat-bearriver.tuo-clavey_100k.finalfstout
+bear-sth2.mfa-todc_100k.finalfstout	mat-bearriver.vandz-dinsmore_100k.finalfstout
+bear-sth2.mfy-oregck_100k.finalfstout	mat-bearriver.vandz-rootcreek_100k.finalfstout
+bear-sth2.mfy-us-oh_100k.finalfstout	mat-bearriver.vandz-shanty_100k.finalfstout
+bear-sth2.nfa_100k.finalfstout	mat-lowermattole.mfa-amec_100k.finalfstout
+bear-sth2.nfa-bunc_100k.finalfstout	mat-lowermattole.mfa-gasc_100k.finalfstout
+bear-sth2.nfa-euchds_100k.finalfstout	mat-lowermattole.mfa-todc_100k.finalfstout
+bear-sth2.nfa-euchus_100k.finalfstout	mat-lowermattole.mfy-oregck_100k.finalfstout
+bear-sth2.nfa-indc_100k.finalfstout	mat-lowermattole.mfy-us-oh_100k.finalfstout
+bear-sth2.nfa-pond_100k.finalfstout	mat-lowermattole.nfa_100k.finalfstout
+bear-sth2.nfa-robr_100k.finalfstout	mat-lowermattole.nfa-bunc_100k.finalfstout
+bear-sth2.nfa-saic_100k.finalfstout	mat-lowermattole.nfa-euchds_100k.finalfstout
+bear-sth2.nfa-shic_100k.finalfstout	mat-lowermattole.nfa-euchus_100k.finalfstout
+bear-sth2.nfa-slar_100k.finalfstout	mat-lowermattole.nfa-indc_100k.finalfstout
+bear-sth2.nff-poe_100k.finalfstout	mat-lowermattole.nfa-pond_100k.finalfstout
+bear-sth2.nfmfa-sc_100k.finalfstout	mat-lowermattole.nfa-robr_100k.finalfstout
+bear-sth2.nfy_100k.finalfstout	mat-lowermattole.nfa-saic_100k.finalfstout
+bear-sth2.nfy-slate-cgrav_100k.finalfstout	mat-lowermattole.nfa-shic_100k.finalfstout
+bear-sth2.paj-clearck_100k.finalfstout	mat-lowermattole.nfa-slar_100k.finalfstout
+bear-sth2.paj-sanbenito_100k.finalfstout	mat-lowermattole.nff-poe_100k.finalfstout
+bear-sth2.put-cold_100k.finalfstout	mat-lowermattole.nfmfa-sc_100k.finalfstout
+bear-sth2.put-wildhorseck_100k.finalfstout	mat-lowermattole.nfy_100k.finalfstout
+bear-sth2.rub-lc-us_100k.finalfstout	mat-lowermattole.nfy-slate-cgrav_100k.finalfstout
+bear-sth2.rub-usph_100k.finalfstout	mat-lowermattole.paj-clearck_100k.finalfstout
+bear-sth2.russ-mwsprngck_100k.finalfstout	mat-lowermattole.paj-sanbenito_100k.finalfstout
+bear-sth2.salin-losburros_100k.finalfstout	mat-lowermattole.put-cold_100k.finalfstout
+bear-sth2.sancarp-dutrack_100k.finalfstout	mat-lowermattole.put-wildhorseck_100k.finalfstout
+bear-sth2.sfa-cami_100k.finalfstout	mat-lowermattole.rub-lc-us_100k.finalfstout
+bear-sth2.sfeel-cedar_100k.finalfstout	mat-lowermattole.rub-usph_100k.finalfstout
+bear-sth2.sfy-fallck_100k.finalfstout	mat-lowermattole.russ-mwsprngck_100k.finalfstout
+bear-sth2.sfy-loga_100k.finalfstout	mat-lowermattole.salin-losburros_100k.finalfstout
+bear-sth2.sfy-misc_100k.finalfstout	mat-lowermattole.sancarp-dutrack_100k.finalfstout
+bear-sth2.sfy-rockck_100k.finalfstout	mat-lowermattole.sfa-cami_100k.finalfstout
+bear-sth2.sfy-shadyck_100k.finalfstout	mat-lowermattole.sfeel-cedar_100k.finalfstout
+bear-sth2.sfy-springck_100k.finalfstout	mat-lowermattole.sfy-fallck_100k.finalfstout
+bear-sth2.smith-hurdygurdyck_100k.finalfstout	mat-lowermattole.sfy-loga_100k.finalfstout
+bear-sth2.soquel-ebsc_100k.finalfstout	mat-lowermattole.sfy-misc_100k.finalfstout
+bear-sth2.ssantiam_100k.finalfstout	mat-lowermattole.sfy-rockck_100k.finalfstout
+bear-sth2.trin-sftrinity_100k.finalfstout	mat-lowermattole.sfy-shadyck_100k.finalfstout
+bear-sth2.trin-sftrinity-sandybar_100k.finalfstout	mat-lowermattole.sfy-springck_100k.finalfstout
+bear-sth2.trin-tishtang_100k.finalfstout	mat-lowermattole.smith-hurdygurdyck_100k.finalfstout
+bear-sth2.tuo-clavey_100k.finalfstout	mat-lowermattole.soquel-ebsc_100k.finalfstout
+bear-sth2.vandz-dinsmore_100k.finalfstout	mat-lowermattole.ssantiam_100k.finalfstout
+bear-sth2.vandz-rootcreek_100k.finalfstout	mat-lowermattole.trin-sftrinity_100k.finalfstout
+bear-sth2.vandz-shanty_100k.finalfstout	mat-lowermattole.trin-sftrinity-sandybar_100k.finalfstout
+bear-stha.bear-sthc_100k.finalfstout	mat-lowermattole.trin-tishtang_100k.finalfstout
+bear-stha.deer-clec_100k.finalfstout	mat-lowermattole.tuo-clavey_100k.finalfstout
+bear-stha.eel_100k.finalfstout	mat-lowermattole.vandz-dinsmore_100k.finalfstout
+bear-stha.fea-beanck_100k.finalfstout	mat-lowermattole.vandz-rootcreek_100k.finalfstout
+bear-stha.fea-spanish-bgulch_100k.finalfstout	mat-lowermattole.vandz-shanty_100k.finalfstout
+bear-stha.fea-spanishck_100k.finalfstout	mfa-amec.mfa-gasc_100k.finalfstout
+bear-stha.fea-spanish-silverck_100k.finalfstout	mfa-amec.mfa-todc_100k.finalfstout
+bear-stha.mad-mapleck_100k.finalfstout	mfa-amec.mfy-oregck_100k.finalfstout
+bear-stha.mad-redwoodck_100k.finalfstout	mfa-amec.mfy-us-oh_100k.finalfstout
+bear-stha.mad-redwoodck2_100k.finalfstout	mfa-amec.nfa_100k.finalfstout
+bear-stha.mat-bearriver_100k.finalfstout	mfa-amec.nfa-bunc_100k.finalfstout
+bear-stha.mat-lowermattole_100k.finalfstout	mfa-amec.nfa-euchds_100k.finalfstout
+bear-stha.mfa-amec_100k.finalfstout	mfa-amec.nfa-euchus_100k.finalfstout
+bear-stha.mfa-gasc_100k.finalfstout	mfa-amec.nfa-indc_100k.finalfstout
+bear-stha.mfa-todc_100k.finalfstout	mfa-amec.nfa-pond_100k.finalfstout
+bear-stha.mfy-oregck_100k.finalfstout	mfa-amec.nfa-robr_100k.finalfstout
+bear-stha.mfy-us-oh_100k.finalfstout	mfa-amec.nfa-saic_100k.finalfstout
+bear-stha.nfa_100k.finalfstout	mfa-amec.nfa-shic_100k.finalfstout
+bear-stha.nfa-bunc_100k.finalfstout	mfa-amec.nfa-slar_100k.finalfstout
+bear-stha.nfa-euchds_100k.finalfstout	mfa-amec.nff-poe_100k.finalfstout
+bear-stha.nfa-euchus_100k.finalfstout	mfa-amec.nfmfa-sc_100k.finalfstout
+bear-stha.nfa-indc_100k.finalfstout	mfa-amec.nfy_100k.finalfstout
+bear-stha.nfa-pond_100k.finalfstout	mfa-amec.nfy-slate-cgrav_100k.finalfstout
+bear-stha.nfa-robr_100k.finalfstout	mfa-amec.paj-clearck_100k.finalfstout
+bear-stha.nfa-saic_100k.finalfstout	mfa-amec.paj-sanbenito_100k.finalfstout
+bear-stha.nfa-shic_100k.finalfstout	mfa-amec.put-cold_100k.finalfstout
+bear-stha.nfa-slar_100k.finalfstout	mfa-amec.put-wildhorseck_100k.finalfstout
+bear-stha.nff-poe_100k.finalfstout	mfa-amec.rub-lc-us_100k.finalfstout
+bear-stha.nfmfa-sc_100k.finalfstout	mfa-amec.rub-usph_100k.finalfstout
+bear-stha.nfy_100k.finalfstout	mfa-amec.russ-mwsprngck_100k.finalfstout
+bear-stha.nfy-slate-cgrav_100k.finalfstout	mfa-amec.salin-losburros_100k.finalfstout
+bear-stha.paj-clearck_100k.finalfstout	mfa-amec.sancarp-dutrack_100k.finalfstout
+bear-stha.paj-sanbenito_100k.finalfstout	mfa-amec.sfa-cami_100k.finalfstout
+bear-stha.put-cold_100k.finalfstout	mfa-amec.sfeel-cedar_100k.finalfstout
+bear-stha.put-wildhorseck_100k.finalfstout	mfa-amec.sfy-fallck_100k.finalfstout
+bear-stha.rub-lc-us_100k.finalfstout	mfa-amec.sfy-loga_100k.finalfstout
+bear-stha.rub-usph_100k.finalfstout	mfa-amec.sfy-misc_100k.finalfstout
+bear-stha.russ-mwsprngck_100k.finalfstout	mfa-amec.sfy-rockck_100k.finalfstout
+bear-stha.salin-losburros_100k.finalfstout	mfa-amec.sfy-shadyck_100k.finalfstout
+bear-stha.sancarp-dutrack_100k.finalfstout	mfa-amec.sfy-springck_100k.finalfstout
+bear-stha.sfa-cami_100k.finalfstout	mfa-amec.smith-hurdygurdyck_100k.finalfstout
+bear-stha.sfeel-cedar_100k.finalfstout	mfa-amec.soquel-ebsc_100k.finalfstout
+bear-stha.sfy-fallck_100k.finalfstout	mfa-amec.ssantiam_100k.finalfstout
+bear-stha.sfy-loga_100k.finalfstout	mfa-amec.trin-sftrinity_100k.finalfstout
+bear-stha.sfy-misc_100k.finalfstout	mfa-amec.trin-sftrinity-sandybar_100k.finalfstout
+bear-stha.sfy-rockck_100k.finalfstout	mfa-amec.trin-tishtang_100k.finalfstout
+bear-stha.sfy-shadyck_100k.finalfstout	mfa-amec.tuo-clavey_100k.finalfstout
+bear-stha.sfy-springck_100k.finalfstout	mfa-amec.vandz-dinsmore_100k.finalfstout
+bear-stha.smith-hurdygurdyck_100k.finalfstout	mfa-amec.vandz-rootcreek_100k.finalfstout
+bear-stha.soquel-ebsc_100k.finalfstout	mfa-amec.vandz-shanty_100k.finalfstout
+bear-stha.ssantiam_100k.finalfstout	mfa-gasc.mfa-todc_100k.finalfstout
+bear-stha.trin-sftrinity_100k.finalfstout	mfa-gasc.mfy-oregck_100k.finalfstout
+bear-stha.trin-sftrinity-sandybar_100k.finalfstout	mfa-gasc.mfy-us-oh_100k.finalfstout
+bear-stha.trin-tishtang_100k.finalfstout	mfa-gasc.nfa_100k.finalfstout
+bear-stha.tuo-clavey_100k.finalfstout	mfa-gasc.nfa-bunc_100k.finalfstout
+bear-stha.vandz-dinsmore_100k.finalfstout	mfa-gasc.nfa-euchds_100k.finalfstout
+bear-stha.vandz-rootcreek_100k.finalfstout	mfa-gasc.nfa-euchus_100k.finalfstout
+bear-stha.vandz-shanty_100k.finalfstout	mfa-gasc.nfa-indc_100k.finalfstout
+bear-sthc.deer-clec_100k.finalfstout	mfa-gasc.nfa-pond_100k.finalfstout
+bear-sthc.eel_100k.finalfstout	mfa-gasc.nfa-robr_100k.finalfstout
+bear-sthc.fea-beanck_100k.finalfstout	mfa-gasc.nfa-saic_100k.finalfstout
+bear-sthc.fea-spanish-bgulch_100k.finalfstout	mfa-gasc.nfa-shic_100k.finalfstout
+bear-sthc.fea-spanishck_100k.finalfstout	mfa-gasc.nfa-slar_100k.finalfstout
+bear-sthc.fea-spanish-silverck_100k.finalfstout	mfa-gasc.nff-poe_100k.finalfstout
+bear-sthc.mad-mapleck_100k.finalfstout	mfa-gasc.nfmfa-sc_100k.finalfstout
+bear-sthc.mad-redwoodck_100k.finalfstout	mfa-gasc.nfy_100k.finalfstout
+bear-sthc.mad-redwoodck2_100k.finalfstout	mfa-gasc.nfy-slate-cgrav_100k.finalfstout
+bear-sthc.mat-bearriver_100k.finalfstout	mfa-gasc.paj-clearck_100k.finalfstout
+bear-sthc.mat-lowermattole_100k.finalfstout	mfa-gasc.paj-sanbenito_100k.finalfstout
+bear-sthc.mfa-amec_100k.finalfstout	mfa-gasc.put-cold_100k.finalfstout
+bear-sthc.mfa-gasc_100k.finalfstout	mfa-gasc.put-wildhorseck_100k.finalfstout
+bear-sthc.mfa-todc_100k.finalfstout	mfa-gasc.rub-lc-us_100k.finalfstout
+bear-sthc.mfy-oregck_100k.finalfstout	mfa-gasc.rub-usph_100k.finalfstout
+bear-sthc.mfy-us-oh_100k.finalfstout	mfa-gasc.russ-mwsprngck_100k.finalfstout
+bear-sthc.nfa_100k.finalfstout	mfa-gasc.salin-losburros_100k.finalfstout
+bear-sthc.nfa-bunc_100k.finalfstout	mfa-gasc.sancarp-dutrack_100k.finalfstout
+bear-sthc.nfa-euchds_100k.finalfstout	mfa-gasc.sfa-cami_100k.finalfstout
+bear-sthc.nfa-euchus_100k.finalfstout	mfa-gasc.sfeel-cedar_100k.finalfstout
+bear-sthc.nfa-indc_100k.finalfstout	mfa-gasc.sfy-fallck_100k.finalfstout
+bear-sthc.nfa-pond_100k.finalfstout	mfa-gasc.sfy-loga_100k.finalfstout
+bear-sthc.nfa-robr_100k.finalfstout	mfa-gasc.sfy-misc_100k.finalfstout
+bear-sthc.nfa-saic_100k.finalfstout	mfa-gasc.sfy-rockck_100k.finalfstout
+bear-sthc.nfa-shic_100k.finalfstout	mfa-gasc.sfy-shadyck_100k.finalfstout
+bear-sthc.nfa-slar_100k.finalfstout	mfa-gasc.sfy-springck_100k.finalfstout
+bear-sthc.nff-poe_100k.finalfstout	mfa-gasc.smith-hurdygurdyck_100k.finalfstout
+bear-sthc.nfmfa-sc_100k.finalfstout	mfa-gasc.soquel-ebsc_100k.finalfstout
+bear-sthc.nfy_100k.finalfstout	mfa-gasc.ssantiam_100k.finalfstout
+bear-sthc.nfy-slate-cgrav_100k.finalfstout	mfa-gasc.trin-sftrinity_100k.finalfstout
+bear-sthc.paj-clearck_100k.finalfstout	mfa-gasc.trin-sftrinity-sandybar_100k.finalfstout
+bear-sthc.paj-sanbenito_100k.finalfstout	mfa-gasc.trin-tishtang_100k.finalfstout
+bear-sthc.put-cold_100k.finalfstout	mfa-gasc.tuo-clavey_100k.finalfstout
+bear-sthc.put-wildhorseck_100k.finalfstout	mfa-gasc.vandz-dinsmore_100k.finalfstout
+bear-sthc.rub-lc-us_100k.finalfstout	mfa-gasc.vandz-rootcreek_100k.finalfstout
+bear-sthc.rub-usph_100k.finalfstout	mfa-gasc.vandz-shanty_100k.finalfstout
+bear-sthc.russ-mwsprngck_100k.finalfstout	mfa-todc.mfy-oregck_100k.finalfstout
+bear-sthc.salin-losburros_100k.finalfstout	mfa-todc.mfy-us-oh_100k.finalfstout
+bear-sthc.sancarp-dutrack_100k.finalfstout	mfa-todc.nfa_100k.finalfstout
+bear-sthc.sfa-cami_100k.finalfstout	mfa-todc.nfa-bunc_100k.finalfstout
+bear-sthc.sfeel-cedar_100k.finalfstout	mfa-todc.nfa-euchds_100k.finalfstout
+bear-sthc.sfy-fallck_100k.finalfstout	mfa-todc.nfa-euchus_100k.finalfstout
+bear-sthc.sfy-loga_100k.finalfstout	mfa-todc.nfa-indc_100k.finalfstout
+bear-sthc.sfy-misc_100k.finalfstout	mfa-todc.nfa-pond_100k.finalfstout
+bear-sthc.sfy-rockck_100k.finalfstout	mfa-todc.nfa-robr_100k.finalfstout
+bear-sthc.sfy-shadyck_100k.finalfstout	mfa-todc.nfa-saic_100k.finalfstout
+bear-sthc.sfy-springck_100k.finalfstout	mfa-todc.nfa-shic_100k.finalfstout
+bear-sthc.smith-hurdygurdyck_100k.finalfstout	mfa-todc.nfa-slar_100k.finalfstout
+bear-sthc.soquel-ebsc_100k.finalfstout	mfa-todc.nff-poe_100k.finalfstout
+bear-sthc.ssantiam_100k.finalfstout	mfa-todc.nfmfa-sc_100k.finalfstout
+bear-sthc.trin-sftrinity_100k.finalfstout	mfa-todc.nfy_100k.finalfstout
+bear-sthc.trin-sftrinity-sandybar_100k.finalfstout	mfa-todc.nfy-slate-cgrav_100k.finalfstout
+bear-sthc.trin-tishtang_100k.finalfstout	mfa-todc.paj-clearck_100k.finalfstout
+bear-sthc.tuo-clavey_100k.finalfstout	mfa-todc.paj-sanbenito_100k.finalfstout
+bear-sthc.vandz-dinsmore_100k.finalfstout	mfa-todc.put-cold_100k.finalfstout
+bear-sthc.vandz-rootcreek_100k.finalfstout	mfa-todc.put-wildhorseck_100k.finalfstout
+bear-sthc.vandz-shanty_100k.finalfstout	mfa-todc.rub-lc-us_100k.finalfstout
+bear.trin-sftrinity_100k.finalfstout	mfa-todc.rub-usph_100k.finalfstout
+bear.trin-sftrinity-sandybar_100k.finalfstout	mfa-todc.russ-mwsprngck_100k.finalfstout
+bear.trin-tishtang_100k.finalfstout	mfa-todc.salin-losburros_100k.finalfstout
+bear.tuo-clavey_100k.finalfstout	mfa-todc.sancarp-dutrack_100k.finalfstout
+bear.vandz-dinsmore_100k.finalfstout	mfa-todc.sfa-cami_100k.finalfstout
+bear.vandz-rootcreek_100k.finalfstout	mfa-todc.sfeel-cedar_100k.finalfstout
+bear.vandz-shanty_100k.finalfstout	mfa-todc.sfy-fallck_100k.finalfstout
+deer-clec.eel_100k.finalfstout	mfa-todc.sfy-loga_100k.finalfstout
+deer-clec.fea-beanck_100k.finalfstout	mfa-todc.sfy-misc_100k.finalfstout
+deer-clec.fea-spanish-bgulch_100k.finalfstout	mfa-todc.sfy-rockck_100k.finalfstout
+deer-clec.fea-spanishck_100k.finalfstout	mfa-todc.sfy-shadyck_100k.finalfstout
+deer-clec.fea-spanish-silverck_100k.finalfstout	mfa-todc.sfy-springck_100k.finalfstout
+deer-clec.mad-mapleck_100k.finalfstout	mfa-todc.smith-hurdygurdyck_100k.finalfstout
+deer-clec.mad-redwoodck_100k.finalfstout	mfa-todc.soquel-ebsc_100k.finalfstout
+deer-clec.mad-redwoodck2_100k.finalfstout	mfa-todc.ssantiam_100k.finalfstout
+deer-clec.mat-bearriver_100k.finalfstout	mfa-todc.trin-sftrinity_100k.finalfstout
+deer-clec.mat-lowermattole_100k.finalfstout	mfa-todc.trin-sftrinity-sandybar_100k.finalfstout
+deer-clec.mfa-amec_100k.finalfstout	mfa-todc.trin-tishtang_100k.finalfstout
+deer-clec.mfa-gasc_100k.finalfstout	mfa-todc.tuo-clavey_100k.finalfstout
+deer-clec.mfa-todc_100k.finalfstout	mfa-todc.vandz-dinsmore_100k.finalfstout
+deer-clec.mfy-oregck_100k.finalfstout	mfa-todc.vandz-rootcreek_100k.finalfstout
+deer-clec.mfy-us-oh_100k.finalfstout	mfa-todc.vandz-shanty_100k.finalfstout
+deer-clec.nfa_100k.finalfstout	mfy-oregck.mfy-us-oh_100k.finalfstout
+deer-clec.nfa-bunc_100k.finalfstout	mfy-oregck.nfa_100k.finalfstout
+deer-clec.nfa-euchds_100k.finalfstout	mfy-oregck.nfa-bunc_100k.finalfstout
+deer-clec.nfa-euchus_100k.finalfstout	mfy-oregck.nfa-euchds_100k.finalfstout
+deer-clec.nfa-indc_100k.finalfstout	mfy-oregck.nfa-euchus_100k.finalfstout
+deer-clec.nfa-pond_100k.finalfstout	mfy-oregck.nfa-indc_100k.finalfstout
+deer-clec.nfa-robr_100k.finalfstout	mfy-oregck.nfa-pond_100k.finalfstout
+deer-clec.nfa-saic_100k.finalfstout	mfy-oregck.nfa-robr_100k.finalfstout
+deer-clec.nfa-shic_100k.finalfstout	mfy-oregck.nfa-saic_100k.finalfstout
+deer-clec.nfa-slar_100k.finalfstout	mfy-oregck.nfa-shic_100k.finalfstout
+deer-clec.nff-poe_100k.finalfstout	mfy-oregck.nfa-slar_100k.finalfstout
+deer-clec.nfmfa-sc_100k.finalfstout	mfy-oregck.nff-poe_100k.finalfstout
+deer-clec.nfy_100k.finalfstout	mfy-oregck.nfmfa-sc_100k.finalfstout
+deer-clec.nfy-slate-cgrav_100k.finalfstout	mfy-oregck.nfy_100k.finalfstout
+deer-clec.paj-clearck_100k.finalfstout	mfy-oregck.nfy-slate-cgrav_100k.finalfstout
+deer-clec.paj-sanbenito_100k.finalfstout	mfy-oregck.paj-clearck_100k.finalfstout
+deer-clec.put-cold_100k.finalfstout	mfy-oregck.paj-sanbenito_100k.finalfstout
+deer-clec.put-wildhorseck_100k.finalfstout	mfy-oregck.put-cold_100k.finalfstout
+deer-clec.rub-lc-us_100k.finalfstout	mfy-oregck.put-wildhorseck_100k.finalfstout
+deer-clec.rub-usph_100k.finalfstout	mfy-oregck.rub-lc-us_100k.finalfstout
+deer-clec.russ-mwsprngck_100k.finalfstout	mfy-oregck.rub-usph_100k.finalfstout
+deer-clec.salin-losburros_100k.finalfstout	mfy-oregck.russ-mwsprngck_100k.finalfstout
+deer-clec.sancarp-dutrack_100k.finalfstout	mfy-oregck.salin-losburros_100k.finalfstout
+deer-clec.sfa-cami_100k.finalfstout	mfy-oregck.sancarp-dutrack_100k.finalfstout
+deer-clec.sfeel-cedar_100k.finalfstout	mfy-oregck.sfa-cami_100k.finalfstout
+deer-clec.sfy-fallck_100k.finalfstout	mfy-oregck.sfeel-cedar_100k.finalfstout
+deer-clec.sfy-loga_100k.finalfstout	mfy-oregck.sfy-fallck_100k.finalfstout
+deer-clec.sfy-misc_100k.finalfstout	mfy-oregck.sfy-loga_100k.finalfstout
+deer-clec.sfy-rockck_100k.finalfstout	mfy-oregck.sfy-misc_100k.finalfstout
+deer-clec.sfy-shadyck_100k.finalfstout	mfy-oregck.sfy-rockck_100k.finalfstout
+deer-clec.sfy-springck_100k.finalfstout	mfy-oregck.sfy-shadyck_100k.finalfstout
+deer-clec.smith-hurdygurdyck_100k.finalfstout	mfy-oregck.sfy-springck_100k.finalfstout
+deer-clec.soquel-ebsc_100k.finalfstout	mfy-oregck.smith-hurdygurdyck_100k.finalfstout
+deer-clec.ssantiam_100k.finalfstout	mfy-oregck.soquel-ebsc_100k.finalfstout
+deer-clec.trin-sftrinity_100k.finalfstout	mfy-oregck.ssantiam_100k.finalfstout
+deer-clec.trin-sftrinity-sandybar_100k.finalfstout	mfy-oregck.trin-sftrinity_100k.finalfstout
+deer-clec.trin-tishtang_100k.finalfstout	mfy-oregck.trin-sftrinity-sandybar_100k.finalfstout
+deer-clec.tuo-clavey_100k.finalfstout	mfy-oregck.trin-tishtang_100k.finalfstout
+deer-clec.vandz-dinsmore_100k.finalfstout	mfy-oregck.tuo-clavey_100k.finalfstout
+deer-clec.vandz-rootcreek_100k.finalfstout	mfy-oregck.vandz-dinsmore_100k.finalfstout
+deer-clec.vandz-shanty_100k.finalfstout	mfy-oregck.vandz-rootcreek_100k.finalfstout
+eel.fea-beanck_100k.finalfstout	mfy-oregck.vandz-shanty_100k.finalfstout
+eel.fea-spanish-bgulch_100k.finalfstout	mfy-us-oh.nfa_100k.finalfstout
+eel.fea-spanishck_100k.finalfstout	mfy-us-oh.nfa-bunc_100k.finalfstout
+eel.fea-spanish-silverck_100k.finalfstout	mfy-us-oh.nfa-euchds_100k.finalfstout
+eel.mad-mapleck_100k.finalfstout	mfy-us-oh.nfa-euchus_100k.finalfstout
+eel.mad-redwoodck_100k.finalfstout	mfy-us-oh.nfa-indc_100k.finalfstout
+eel.mad-redwoodck2_100k.finalfstout	mfy-us-oh.nfa-pond_100k.finalfstout
+eel.mat-bearriver_100k.finalfstout	mfy-us-oh.nfa-robr_100k.finalfstout
+eel.mat-lowermattole_100k.finalfstout	mfy-us-oh.nfa-saic_100k.finalfstout
+eel.mfa-amec_100k.finalfstout	mfy-us-oh.nfa-shic_100k.finalfstout
+eel.mfa-gasc_100k.finalfstout	mfy-us-oh.nfa-slar_100k.finalfstout
+eel.mfa-todc_100k.finalfstout	mfy-us-oh.nff-poe_100k.finalfstout
+eel.mfy-oregck_100k.finalfstout	mfy-us-oh.nfmfa-sc_100k.finalfstout
+eel.mfy-us-oh_100k.finalfstout	mfy-us-oh.nfy_100k.finalfstout
+eel.nfa_100k.finalfstout	mfy-us-oh.nfy-slate-cgrav_100k.finalfstout
+eel.nfa-bunc_100k.finalfstout	mfy-us-oh.paj-clearck_100k.finalfstout
+eel.nfa-euchds_100k.finalfstout	mfy-us-oh.paj-sanbenito_100k.finalfstout
+eel.nfa-euchus_100k.finalfstout	mfy-us-oh.put-cold_100k.finalfstout
+eel.nfa-indc_100k.finalfstout	mfy-us-oh.put-wildhorseck_100k.finalfstout
+eel.nfa-pond_100k.finalfstout	mfy-us-oh.rub-lc-us_100k.finalfstout
+eel.nfa-robr_100k.finalfstout	mfy-us-oh.rub-usph_100k.finalfstout
+eel.nfa-saic_100k.finalfstout	mfy-us-oh.russ-mwsprngck_100k.finalfstout
+eel.nfa-shic_100k.finalfstout	mfy-us-oh.salin-losburros_100k.finalfstout
+eel.nfa-slar_100k.finalfstout	mfy-us-oh.sancarp-dutrack_100k.finalfstout
+eel.nff-poe_100k.finalfstout	mfy-us-oh.sfa-cami_100k.finalfstout
+eel.nfmfa-sc_100k.finalfstout	mfy-us-oh.sfeel-cedar_100k.finalfstout
+eel.nfy_100k.finalfstout	mfy-us-oh.sfy-fallck_100k.finalfstout
+eel.nfy-slate-cgrav_100k.finalfstout	mfy-us-oh.sfy-loga_100k.finalfstout
+eel.paj-clearck_100k.finalfstout	mfy-us-oh.sfy-misc_100k.finalfstout
+eel.paj-sanbenito_100k.finalfstout	mfy-us-oh.sfy-rockck_100k.finalfstout
+eel.put-cold_100k.finalfstout	mfy-us-oh.sfy-shadyck_100k.finalfstout
+eel.put-wildhorseck_100k.finalfstout	mfy-us-oh.sfy-springck_100k.finalfstout
+eel.rub-lc-us_100k.finalfstout	mfy-us-oh.smith-hurdygurdyck_100k.finalfstout
+eel.rub-usph_100k.finalfstout	mfy-us-oh.soquel-ebsc_100k.finalfstout
+eel.russ-mwsprngck_100k.finalfstout	mfy-us-oh.ssantiam_100k.finalfstout
+eel.salin-losburros_100k.finalfstout	mfy-us-oh.trin-sftrinity_100k.finalfstout
+eel.sancarp-dutrack_100k.finalfstout	mfy-us-oh.trin-sftrinity-sandybar_100k.finalfstout
+eel.sfa-cami_100k.finalfstout	mfy-us-oh.trin-tishtang_100k.finalfstout
+eel.sfeel-cedar_100k.finalfstout	mfy-us-oh.tuo-clavey_100k.finalfstout
+eel.sfy-fallck_100k.finalfstout	mfy-us-oh.vandz-dinsmore_100k.finalfstout
+eel.sfy-loga_100k.finalfstout	mfy-us-oh.vandz-rootcreek_100k.finalfstout
+eel.sfy-misc_100k.finalfstout	mfy-us-oh.vandz-shanty_100k.finalfstout
+eel.sfy-rockck_100k.finalfstout	nfa-bunc.nfa-euchds_100k.finalfstout
+eel.sfy-shadyck_100k.finalfstout	nfa-bunc.nfa-euchus_100k.finalfstout
+eel.sfy-springck_100k.finalfstout	nfa-bunc.nfa-indc_100k.finalfstout
+eel.smith-hurdygurdyck_100k.finalfstout	nfa-bunc.nfa-pond_100k.finalfstout
+eel.soquel-ebsc_100k.finalfstout	nfa-bunc.nfa-robr_100k.finalfstout
+eel.ssantiam_100k.finalfstout	nfa-bunc.nfa-saic_100k.finalfstout
+eel.trin-sftrinity_100k.finalfstout	nfa-bunc.nfa-shic_100k.finalfstout
+eel.trin-sftrinity-sandybar_100k.finalfstout	nfa-bunc.nfa-slar_100k.finalfstout
+eel.trin-tishtang_100k.finalfstout	nfa-bunc.nff-poe_100k.finalfstout
+eel.tuo-clavey_100k.finalfstout	nfa-bunc.nfmfa-sc_100k.finalfstout
+eel.vandz-dinsmore_100k.finalfstout	nfa-bunc.nfy_100k.finalfstout
+eel.vandz-rootcreek_100k.finalfstout	nfa-bunc.nfy-slate-cgrav_100k.finalfstout
+eel.vandz-shanty_100k.finalfstout	nfa-bunc.paj-clearck_100k.finalfstout
+fea-beanck.fea-spanish-bgulch_100k.finalfstout	nfa-bunc.paj-sanbenito_100k.finalfstout
+fea-beanck.fea-spanishck_100k.finalfstout	nfa-bunc.put-cold_100k.finalfstout
+fea-beanck.fea-spanish-silverck_100k.finalfstout	nfa-bunc.put-wildhorseck_100k.finalfstout
+fea-beanck.mad-mapleck_100k.finalfstout	nfa-bunc.rub-lc-us_100k.finalfstout
+fea-beanck.mad-redwoodck_100k.finalfstout	nfa-bunc.rub-usph_100k.finalfstout
+fea-beanck.mad-redwoodck2_100k.finalfstout	nfa-bunc.russ-mwsprngck_100k.finalfstout
+fea-beanck.mat-bearriver_100k.finalfstout	nfa-bunc.salin-losburros_100k.finalfstout
+fea-beanck.mat-lowermattole_100k.finalfstout	nfa-bunc.sancarp-dutrack_100k.finalfstout
+fea-beanck.mfa-amec_100k.finalfstout	nfa-bunc.sfa-cami_100k.finalfstout
+fea-beanck.mfa-gasc_100k.finalfstout	nfa-bunc.sfeel-cedar_100k.finalfstout
+fea-beanck.mfa-todc_100k.finalfstout	nfa-bunc.sfy-fallck_100k.finalfstout
+fea-beanck.mfy-oregck_100k.finalfstout	nfa-bunc.sfy-loga_100k.finalfstout
+fea-beanck.mfy-us-oh_100k.finalfstout	nfa-bunc.sfy-misc_100k.finalfstout
+fea-beanck.nfa_100k.finalfstout	nfa-bunc.sfy-rockck_100k.finalfstout
+fea-beanck.nfa-bunc_100k.finalfstout	nfa-bunc.sfy-shadyck_100k.finalfstout
+fea-beanck.nfa-euchds_100k.finalfstout	nfa-bunc.sfy-springck_100k.finalfstout
+fea-beanck.nfa-euchus_100k.finalfstout	nfa-bunc.smith-hurdygurdyck_100k.finalfstout
+fea-beanck.nfa-indc_100k.finalfstout	nfa-bunc.soquel-ebsc_100k.finalfstout
+fea-beanck.nfa-pond_100k.finalfstout	nfa-bunc.ssantiam_100k.finalfstout
+fea-beanck.nfa-robr_100k.finalfstout	nfa-bunc.trin-sftrinity_100k.finalfstout
+fea-beanck.nfa-saic_100k.finalfstout	nfa-bunc.trin-sftrinity-sandybar_100k.finalfstout
+fea-beanck.nfa-shic_100k.finalfstout	nfa-bunc.trin-tishtang_100k.finalfstout
+fea-beanck.nfa-slar_100k.finalfstout	nfa-bunc.tuo-clavey_100k.finalfstout
+fea-beanck.nff-poe_100k.finalfstout	nfa-bunc.vandz-dinsmore_100k.finalfstout
+fea-beanck.nfmfa-sc_100k.finalfstout	nfa-bunc.vandz-rootcreek_100k.finalfstout
+fea-beanck.nfy_100k.finalfstout	nfa-bunc.vandz-shanty_100k.finalfstout
+fea-beanck.nfy-slate-cgrav_100k.finalfstout	nfa-euchds.nfa-euchus_100k.finalfstout
+fea-beanck.paj-clearck_100k.finalfstout	nfa-euchds.nfa-indc_100k.finalfstout
+fea-beanck.paj-sanbenito_100k.finalfstout	nfa-euchds.nfa-pond_100k.finalfstout
+fea-beanck.put-cold_100k.finalfstout	nfa-euchds.nfa-robr_100k.finalfstout
+fea-beanck.put-wildhorseck_100k.finalfstout	nfa-euchds.nfa-saic_100k.finalfstout
+fea-beanck.rub-lc-us_100k.finalfstout	nfa-euchds.nfa-shic_100k.finalfstout
+fea-beanck.rub-usph_100k.finalfstout	nfa-euchds.nfa-slar_100k.finalfstout
+fea-beanck.russ-mwsprngck_100k.finalfstout	nfa-euchds.nff-poe_100k.finalfstout
+fea-beanck.salin-losburros_100k.finalfstout	nfa-euchds.nfmfa-sc_100k.finalfstout
+fea-beanck.sancarp-dutrack_100k.finalfstout	nfa-euchds.nfy_100k.finalfstout
+fea-beanck.sfa-cami_100k.finalfstout	nfa-euchds.nfy-slate-cgrav_100k.finalfstout
+fea-beanck.sfeel-cedar_100k.finalfstout	nfa-euchds.paj-clearck_100k.finalfstout
+fea-beanck.sfy-fallck_100k.finalfstout	nfa-euchds.paj-sanbenito_100k.finalfstout
+fea-beanck.sfy-loga_100k.finalfstout	nfa-euchds.put-cold_100k.finalfstout
+fea-beanck.sfy-misc_100k.finalfstout	nfa-euchds.put-wildhorseck_100k.finalfstout
+fea-beanck.sfy-rockck_100k.finalfstout	nfa-euchds.rub-lc-us_100k.finalfstout
+fea-beanck.sfy-shadyck_100k.finalfstout	nfa-euchds.rub-usph_100k.finalfstout
+fea-beanck.sfy-springck_100k.finalfstout	nfa-euchds.russ-mwsprngck_100k.finalfstout
+fea-beanck.smith-hurdygurdyck_100k.finalfstout	nfa-euchds.salin-losburros_100k.finalfstout
+fea-beanck.soquel-ebsc_100k.finalfstout	nfa-euchds.sancarp-dutrack_100k.finalfstout
+fea-beanck.ssantiam_100k.finalfstout	nfa-euchds.sfa-cami_100k.finalfstout
+fea-beanck.trin-sftrinity_100k.finalfstout	nfa-euchds.sfeel-cedar_100k.finalfstout
+fea-beanck.trin-sftrinity-sandybar_100k.finalfstout	nfa-euchds.sfy-fallck_100k.finalfstout
+fea-beanck.trin-tishtang_100k.finalfstout	nfa-euchds.sfy-loga_100k.finalfstout
+fea-beanck.tuo-clavey_100k.finalfstout	nfa-euchds.sfy-misc_100k.finalfstout
+fea-beanck.vandz-dinsmore_100k.finalfstout	nfa-euchds.sfy-rockck_100k.finalfstout
+fea-beanck.vandz-rootcreek_100k.finalfstout	nfa-euchds.sfy-shadyck_100k.finalfstout
+fea-beanck.vandz-shanty_100k.finalfstout	nfa-euchds.sfy-springck_100k.finalfstout
+fea-spanish-bgulch.fea-spanishck_100k.finalfstout	nfa-euchds.smith-hurdygurdyck_100k.finalfstout
+fea-spanish-bgulch.fea-spanish-silverck_100k.finalfstout	nfa-euchds.soquel-ebsc_100k.finalfstout
+fea-spanish-bgulch.mad-mapleck_100k.finalfstout	nfa-euchds.ssantiam_100k.finalfstout
+fea-spanish-bgulch.mad-redwoodck_100k.finalfstout	nfa-euchds.trin-sftrinity_100k.finalfstout
+fea-spanish-bgulch.mad-redwoodck2_100k.finalfstout	nfa-euchds.trin-sftrinity-sandybar_100k.finalfstout
+fea-spanish-bgulch.mat-bearriver_100k.finalfstout	nfa-euchds.trin-tishtang_100k.finalfstout
+fea-spanish-bgulch.mat-lowermattole_100k.finalfstout	nfa-euchds.tuo-clavey_100k.finalfstout
+fea-spanish-bgulch.mfa-amec_100k.finalfstout	nfa-euchds.vandz-dinsmore_100k.finalfstout
+fea-spanish-bgulch.mfa-gasc_100k.finalfstout	nfa-euchds.vandz-rootcreek_100k.finalfstout
+fea-spanish-bgulch.mfa-todc_100k.finalfstout	nfa-euchds.vandz-shanty_100k.finalfstout
+fea-spanish-bgulch.mfy-oregck_100k.finalfstout	nfa-euchus.nfa-indc_100k.finalfstout
+fea-spanish-bgulch.mfy-us-oh_100k.finalfstout	nfa-euchus.nfa-pond_100k.finalfstout
+fea-spanish-bgulch.nfa_100k.finalfstout	nfa-euchus.nfa-robr_100k.finalfstout
+fea-spanish-bgulch.nfa-bunc_100k.finalfstout	nfa-euchus.nfa-saic_100k.finalfstout
+fea-spanish-bgulch.nfa-euchds_100k.finalfstout	nfa-euchus.nfa-shic_100k.finalfstout
+fea-spanish-bgulch.nfa-euchus_100k.finalfstout	nfa-euchus.nfa-slar_100k.finalfstout
+fea-spanish-bgulch.nfa-indc_100k.finalfstout	nfa-euchus.nff-poe_100k.finalfstout
+fea-spanish-bgulch.nfa-pond_100k.finalfstout	nfa-euchus.nfmfa-sc_100k.finalfstout
+fea-spanish-bgulch.nfa-robr_100k.finalfstout	nfa-euchus.nfy_100k.finalfstout
+fea-spanish-bgulch.nfa-saic_100k.finalfstout	nfa-euchus.nfy-slate-cgrav_100k.finalfstout
+fea-spanish-bgulch.nfa-shic_100k.finalfstout	nfa-euchus.paj-clearck_100k.finalfstout
+fea-spanish-bgulch.nfa-slar_100k.finalfstout	nfa-euchus.paj-sanbenito_100k.finalfstout
+fea-spanish-bgulch.nff-poe_100k.finalfstout	nfa-euchus.put-cold_100k.finalfstout
+fea-spanish-bgulch.nfmfa-sc_100k.finalfstout	nfa-euchus.put-wildhorseck_100k.finalfstout
+fea-spanish-bgulch.nfy_100k.finalfstout	nfa-euchus.rub-lc-us_100k.finalfstout
+fea-spanish-bgulch.nfy-slate-cgrav_100k.finalfstout	nfa-euchus.rub-usph_100k.finalfstout
+fea-spanish-bgulch.paj-clearck_100k.finalfstout	nfa-euchus.russ-mwsprngck_100k.finalfstout
+fea-spanish-bgulch.paj-sanbenito_100k.finalfstout	nfa-euchus.salin-losburros_100k.finalfstout
+fea-spanish-bgulch.put-cold_100k.finalfstout	nfa-euchus.sancarp-dutrack_100k.finalfstout
+fea-spanish-bgulch.put-wildhorseck_100k.finalfstout	nfa-euchus.sfa-cami_100k.finalfstout
+fea-spanish-bgulch.rub-lc-us_100k.finalfstout	nfa-euchus.sfeel-cedar_100k.finalfstout
+fea-spanish-bgulch.rub-usph_100k.finalfstout	nfa-euchus.sfy-fallck_100k.finalfstout
+fea-spanish-bgulch.russ-mwsprngck_100k.finalfstout	nfa-euchus.sfy-loga_100k.finalfstout
+fea-spanish-bgulch.salin-losburros_100k.finalfstout	nfa-euchus.sfy-misc_100k.finalfstout
+fea-spanish-bgulch.sancarp-dutrack_100k.finalfstout	nfa-euchus.sfy-rockck_100k.finalfstout
+fea-spanish-bgulch.sfa-cami_100k.finalfstout	nfa-euchus.sfy-shadyck_100k.finalfstout
+fea-spanish-bgulch.sfeel-cedar_100k.finalfstout	nfa-euchus.sfy-springck_100k.finalfstout
+fea-spanish-bgulch.sfy-fallck_100k.finalfstout	nfa-euchus.smith-hurdygurdyck_100k.finalfstout
+fea-spanish-bgulch.sfy-loga_100k.finalfstout	nfa-euchus.soquel-ebsc_100k.finalfstout
+fea-spanish-bgulch.sfy-misc_100k.finalfstout	nfa-euchus.ssantiam_100k.finalfstout
+fea-spanish-bgulch.sfy-rockck_100k.finalfstout	nfa-euchus.trin-sftrinity_100k.finalfstout
+fea-spanish-bgulch.sfy-shadyck_100k.finalfstout	nfa-euchus.trin-sftrinity-sandybar_100k.finalfstout
+fea-spanish-bgulch.sfy-springck_100k.finalfstout	nfa-euchus.trin-tishtang_100k.finalfstout
+fea-spanish-bgulch.smith-hurdygurdyck_100k.finalfstout	nfa-euchus.tuo-clavey_100k.finalfstout
+fea-spanish-bgulch.soquel-ebsc_100k.finalfstout	nfa-euchus.vandz-dinsmore_100k.finalfstout
+fea-spanish-bgulch.ssantiam_100k.finalfstout	nfa-euchus.vandz-rootcreek_100k.finalfstout
+fea-spanish-bgulch.trin-sftrinity_100k.finalfstout	nfa-euchus.vandz-shanty_100k.finalfstout
+fea-spanish-bgulch.trin-sftrinity-sandybar_100k.finalfstout	nfa-indc.nfa-pond_100k.finalfstout
+fea-spanish-bgulch.trin-tishtang_100k.finalfstout	nfa-indc.nfa-robr_100k.finalfstout
+fea-spanish-bgulch.tuo-clavey_100k.finalfstout	nfa-indc.nfa-saic_100k.finalfstout
+fea-spanish-bgulch.vandz-dinsmore_100k.finalfstout	nfa-indc.nfa-shic_100k.finalfstout
+fea-spanish-bgulch.vandz-rootcreek_100k.finalfstout	nfa-indc.nfa-slar_100k.finalfstout
+fea-spanish-bgulch.vandz-shanty_100k.finalfstout	nfa-indc.nff-poe_100k.finalfstout
+fea-spanishck.mad-mapleck_100k.finalfstout	nfa-indc.nfmfa-sc_100k.finalfstout
+fea-spanishck.mad-redwoodck_100k.finalfstout	nfa-indc.nfy_100k.finalfstout
+fea-spanishck.mad-redwoodck2_100k.finalfstout	nfa-indc.nfy-slate-cgrav_100k.finalfstout
+fea-spanishck.mat-bearriver_100k.finalfstout	nfa-indc.paj-clearck_100k.finalfstout
+fea-spanishck.mat-lowermattole_100k.finalfstout	nfa-indc.paj-sanbenito_100k.finalfstout
+fea-spanishck.mfa-amec_100k.finalfstout	nfa-indc.put-cold_100k.finalfstout
+fea-spanishck.mfa-gasc_100k.finalfstout	nfa-indc.put-wildhorseck_100k.finalfstout
+fea-spanishck.mfa-todc_100k.finalfstout	nfa-indc.rub-lc-us_100k.finalfstout
+fea-spanishck.mfy-oregck_100k.finalfstout	nfa-indc.rub-usph_100k.finalfstout
+fea-spanishck.mfy-us-oh_100k.finalfstout	nfa-indc.russ-mwsprngck_100k.finalfstout
+fea-spanishck.nfa_100k.finalfstout	nfa-indc.salin-losburros_100k.finalfstout
+fea-spanishck.nfa-bunc_100k.finalfstout	nfa-indc.sancarp-dutrack_100k.finalfstout
+fea-spanishck.nfa-euchds_100k.finalfstout	nfa-indc.sfa-cami_100k.finalfstout
+fea-spanishck.nfa-euchus_100k.finalfstout	nfa-indc.sfeel-cedar_100k.finalfstout
+fea-spanishck.nfa-indc_100k.finalfstout	nfa-indc.sfy-fallck_100k.finalfstout
+fea-spanishck.nfa-pond_100k.finalfstout	nfa-indc.sfy-loga_100k.finalfstout
+fea-spanishck.nfa-robr_100k.finalfstout	nfa-indc.sfy-misc_100k.finalfstout
+fea-spanishck.nfa-saic_100k.finalfstout	nfa-indc.sfy-rockck_100k.finalfstout
+fea-spanishck.nfa-shic_100k.finalfstout	nfa-indc.sfy-shadyck_100k.finalfstout
+fea-spanishck.nfa-slar_100k.finalfstout	nfa-indc.sfy-springck_100k.finalfstout
+fea-spanishck.nff-poe_100k.finalfstout	nfa-indc.smith-hurdygurdyck_100k.finalfstout
+fea-spanishck.nfmfa-sc_100k.finalfstout	nfa-indc.soquel-ebsc_100k.finalfstout
+fea-spanishck.nfy_100k.finalfstout	nfa-indc.ssantiam_100k.finalfstout
+fea-spanishck.nfy-slate-cgrav_100k.finalfstout	nfa-indc.trin-sftrinity_100k.finalfstout
+fea-spanishck.paj-clearck_100k.finalfstout	nfa-indc.trin-sftrinity-sandybar_100k.finalfstout
+fea-spanishck.paj-sanbenito_100k.finalfstout	nfa-indc.trin-tishtang_100k.finalfstout
+fea-spanishck.put-cold_100k.finalfstout	nfa-indc.tuo-clavey_100k.finalfstout
+fea-spanishck.put-wildhorseck_100k.finalfstout	nfa-indc.vandz-dinsmore_100k.finalfstout
+fea-spanishck.rub-lc-us_100k.finalfstout	nfa-indc.vandz-rootcreek_100k.finalfstout
+fea-spanishck.rub-usph_100k.finalfstout	nfa-indc.vandz-shanty_100k.finalfstout
+fea-spanishck.russ-mwsprngck_100k.finalfstout	nfa.nfa-bunc_100k.finalfstout
+fea-spanishck.salin-losburros_100k.finalfstout	nfa.nfa-euchds_100k.finalfstout
+fea-spanishck.sancarp-dutrack_100k.finalfstout	nfa.nfa-euchus_100k.finalfstout
+fea-spanishck.sfa-cami_100k.finalfstout	nfa.nfa-indc_100k.finalfstout
+fea-spanishck.sfeel-cedar_100k.finalfstout	nfa.nfa-pond_100k.finalfstout
+fea-spanishck.sfy-fallck_100k.finalfstout	nfa.nfa-robr_100k.finalfstout
+fea-spanishck.sfy-loga_100k.finalfstout	nfa.nfa-saic_100k.finalfstout
+fea-spanishck.sfy-misc_100k.finalfstout	nfa.nfa-shic_100k.finalfstout
+fea-spanishck.sfy-rockck_100k.finalfstout	nfa.nfa-slar_100k.finalfstout
+fea-spanishck.sfy-shadyck_100k.finalfstout	nfa.nff-poe_100k.finalfstout
+fea-spanishck.sfy-springck_100k.finalfstout	nfa.nfmfa-sc_100k.finalfstout
+fea-spanishck.smith-hurdygurdyck_100k.finalfstout	nfa.nfy_100k.finalfstout
+fea-spanishck.soquel-ebsc_100k.finalfstout	nfa.nfy-slate-cgrav_100k.finalfstout
+fea-spanishck.ssantiam_100k.finalfstout	nfa.paj-clearck_100k.finalfstout
+fea-spanishck.trin-sftrinity_100k.finalfstout	nfa.paj-sanbenito_100k.finalfstout
+fea-spanishck.trin-sftrinity-sandybar_100k.finalfstout	nfa-pond.nfa-robr_100k.finalfstout
+fea-spanishck.trin-tishtang_100k.finalfstout	nfa-pond.nfa-saic_100k.finalfstout
+fea-spanishck.tuo-clavey_100k.finalfstout	nfa-pond.nfa-shic_100k.finalfstout
+fea-spanishck.vandz-dinsmore_100k.finalfstout	nfa-pond.nfa-slar_100k.finalfstout
+fea-spanishck.vandz-rootcreek_100k.finalfstout	nfa-pond.nff-poe_100k.finalfstout
+fea-spanishck.vandz-shanty_100k.finalfstout	nfa-pond.nfmfa-sc_100k.finalfstout
+fea-spanish-silverck.fea-spanishck_100k.finalfstout	nfa-pond.nfy_100k.finalfstout
+fea-spanish-silverck.mad-mapleck_100k.finalfstout	nfa-pond.nfy-slate-cgrav_100k.finalfstout
+fea-spanish-silverck.mad-redwoodck_100k.finalfstout	nfa-pond.paj-clearck_100k.finalfstout
+fea-spanish-silverck.mad-redwoodck2_100k.finalfstout	nfa-pond.paj-sanbenito_100k.finalfstout
+fea-spanish-silverck.mat-bearriver_100k.finalfstout	nfa-pond.put-cold_100k.finalfstout
+fea-spanish-silverck.mat-lowermattole_100k.finalfstout	nfa-pond.put-wildhorseck_100k.finalfstout
+fea-spanish-silverck.mfa-amec_100k.finalfstout	nfa-pond.rub-lc-us_100k.finalfstout
+fea-spanish-silverck.mfa-gasc_100k.finalfstout	nfa-pond.rub-usph_100k.finalfstout
+fea-spanish-silverck.mfa-todc_100k.finalfstout	nfa-pond.russ-mwsprngck_100k.finalfstout
+fea-spanish-silverck.mfy-oregck_100k.finalfstout	nfa-pond.salin-losburros_100k.finalfstout
+fea-spanish-silverck.mfy-us-oh_100k.finalfstout	nfa-pond.sancarp-dutrack_100k.finalfstout
+fea-spanish-silverck.nfa_100k.finalfstout	nfa-pond.sfa-cami_100k.finalfstout
+fea-spanish-silverck.nfa-bunc_100k.finalfstout	nfa-pond.sfeel-cedar_100k.finalfstout
+fea-spanish-silverck.nfa-euchds_100k.finalfstout	nfa-pond.sfy-fallck_100k.finalfstout
+fea-spanish-silverck.nfa-euchus_100k.finalfstout	nfa-pond.sfy-loga_100k.finalfstout
+fea-spanish-silverck.nfa-indc_100k.finalfstout	nfa-pond.sfy-misc_100k.finalfstout
+fea-spanish-silverck.nfa-pond_100k.finalfstout	nfa-pond.sfy-rockck_100k.finalfstout
+fea-spanish-silverck.nfa-robr_100k.finalfstout	nfa-pond.sfy-shadyck_100k.finalfstout
+fea-spanish-silverck.nfa-saic_100k.finalfstout	nfa-pond.sfy-springck_100k.finalfstout
+fea-spanish-silverck.nfa-shic_100k.finalfstout	nfa-pond.smith-hurdygurdyck_100k.finalfstout
+fea-spanish-silverck.nfa-slar_100k.finalfstout	nfa-pond.soquel-ebsc_100k.finalfstout
+fea-spanish-silverck.nff-poe_100k.finalfstout	nfa-pond.ssantiam_100k.finalfstout
+fea-spanish-silverck.nfmfa-sc_100k.finalfstout	nfa-pond.trin-sftrinity_100k.finalfstout
+fea-spanish-silverck.nfy_100k.finalfstout	nfa-pond.trin-sftrinity-sandybar_100k.finalfstout
+fea-spanish-silverck.nfy-slate-cgrav_100k.finalfstout	nfa-pond.trin-tishtang_100k.finalfstout
+fea-spanish-silverck.paj-clearck_100k.finalfstout	nfa-pond.tuo-clavey_100k.finalfstout
+fea-spanish-silverck.paj-sanbenito_100k.finalfstout	nfa-pond.vandz-dinsmore_100k.finalfstout
+fea-spanish-silverck.put-cold_100k.finalfstout	nfa-pond.vandz-rootcreek_100k.finalfstout
+fea-spanish-silverck.put-wildhorseck_100k.finalfstout	nfa-pond.vandz-shanty_100k.finalfstout
+fea-spanish-silverck.rub-lc-us_100k.finalfstout	nfa.put-cold_100k.finalfstout
+fea-spanish-silverck.rub-usph_100k.finalfstout	nfa.put-wildhorseck_100k.finalfstout
+fea-spanish-silverck.russ-mwsprngck_100k.finalfstout	nfa-robr.nfa-saic_100k.finalfstout
+fea-spanish-silverck.salin-losburros_100k.finalfstout	nfa-robr.nfa-shic_100k.finalfstout
+fea-spanish-silverck.sancarp-dutrack_100k.finalfstout	nfa-robr.nfa-slar_100k.finalfstout
+fea-spanish-silverck.sfa-cami_100k.finalfstout	nfa-robr.nff-poe_100k.finalfstout
+fea-spanish-silverck.sfeel-cedar_100k.finalfstout	nfa-robr.nfmfa-sc_100k.finalfstout
+fea-spanish-silverck.sfy-fallck_100k.finalfstout	nfa-robr.nfy_100k.finalfstout
+fea-spanish-silverck.sfy-loga_100k.finalfstout	nfa-robr.nfy-slate-cgrav_100k.finalfstout
+fea-spanish-silverck.sfy-misc_100k.finalfstout	nfa-robr.paj-clearck_100k.finalfstout
+fea-spanish-silverck.sfy-rockck_100k.finalfstout	nfa-robr.paj-sanbenito_100k.finalfstout
+fea-spanish-silverck.sfy-shadyck_100k.finalfstout	nfa-robr.put-cold_100k.finalfstout
+fea-spanish-silverck.sfy-springck_100k.finalfstout	nfa-robr.put-wildhorseck_100k.finalfstout
+fea-spanish-silverck.smith-hurdygurdyck_100k.finalfstout	nfa-robr.rub-lc-us_100k.finalfstout
+fea-spanish-silverck.soquel-ebsc_100k.finalfstout	nfa-robr.rub-usph_100k.finalfstout
+fea-spanish-silverck.ssantiam_100k.finalfstout	nfa-robr.russ-mwsprngck_100k.finalfstout
+fea-spanish-silverck.trin-sftrinity_100k.finalfstout	nfa-robr.salin-losburros_100k.finalfstout
+fea-spanish-silverck.trin-sftrinity-sandybar_100k.finalfstout	nfa-robr.sancarp-dutrack_100k.finalfstout
+fea-spanish-silverck.trin-tishtang_100k.finalfstout	nfa-robr.sfa-cami_100k.finalfstout
+fea-spanish-silverck.tuo-clavey_100k.finalfstout	nfa-robr.sfeel-cedar_100k.finalfstout
+fea-spanish-silverck.vandz-dinsmore_100k.finalfstout	nfa-robr.sfy-fallck_100k.finalfstout
+fea-spanish-silverck.vandz-rootcreek_100k.finalfstout	nfa-robr.sfy-loga_100k.finalfstout
+fea-spanish-silverck.vandz-shanty_100k.finalfstout	nfa-robr.sfy-misc_100k.finalfstout
+mad-mapleck.mad-redwoodck_100k.finalfstout	nfa-robr.sfy-rockck_100k.finalfstout
+mad-mapleck.mad-redwoodck2_100k.finalfstout	nfa-robr.sfy-shadyck_100k.finalfstout
+mad-mapleck.mat-bearriver_100k.finalfstout	nfa-robr.sfy-springck_100k.finalfstout
+mad-mapleck.mat-lowermattole_100k.finalfstout	nfa-robr.smith-hurdygurdyck_100k.finalfstout
+mad-mapleck.mfa-amec_100k.finalfstout	nfa-robr.soquel-ebsc_100k.finalfstout
+mad-mapleck.mfa-gasc_100k.finalfstout	nfa-robr.ssantiam_100k.finalfstout
+mad-mapleck.mfa-todc_100k.finalfstout	nfa-robr.trin-sftrinity_100k.finalfstout
+mad-mapleck.mfy-oregck_100k.finalfstout	nfa-robr.trin-sftrinity-sandybar_100k.finalfstout
+mad-mapleck.mfy-us-oh_100k.finalfstout	nfa-robr.trin-tishtang_100k.finalfstout
+mad-mapleck.nfa_100k.finalfstout	nfa-robr.tuo-clavey_100k.finalfstout
+mad-mapleck.nfa-bunc_100k.finalfstout	nfa-robr.vandz-dinsmore_100k.finalfstout
+mad-mapleck.nfa-euchds_100k.finalfstout	nfa-robr.vandz-rootcreek_100k.finalfstout
+mad-mapleck.nfa-euchus_100k.finalfstout	nfa-robr.vandz-shanty_100k.finalfstout
+mad-mapleck.nfa-indc_100k.finalfstout	nfa.rub-lc-us_100k.finalfstout
+mad-mapleck.nfa-pond_100k.finalfstout	nfa.rub-usph_100k.finalfstout
+mad-mapleck.nfa-robr_100k.finalfstout	nfa.russ-mwsprngck_100k.finalfstout
+mad-mapleck.nfa-saic_100k.finalfstout	nfa-saic.nfa-shic_100k.finalfstout
+mad-mapleck.nfa-shic_100k.finalfstout	nfa-saic.nfa-slar_100k.finalfstout
+mad-mapleck.nfa-slar_100k.finalfstout	nfa-saic.nff-poe_100k.finalfstout
+mad-mapleck.nff-poe_100k.finalfstout	nfa-saic.nfmfa-sc_100k.finalfstout
+mad-mapleck.nfmfa-sc_100k.finalfstout	nfa-saic.nfy_100k.finalfstout
+mad-mapleck.nfy_100k.finalfstout	nfa-saic.nfy-slate-cgrav_100k.finalfstout
+mad-mapleck.nfy-slate-cgrav_100k.finalfstout	nfa-saic.paj-clearck_100k.finalfstout
+mad-mapleck.paj-clearck_100k.finalfstout	nfa-saic.paj-sanbenito_100k.finalfstout
+mad-mapleck.paj-sanbenito_100k.finalfstout	nfa-saic.put-cold_100k.finalfstout
+mad-mapleck.put-cold_100k.finalfstout	nfa-saic.put-wildhorseck_100k.finalfstout
+mad-mapleck.put-wildhorseck_100k.finalfstout	nfa-saic.rub-lc-us_100k.finalfstout
+mad-mapleck.rub-lc-us_100k.finalfstout	nfa-saic.rub-usph_100k.finalfstout
+mad-mapleck.rub-usph_100k.finalfstout	nfa-saic.russ-mwsprngck_100k.finalfstout
+mad-mapleck.russ-mwsprngck_100k.finalfstout	nfa-saic.salin-losburros_100k.finalfstout
+mad-mapleck.salin-losburros_100k.finalfstout	nfa-saic.sancarp-dutrack_100k.finalfstout
+mad-mapleck.sancarp-dutrack_100k.finalfstout	nfa-saic.sfa-cami_100k.finalfstout
+mad-mapleck.sfa-cami_100k.finalfstout	nfa-saic.sfeel-cedar_100k.finalfstout
+mad-mapleck.sfeel-cedar_100k.finalfstout	nfa-saic.sfy-fallck_100k.finalfstout
+mad-mapleck.sfy-fallck_100k.finalfstout	nfa-saic.sfy-loga_100k.finalfstout
+mad-mapleck.sfy-loga_100k.finalfstout	nfa-saic.sfy-misc_100k.finalfstout
+mad-mapleck.sfy-misc_100k.finalfstout	nfa-saic.sfy-rockck_100k.finalfstout
+mad-mapleck.sfy-rockck_100k.finalfstout	nfa-saic.sfy-shadyck_100k.finalfstout
+mad-mapleck.sfy-shadyck_100k.finalfstout	nfa-saic.sfy-springck_100k.finalfstout
+mad-mapleck.sfy-springck_100k.finalfstout	nfa-saic.smith-hurdygurdyck_100k.finalfstout
+mad-mapleck.smith-hurdygurdyck_100k.finalfstout	nfa-saic.soquel-ebsc_100k.finalfstout
+mad-mapleck.soquel-ebsc_100k.finalfstout	nfa-saic.ssantiam_100k.finalfstout
+mad-mapleck.ssantiam_100k.finalfstout	nfa-saic.trin-sftrinity_100k.finalfstout
+mad-mapleck.trin-sftrinity_100k.finalfstout	nfa-saic.trin-sftrinity-sandybar_100k.finalfstout
+mad-mapleck.trin-sftrinity-sandybar_100k.finalfstout	nfa-saic.trin-tishtang_100k.finalfstout
+mad-mapleck.trin-tishtang_100k.finalfstout	nfa-saic.tuo-clavey_100k.finalfstout
+mad-mapleck.tuo-clavey_100k.finalfstout	nfa-saic.vandz-dinsmore_100k.finalfstout
+mad-mapleck.vandz-dinsmore_100k.finalfstout	nfa-saic.vandz-rootcreek_100k.finalfstout
+mad-mapleck.vandz-rootcreek_100k.finalfstout	nfa-saic.vandz-shanty_100k.finalfstout
+mad-mapleck.vandz-shanty_100k.finalfstout	nfa.salin-losburros_100k.finalfstout
+mad-redwoodck2.mat-bearriver_100k.finalfstout	nfa.sancarp-dutrack_100k.finalfstout
+mad-redwoodck2.mat-lowermattole_100k.finalfstout	nfa.sfa-cami_100k.finalfstout
+mad-redwoodck2.mfa-amec_100k.finalfstout	nfa.sfeel-cedar_100k.finalfstout
+mad-redwoodck2.mfa-gasc_100k.finalfstout	nfa.sfy-fallck_100k.finalfstout
+mad-redwoodck2.mfa-todc_100k.finalfstout	nfa.sfy-loga_100k.finalfstout
+mad-redwoodck2.mfy-oregck_100k.finalfstout	nfa.sfy-misc_100k.finalfstout
+mad-redwoodck2.mfy-us-oh_100k.finalfstout	nfa.sfy-rockck_100k.finalfstout
+mad-redwoodck2.nfa_100k.finalfstout	nfa.sfy-shadyck_100k.finalfstout
+mad-redwoodck2.nfa-bunc_100k.finalfstout	nfa.sfy-springck_100k.finalfstout
+mad-redwoodck2.nfa-euchds_100k.finalfstout	nfa-shic.nfa-slar_100k.finalfstout
+mad-redwoodck2.nfa-euchus_100k.finalfstout	nfa-shic.nff-poe_100k.finalfstout
+mad-redwoodck2.nfa-indc_100k.finalfstout	nfa-shic.nfmfa-sc_100k.finalfstout
+mad-redwoodck2.nfa-pond_100k.finalfstout	nfa-shic.nfy_100k.finalfstout
+mad-redwoodck2.nfa-robr_100k.finalfstout	nfa-shic.nfy-slate-cgrav_100k.finalfstout
+mad-redwoodck2.nfa-saic_100k.finalfstout	nfa-shic.paj-clearck_100k.finalfstout
+mad-redwoodck2.nfa-shic_100k.finalfstout	nfa-shic.paj-sanbenito_100k.finalfstout
+mad-redwoodck2.nfa-slar_100k.finalfstout	nfa-shic.put-cold_100k.finalfstout
+mad-redwoodck2.nff-poe_100k.finalfstout	nfa-shic.put-wildhorseck_100k.finalfstout
+mad-redwoodck2.nfmfa-sc_100k.finalfstout	nfa-shic.rub-lc-us_100k.finalfstout
+mad-redwoodck2.nfy_100k.finalfstout	nfa-shic.rub-usph_100k.finalfstout
+mad-redwoodck2.nfy-slate-cgrav_100k.finalfstout	nfa-shic.russ-mwsprngck_100k.finalfstout
+mad-redwoodck2.paj-clearck_100k.finalfstout	nfa-shic.salin-losburros_100k.finalfstout
+mad-redwoodck2.paj-sanbenito_100k.finalfstout	nfa-shic.sancarp-dutrack_100k.finalfstout
+mad-redwoodck2.put-cold_100k.finalfstout	nfa-shic.sfa-cami_100k.finalfstout
+mad-redwoodck2.put-wildhorseck_100k.finalfstout	nfa-shic.sfeel-cedar_100k.finalfstout
+mad-redwoodck2.rub-lc-us_100k.finalfstout	nfa-shic.sfy-fallck_100k.finalfstout
+mad-redwoodck2.rub-usph_100k.finalfstout	nfa-shic.sfy-loga_100k.finalfstout
+mad-redwoodck2.russ-mwsprngck_100k.finalfstout	nfa-shic.sfy-misc_100k.finalfstout
+mad-redwoodck2.salin-losburros_100k.finalfstout	nfa-shic.sfy-rockck_100k.finalfstout
+mad-redwoodck2.sancarp-dutrack_100k.finalfstout	nfa-shic.sfy-shadyck_100k.finalfstout
+mad-redwoodck2.sfa-cami_100k.finalfstout	nfa-shic.sfy-springck_100k.finalfstout
+mad-redwoodck2.sfeel-cedar_100k.finalfstout	nfa-shic.smith-hurdygurdyck_100k.finalfstout
+mad-redwoodck2.sfy-fallck_100k.finalfstout	nfa-shic.soquel-ebsc_100k.finalfstout
+mad-redwoodck2.sfy-loga_100k.finalfstout	nfa-shic.ssantiam_100k.finalfstout
+mad-redwoodck2.sfy-misc_100k.finalfstout	nfa-shic.trin-sftrinity_100k.finalfstout
+mad-redwoodck2.sfy-rockck_100k.finalfstout	nfa-shic.trin-sftrinity-sandybar_100k.finalfstout
+mad-redwoodck2.sfy-shadyck_100k.finalfstout	nfa-shic.trin-tishtang_100k.finalfstout
+mad-redwoodck2.sfy-springck_100k.finalfstout	nfa-shic.tuo-clavey_100k.finalfstout
+mad-redwoodck2.smith-hurdygurdyck_100k.finalfstout	nfa-shic.vandz-dinsmore_100k.finalfstout
+mad-redwoodck2.soquel-ebsc_100k.finalfstout	nfa-shic.vandz-rootcreek_100k.finalfstout
+mad-redwoodck2.ssantiam_100k.finalfstout	nfa-shic.vandz-shanty_100k.finalfstout
+mad-redwoodck2.trin-sftrinity_100k.finalfstout	nfa-slar.nff-poe_100k.finalfstout
+mad-redwoodck2.trin-sftrinity-sandybar_100k.finalfstout	nfa-slar.nfmfa-sc_100k.finalfstout
+mad-redwoodck2.trin-tishtang_100k.finalfstout	nfa-slar.nfy_100k.finalfstout
+mad-redwoodck2.tuo-clavey_100k.finalfstout	nfa-slar.nfy-slate-cgrav_100k.finalfstout
+mad-redwoodck2.vandz-dinsmore_100k.finalfstout	nfa-slar.paj-clearck_100k.finalfstout
+mad-redwoodck2.vandz-rootcreek_100k.finalfstout	nfa-slar.paj-sanbenito_100k.finalfstout
+mad-redwoodck2.vandz-shanty_100k.finalfstout	nfa-slar.put-cold_100k.finalfstout
+mad-redwoodck.mad-redwoodck2_100k.finalfstout	nfa-slar.put-wildhorseck_100k.finalfstout
+mad-redwoodck.mat-bearriver_100k.finalfstout	nfa-slar.rub-lc-us_100k.finalfstout
+mad-redwoodck.mat-lowermattole_100k.finalfstout	nfa-slar.rub-usph_100k.finalfstout
+mad-redwoodck.mfa-amec_100k.finalfstout	nfa-slar.russ-mwsprngck_100k.finalfstout
+mad-redwoodck.mfa-gasc_100k.finalfstout	nfa-slar.salin-losburros_100k.finalfstout
+mad-redwoodck.mfa-todc_100k.finalfstout	nfa-slar.sancarp-dutrack_100k.finalfstout
+mad-redwoodck.mfy-oregck_100k.finalfstout	nfa-slar.sfa-cami_100k.finalfstout
+mad-redwoodck.mfy-us-oh_100k.finalfstout	nfa-slar.sfeel-cedar_100k.finalfstout
+mad-redwoodck.nfa_100k.finalfstout	nfa-slar.sfy-fallck_100k.finalfstout
+mad-redwoodck.nfa-bunc_100k.finalfstout	nfa-slar.sfy-loga_100k.finalfstout
+mad-redwoodck.nfa-euchds_100k.finalfstout	nfa-slar.sfy-misc_100k.finalfstout
+mad-redwoodck.nfa-euchus_100k.finalfstout	nfa-slar.sfy-rockck_100k.finalfstout
+mad-redwoodck.nfa-indc_100k.finalfstout	nfa-slar.sfy-shadyck_100k.finalfstout
+mad-redwoodck.nfa-pond_100k.finalfstout	nfa-slar.sfy-springck_100k.finalfstout
+mad-redwoodck.nfa-robr_100k.finalfstout	nfa-slar.smith-hurdygurdyck_100k.finalfstout
+mad-redwoodck.nfa-saic_100k.finalfstout	nfa-slar.soquel-ebsc_100k.finalfstout
+mad-redwoodck.nfa-shic_100k.finalfstout	nfa-slar.ssantiam_100k.finalfstout
+mad-redwoodck.nfa-slar_100k.finalfstout	nfa-slar.trin-sftrinity_100k.finalfstout
+mad-redwoodck.nff-poe_100k.finalfstout	nfa-slar.trin-sftrinity-sandybar_100k.finalfstout
+mad-redwoodck.nfmfa-sc_100k.finalfstout	nfa-slar.trin-tishtang_100k.finalfstout
+mad-redwoodck.nfy_100k.finalfstout	nfa-slar.tuo-clavey_100k.finalfstout
+mad-redwoodck.nfy-slate-cgrav_100k.finalfstout	nfa-slar.vandz-dinsmore_100k.finalfstout
+mad-redwoodck.paj-clearck_100k.finalfstout	nfa-slar.vandz-rootcreek_100k.finalfstout
+mad-redwoodck.paj-sanbenito_100k.finalfstout	nfa-slar.vandz-shanty_100k.finalfstout
+mad-redwoodck.put-cold_100k.finalfstout	nfa.smith-hurdygurdyck_100k.finalfstout
+mad-redwoodck.put-wildhorseck_100k.finalfstout	nfa.soquel-ebsc_100k.finalfstout
+mad-redwoodck.rub-lc-us_100k.finalfstout	nfa.ssantiam_100k.finalfstout
+mad-redwoodck.rub-usph_100k.finalfstout	nfa.trin-sftrinity_100k.finalfstout
+mad-redwoodck.russ-mwsprngck_100k.finalfstout	nfa.trin-sftrinity-sandybar_100k.finalfstout
+mad-redwoodck.salin-losburros_100k.finalfstout	nfa.trin-tishtang_100k.finalfstout
+mad-redwoodck.sancarp-dutrack_100k.finalfstout	nfa.tuo-clavey_100k.finalfstout
+mad-redwoodck.sfa-cami_100k.finalfstout	nfa.vandz-dinsmore_100k.finalfstout
+mad-redwoodck.sfeel-cedar_100k.finalfstout	nfa.vandz-rootcreek_100k.finalfstout
+mad-redwoodck.sfy-fallck_100k.finalfstout	nfa.vandz-shanty_100k.finalfstout
+mad-redwoodck.sfy-loga_100k.finalfstout	nff-poe.nfmfa-sc_100k.finalfstout
+mad-redwoodck.sfy-misc_100k.finalfstout	nff-poe.nfy_100k.finalfstout
+mad-redwoodck.sfy-rockck_100k.finalfstout	nff-poe.nfy-slate-cgrav_100k.finalfstout
+mad-redwoodck.sfy-shadyck_100k.finalfstout	nff-poe.paj-clearck_100k.finalfstout
+mad-redwoodck.sfy-springck_100k.finalfstout	nff-poe.paj-sanbenito_100k.finalfstout
+mad-redwoodck.smith-hurdygurdyck_100k.finalfstout	nff-poe.put-cold_100k.finalfstout
+mad-redwoodck.soquel-ebsc_100k.finalfstout	nff-poe.put-wildhorseck_100k.finalfstout
+mad-redwoodck.ssantiam_100k.finalfstout	nff-poe.rub-lc-us_100k.finalfstout
+mad-redwoodck.trin-sftrinity_100k.finalfstout	nff-poe.rub-usph_100k.finalfstout
+mad-redwoodck.trin-sftrinity-sandybar_100k.finalfstout	nff-poe.russ-mwsprngck_100k.finalfstout
+mad-redwoodck.trin-tishtang_100k.finalfstout	nff-poe.salin-losburros_100k.finalfstout
+mad-redwoodck.tuo-clavey_100k.finalfstout	nff-poe.sancarp-dutrack_100k.finalfstout
+mad-redwoodck.vandz-dinsmore_100k.finalfstout	nff-poe.sfa-cami_100k.finalfstout
+mad-redwoodck.vandz-rootcreek_100k.finalfstout	nff-poe.sfeel-cedar_100k.finalfstout
+mad-redwoodck.vandz-shanty_100k.finalfstout	nff-poe.sfy-fallck_100k.finalfstout
+mat-bearriver.mat-lowermattole_100k.finalfstout	nff-poe.sfy-loga_100k.finalfstout
+mat-bearriver.mfa-amec_100k.finalfstout	nff-poe.sfy-misc_100k.finalfstout
+mat-bearriver.mfa-gasc_100k.finalfstout	nff-poe.sfy-rockck_100k.finalfstout
+mat-bearriver.mfa-todc_100k.finalfstout	nff-poe.sfy-shadyck_100k.finalfstout
+mat-bearriver.mfy-oregck_100k.finalfstout	nff-poe.sfy-springck_100k.finalfstout
+mat-bearriver.mfy-us-oh_100k.finalfstout	nff-poe.smith-hurdygurdyck_100k.finalfstout
+mat-bearriver.nfa_100k.finalfstout	nff-poe.soquel-ebsc_100k.finalfstout
+mat-bearriver.nfa-bunc_100k.finalfstout	nff-poe.ssantiam_100k.finalfstout
+mat-bearriver.nfa-euchds_100k.finalfstout	nff-poe.trin-sftrinity_100k.finalfstout
+mat-bearriver.nfa-euchus_100k.finalfstout	nff-poe.trin-sftrinity-sandybar_100k.finalfstout
+mat-bearriver.nfa-indc_100k.finalfstout	nff-poe.trin-tishtang_100k.finalfstout
+mat-bearriver.nfa-pond_100k.finalfstout	nff-poe.tuo-clavey_100k.finalfstout
+mat-bearriver.nfa-robr_100k.finalfstout	nff-poe.vandz-dinsmore_100k.finalfstout
+mat-bearriver.nfa-saic_100k.finalfstout	nff-poe.vandz-rootcreek_100k.finalfstout
+mat-bearriver.nfa-shic_100k.finalfstout	nff-poe.vandz-shanty_100k.finalfstout
+mat-bearriver.nfa-slar_100k.finalfstout	nfmfa-sc.nfy_100k.finalfstout
+mat-bearriver.nff-poe_100k.finalfstout	nfmfa-sc.nfy-slate-cgrav_100k.finalfstout
+mat-bearriver.nfmfa-sc_100k.finalfstout	nfmfa-sc.paj-clearck_100k.finalfstout
+mat-bearriver.nfy_100k.finalfstout	nfmfa-sc.paj-sanbenito_100k.finalfstout
+mat-bearriver.nfy-slate-cgrav_100k.finalfstout	nfmfa-sc.put-cold_100k.finalfstout
+mat-bearriver.paj-clearck_100k.finalfstout	nfmfa-sc.put-wildhorseck_100k.finalfstout
+mat-bearriver.paj-sanbenito_100k.finalfstout	nfmfa-sc.rub-lc-us_100k.finalfstout
+mat-bearriver.put-cold_100k.finalfstout	nfmfa-sc.rub-usph_100k.finalfstout
+mat-bearriver.put-wildhorseck_100k.finalfstout	nfmfa-sc.russ-mwsprngck_100k.finalfstout
+mat-bearriver.rub-lc-us_100k.finalfstout	nfmfa-sc.salin-losburros_100k.finalfstout
+mat-bearriver.rub-usph_100k.finalfstout	nfmfa-sc.sancarp-dutrack_100k.finalfstout
+mat-bearriver.russ-mwsprngck_100k.finalfstout	nfmfa-sc.sfa-cami_100k.finalfstout
+mat-bearriver.salin-losburros_100k.finalfstout	nfmfa-sc.sfeel-cedar_100k.finalfstout
+mat-bearriver.sancarp-dutrack_100k.finalfstout	nfmfa-sc.sfy-fallck_100k.finalfstout
+mat-bearriver.sfa-cami_100k.finalfstout	nfmfa-sc.sfy-loga_100k.finalfstout
+mat-bearriver.sfeel-cedar_100k.finalfstout	nfmfa-sc.sfy-misc_100k.finalfstout
+mat-bearriver.sfy-fallck_100k.finalfstout	nfmfa-sc.sfy-rockck_100k.finalfstout
+mat-bearriver.sfy-loga_100k.finalfstout	nfmfa-sc.sfy-shadyck_100k.finalfstout
+mat-bearriver.sfy-misc_100k.finalfstout	nfmfa-sc.sfy-springck_100k.finalfstout
+mat-bearriver.sfy-rockck_100k.finalfstout	nfmfa-sc.smith-hurdygurdyck_100k.finalfstout
+mat-bearriver.sfy-shadyck_100k.finalfstout	nfmfa-sc.soquel-ebsc_100k.finalfstout
+mat-bearriver.sfy-springck_100k.finalfstout	nfmfa-sc.ssantiam_100k.finalfstout
+mat-bearriver.smith-hurdygurdyck_100k.finalfstout	nfmfa-sc.trin-sftrinity_100k.finalfstout
+mat-bearriver.soquel-ebsc_100k.finalfstout	nfmfa-sc.trin-sftrinity-sandybar_100k.finalfstout
+mat-bearriver.ssantiam_100k.finalfstout	nfmfa-sc.trin-tishtang_100k.finalfstout
+mat-bearriver.trin-sftrinity_100k.finalfstout	nfmfa-sc.tuo-clavey_100k.finalfstout
+mat-bearriver.trin-sftrinity-sandybar_100k.finalfstout	nfmfa-sc.vandz-dinsmore_100k.finalfstout
+mat-bearriver.trin-tishtang_100k.finalfstout	nfmfa-sc.vandz-rootcreek_100k.finalfstout
+mat-bearriver.tuo-clavey_100k.finalfstout	nfmfa-sc.vandz-shanty_100k.finalfstout
+mat-bearriver.vandz-dinsmore_100k.finalfstout	nfy.nfy-slate-cgrav_100k.finalfstout
+mat-bearriver.vandz-rootcreek_100k.finalfstout	nfy.paj-clearck_100k.finalfstout
+mat-bearriver.vandz-shanty_100k.finalfstout	nfy.paj-sanbenito_100k.finalfstout
+mat-lowermattole.mfa-amec_100k.finalfstout	nfy.put-cold_100k.finalfstout
+mat-lowermattole.mfa-gasc_100k.finalfstout	nfy.put-wildhorseck_100k.finalfstout
+mat-lowermattole.mfa-todc_100k.finalfstout	nfy.rub-lc-us_100k.finalfstout
+mat-lowermattole.mfy-oregck_100k.finalfstout	nfy.rub-usph_100k.finalfstout
+mat-lowermattole.mfy-us-oh_100k.finalfstout	nfy.russ-mwsprngck_100k.finalfstout
+mat-lowermattole.nfa_100k.finalfstout	nfy.salin-losburros_100k.finalfstout
+mat-lowermattole.nfa-bunc_100k.finalfstout	nfy.sancarp-dutrack_100k.finalfstout
+mat-lowermattole.nfa-euchds_100k.finalfstout	nfy.sfa-cami_100k.finalfstout
+mat-lowermattole.nfa-euchus_100k.finalfstout	nfy.sfeel-cedar_100k.finalfstout
+mat-lowermattole.nfa-indc_100k.finalfstout	nfy.sfy-fallck_100k.finalfstout
+mat-lowermattole.nfa-pond_100k.finalfstout	nfy.sfy-loga_100k.finalfstout
+mat-lowermattole.nfa-robr_100k.finalfstout	nfy.sfy-misc_100k.finalfstout
+mat-lowermattole.nfa-saic_100k.finalfstout	nfy.sfy-rockck_100k.finalfstout
+mat-lowermattole.nfa-shic_100k.finalfstout	nfy.sfy-shadyck_100k.finalfstout
+mat-lowermattole.nfa-slar_100k.finalfstout	nfy.sfy-springck_100k.finalfstout
+mat-lowermattole.nff-poe_100k.finalfstout	nfy-slate-cgrav.paj-clearck_100k.finalfstout
+mat-lowermattole.nfmfa-sc_100k.finalfstout	nfy-slate-cgrav.paj-sanbenito_100k.finalfstout
+mat-lowermattole.nfy_100k.finalfstout	nfy-slate-cgrav.put-cold_100k.finalfstout
+mat-lowermattole.nfy-slate-cgrav_100k.finalfstout	nfy-slate-cgrav.put-wildhorseck_100k.finalfstout
+mat-lowermattole.paj-clearck_100k.finalfstout	nfy-slate-cgrav.rub-lc-us_100k.finalfstout
+mat-lowermattole.paj-sanbenito_100k.finalfstout	nfy-slate-cgrav.rub-usph_100k.finalfstout
+mat-lowermattole.put-cold_100k.finalfstout	nfy-slate-cgrav.russ-mwsprngck_100k.finalfstout
+mat-lowermattole.put-wildhorseck_100k.finalfstout	nfy-slate-cgrav.salin-losburros_100k.finalfstout
+mat-lowermattole.rub-lc-us_100k.finalfstout	nfy-slate-cgrav.sancarp-dutrack_100k.finalfstout
+mat-lowermattole.rub-usph_100k.finalfstout	nfy-slate-cgrav.sfa-cami_100k.finalfstout
+mat-lowermattole.russ-mwsprngck_100k.finalfstout	nfy-slate-cgrav.sfeel-cedar_100k.finalfstout
+mat-lowermattole.salin-losburros_100k.finalfstout	nfy-slate-cgrav.sfy-fallck_100k.finalfstout
+mat-lowermattole.sancarp-dutrack_100k.finalfstout	nfy-slate-cgrav.sfy-loga_100k.finalfstout
+mat-lowermattole.sfa-cami_100k.finalfstout	nfy-slate-cgrav.sfy-misc_100k.finalfstout
+mat-lowermattole.sfeel-cedar_100k.finalfstout	nfy-slate-cgrav.sfy-rockck_100k.finalfstout
+mat-lowermattole.sfy-fallck_100k.finalfstout	nfy-slate-cgrav.sfy-shadyck_100k.finalfstout
+mat-lowermattole.sfy-loga_100k.finalfstout	nfy-slate-cgrav.sfy-springck_100k.finalfstout
+mat-lowermattole.sfy-misc_100k.finalfstout	nfy-slate-cgrav.smith-hurdygurdyck_100k.finalfstout
+mat-lowermattole.sfy-rockck_100k.finalfstout	nfy-slate-cgrav.soquel-ebsc_100k.finalfstout
+mat-lowermattole.sfy-shadyck_100k.finalfstout	nfy-slate-cgrav.ssantiam_100k.finalfstout
+mat-lowermattole.sfy-springck_100k.finalfstout	nfy-slate-cgrav.trin-sftrinity_100k.finalfstout
+mat-lowermattole.smith-hurdygurdyck_100k.finalfstout	nfy-slate-cgrav.trin-sftrinity-sandybar_100k.finalfstout
+mat-lowermattole.soquel-ebsc_100k.finalfstout	nfy-slate-cgrav.trin-tishtang_100k.finalfstout
+mat-lowermattole.ssantiam_100k.finalfstout	nfy-slate-cgrav.tuo-clavey_100k.finalfstout
+mat-lowermattole.trin-sftrinity_100k.finalfstout	nfy-slate-cgrav.vandz-dinsmore_100k.finalfstout
+mat-lowermattole.trin-sftrinity-sandybar_100k.finalfstout	nfy-slate-cgrav.vandz-rootcreek_100k.finalfstout
+mat-lowermattole.trin-tishtang_100k.finalfstout	nfy-slate-cgrav.vandz-shanty_100k.finalfstout
+mat-lowermattole.tuo-clavey_100k.finalfstout	nfy.smith-hurdygurdyck_100k.finalfstout
+mat-lowermattole.vandz-dinsmore_100k.finalfstout	nfy.soquel-ebsc_100k.finalfstout
+mat-lowermattole.vandz-rootcreek_100k.finalfstout	nfy.ssantiam_100k.finalfstout
+mat-lowermattole.vandz-shanty_100k.finalfstout	nfy.trin-sftrinity_100k.finalfstout
+mfa-amec.mfa-gasc_100k.finalfstout	nfy.trin-sftrinity-sandybar_100k.finalfstout
+mfa-amec.mfa-todc_100k.finalfstout	nfy.trin-tishtang_100k.finalfstout
+mfa-amec.mfy-oregck_100k.finalfstout	nfy.tuo-clavey_100k.finalfstout
+mfa-amec.mfy-us-oh_100k.finalfstout	nfy.vandz-dinsmore_100k.finalfstout
+mfa-amec.nfa_100k.finalfstout	nfy.vandz-rootcreek_100k.finalfstout
+mfa-amec.nfa-bunc_100k.finalfstout	nfy.vandz-shanty_100k.finalfstout
+mfa-amec.nfa-euchds_100k.finalfstout	paj-clearck.paj-sanbenito_100k.finalfstout
+mfa-amec.nfa-euchus_100k.finalfstout	paj-clearck.put-cold_100k.finalfstout
+mfa-amec.nfa-indc_100k.finalfstout	paj-clearck.put-wildhorseck_100k.finalfstout
+mfa-amec.nfa-pond_100k.finalfstout	paj-clearck.rub-lc-us_100k.finalfstout
+mfa-amec.nfa-robr_100k.finalfstout	paj-clearck.rub-usph_100k.finalfstout
+mfa-amec.nfa-saic_100k.finalfstout	paj-clearck.russ-mwsprngck_100k.finalfstout
+mfa-amec.nfa-shic_100k.finalfstout	paj-clearck.salin-losburros_100k.finalfstout
+mfa-amec.nfa-slar_100k.finalfstout	paj-clearck.sancarp-dutrack_100k.finalfstout
+mfa-amec.nff-poe_100k.finalfstout	paj-clearck.sfa-cami_100k.finalfstout
+mfa-amec.nfmfa-sc_100k.finalfstout	paj-clearck.sfeel-cedar_100k.finalfstout
+mfa-amec.nfy_100k.finalfstout	paj-clearck.sfy-fallck_100k.finalfstout
+mfa-amec.nfy-slate-cgrav_100k.finalfstout	paj-clearck.sfy-loga_100k.finalfstout
+mfa-amec.paj-clearck_100k.finalfstout	paj-clearck.sfy-misc_100k.finalfstout
+mfa-amec.paj-sanbenito_100k.finalfstout	paj-clearck.sfy-rockck_100k.finalfstout
+mfa-amec.put-cold_100k.finalfstout	paj-clearck.sfy-shadyck_100k.finalfstout
+mfa-amec.put-wildhorseck_100k.finalfstout	paj-clearck.sfy-springck_100k.finalfstout
+mfa-amec.rub-lc-us_100k.finalfstout	paj-clearck.smith-hurdygurdyck_100k.finalfstout
+mfa-amec.rub-usph_100k.finalfstout	paj-clearck.soquel-ebsc_100k.finalfstout
+mfa-amec.russ-mwsprngck_100k.finalfstout	paj-clearck.ssantiam_100k.finalfstout
+mfa-amec.salin-losburros_100k.finalfstout	paj-clearck.trin-sftrinity_100k.finalfstout
+mfa-amec.sancarp-dutrack_100k.finalfstout	paj-clearck.trin-sftrinity-sandybar_100k.finalfstout
+mfa-amec.sfa-cami_100k.finalfstout	paj-clearck.trin-tishtang_100k.finalfstout
+mfa-amec.sfeel-cedar_100k.finalfstout	paj-clearck.tuo-clavey_100k.finalfstout
+mfa-amec.sfy-fallck_100k.finalfstout	paj-clearck.vandz-dinsmore_100k.finalfstout
+mfa-amec.sfy-loga_100k.finalfstout	paj-clearck.vandz-rootcreek_100k.finalfstout
+mfa-amec.sfy-misc_100k.finalfstout	paj-clearck.vandz-shanty_100k.finalfstout
+mfa-amec.sfy-rockck_100k.finalfstout	paj-sanbenito.put-cold_100k.finalfstout
+mfa-amec.sfy-shadyck_100k.finalfstout	paj-sanbenito.put-wildhorseck_100k.finalfstout
+mfa-amec.sfy-springck_100k.finalfstout	paj-sanbenito.rub-lc-us_100k.finalfstout
+mfa-amec.smith-hurdygurdyck_100k.finalfstout	paj-sanbenito.rub-usph_100k.finalfstout
+mfa-amec.soquel-ebsc_100k.finalfstout	paj-sanbenito.russ-mwsprngck_100k.finalfstout
+mfa-amec.ssantiam_100k.finalfstout	paj-sanbenito.salin-losburros_100k.finalfstout
+mfa-amec.trin-sftrinity_100k.finalfstout	paj-sanbenito.sancarp-dutrack_100k.finalfstout
+mfa-amec.trin-sftrinity-sandybar_100k.finalfstout	paj-sanbenito.sfa-cami_100k.finalfstout
+mfa-amec.trin-tishtang_100k.finalfstout	paj-sanbenito.sfeel-cedar_100k.finalfstout
+mfa-amec.tuo-clavey_100k.finalfstout	paj-sanbenito.sfy-fallck_100k.finalfstout
+mfa-amec.vandz-dinsmore_100k.finalfstout	paj-sanbenito.sfy-loga_100k.finalfstout
+mfa-amec.vandz-rootcreek_100k.finalfstout	paj-sanbenito.sfy-misc_100k.finalfstout
+mfa-amec.vandz-shanty_100k.finalfstout	paj-sanbenito.sfy-rockck_100k.finalfstout
+mfa-gasc.mfa-todc_100k.finalfstout	paj-sanbenito.sfy-shadyck_100k.finalfstout
+mfa-gasc.mfy-oregck_100k.finalfstout	paj-sanbenito.sfy-springck_100k.finalfstout
+mfa-gasc.mfy-us-oh_100k.finalfstout	paj-sanbenito.smith-hurdygurdyck_100k.finalfstout
+mfa-gasc.nfa_100k.finalfstout	paj-sanbenito.soquel-ebsc_100k.finalfstout
+mfa-gasc.nfa-bunc_100k.finalfstout	paj-sanbenito.ssantiam_100k.finalfstout
+mfa-gasc.nfa-euchds_100k.finalfstout	paj-sanbenito.trin-sftrinity_100k.finalfstout
+mfa-gasc.nfa-euchus_100k.finalfstout	paj-sanbenito.trin-sftrinity-sandybar_100k.finalfstout
+mfa-gasc.nfa-indc_100k.finalfstout	paj-sanbenito.trin-tishtang_100k.finalfstout
+mfa-gasc.nfa-pond_100k.finalfstout	paj-sanbenito.tuo-clavey_100k.finalfstout
+mfa-gasc.nfa-robr_100k.finalfstout	paj-sanbenito.vandz-dinsmore_100k.finalfstout
+mfa-gasc.nfa-saic_100k.finalfstout	paj-sanbenito.vandz-rootcreek_100k.finalfstout
+mfa-gasc.nfa-shic_100k.finalfstout	paj-sanbenito.vandz-shanty_100k.finalfstout
+mfa-gasc.nfa-slar_100k.finalfstout	put-cold.put-wildhorseck_100k.finalfstout
+mfa-gasc.nff-poe_100k.finalfstout	put-cold.rub-lc-us_100k.finalfstout
+mfa-gasc.nfmfa-sc_100k.finalfstout	put-cold.rub-usph_100k.finalfstout
+mfa-gasc.nfy_100k.finalfstout	put-cold.russ-mwsprngck_100k.finalfstout
+mfa-gasc.nfy-slate-cgrav_100k.finalfstout	put-cold.salin-losburros_100k.finalfstout
+mfa-gasc.paj-clearck_100k.finalfstout	put-cold.sancarp-dutrack_100k.finalfstout
+mfa-gasc.paj-sanbenito_100k.finalfstout	put-cold.sfa-cami_100k.finalfstout
+mfa-gasc.put-cold_100k.finalfstout	put-cold.sfeel-cedar_100k.finalfstout
+mfa-gasc.put-wildhorseck_100k.finalfstout	put-cold.sfy-fallck_100k.finalfstout
+mfa-gasc.rub-lc-us_100k.finalfstout	put-cold.sfy-loga_100k.finalfstout
+mfa-gasc.rub-usph_100k.finalfstout	put-cold.sfy-misc_100k.finalfstout
+mfa-gasc.russ-mwsprngck_100k.finalfstout	put-cold.sfy-rockck_100k.finalfstout
+mfa-gasc.salin-losburros_100k.finalfstout	put-cold.sfy-shadyck_100k.finalfstout
+mfa-gasc.sancarp-dutrack_100k.finalfstout	put-cold.sfy-springck_100k.finalfstout
+mfa-gasc.sfa-cami_100k.finalfstout	put-cold.smith-hurdygurdyck_100k.finalfstout
+mfa-gasc.sfeel-cedar_100k.finalfstout	put-cold.soquel-ebsc_100k.finalfstout
+mfa-gasc.sfy-fallck_100k.finalfstout	put-cold.ssantiam_100k.finalfstout
+mfa-gasc.sfy-loga_100k.finalfstout	put-cold.trin-sftrinity_100k.finalfstout
+mfa-gasc.sfy-misc_100k.finalfstout	put-cold.trin-sftrinity-sandybar_100k.finalfstout
+mfa-gasc.sfy-rockck_100k.finalfstout	put-cold.trin-tishtang_100k.finalfstout
+mfa-gasc.sfy-shadyck_100k.finalfstout	put-cold.tuo-clavey_100k.finalfstout
+mfa-gasc.sfy-springck_100k.finalfstout	put-cold.vandz-dinsmore_100k.finalfstout
+mfa-gasc.smith-hurdygurdyck_100k.finalfstout	put-cold.vandz-rootcreek_100k.finalfstout
+mfa-gasc.soquel-ebsc_100k.finalfstout	put-cold.vandz-shanty_100k.finalfstout
+mfa-gasc.ssantiam_100k.finalfstout	put-wildhorseck.rub-lc-us_100k.finalfstout
+mfa-gasc.trin-sftrinity_100k.finalfstout	put-wildhorseck.rub-usph_100k.finalfstout
+mfa-gasc.trin-sftrinity-sandybar_100k.finalfstout	put-wildhorseck.russ-mwsprngck_100k.finalfstout
+mfa-gasc.trin-tishtang_100k.finalfstout	put-wildhorseck.salin-losburros_100k.finalfstout
+mfa-gasc.tuo-clavey_100k.finalfstout	put-wildhorseck.sancarp-dutrack_100k.finalfstout
+mfa-gasc.vandz-dinsmore_100k.finalfstout	put-wildhorseck.sfa-cami_100k.finalfstout
+mfa-gasc.vandz-rootcreek_100k.finalfstout	put-wildhorseck.sfeel-cedar_100k.finalfstout
+mfa-gasc.vandz-shanty_100k.finalfstout	put-wildhorseck.sfy-fallck_100k.finalfstout
+mfa-todc.mfy-oregck_100k.finalfstout	put-wildhorseck.sfy-loga_100k.finalfstout
+mfa-todc.mfy-us-oh_100k.finalfstout	put-wildhorseck.sfy-misc_100k.finalfstout
+mfa-todc.nfa_100k.finalfstout	put-wildhorseck.sfy-rockck_100k.finalfstout
+mfa-todc.nfa-bunc_100k.finalfstout	put-wildhorseck.sfy-shadyck_100k.finalfstout
+mfa-todc.nfa-euchds_100k.finalfstout	put-wildhorseck.sfy-springck_100k.finalfstout
+mfa-todc.nfa-euchus_100k.finalfstout	put-wildhorseck.smith-hurdygurdyck_100k.finalfstout
+mfa-todc.nfa-indc_100k.finalfstout	put-wildhorseck.soquel-ebsc_100k.finalfstout
+mfa-todc.nfa-pond_100k.finalfstout	put-wildhorseck.ssantiam_100k.finalfstout
+mfa-todc.nfa-robr_100k.finalfstout	put-wildhorseck.trin-sftrinity_100k.finalfstout
+mfa-todc.nfa-saic_100k.finalfstout	put-wildhorseck.trin-sftrinity-sandybar_100k.finalfstout
+mfa-todc.nfa-shic_100k.finalfstout	put-wildhorseck.trin-tishtang_100k.finalfstout
+mfa-todc.nfa-slar_100k.finalfstout	put-wildhorseck.tuo-clavey_100k.finalfstout
+mfa-todc.nff-poe_100k.finalfstout	put-wildhorseck.vandz-dinsmore_100k.finalfstout
+mfa-todc.nfmfa-sc_100k.finalfstout	put-wildhorseck.vandz-rootcreek_100k.finalfstout
+mfa-todc.nfy_100k.finalfstout	put-wildhorseck.vandz-shanty_100k.finalfstout
+mfa-todc.nfy-slate-cgrav_100k.finalfstout	rub-lc-us.rub-usph_100k.finalfstout
+mfa-todc.paj-clearck_100k.finalfstout	rub-lc-us.russ-mwsprngck_100k.finalfstout
+mfa-todc.paj-sanbenito_100k.finalfstout	rub-lc-us.salin-losburros_100k.finalfstout
+mfa-todc.put-cold_100k.finalfstout	rub-lc-us.sancarp-dutrack_100k.finalfstout
+mfa-todc.put-wildhorseck_100k.finalfstout	rub-lc-us.sfa-cami_100k.finalfstout
+mfa-todc.rub-lc-us_100k.finalfstout	rub-lc-us.sfeel-cedar_100k.finalfstout
+mfa-todc.rub-usph_100k.finalfstout	rub-lc-us.sfy-fallck_100k.finalfstout
+mfa-todc.russ-mwsprngck_100k.finalfstout	rub-lc-us.sfy-loga_100k.finalfstout
+mfa-todc.salin-losburros_100k.finalfstout	rub-lc-us.sfy-misc_100k.finalfstout
+mfa-todc.sancarp-dutrack_100k.finalfstout	rub-lc-us.sfy-rockck_100k.finalfstout
+mfa-todc.sfa-cami_100k.finalfstout	rub-lc-us.sfy-shadyck_100k.finalfstout
+mfa-todc.sfeel-cedar_100k.finalfstout	rub-lc-us.sfy-springck_100k.finalfstout
+mfa-todc.sfy-fallck_100k.finalfstout	rub-lc-us.smith-hurdygurdyck_100k.finalfstout
+mfa-todc.sfy-loga_100k.finalfstout	rub-lc-us.soquel-ebsc_100k.finalfstout
+mfa-todc.sfy-misc_100k.finalfstout	rub-lc-us.ssantiam_100k.finalfstout
+mfa-todc.sfy-rockck_100k.finalfstout	rub-lc-us.trin-sftrinity_100k.finalfstout
+mfa-todc.sfy-shadyck_100k.finalfstout	rub-lc-us.trin-sftrinity-sandybar_100k.finalfstout
+mfa-todc.sfy-springck_100k.finalfstout	rub-lc-us.trin-tishtang_100k.finalfstout
+mfa-todc.smith-hurdygurdyck_100k.finalfstout	rub-lc-us.tuo-clavey_100k.finalfstout
+mfa-todc.soquel-ebsc_100k.finalfstout	rub-lc-us.vandz-dinsmore_100k.finalfstout
+mfa-todc.ssantiam_100k.finalfstout	rub-lc-us.vandz-rootcreek_100k.finalfstout
+mfa-todc.trin-sftrinity_100k.finalfstout	rub-lc-us.vandz-shanty_100k.finalfstout
+mfa-todc.trin-sftrinity-sandybar_100k.finalfstout	rub-usph.russ-mwsprngck_100k.finalfstout
+mfa-todc.trin-tishtang_100k.finalfstout	rub-usph.salin-losburros_100k.finalfstout
+mfa-todc.tuo-clavey_100k.finalfstout	rub-usph.sancarp-dutrack_100k.finalfstout
+mfa-todc.vandz-dinsmore_100k.finalfstout	rub-usph.sfa-cami_100k.finalfstout
+mfa-todc.vandz-rootcreek_100k.finalfstout	rub-usph.sfeel-cedar_100k.finalfstout
+mfa-todc.vandz-shanty_100k.finalfstout	rub-usph.sfy-fallck_100k.finalfstout
+mfy-oregck.mfy-us-oh_100k.finalfstout	rub-usph.sfy-loga_100k.finalfstout
+mfy-oregck.nfa_100k.finalfstout	rub-usph.sfy-misc_100k.finalfstout
+mfy-oregck.nfa-bunc_100k.finalfstout	rub-usph.sfy-rockck_100k.finalfstout
+mfy-oregck.nfa-euchds_100k.finalfstout	rub-usph.sfy-shadyck_100k.finalfstout
+mfy-oregck.nfa-euchus_100k.finalfstout	rub-usph.sfy-springck_100k.finalfstout
+mfy-oregck.nfa-indc_100k.finalfstout	rub-usph.smith-hurdygurdyck_100k.finalfstout
+mfy-oregck.nfa-pond_100k.finalfstout	rub-usph.soquel-ebsc_100k.finalfstout
+mfy-oregck.nfa-robr_100k.finalfstout	rub-usph.ssantiam_100k.finalfstout
+mfy-oregck.nfa-saic_100k.finalfstout	rub-usph.trin-sftrinity_100k.finalfstout
+mfy-oregck.nfa-shic_100k.finalfstout	rub-usph.trin-sftrinity-sandybar_100k.finalfstout
+mfy-oregck.nfa-slar_100k.finalfstout	rub-usph.trin-tishtang_100k.finalfstout
+mfy-oregck.nff-poe_100k.finalfstout	rub-usph.tuo-clavey_100k.finalfstout
+mfy-oregck.nfmfa-sc_100k.finalfstout	rub-usph.vandz-dinsmore_100k.finalfstout
+mfy-oregck.nfy_100k.finalfstout	rub-usph.vandz-rootcreek_100k.finalfstout
+mfy-oregck.nfy-slate-cgrav_100k.finalfstout	rub-usph.vandz-shanty_100k.finalfstout
+mfy-oregck.paj-clearck_100k.finalfstout	russ-mwsprngck.salin-losburros_100k.finalfstout
+mfy-oregck.paj-sanbenito_100k.finalfstout	russ-mwsprngck.sancarp-dutrack_100k.finalfstout
+mfy-oregck.put-cold_100k.finalfstout	russ-mwsprngck.sfa-cami_100k.finalfstout
+mfy-oregck.put-wildhorseck_100k.finalfstout	russ-mwsprngck.sfeel-cedar_100k.finalfstout
+mfy-oregck.rub-lc-us_100k.finalfstout	russ-mwsprngck.sfy-fallck_100k.finalfstout
+mfy-oregck.rub-usph_100k.finalfstout	russ-mwsprngck.sfy-loga_100k.finalfstout
+mfy-oregck.russ-mwsprngck_100k.finalfstout	russ-mwsprngck.sfy-misc_100k.finalfstout
+mfy-oregck.salin-losburros_100k.finalfstout	russ-mwsprngck.sfy-rockck_100k.finalfstout
+mfy-oregck.sancarp-dutrack_100k.finalfstout	russ-mwsprngck.sfy-shadyck_100k.finalfstout
+mfy-oregck.sfa-cami_100k.finalfstout	russ-mwsprngck.sfy-springck_100k.finalfstout
+mfy-oregck.sfeel-cedar_100k.finalfstout	russ-mwsprngck.smith-hurdygurdyck_100k.finalfstout
+mfy-oregck.sfy-fallck_100k.finalfstout	russ-mwsprngck.soquel-ebsc_100k.finalfstout
+mfy-oregck.sfy-loga_100k.finalfstout	russ-mwsprngck.ssantiam_100k.finalfstout
+mfy-oregck.sfy-misc_100k.finalfstout	russ-mwsprngck.trin-sftrinity_100k.finalfstout
+mfy-oregck.sfy-rockck_100k.finalfstout	russ-mwsprngck.trin-sftrinity-sandybar_100k.finalfstout
+mfy-oregck.sfy-shadyck_100k.finalfstout	russ-mwsprngck.trin-tishtang_100k.finalfstout
+mfy-oregck.sfy-springck_100k.finalfstout	russ-mwsprngck.tuo-clavey_100k.finalfstout
+mfy-oregck.smith-hurdygurdyck_100k.finalfstout	russ-mwsprngck.vandz-dinsmore_100k.finalfstout
+mfy-oregck.soquel-ebsc_100k.finalfstout	russ-mwsprngck.vandz-rootcreek_100k.finalfstout
+mfy-oregck.ssantiam_100k.finalfstout	russ-mwsprngck.vandz-shanty_100k.finalfstout
+mfy-oregck.trin-sftrinity_100k.finalfstout	salin-losburros.sancarp-dutrack_100k.finalfstout
+mfy-oregck.trin-sftrinity-sandybar_100k.finalfstout	salin-losburros.sfa-cami_100k.finalfstout
+mfy-oregck.trin-tishtang_100k.finalfstout	salin-losburros.sfeel-cedar_100k.finalfstout
+mfy-oregck.tuo-clavey_100k.finalfstout	salin-losburros.sfy-fallck_100k.finalfstout
+mfy-oregck.vandz-dinsmore_100k.finalfstout	salin-losburros.sfy-loga_100k.finalfstout
+mfy-oregck.vandz-rootcreek_100k.finalfstout	salin-losburros.sfy-misc_100k.finalfstout
+mfy-oregck.vandz-shanty_100k.finalfstout	salin-losburros.sfy-rockck_100k.finalfstout
+mfy-us-oh.nfa_100k.finalfstout	salin-losburros.sfy-shadyck_100k.finalfstout
+mfy-us-oh.nfa-bunc_100k.finalfstout	salin-losburros.sfy-springck_100k.finalfstout
+mfy-us-oh.nfa-euchds_100k.finalfstout	salin-losburros.smith-hurdygurdyck_100k.finalfstout
+mfy-us-oh.nfa-euchus_100k.finalfstout	salin-losburros.soquel-ebsc_100k.finalfstout
+mfy-us-oh.nfa-indc_100k.finalfstout	salin-losburros.ssantiam_100k.finalfstout
+mfy-us-oh.nfa-pond_100k.finalfstout	salin-losburros.trin-sftrinity_100k.finalfstout
+mfy-us-oh.nfa-robr_100k.finalfstout	salin-losburros.trin-sftrinity-sandybar_100k.finalfstout
+mfy-us-oh.nfa-saic_100k.finalfstout	salin-losburros.trin-tishtang_100k.finalfstout
+mfy-us-oh.nfa-shic_100k.finalfstout	salin-losburros.tuo-clavey_100k.finalfstout
+mfy-us-oh.nfa-slar_100k.finalfstout	salin-losburros.vandz-dinsmore_100k.finalfstout
+mfy-us-oh.nff-poe_100k.finalfstout	salin-losburros.vandz-rootcreek_100k.finalfstout
+mfy-us-oh.nfmfa-sc_100k.finalfstout	salin-losburros.vandz-shanty_100k.finalfstout
+mfy-us-oh.nfy_100k.finalfstout	sancarp-dutrack.sfa-cami_100k.finalfstout
+mfy-us-oh.nfy-slate-cgrav_100k.finalfstout	sancarp-dutrack.sfeel-cedar_100k.finalfstout
+mfy-us-oh.paj-clearck_100k.finalfstout	sancarp-dutrack.sfy-fallck_100k.finalfstout
+mfy-us-oh.paj-sanbenito_100k.finalfstout	sancarp-dutrack.sfy-loga_100k.finalfstout
+mfy-us-oh.put-cold_100k.finalfstout	sancarp-dutrack.sfy-misc_100k.finalfstout
+mfy-us-oh.put-wildhorseck_100k.finalfstout	sancarp-dutrack.sfy-rockck_100k.finalfstout
+mfy-us-oh.rub-lc-us_100k.finalfstout	sancarp-dutrack.sfy-shadyck_100k.finalfstout
+mfy-us-oh.rub-usph_100k.finalfstout	sancarp-dutrack.sfy-springck_100k.finalfstout
+mfy-us-oh.russ-mwsprngck_100k.finalfstout	sancarp-dutrack.smith-hurdygurdyck_100k.finalfstout
+mfy-us-oh.salin-losburros_100k.finalfstout	sancarp-dutrack.soquel-ebsc_100k.finalfstout
+mfy-us-oh.sancarp-dutrack_100k.finalfstout	sancarp-dutrack.ssantiam_100k.finalfstout
+mfy-us-oh.sfa-cami_100k.finalfstout	sancarp-dutrack.trin-sftrinity_100k.finalfstout
+mfy-us-oh.sfeel-cedar_100k.finalfstout	sancarp-dutrack.trin-sftrinity-sandybar_100k.finalfstout
+mfy-us-oh.sfy-fallck_100k.finalfstout	sancarp-dutrack.trin-tishtang_100k.finalfstout
+mfy-us-oh.sfy-loga_100k.finalfstout	sancarp-dutrack.tuo-clavey_100k.finalfstout
+mfy-us-oh.sfy-misc_100k.finalfstout	sancarp-dutrack.vandz-dinsmore_100k.finalfstout
+mfy-us-oh.sfy-rockck_100k.finalfstout	sancarp-dutrack.vandz-rootcreek_100k.finalfstout
+mfy-us-oh.sfy-shadyck_100k.finalfstout	sancarp-dutrack.vandz-shanty_100k.finalfstout
+mfy-us-oh.sfy-springck_100k.finalfstout	sfa-cami.sfeel-cedar_100k.finalfstout
+mfy-us-oh.smith-hurdygurdyck_100k.finalfstout	sfa-cami.sfy-fallck_100k.finalfstout
+mfy-us-oh.soquel-ebsc_100k.finalfstout	sfa-cami.sfy-loga_100k.finalfstout
+mfy-us-oh.ssantiam_100k.finalfstout	sfa-cami.sfy-misc_100k.finalfstout
+mfy-us-oh.trin-sftrinity_100k.finalfstout	sfa-cami.sfy-rockck_100k.finalfstout
+mfy-us-oh.trin-sftrinity-sandybar_100k.finalfstout	sfa-cami.sfy-shadyck_100k.finalfstout
+mfy-us-oh.trin-tishtang_100k.finalfstout	sfa-cami.sfy-springck_100k.finalfstout
+mfy-us-oh.tuo-clavey_100k.finalfstout	sfa-cami.smith-hurdygurdyck_100k.finalfstout
+mfy-us-oh.vandz-dinsmore_100k.finalfstout	sfa-cami.soquel-ebsc_100k.finalfstout
+mfy-us-oh.vandz-rootcreek_100k.finalfstout	sfa-cami.ssantiam_100k.finalfstout
+mfy-us-oh.vandz-shanty_100k.finalfstout	sfa-cami.trin-sftrinity_100k.finalfstout
+nfa-bunc.nfa-euchds_100k.finalfstout	sfa-cami.trin-sftrinity-sandybar_100k.finalfstout
+nfa-bunc.nfa-euchus_100k.finalfstout	sfa-cami.trin-tishtang_100k.finalfstout
+nfa-bunc.nfa-indc_100k.finalfstout	sfa-cami.tuo-clavey_100k.finalfstout
+nfa-bunc.nfa-pond_100k.finalfstout	sfa-cami.vandz-dinsmore_100k.finalfstout
+nfa-bunc.nfa-robr_100k.finalfstout	sfa-cami.vandz-rootcreek_100k.finalfstout
+nfa-bunc.nfa-saic_100k.finalfstout	sfa-cami.vandz-shanty_100k.finalfstout
+nfa-bunc.nfa-shic_100k.finalfstout	sfeel-cedar.sfy-fallck_100k.finalfstout
+nfa-bunc.nfa-slar_100k.finalfstout	sfeel-cedar.sfy-loga_100k.finalfstout
+nfa-bunc.nff-poe_100k.finalfstout	sfeel-cedar.sfy-misc_100k.finalfstout
+nfa-bunc.nfmfa-sc_100k.finalfstout	sfeel-cedar.sfy-rockck_100k.finalfstout
+nfa-bunc.nfy_100k.finalfstout	sfeel-cedar.sfy-shadyck_100k.finalfstout
+nfa-bunc.nfy-slate-cgrav_100k.finalfstout	sfeel-cedar.sfy-springck_100k.finalfstout
+nfa-bunc.paj-clearck_100k.finalfstout	sfeel-cedar.smith-hurdygurdyck_100k.finalfstout
+nfa-bunc.paj-sanbenito_100k.finalfstout	sfeel-cedar.soquel-ebsc_100k.finalfstout
+nfa-bunc.put-cold_100k.finalfstout	sfeel-cedar.ssantiam_100k.finalfstout
+nfa-bunc.put-wildhorseck_100k.finalfstout	sfeel-cedar.trin-sftrinity_100k.finalfstout
+nfa-bunc.rub-lc-us_100k.finalfstout	sfeel-cedar.trin-sftrinity-sandybar_100k.finalfstout
+nfa-bunc.rub-usph_100k.finalfstout	sfeel-cedar.trin-tishtang_100k.finalfstout
+nfa-bunc.russ-mwsprngck_100k.finalfstout	sfeel-cedar.tuo-clavey_100k.finalfstout
+nfa-bunc.salin-losburros_100k.finalfstout	sfeel-cedar.vandz-dinsmore_100k.finalfstout
+nfa-bunc.sancarp-dutrack_100k.finalfstout	sfeel-cedar.vandz-rootcreek_100k.finalfstout
+nfa-bunc.sfa-cami_100k.finalfstout	sfeel-cedar.vandz-shanty_100k.finalfstout
+nfa-bunc.sfeel-cedar_100k.finalfstout	sfy-fallck.sfy-loga_100k.finalfstout
+nfa-bunc.sfy-fallck_100k.finalfstout	sfy-fallck.sfy-misc_100k.finalfstout
+nfa-bunc.sfy-loga_100k.finalfstout	sfy-fallck.sfy-rockck_100k.finalfstout
+nfa-bunc.sfy-misc_100k.finalfstout	sfy-fallck.sfy-shadyck_100k.finalfstout
+nfa-bunc.sfy-rockck_100k.finalfstout	sfy-fallck.sfy-springck_100k.finalfstout
+nfa-bunc.sfy-shadyck_100k.finalfstout	sfy-fallck.smith-hurdygurdyck_100k.finalfstout
+nfa-bunc.sfy-springck_100k.finalfstout	sfy-fallck.soquel-ebsc_100k.finalfstout
+nfa-bunc.smith-hurdygurdyck_100k.finalfstout	sfy-fallck.ssantiam_100k.finalfstout
+nfa-bunc.soquel-ebsc_100k.finalfstout	sfy-fallck.trin-sftrinity_100k.finalfstout
+nfa-bunc.ssantiam_100k.finalfstout	sfy-fallck.trin-sftrinity-sandybar_100k.finalfstout
+nfa-bunc.trin-sftrinity_100k.finalfstout	sfy-fallck.trin-tishtang_100k.finalfstout
+nfa-bunc.trin-sftrinity-sandybar_100k.finalfstout	sfy-fallck.tuo-clavey_100k.finalfstout
+nfa-bunc.trin-tishtang_100k.finalfstout	sfy-fallck.vandz-dinsmore_100k.finalfstout
+nfa-bunc.tuo-clavey_100k.finalfstout	sfy-fallck.vandz-rootcreek_100k.finalfstout
+nfa-bunc.vandz-dinsmore_100k.finalfstout	sfy-fallck.vandz-shanty_100k.finalfstout
+nfa-bunc.vandz-rootcreek_100k.finalfstout	sfy-loga.sfy-misc_100k.finalfstout
+nfa-bunc.vandz-shanty_100k.finalfstout	sfy-loga.sfy-rockck_100k.finalfstout
+nfa-euchds.nfa-euchus_100k.finalfstout	sfy-loga.sfy-shadyck_100k.finalfstout
+nfa-euchds.nfa-indc_100k.finalfstout	sfy-loga.sfy-springck_100k.finalfstout
+nfa-euchds.nfa-pond_100k.finalfstout	sfy-loga.smith-hurdygurdyck_100k.finalfstout
+nfa-euchds.nfa-robr_100k.finalfstout	sfy-loga.soquel-ebsc_100k.finalfstout
+nfa-euchds.nfa-saic_100k.finalfstout	sfy-loga.ssantiam_100k.finalfstout
+nfa-euchds.nfa-shic_100k.finalfstout	sfy-loga.trin-sftrinity_100k.finalfstout
+nfa-euchds.nfa-slar_100k.finalfstout	sfy-loga.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchds.nff-poe_100k.finalfstout	sfy-loga.trin-tishtang_100k.finalfstout
+nfa-euchds.nfmfa-sc_100k.finalfstout	sfy-loga.tuo-clavey_100k.finalfstout
+nfa-euchds.nfy_100k.finalfstout	sfy-loga.vandz-dinsmore_100k.finalfstout
+nfa-euchds.nfy-slate-cgrav_100k.finalfstout	sfy-loga.vandz-rootcreek_100k.finalfstout
+nfa-euchds.paj-clearck_100k.finalfstout	sfy-loga.vandz-shanty_100k.finalfstout
+nfa-euchds.paj-sanbenito_100k.finalfstout	sfy-misc.sfy-rockck_100k.finalfstout
+nfa-euchds.put-cold_100k.finalfstout	sfy-misc.sfy-shadyck_100k.finalfstout
+nfa-euchds.put-wildhorseck_100k.finalfstout	sfy-misc.sfy-springck_100k.finalfstout
+nfa-euchds.rub-lc-us_100k.finalfstout	sfy-misc.smith-hurdygurdyck_100k.finalfstout
+nfa-euchds.rub-usph_100k.finalfstout	sfy-misc.soquel-ebsc_100k.finalfstout
+nfa-euchds.russ-mwsprngck_100k.finalfstout	sfy-misc.ssantiam_100k.finalfstout
+nfa-euchds.salin-losburros_100k.finalfstout	sfy-misc.trin-sftrinity_100k.finalfstout
+nfa-euchds.sancarp-dutrack_100k.finalfstout	sfy-misc.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchds.sfa-cami_100k.finalfstout	sfy-misc.trin-tishtang_100k.finalfstout
+nfa-euchds.sfeel-cedar_100k.finalfstout	sfy-misc.tuo-clavey_100k.finalfstout
+nfa-euchds.sfy-fallck_100k.finalfstout	sfy-misc.vandz-dinsmore_100k.finalfstout
+nfa-euchds.sfy-loga_100k.finalfstout	sfy-misc.vandz-rootcreek_100k.finalfstout
+nfa-euchds.sfy-misc_100k.finalfstout	sfy-misc.vandz-shanty_100k.finalfstout
+nfa-euchds.sfy-rockck_100k.finalfstout	sfy-rockck.sfy-shadyck_100k.finalfstout
+nfa-euchds.sfy-shadyck_100k.finalfstout	sfy-rockck.sfy-springck_100k.finalfstout
+nfa-euchds.sfy-springck_100k.finalfstout	sfy-rockck.smith-hurdygurdyck_100k.finalfstout
+nfa-euchds.smith-hurdygurdyck_100k.finalfstout	sfy-rockck.soquel-ebsc_100k.finalfstout
+nfa-euchds.soquel-ebsc_100k.finalfstout	sfy-rockck.ssantiam_100k.finalfstout
+nfa-euchds.ssantiam_100k.finalfstout	sfy-rockck.trin-sftrinity_100k.finalfstout
+nfa-euchds.trin-sftrinity_100k.finalfstout	sfy-rockck.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchds.trin-sftrinity-sandybar_100k.finalfstout	sfy-rockck.trin-tishtang_100k.finalfstout
+nfa-euchds.trin-tishtang_100k.finalfstout	sfy-rockck.tuo-clavey_100k.finalfstout
+nfa-euchds.tuo-clavey_100k.finalfstout	sfy-rockck.vandz-dinsmore_100k.finalfstout
+nfa-euchds.vandz-dinsmore_100k.finalfstout	sfy-rockck.vandz-rootcreek_100k.finalfstout
+nfa-euchds.vandz-rootcreek_100k.finalfstout	sfy-rockck.vandz-shanty_100k.finalfstout
+nfa-euchds.vandz-shanty_100k.finalfstout	sfy-shadyck.sfy-springck_100k.finalfstout
+nfa-euchus.nfa-indc_100k.finalfstout	sfy-shadyck.smith-hurdygurdyck_100k.finalfstout
+nfa-euchus.nfa-pond_100k.finalfstout	sfy-shadyck.soquel-ebsc_100k.finalfstout
+nfa-euchus.nfa-robr_100k.finalfstout	sfy-shadyck.ssantiam_100k.finalfstout
+nfa-euchus.nfa-saic_100k.finalfstout	sfy-shadyck.trin-sftrinity_100k.finalfstout
+nfa-euchus.nfa-shic_100k.finalfstout	sfy-shadyck.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchus.nfa-slar_100k.finalfstout	sfy-shadyck.trin-tishtang_100k.finalfstout
+nfa-euchus.nff-poe_100k.finalfstout	sfy-shadyck.tuo-clavey_100k.finalfstout
+nfa-euchus.nfmfa-sc_100k.finalfstout	sfy-shadyck.vandz-dinsmore_100k.finalfstout
+nfa-euchus.nfy_100k.finalfstout	sfy-shadyck.vandz-rootcreek_100k.finalfstout
+nfa-euchus.nfy-slate-cgrav_100k.finalfstout	sfy-shadyck.vandz-shanty_100k.finalfstout
+nfa-euchus.paj-clearck_100k.finalfstout	sfy-springck.smith-hurdygurdyck_100k.finalfstout
+nfa-euchus.paj-sanbenito_100k.finalfstout	sfy-springck.soquel-ebsc_100k.finalfstout
+nfa-euchus.put-cold_100k.finalfstout	sfy-springck.ssantiam_100k.finalfstout
+nfa-euchus.put-wildhorseck_100k.finalfstout	sfy-springck.trin-sftrinity_100k.finalfstout
+nfa-euchus.rub-lc-us_100k.finalfstout	sfy-springck.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchus.rub-usph_100k.finalfstout	sfy-springck.trin-tishtang_100k.finalfstout
+nfa-euchus.russ-mwsprngck_100k.finalfstout	sfy-springck.tuo-clavey_100k.finalfstout
+nfa-euchus.salin-losburros_100k.finalfstout	sfy-springck.vandz-dinsmore_100k.finalfstout
+nfa-euchus.sancarp-dutrack_100k.finalfstout	sfy-springck.vandz-rootcreek_100k.finalfstout
+nfa-euchus.sfa-cami_100k.finalfstout	sfy-springck.vandz-shanty_100k.finalfstout
+nfa-euchus.sfeel-cedar_100k.finalfstout	smith-hurdygurdyck.soquel-ebsc_100k.finalfstout
+nfa-euchus.sfy-fallck_100k.finalfstout	smith-hurdygurdyck.ssantiam_100k.finalfstout
+nfa-euchus.sfy-loga_100k.finalfstout	smith-hurdygurdyck.trin-sftrinity_100k.finalfstout
+nfa-euchus.sfy-misc_100k.finalfstout	smith-hurdygurdyck.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchus.sfy-rockck_100k.finalfstout	smith-hurdygurdyck.trin-tishtang_100k.finalfstout
+nfa-euchus.sfy-shadyck_100k.finalfstout	smith-hurdygurdyck.tuo-clavey_100k.finalfstout
+nfa-euchus.sfy-springck_100k.finalfstout	smith-hurdygurdyck.vandz-dinsmore_100k.finalfstout
+nfa-euchus.smith-hurdygurdyck_100k.finalfstout	smith-hurdygurdyck.vandz-rootcreek_100k.finalfstout
+nfa-euchus.soquel-ebsc_100k.finalfstout	smith-hurdygurdyck.vandz-shanty_100k.finalfstout
+nfa-euchus.ssantiam_100k.finalfstout	soquel-ebsc.ssantiam_100k.finalfstout
+nfa-euchus.trin-sftrinity_100k.finalfstout	soquel-ebsc.trin-sftrinity_100k.finalfstout
+nfa-euchus.trin-sftrinity-sandybar_100k.finalfstout	soquel-ebsc.trin-sftrinity-sandybar_100k.finalfstout
+nfa-euchus.trin-tishtang_100k.finalfstout	soquel-ebsc.trin-tishtang_100k.finalfstout
+nfa-euchus.tuo-clavey_100k.finalfstout	soquel-ebsc.tuo-clavey_100k.finalfstout
+nfa-euchus.vandz-dinsmore_100k.finalfstout	soquel-ebsc.vandz-dinsmore_100k.finalfstout
+nfa-euchus.vandz-rootcreek_100k.finalfstout	soquel-ebsc.vandz-rootcreek_100k.finalfstout
+nfa-euchus.vandz-shanty_100k.finalfstout	soquel-ebsc.vandz-shanty_100k.finalfstout
+nfa-indc.nfa-pond_100k.finalfstout	ssantiam.trin-sftrinity_100k.finalfstout
+nfa-indc.nfa-robr_100k.finalfstout	ssantiam.trin-sftrinity-sandybar_100k.finalfstout
+nfa-indc.nfa-saic_100k.finalfstout	ssantiam.trin-tishtang_100k.finalfstout
+nfa-indc.nfa-shic_100k.finalfstout	ssantiam.tuo-clavey_100k.finalfstout
+nfa-indc.nfa-slar_100k.finalfstout	ssantiam.vandz-dinsmore_100k.finalfstout
+nfa-indc.nff-poe_100k.finalfstout	ssantiam.vandz-rootcreek_100k.finalfstout
+nfa-indc.nfmfa-sc_100k.finalfstout	ssantiam.vandz-shanty_100k.finalfstout
+nfa-indc.nfy_100k.finalfstout	trin-sftrinity-sandybar.trin-tishtang_100k.finalfstout
+nfa-indc.nfy-slate-cgrav_100k.finalfstout	trin-sftrinity-sandybar.tuo-clavey_100k.finalfstout
+nfa-indc.paj-clearck_100k.finalfstout	trin-sftrinity-sandybar.vandz-dinsmore_100k.finalfstout
+nfa-indc.paj-sanbenito_100k.finalfstout	trin-sftrinity-sandybar.vandz-rootcreek_100k.finalfstout
+nfa-indc.put-cold_100k.finalfstout	trin-sftrinity-sandybar.vandz-shanty_100k.finalfstout
+nfa-indc.put-wildhorseck_100k.finalfstout	trin-sftrinity.trin-sftrinity-sandybar_100k.finalfstout
+nfa-indc.rub-lc-us_100k.finalfstout	trin-sftrinity.trin-tishtang_100k.finalfstout
+nfa-indc.rub-usph_100k.finalfstout	trin-sftrinity.tuo-clavey_100k.finalfstout
+nfa-indc.russ-mwsprngck_100k.finalfstout	trin-sftrinity.vandz-dinsmore_100k.finalfstout
+nfa-indc.salin-losburros_100k.finalfstout	trin-sftrinity.vandz-rootcreek_100k.finalfstout
+nfa-indc.sancarp-dutrack_100k.finalfstout	trin-sftrinity.vandz-shanty_100k.finalfstout
+nfa-indc.sfa-cami_100k.finalfstout	trin-tishtang.tuo-clavey_100k.finalfstout
+nfa-indc.sfeel-cedar_100k.finalfstout	trin-tishtang.vandz-dinsmore_100k.finalfstout
+nfa-indc.sfy-fallck_100k.finalfstout	trin-tishtang.vandz-rootcreek_100k.finalfstout
+nfa-indc.sfy-loga_100k.finalfstout	trin-tishtang.vandz-shanty_100k.finalfstout
+nfa-indc.sfy-misc_100k.finalfstout	tuo-clavey.vandz-dinsmore_100k.finalfstout
+nfa-indc.sfy-rockck_100k.finalfstout	tuo-clavey.vandz-rootcreek_100k.finalfstout
+nfa-indc.sfy-shadyck_100k.finalfstout	tuo-clavey.vandz-shanty_100k.finalfstout
+nfa-indc.sfy-springck_100k.finalfstout	vandz-dinsmore.vandz-rootcreek_100k.finalfstout
+nfa-indc.smith-hurdygurdyck_100k.finalfstout	vandz-dinsmore.vandz-shanty_100k.finalfstout
+nfa-indc.soquel-ebsc_100k.finalfstout	vandz-rootcreek.vandz-shanty_100k.finalfstout
+nfa-indc.ssantiam_100k.finalfstout	
+nfa-indc.trin-sftrinity_100k.finalfstout	
+nfa-indc.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-indc.trin-tishtang_100k.finalfstout	
+nfa-indc.tuo-clavey_100k.finalfstout	
+nfa-indc.vandz-dinsmore_100k.finalfstout	
+nfa-indc.vandz-rootcreek_100k.finalfstout	
+nfa-indc.vandz-shanty_100k.finalfstout	
+nfa.nfa-bunc_100k.finalfstout	
+nfa.nfa-euchds_100k.finalfstout	
+nfa.nfa-euchus_100k.finalfstout	
+nfa.nfa-indc_100k.finalfstout	
+nfa.nfa-pond_100k.finalfstout	
+nfa.nfa-robr_100k.finalfstout	
+nfa.nfa-saic_100k.finalfstout	
+nfa.nfa-shic_100k.finalfstout	
+nfa.nfa-slar_100k.finalfstout	
+nfa.nff-poe_100k.finalfstout	
+nfa.nfmfa-sc_100k.finalfstout	
+nfa.nfy_100k.finalfstout	
+nfa.nfy-slate-cgrav_100k.finalfstout	
+nfa.paj-clearck_100k.finalfstout	
+nfa.paj-sanbenito_100k.finalfstout	
+nfa-pond.nfa-robr_100k.finalfstout	
+nfa-pond.nfa-saic_100k.finalfstout	
+nfa-pond.nfa-shic_100k.finalfstout	
+nfa-pond.nfa-slar_100k.finalfstout	
+nfa-pond.nff-poe_100k.finalfstout	
+nfa-pond.nfmfa-sc_100k.finalfstout	
+nfa-pond.nfy_100k.finalfstout	
+nfa-pond.nfy-slate-cgrav_100k.finalfstout	
+nfa-pond.paj-clearck_100k.finalfstout	
+nfa-pond.paj-sanbenito_100k.finalfstout	
+nfa-pond.put-cold_100k.finalfstout	
+nfa-pond.put-wildhorseck_100k.finalfstout	
+nfa-pond.rub-lc-us_100k.finalfstout	
+nfa-pond.rub-usph_100k.finalfstout	
+nfa-pond.russ-mwsprngck_100k.finalfstout	
+nfa-pond.salin-losburros_100k.finalfstout	
+nfa-pond.sancarp-dutrack_100k.finalfstout	
+nfa-pond.sfa-cami_100k.finalfstout	
+nfa-pond.sfeel-cedar_100k.finalfstout	
+nfa-pond.sfy-fallck_100k.finalfstout	
+nfa-pond.sfy-loga_100k.finalfstout	
+nfa-pond.sfy-misc_100k.finalfstout	
+nfa-pond.sfy-rockck_100k.finalfstout	
+nfa-pond.sfy-shadyck_100k.finalfstout	
+nfa-pond.sfy-springck_100k.finalfstout	
+nfa-pond.smith-hurdygurdyck_100k.finalfstout	
+nfa-pond.soquel-ebsc_100k.finalfstout	
+nfa-pond.ssantiam_100k.finalfstout	
+nfa-pond.trin-sftrinity_100k.finalfstout	
+nfa-pond.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-pond.trin-tishtang_100k.finalfstout	
+nfa-pond.tuo-clavey_100k.finalfstout	
+nfa-pond.vandz-dinsmore_100k.finalfstout	
+nfa-pond.vandz-rootcreek_100k.finalfstout	
+nfa-pond.vandz-shanty_100k.finalfstout	
+nfa.put-cold_100k.finalfstout	
+nfa.put-wildhorseck_100k.finalfstout	
+nfa-robr.nfa-saic_100k.finalfstout	
+nfa-robr.nfa-shic_100k.finalfstout	
+nfa-robr.nfa-slar_100k.finalfstout	
+nfa-robr.nff-poe_100k.finalfstout	
+nfa-robr.nfmfa-sc_100k.finalfstout	
+nfa-robr.nfy_100k.finalfstout	
+nfa-robr.nfy-slate-cgrav_100k.finalfstout	
+nfa-robr.paj-clearck_100k.finalfstout	
+nfa-robr.paj-sanbenito_100k.finalfstout	
+nfa-robr.put-cold_100k.finalfstout	
+nfa-robr.put-wildhorseck_100k.finalfstout	
+nfa-robr.rub-lc-us_100k.finalfstout	
+nfa-robr.rub-usph_100k.finalfstout	
+nfa-robr.russ-mwsprngck_100k.finalfstout	
+nfa-robr.salin-losburros_100k.finalfstout	
+nfa-robr.sancarp-dutrack_100k.finalfstout	
+nfa-robr.sfa-cami_100k.finalfstout	
+nfa-robr.sfeel-cedar_100k.finalfstout	
+nfa-robr.sfy-fallck_100k.finalfstout	
+nfa-robr.sfy-loga_100k.finalfstout	
+nfa-robr.sfy-misc_100k.finalfstout	
+nfa-robr.sfy-rockck_100k.finalfstout	
+nfa-robr.sfy-shadyck_100k.finalfstout	
+nfa-robr.sfy-springck_100k.finalfstout	
+nfa-robr.smith-hurdygurdyck_100k.finalfstout	
+nfa-robr.soquel-ebsc_100k.finalfstout	
+nfa-robr.ssantiam_100k.finalfstout	
+nfa-robr.trin-sftrinity_100k.finalfstout	
+nfa-robr.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-robr.trin-tishtang_100k.finalfstout	
+nfa-robr.tuo-clavey_100k.finalfstout	
+nfa-robr.vandz-dinsmore_100k.finalfstout	
+nfa-robr.vandz-rootcreek_100k.finalfstout	
+nfa-robr.vandz-shanty_100k.finalfstout	
+nfa.rub-lc-us_100k.finalfstout	
+nfa.rub-usph_100k.finalfstout	
+nfa.russ-mwsprngck_100k.finalfstout	
+nfa-saic.nfa-shic_100k.finalfstout	
+nfa-saic.nfa-slar_100k.finalfstout	
+nfa-saic.nff-poe_100k.finalfstout	
+nfa-saic.nfmfa-sc_100k.finalfstout	
+nfa-saic.nfy_100k.finalfstout	
+nfa-saic.nfy-slate-cgrav_100k.finalfstout	
+nfa-saic.paj-clearck_100k.finalfstout	
+nfa-saic.paj-sanbenito_100k.finalfstout	
+nfa-saic.put-cold_100k.finalfstout	
+nfa-saic.put-wildhorseck_100k.finalfstout	
+nfa-saic.rub-lc-us_100k.finalfstout	
+nfa-saic.rub-usph_100k.finalfstout	
+nfa-saic.russ-mwsprngck_100k.finalfstout	
+nfa-saic.salin-losburros_100k.finalfstout	
+nfa-saic.sancarp-dutrack_100k.finalfstout	
+nfa-saic.sfa-cami_100k.finalfstout	
+nfa-saic.sfeel-cedar_100k.finalfstout	
+nfa-saic.sfy-fallck_100k.finalfstout	
+nfa-saic.sfy-loga_100k.finalfstout	
+nfa-saic.sfy-misc_100k.finalfstout	
+nfa-saic.sfy-rockck_100k.finalfstout	
+nfa-saic.sfy-shadyck_100k.finalfstout	
+nfa-saic.sfy-springck_100k.finalfstout	
+nfa-saic.smith-hurdygurdyck_100k.finalfstout	
+nfa-saic.soquel-ebsc_100k.finalfstout	
+nfa-saic.ssantiam_100k.finalfstout	
+nfa-saic.trin-sftrinity_100k.finalfstout	
+nfa-saic.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-saic.trin-tishtang_100k.finalfstout	
+nfa-saic.tuo-clavey_100k.finalfstout	
+nfa-saic.vandz-dinsmore_100k.finalfstout	
+nfa-saic.vandz-rootcreek_100k.finalfstout	
+nfa-saic.vandz-shanty_100k.finalfstout	
+nfa.salin-losburros_100k.finalfstout	
+nfa.sancarp-dutrack_100k.finalfstout	
+nfa.sfa-cami_100k.finalfstout	
+nfa.sfeel-cedar_100k.finalfstout	
+nfa.sfy-fallck_100k.finalfstout	
+nfa.sfy-loga_100k.finalfstout	
+nfa.sfy-misc_100k.finalfstout	
+nfa.sfy-rockck_100k.finalfstout	
+nfa.sfy-shadyck_100k.finalfstout	
+nfa.sfy-springck_100k.finalfstout	
+nfa-shic.nfa-slar_100k.finalfstout	
+nfa-shic.nff-poe_100k.finalfstout	
+nfa-shic.nfmfa-sc_100k.finalfstout	
+nfa-shic.nfy_100k.finalfstout	
+nfa-shic.nfy-slate-cgrav_100k.finalfstout	
+nfa-shic.paj-clearck_100k.finalfstout	
+nfa-shic.paj-sanbenito_100k.finalfstout	
+nfa-shic.put-cold_100k.finalfstout	
+nfa-shic.put-wildhorseck_100k.finalfstout	
+nfa-shic.rub-lc-us_100k.finalfstout	
+nfa-shic.rub-usph_100k.finalfstout	
+nfa-shic.russ-mwsprngck_100k.finalfstout	
+nfa-shic.salin-losburros_100k.finalfstout	
+nfa-shic.sancarp-dutrack_100k.finalfstout	
+nfa-shic.sfa-cami_100k.finalfstout	
+nfa-shic.sfeel-cedar_100k.finalfstout	
+nfa-shic.sfy-fallck_100k.finalfstout	
+nfa-shic.sfy-loga_100k.finalfstout	
+nfa-shic.sfy-misc_100k.finalfstout	
+nfa-shic.sfy-rockck_100k.finalfstout	
+nfa-shic.sfy-shadyck_100k.finalfstout	
+nfa-shic.sfy-springck_100k.finalfstout	
+nfa-shic.smith-hurdygurdyck_100k.finalfstout	
+nfa-shic.soquel-ebsc_100k.finalfstout	
+nfa-shic.ssantiam_100k.finalfstout	
+nfa-shic.trin-sftrinity_100k.finalfstout	
+nfa-shic.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-shic.trin-tishtang_100k.finalfstout	
+nfa-shic.tuo-clavey_100k.finalfstout	
+nfa-shic.vandz-dinsmore_100k.finalfstout	
+nfa-shic.vandz-rootcreek_100k.finalfstout	
+nfa-shic.vandz-shanty_100k.finalfstout	
+nfa-slar.nff-poe_100k.finalfstout	
+nfa-slar.nfmfa-sc_100k.finalfstout	
+nfa-slar.nfy_100k.finalfstout	
+nfa-slar.nfy-slate-cgrav_100k.finalfstout	
+nfa-slar.paj-clearck_100k.finalfstout	
+nfa-slar.paj-sanbenito_100k.finalfstout	
+nfa-slar.put-cold_100k.finalfstout	
+nfa-slar.put-wildhorseck_100k.finalfstout	
+nfa-slar.rub-lc-us_100k.finalfstout	
+nfa-slar.rub-usph_100k.finalfstout	
+nfa-slar.russ-mwsprngck_100k.finalfstout	
+nfa-slar.salin-losburros_100k.finalfstout	
+nfa-slar.sancarp-dutrack_100k.finalfstout	
+nfa-slar.sfa-cami_100k.finalfstout	
+nfa-slar.sfeel-cedar_100k.finalfstout	
+nfa-slar.sfy-fallck_100k.finalfstout	
+nfa-slar.sfy-loga_100k.finalfstout	
+nfa-slar.sfy-misc_100k.finalfstout	
+nfa-slar.sfy-rockck_100k.finalfstout	
+nfa-slar.sfy-shadyck_100k.finalfstout	
+nfa-slar.sfy-springck_100k.finalfstout	
+nfa-slar.smith-hurdygurdyck_100k.finalfstout	
+nfa-slar.soquel-ebsc_100k.finalfstout	
+nfa-slar.ssantiam_100k.finalfstout	
+nfa-slar.trin-sftrinity_100k.finalfstout	
+nfa-slar.trin-sftrinity-sandybar_100k.finalfstout	
+nfa-slar.trin-tishtang_100k.finalfstout	
+nfa-slar.tuo-clavey_100k.finalfstout	
+nfa-slar.vandz-dinsmore_100k.finalfstout	
+nfa-slar.vandz-rootcreek_100k.finalfstout	
+nfa-slar.vandz-shanty_100k.finalfstout	
+nfa.smith-hurdygurdyck_100k.finalfstout	
+nfa.soquel-ebsc_100k.finalfstout	
+nfa.ssantiam_100k.finalfstout	
+nfa.trin-sftrinity_100k.finalfstout	
+nfa.trin-sftrinity-sandybar_100k.finalfstout	
+nfa.trin-tishtang_100k.finalfstout	
+nfa.tuo-clavey_100k.finalfstout	
+nfa.vandz-dinsmore_100k.finalfstout	
+nfa.vandz-rootcreek_100k.finalfstout	
+nfa.vandz-shanty_100k.finalfstout	
+nff-poe.nfmfa-sc_100k.finalfstout	
+nff-poe.nfy_100k.finalfstout	
+nff-poe.nfy-slate-cgrav_100k.finalfstout	
+nff-poe.paj-clearck_100k.finalfstout	
+nff-poe.paj-sanbenito_100k.finalfstout	
+nff-poe.put-cold_100k.finalfstout	
+nff-poe.put-wildhorseck_100k.finalfstout	
+nff-poe.rub-lc-us_100k.finalfstout	
+nff-poe.rub-usph_100k.finalfstout	
+nff-poe.russ-mwsprngck_100k.finalfstout	
+nff-poe.salin-losburros_100k.finalfstout	
+nff-poe.sancarp-dutrack_100k.finalfstout	
+nff-poe.sfa-cami_100k.finalfstout	
+nff-poe.sfeel-cedar_100k.finalfstout	
+nff-poe.sfy-fallck_100k.finalfstout	
+nff-poe.sfy-loga_100k.finalfstout	
+nff-poe.sfy-misc_100k.finalfstout	
+nff-poe.sfy-rockck_100k.finalfstout	
+nff-poe.sfy-shadyck_100k.finalfstout	
+nff-poe.sfy-springck_100k.finalfstout	
+nff-poe.smith-hurdygurdyck_100k.finalfstout	
+nff-poe.soquel-ebsc_100k.finalfstout	
+nff-poe.ssantiam_100k.finalfstout	
+nff-poe.trin-sftrinity_100k.finalfstout	
+nff-poe.trin-sftrinity-sandybar_100k.finalfstout	
+nff-poe.trin-tishtang_100k.finalfstout	
+nff-poe.tuo-clavey_100k.finalfstout	
+nff-poe.vandz-dinsmore_100k.finalfstout	
+nff-poe.vandz-rootcreek_100k.finalfstout	
+nff-poe.vandz-shanty_100k.finalfstout	
+nfmfa-sc.nfy_100k.finalfstout	
+nfmfa-sc.nfy-slate-cgrav_100k.finalfstout	
+nfmfa-sc.paj-clearck_100k.finalfstout	
+nfmfa-sc.paj-sanbenito_100k.finalfstout	
+nfmfa-sc.put-cold_100k.finalfstout	
+nfmfa-sc.put-wildhorseck_100k.finalfstout	
+nfmfa-sc.rub-lc-us_100k.finalfstout	
+nfmfa-sc.rub-usph_100k.finalfstout	
+nfmfa-sc.russ-mwsprngck_100k.finalfstout	
+nfmfa-sc.salin-losburros_100k.finalfstout	
+nfmfa-sc.sancarp-dutrack_100k.finalfstout	
+nfmfa-sc.sfa-cami_100k.finalfstout	
+nfmfa-sc.sfeel-cedar_100k.finalfstout	
+nfmfa-sc.sfy-fallck_100k.finalfstout	
+nfmfa-sc.sfy-loga_100k.finalfstout	
+nfmfa-sc.sfy-misc_100k.finalfstout	
+nfmfa-sc.sfy-rockck_100k.finalfstout	
+nfmfa-sc.sfy-shadyck_100k.finalfstout	
+nfmfa-sc.sfy-springck_100k.finalfstout	
+nfmfa-sc.smith-hurdygurdyck_100k.finalfstout	
+nfmfa-sc.soquel-ebsc_100k.finalfstout	
+nfmfa-sc.ssantiam_100k.finalfstout	
+nfmfa-sc.trin-sftrinity_100k.finalfstout	
+nfmfa-sc.trin-sftrinity-sandybar_100k.finalfstout	
+nfmfa-sc.trin-tishtang_100k.finalfstout	
+nfmfa-sc.tuo-clavey_100k.finalfstout	
+nfmfa-sc.vandz-dinsmore_100k.finalfstout	
+nfmfa-sc.vandz-rootcreek_100k.finalfstout	
+nfmfa-sc.vandz-shanty_100k.finalfstout	
+nfy.nfy-slate-cgrav_100k.finalfstout	
+nfy.paj-clearck_100k.finalfstout	
+nfy.paj-sanbenito_100k.finalfstout	
+nfy.put-cold_100k.finalfstout	
+nfy.put-wildhorseck_100k.finalfstout	
+nfy.rub-lc-us_100k.finalfstout	
+nfy.rub-usph_100k.finalfstout	
+nfy.russ-mwsprngck_100k.finalfstout	
+nfy.salin-losburros_100k.finalfstout	
+nfy.sancarp-dutrack_100k.finalfstout	
+nfy.sfa-cami_100k.finalfstout	
+nfy.sfeel-cedar_100k.finalfstout	
+nfy.sfy-fallck_100k.finalfstout	
+nfy.sfy-loga_100k.finalfstout	
+nfy.sfy-misc_100k.finalfstout	
+nfy.sfy-rockck_100k.finalfstout	
+nfy.sfy-shadyck_100k.finalfstout	
+nfy.sfy-springck_100k.finalfstout	
+nfy-slate-cgrav.paj-clearck_100k.finalfstout	
+nfy-slate-cgrav.paj-sanbenito_100k.finalfstout	
+nfy-slate-cgrav.put-cold_100k.finalfstout	
+nfy-slate-cgrav.put-wildhorseck_100k.finalfstout	
+nfy-slate-cgrav.rub-lc-us_100k.finalfstout	
+nfy-slate-cgrav.rub-usph_100k.finalfstout	
+nfy-slate-cgrav.russ-mwsprngck_100k.finalfstout	
+nfy-slate-cgrav.salin-losburros_100k.finalfstout	
+nfy-slate-cgrav.sancarp-dutrack_100k.finalfstout	
+nfy-slate-cgrav.sfa-cami_100k.finalfstout	
+nfy-slate-cgrav.sfeel-cedar_100k.finalfstout	
+nfy-slate-cgrav.sfy-fallck_100k.finalfstout	
+nfy-slate-cgrav.sfy-loga_100k.finalfstout	
+nfy-slate-cgrav.sfy-misc_100k.finalfstout	
+nfy-slate-cgrav.sfy-rockck_100k.finalfstout	
+nfy-slate-cgrav.sfy-shadyck_100k.finalfstout	
+nfy-slate-cgrav.sfy-springck_100k.finalfstout	
+nfy-slate-cgrav.smith-hurdygurdyck_100k.finalfstout	
+nfy-slate-cgrav.soquel-ebsc_100k.finalfstout	
+nfy-slate-cgrav.ssantiam_100k.finalfstout	
+nfy-slate-cgrav.trin-sftrinity_100k.finalfstout	
+nfy-slate-cgrav.trin-sftrinity-sandybar_100k.finalfstout	
+nfy-slate-cgrav.trin-tishtang_100k.finalfstout	
+nfy-slate-cgrav.tuo-clavey_100k.finalfstout	
+nfy-slate-cgrav.vandz-dinsmore_100k.finalfstout	
+nfy-slate-cgrav.vandz-rootcreek_100k.finalfstout	
+nfy-slate-cgrav.vandz-shanty_100k.finalfstout	
+nfy.smith-hurdygurdyck_100k.finalfstout	
+nfy.soquel-ebsc_100k.finalfstout	
+nfy.ssantiam_100k.finalfstout	
+nfy.trin-sftrinity_100k.finalfstout	
+nfy.trin-sftrinity-sandybar_100k.finalfstout	
+nfy.trin-tishtang_100k.finalfstout	
+nfy.tuo-clavey_100k.finalfstout	
+nfy.vandz-dinsmore_100k.finalfstout	
+nfy.vandz-rootcreek_100k.finalfstout	
+nfy.vandz-shanty_100k.finalfstout	
+paj-clearck.paj-sanbenito_100k.finalfstout	
+paj-clearck.put-cold_100k.finalfstout	
+paj-clearck.put-wildhorseck_100k.finalfstout	
+paj-clearck.rub-lc-us_100k.finalfstout	
+paj-clearck.rub-usph_100k.finalfstout	
+paj-clearck.russ-mwsprngck_100k.finalfstout	
+paj-clearck.salin-losburros_100k.finalfstout	
+paj-clearck.sancarp-dutrack_100k.finalfstout	
+paj-clearck.sfa-cami_100k.finalfstout	
+paj-clearck.sfeel-cedar_100k.finalfstout	
+paj-clearck.sfy-fallck_100k.finalfstout	
+paj-clearck.sfy-loga_100k.finalfstout	
+paj-clearck.sfy-misc_100k.finalfstout	
+paj-clearck.sfy-rockck_100k.finalfstout	
+paj-clearck.sfy-shadyck_100k.finalfstout	
+paj-clearck.sfy-springck_100k.finalfstout	
+paj-clearck.smith-hurdygurdyck_100k.finalfstout	
+paj-clearck.soquel-ebsc_100k.finalfstout	
+paj-clearck.ssantiam_100k.finalfstout	
+paj-clearck.trin-sftrinity_100k.finalfstout	
+paj-clearck.trin-sftrinity-sandybar_100k.finalfstout	
+paj-clearck.trin-tishtang_100k.finalfstout	
+paj-clearck.tuo-clavey_100k.finalfstout	
+paj-clearck.vandz-dinsmore_100k.finalfstout	
+paj-clearck.vandz-rootcreek_100k.finalfstout	
+paj-clearck.vandz-shanty_100k.finalfstout	
+paj-sanbenito.put-cold_100k.finalfstout	
+paj-sanbenito.put-wildhorseck_100k.finalfstout	
+paj-sanbenito.rub-lc-us_100k.finalfstout	
+paj-sanbenito.rub-usph_100k.finalfstout	
+paj-sanbenito.russ-mwsprngck_100k.finalfstout	
+paj-sanbenito.salin-losburros_100k.finalfstout	
+paj-sanbenito.sancarp-dutrack_100k.finalfstout	
+paj-sanbenito.sfa-cami_100k.finalfstout	
+paj-sanbenito.sfeel-cedar_100k.finalfstout	
+paj-sanbenito.sfy-fallck_100k.finalfstout	
+paj-sanbenito.sfy-loga_100k.finalfstout	
+paj-sanbenito.sfy-misc_100k.finalfstout	
+paj-sanbenito.sfy-rockck_100k.finalfstout	
+paj-sanbenito.sfy-shadyck_100k.finalfstout	
+paj-sanbenito.sfy-springck_100k.finalfstout	
+paj-sanbenito.smith-hurdygurdyck_100k.finalfstout	
+paj-sanbenito.soquel-ebsc_100k.finalfstout	
+paj-sanbenito.ssantiam_100k.finalfstout	
+paj-sanbenito.trin-sftrinity_100k.finalfstout	
+paj-sanbenito.trin-sftrinity-sandybar_100k.finalfstout	
+paj-sanbenito.trin-tishtang_100k.finalfstout	
+paj-sanbenito.tuo-clavey_100k.finalfstout	
+paj-sanbenito.vandz-dinsmore_100k.finalfstout	
+paj-sanbenito.vandz-rootcreek_100k.finalfstout	
+paj-sanbenito.vandz-shanty_100k.finalfstout	
+put-cold.put-wildhorseck_100k.finalfstout	
+put-cold.rub-lc-us_100k.finalfstout	
+put-cold.rub-usph_100k.finalfstout	
+put-cold.russ-mwsprngck_100k.finalfstout	
+put-cold.salin-losburros_100k.finalfstout	
+put-cold.sancarp-dutrack_100k.finalfstout	
+put-cold.sfa-cami_100k.finalfstout	
+put-cold.sfeel-cedar_100k.finalfstout	
+put-cold.sfy-fallck_100k.finalfstout	
+put-cold.sfy-loga_100k.finalfstout	
+put-cold.sfy-misc_100k.finalfstout	
+put-cold.sfy-rockck_100k.finalfstout	
+put-cold.sfy-shadyck_100k.finalfstout	
+put-cold.sfy-springck_100k.finalfstout	
+put-cold.smith-hurdygurdyck_100k.finalfstout	
+put-cold.soquel-ebsc_100k.finalfstout	
+put-cold.ssantiam_100k.finalfstout	
+put-cold.trin-sftrinity_100k.finalfstout	
+put-cold.trin-sftrinity-sandybar_100k.finalfstout	
+put-cold.trin-tishtang_100k.finalfstout	
+put-cold.tuo-clavey_100k.finalfstout	
+put-cold.vandz-dinsmore_100k.finalfstout	
+put-cold.vandz-rootcreek_100k.finalfstout	
+put-cold.vandz-shanty_100k.finalfstout	
+put-wildhorseck.rub-lc-us_100k.finalfstout	
+put-wildhorseck.rub-usph_100k.finalfstout	
+put-wildhorseck.russ-mwsprngck_100k.finalfstout	
+put-wildhorseck.salin-losburros_100k.finalfstout	
+put-wildhorseck.sancarp-dutrack_100k.finalfstout	
+put-wildhorseck.sfa-cami_100k.finalfstout	
+put-wildhorseck.sfeel-cedar_100k.finalfstout	
+put-wildhorseck.sfy-fallck_100k.finalfstout	
+put-wildhorseck.sfy-loga_100k.finalfstout	
+put-wildhorseck.sfy-misc_100k.finalfstout	
+put-wildhorseck.sfy-rockck_100k.finalfstout	
+put-wildhorseck.sfy-shadyck_100k.finalfstout	
+put-wildhorseck.sfy-springck_100k.finalfstout	
+put-wildhorseck.smith-hurdygurdyck_100k.finalfstout	
+put-wildhorseck.soquel-ebsc_100k.finalfstout	
+put-wildhorseck.ssantiam_100k.finalfstout	
+put-wildhorseck.trin-sftrinity_100k.finalfstout	
+put-wildhorseck.trin-sftrinity-sandybar_100k.finalfstout	
+put-wildhorseck.trin-tishtang_100k.finalfstout	
+put-wildhorseck.tuo-clavey_100k.finalfstout	
+put-wildhorseck.vandz-dinsmore_100k.finalfstout	
+put-wildhorseck.vandz-rootcreek_100k.finalfstout	
+put-wildhorseck.vandz-shanty_100k.finalfstout	
+rub-lc-us.rub-usph_100k.finalfstout	
+rub-lc-us.russ-mwsprngck_100k.finalfstout	
+rub-lc-us.salin-losburros_100k.finalfstout	
+rub-lc-us.sancarp-dutrack_100k.finalfstout	
+rub-lc-us.sfa-cami_100k.finalfstout	
+rub-lc-us.sfeel-cedar_100k.finalfstout	
+rub-lc-us.sfy-fallck_100k.finalfstout	
+rub-lc-us.sfy-loga_100k.finalfstout	
+rub-lc-us.sfy-misc_100k.finalfstout	
+rub-lc-us.sfy-rockck_100k.finalfstout	
+rub-lc-us.sfy-shadyck_100k.finalfstout	
+rub-lc-us.sfy-springck_100k.finalfstout	
+rub-lc-us.smith-hurdygurdyck_100k.finalfstout	
+rub-lc-us.soquel-ebsc_100k.finalfstout	
+rub-lc-us.ssantiam_100k.finalfstout	
+rub-lc-us.trin-sftrinity_100k.finalfstout	
+rub-lc-us.trin-sftrinity-sandybar_100k.finalfstout	
+rub-lc-us.trin-tishtang_100k.finalfstout	
+rub-lc-us.tuo-clavey_100k.finalfstout	
+rub-lc-us.vandz-dinsmore_100k.finalfstout	
+rub-lc-us.vandz-rootcreek_100k.finalfstout	
+rub-lc-us.vandz-shanty_100k.finalfstout	
+rub-usph.russ-mwsprngck_100k.finalfstout	
+rub-usph.salin-losburros_100k.finalfstout	
+rub-usph.sancarp-dutrack_100k.finalfstout	
+rub-usph.sfa-cami_100k.finalfstout	
+rub-usph.sfeel-cedar_100k.finalfstout	
+rub-usph.sfy-fallck_100k.finalfstout	
+rub-usph.sfy-loga_100k.finalfstout	
+rub-usph.sfy-misc_100k.finalfstout	
+rub-usph.sfy-rockck_100k.finalfstout	
+rub-usph.sfy-shadyck_100k.finalfstout	
+rub-usph.sfy-springck_100k.finalfstout	
+rub-usph.smith-hurdygurdyck_100k.finalfstout	
+rub-usph.soquel-ebsc_100k.finalfstout	
+rub-usph.ssantiam_100k.finalfstout	
+rub-usph.trin-sftrinity_100k.finalfstout	
+rub-usph.trin-sftrinity-sandybar_100k.finalfstout	
+rub-usph.trin-tishtang_100k.finalfstout	
+rub-usph.tuo-clavey_100k.finalfstout	
+rub-usph.vandz-dinsmore_100k.finalfstout	
+rub-usph.vandz-rootcreek_100k.finalfstout	
+rub-usph.vandz-shanty_100k.finalfstout	
+russ-mwsprngck.salin-losburros_100k.finalfstout	
+russ-mwsprngck.sancarp-dutrack_100k.finalfstout	
+russ-mwsprngck.sfa-cami_100k.finalfstout	
+russ-mwsprngck.sfeel-cedar_100k.finalfstout	
+russ-mwsprngck.sfy-fallck_100k.finalfstout	
+russ-mwsprngck.sfy-loga_100k.finalfstout	
+russ-mwsprngck.sfy-misc_100k.finalfstout	
+russ-mwsprngck.sfy-rockck_100k.finalfstout	
+russ-mwsprngck.sfy-shadyck_100k.finalfstout	
+russ-mwsprngck.sfy-springck_100k.finalfstout	
+russ-mwsprngck.smith-hurdygurdyck_100k.finalfstout	
+russ-mwsprngck.soquel-ebsc_100k.finalfstout	
+russ-mwsprngck.ssantiam_100k.finalfstout	
+russ-mwsprngck.trin-sftrinity_100k.finalfstout	
+russ-mwsprngck.trin-sftrinity-sandybar_100k.finalfstout	
+russ-mwsprngck.trin-tishtang_100k.finalfstout	
+russ-mwsprngck.tuo-clavey_100k.finalfstout	
+russ-mwsprngck.vandz-dinsmore_100k.finalfstout	
+russ-mwsprngck.vandz-rootcreek_100k.finalfstout	
+russ-mwsprngck.vandz-shanty_100k.finalfstout	
+salin-losburros.sancarp-dutrack_100k.finalfstout	
+salin-losburros.sfa-cami_100k.finalfstout	
+salin-losburros.sfeel-cedar_100k.finalfstout	
+salin-losburros.sfy-fallck_100k.finalfstout	
+salin-losburros.sfy-loga_100k.finalfstout	
+salin-losburros.sfy-misc_100k.finalfstout	
+salin-losburros.sfy-rockck_100k.finalfstout	
+salin-losburros.sfy-shadyck_100k.finalfstout	
+salin-losburros.sfy-springck_100k.finalfstout	
+salin-losburros.smith-hurdygurdyck_100k.finalfstout	
+salin-losburros.soquel-ebsc_100k.finalfstout	
+salin-losburros.ssantiam_100k.finalfstout	
+salin-losburros.trin-sftrinity_100k.finalfstout	
+salin-losburros.trin-sftrinity-sandybar_100k.finalfstout	
+salin-losburros.trin-tishtang_100k.finalfstout	
+salin-losburros.tuo-clavey_100k.finalfstout	
+salin-losburros.vandz-dinsmore_100k.finalfstout	
+salin-losburros.vandz-rootcreek_100k.finalfstout	
+salin-losburros.vandz-shanty_100k.finalfstout	
+sancarp-dutrack.sfa-cami_100k.finalfstout	
+sancarp-dutrack.sfeel-cedar_100k.finalfstout	
+sancarp-dutrack.sfy-fallck_100k.finalfstout	
+sancarp-dutrack.sfy-loga_100k.finalfstout	
+sancarp-dutrack.sfy-misc_100k.finalfstout	
+sancarp-dutrack.sfy-rockck_100k.finalfstout	
+sancarp-dutrack.sfy-shadyck_100k.finalfstout	
+sancarp-dutrack.sfy-springck_100k.finalfstout	
+sancarp-dutrack.smith-hurdygurdyck_100k.finalfstout	
+sancarp-dutrack.soquel-ebsc_100k.finalfstout	
+sancarp-dutrack.ssantiam_100k.finalfstout	
+sancarp-dutrack.trin-sftrinity_100k.finalfstout	
+sancarp-dutrack.trin-sftrinity-sandybar_100k.finalfstout	
+sancarp-dutrack.trin-tishtang_100k.finalfstout	
+sancarp-dutrack.tuo-clavey_100k.finalfstout	
+sancarp-dutrack.vandz-dinsmore_100k.finalfstout	
+sancarp-dutrack.vandz-rootcreek_100k.finalfstout	
+sancarp-dutrack.vandz-shanty_100k.finalfstout	
+sfa-cami.sfeel-cedar_100k.finalfstout	
+sfa-cami.sfy-fallck_100k.finalfstout	
+sfa-cami.sfy-loga_100k.finalfstout	
+sfa-cami.sfy-misc_100k.finalfstout	
+sfa-cami.sfy-rockck_100k.finalfstout	
+sfa-cami.sfy-shadyck_100k.finalfstout	
+sfa-cami.sfy-springck_100k.finalfstout	
+sfa-cami.smith-hurdygurdyck_100k.finalfstout	
+sfa-cami.soquel-ebsc_100k.finalfstout	
+sfa-cami.ssantiam_100k.finalfstout	
+sfa-cami.trin-sftrinity_100k.finalfstout	
+sfa-cami.trin-sftrinity-sandybar_100k.finalfstout	
+sfa-cami.trin-tishtang_100k.finalfstout	
+sfa-cami.tuo-clavey_100k.finalfstout	
+sfa-cami.vandz-dinsmore_100k.finalfstout	
+sfa-cami.vandz-rootcreek_100k.finalfstout	
+sfa-cami.vandz-shanty_100k.finalfstout	
+sfeel-cedar.sfy-fallck_100k.finalfstout	
+sfeel-cedar.sfy-loga_100k.finalfstout	
+sfeel-cedar.sfy-misc_100k.finalfstout	
+sfeel-cedar.sfy-rockck_100k.finalfstout	
+sfeel-cedar.sfy-shadyck_100k.finalfstout	
+sfeel-cedar.sfy-springck_100k.finalfstout	
+sfeel-cedar.smith-hurdygurdyck_100k.finalfstout	
+sfeel-cedar.soquel-ebsc_100k.finalfstout	
+sfeel-cedar.ssantiam_100k.finalfstout	
+sfeel-cedar.trin-sftrinity_100k.finalfstout	
+sfeel-cedar.trin-sftrinity-sandybar_100k.finalfstout	
+sfeel-cedar.trin-tishtang_100k.finalfstout	
+sfeel-cedar.tuo-clavey_100k.finalfstout	
+sfeel-cedar.vandz-dinsmore_100k.finalfstout	
+sfeel-cedar.vandz-rootcreek_100k.finalfstout	
+sfeel-cedar.vandz-shanty_100k.finalfstout	
+sfy-fallck.sfy-loga_100k.finalfstout	
+sfy-fallck.sfy-misc_100k.finalfstout	
+sfy-fallck.sfy-rockck_100k.finalfstout	
+sfy-fallck.sfy-shadyck_100k.finalfstout	
+sfy-fallck.sfy-springck_100k.finalfstout	
+sfy-fallck.smith-hurdygurdyck_100k.finalfstout	
+sfy-fallck.soquel-ebsc_100k.finalfstout	
+sfy-fallck.ssantiam_100k.finalfstout	
+sfy-fallck.trin-sftrinity_100k.finalfstout	
+sfy-fallck.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-fallck.trin-tishtang_100k.finalfstout	
+sfy-fallck.tuo-clavey_100k.finalfstout	
+sfy-fallck.vandz-dinsmore_100k.finalfstout	
+sfy-fallck.vandz-rootcreek_100k.finalfstout	
+sfy-fallck.vandz-shanty_100k.finalfstout	
+sfy-loga.sfy-misc_100k.finalfstout	
+sfy-loga.sfy-rockck_100k.finalfstout	
+sfy-loga.sfy-shadyck_100k.finalfstout	
+sfy-loga.sfy-springck_100k.finalfstout	
+sfy-loga.smith-hurdygurdyck_100k.finalfstout	
+sfy-loga.soquel-ebsc_100k.finalfstout	
+sfy-loga.ssantiam_100k.finalfstout	
+sfy-loga.trin-sftrinity_100k.finalfstout	
+sfy-loga.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-loga.trin-tishtang_100k.finalfstout	
+sfy-loga.tuo-clavey_100k.finalfstout	
+sfy-loga.vandz-dinsmore_100k.finalfstout	
+sfy-loga.vandz-rootcreek_100k.finalfstout	
+sfy-loga.vandz-shanty_100k.finalfstout	
+sfy-misc.sfy-rockck_100k.finalfstout	
+sfy-misc.sfy-shadyck_100k.finalfstout	
+sfy-misc.sfy-springck_100k.finalfstout	
+sfy-misc.smith-hurdygurdyck_100k.finalfstout	
+sfy-misc.soquel-ebsc_100k.finalfstout	
+sfy-misc.ssantiam_100k.finalfstout	
+sfy-misc.trin-sftrinity_100k.finalfstout	
+sfy-misc.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-misc.trin-tishtang_100k.finalfstout	
+sfy-misc.tuo-clavey_100k.finalfstout	
+sfy-misc.vandz-dinsmore_100k.finalfstout	
+sfy-misc.vandz-rootcreek_100k.finalfstout	
+sfy-misc.vandz-shanty_100k.finalfstout	
+sfy-rockck.sfy-shadyck_100k.finalfstout	
+sfy-rockck.sfy-springck_100k.finalfstout	
+sfy-rockck.smith-hurdygurdyck_100k.finalfstout	
+sfy-rockck.soquel-ebsc_100k.finalfstout	
+sfy-rockck.ssantiam_100k.finalfstout	
+sfy-rockck.trin-sftrinity_100k.finalfstout	
+sfy-rockck.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-rockck.trin-tishtang_100k.finalfstout	
+sfy-rockck.tuo-clavey_100k.finalfstout	
+sfy-rockck.vandz-dinsmore_100k.finalfstout	
+sfy-rockck.vandz-rootcreek_100k.finalfstout	
+sfy-rockck.vandz-shanty_100k.finalfstout	
+sfy-shadyck.sfy-springck_100k.finalfstout	
+sfy-shadyck.smith-hurdygurdyck_100k.finalfstout	
+sfy-shadyck.soquel-ebsc_100k.finalfstout	
+sfy-shadyck.ssantiam_100k.finalfstout	
+sfy-shadyck.trin-sftrinity_100k.finalfstout	
+sfy-shadyck.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-shadyck.trin-tishtang_100k.finalfstout	
+sfy-shadyck.tuo-clavey_100k.finalfstout	
+sfy-shadyck.vandz-dinsmore_100k.finalfstout	
+sfy-shadyck.vandz-rootcreek_100k.finalfstout	
+sfy-shadyck.vandz-shanty_100k.finalfstout	
+sfy-springck.smith-hurdygurdyck_100k.finalfstout	
+sfy-springck.soquel-ebsc_100k.finalfstout	
+sfy-springck.ssantiam_100k.finalfstout	
+sfy-springck.trin-sftrinity_100k.finalfstout	
+sfy-springck.trin-sftrinity-sandybar_100k.finalfstout	
+sfy-springck.trin-tishtang_100k.finalfstout	
+sfy-springck.tuo-clavey_100k.finalfstout	
+sfy-springck.vandz-dinsmore_100k.finalfstout	
+sfy-springck.vandz-rootcreek_100k.finalfstout	
+sfy-springck.vandz-shanty_100k.finalfstout	
+smith-hurdygurdyck.soquel-ebsc_100k.finalfstout	
+smith-hurdygurdyck.ssantiam_100k.finalfstout	
+smith-hurdygurdyck.trin-sftrinity_100k.finalfstout	
+smith-hurdygurdyck.trin-sftrinity-sandybar_100k.finalfstout	
+smith-hurdygurdyck.trin-tishtang_100k.finalfstout	
+smith-hurdygurdyck.tuo-clavey_100k.finalfstout	
+smith-hurdygurdyck.vandz-dinsmore_100k.finalfstout	
+smith-hurdygurdyck.vandz-rootcreek_100k.finalfstout	
+smith-hurdygurdyck.vandz-shanty_100k.finalfstout	
+soquel-ebsc.ssantiam_100k.finalfstout	
+soquel-ebsc.trin-sftrinity_100k.finalfstout	
+soquel-ebsc.trin-sftrinity-sandybar_100k.finalfstout	
+soquel-ebsc.trin-tishtang_100k.finalfstout	
+soquel-ebsc.tuo-clavey_100k.finalfstout	
+soquel-ebsc.vandz-dinsmore_100k.finalfstout	
+soquel-ebsc.vandz-rootcreek_100k.finalfstout	
+soquel-ebsc.vandz-shanty_100k.finalfstout	
+ssantiam.trin-sftrinity_100k.finalfstout	
+ssantiam.trin-sftrinity-sandybar_100k.finalfstout	
+ssantiam.trin-tishtang_100k.finalfstout	
+ssantiam.tuo-clavey_100k.finalfstout	
+ssantiam.vandz-dinsmore_100k.finalfstout	
+ssantiam.vandz-rootcreek_100k.finalfstout	
+ssantiam.vandz-shanty_100k.finalfstout	
+trin-sftrinity-sandybar.trin-tishtang_100k.finalfstout	
+trin-sftrinity-sandybar.tuo-clavey_100k.finalfstout	
+trin-sftrinity-sandybar.vandz-dinsmore_100k.finalfstout	
+trin-sftrinity-sandybar.vandz-rootcreek_100k.finalfstout	
+trin-sftrinity-sandybar.vandz-shanty_100k.finalfstout	
+trin-sftrinity.trin-sftrinity-sandybar_100k.finalfstout	
+trin-sftrinity.trin-tishtang_100k.finalfstout	
+trin-sftrinity.tuo-clavey_100k.finalfstout	
+trin-sftrinity.vandz-dinsmore_100k.finalfstout	
+trin-sftrinity.vandz-rootcreek_100k.finalfstout	
+trin-sftrinity.vandz-shanty_100k.finalfstout	
+trin-tishtang.tuo-clavey_100k.finalfstout	
+trin-tishtang.vandz-dinsmore_100k.finalfstout	
+trin-tishtang.vandz-rootcreek_100k.finalfstout	
+trin-tishtang.vandz-shanty_100k.finalfstout	
+tuo-clavey.vandz-dinsmore_100k.finalfstout	
+tuo-clavey.vandz-rootcreek_100k.finalfstout	
+tuo-clavey.vandz-shanty_100k.finalfstout	
+vandz-dinsmore.vandz-rootcreek_100k.finalfstout	
+vandz-dinsmore.vandz-shanty_100k.finalfstout	
+vandz-rootcreek.vandz-shanty_100k.finalfstout	
+0.015040 0.047568	
+0.016712 0.051795	
+0.031035 0.036980	
+0.054889 0.037287	
+0.077632 0.235340	
+0.061904 0.228763	
+0.050457 0.238958	
+0.039435 0.223642	
+0.048616 0.216885	
+0.036741 0.215425	
+0.050135 0.226343	
+0.048980 0.229359	
+0.069491 0.232206	
+0.055106 0.218468	
+0.078834 0.212272	
+0.041849 0.214126	
+0.041290 0.240414	
+0.045444 0.204573	
+0.049665 0.219923	
+0.082281 0.142314	
+0.050730 0.253897	
+0.042456 0.222518	
+0.163447 0.240785	
+0.056607 0.339668	
+0.055309 0.361137	
+0.046182 0.133229	
+0.043703 0.095931	
+0.056887 0.249809	
+0.055634 0.262434	
+0.023708 0.088018	
+0.061162 0.422683	
+0.054784 0.441376	
+0.064711 0.309516	
+0.026924 0.033312	
+0.072104 0.234210	
+0.083272 0.228162	
+0.066222 0.229984	
+0.027596 0.221003	
+0.052529 0.224770	
+0.058862 0.227446	
+0.017752 0.097996	
+0.056560 0.328639	
+0.052100 0.281964	
+0.063977 0.049925	
+0.032536 0.044421	
+0.032273 0.046413	
+0.088133 0.357821	
+0.029307 0.029619	
+0.104175 0.044609	
+0.072676 0.050220	
+0.026024 0.053658	
+0.022310 0.053760	
+0.048073 0.218519	
+0.027558 0.212628	
+0.028696 0.223213	
+0.030869 0.203511	
+0.027619 0.199138	
+0.032071 0.199374	
+0.031186 0.208441	
+0.014218 0.209697	
+0.017013 0.211766	
+0.025720 0.200708	
+0.035839 0.192214	
+0.030318 0.197255	
+0.010665 0.221196	
+0.030109 0.190433	
+0.022297 0.202011	
+0.028487 0.139735	
+0.034968 0.234903	
+0.029396 0.201848	
+0.076138 0.220343	
+0.013813 0.326971	
+0.031326 0.348190	
+0.018487 0.142197	
+0.021299 0.113128	
+0.035845 0.226451	
+0.027285 0.242555	
+0.029363 0.098094	
+0.035696 0.410601	
+0.039177 0.428887	
+0.030069 0.290144	
+0.020321 0.051500	
+0.027468 0.210804	
+0.024191 0.204532	
+0.031540 0.205856	
+-0.004618 0.200392	
+0.027289 0.206630	
+0.001698 0.205614	
+0.023246 0.098487	
+0.032373 0.318500	
+0.026904 0.265852	
+0.067138 0.059560	
+0.029193 0.059589	
+0.023539 0.061287	
+0.033163 0.335612	
+0.028430 0.050563	
+0.066770 0.058698	
+0.012117 0.069359	
+0.016707 0.016124	
+0.023510 0.051000	
+0.019590 0.053204	
+0.046431 0.231367	
+0.026936 0.226488	
+0.028106 0.235077	
+0.031217 0.218744	
+0.027650 0.214528	
+0.032779 0.213803	
+0.030869 0.221892	
+0.014838 0.224969	
+0.016301 0.225808	
+0.025957 0.215279	
+0.034951 0.207054	
+0.030284 0.212230	
+0.010849 0.234881	
+0.030243 0.204880	
+0.022330 0.215917	
+0.025174 0.144310	
+0.035045 0.248863	
+0.029683 0.217483	
+0.073308 0.235755	
+0.012874 0.328901	
+0.030774 0.348059	
+0.017988 0.137447	
+0.020733 0.108056	
+0.035537 0.241514	
+0.026982 0.255914	
+0.029393 0.098365	
+0.035215 0.406507	
+0.038712 0.423725	
+0.029468 0.300047	
+0.019537 0.049410	
+0.026955 0.227926	
+0.023442 0.221308	
+0.031164 0.222808	
+-0.004135 0.217815	
+0.027203 0.221496	
+0.001535 0.222286	
+0.023112 0.095044	
+0.031901 0.318460	
+0.025160 0.266522	
+0.063188 0.060150	
+0.027330 0.058602	
+0.022107 0.059635	
+0.030824 0.342419	
+0.026134 0.047172	
+0.057682 0.056906	
+0.009815 0.068658	
+0.031300 0.029783	
+0.062011 0.228346	
+0.046733 0.221601	
+0.050592 0.234491	
+0.047831 0.217983	
+0.055446 0.213416	
+0.054894 0.209892	
+0.060026 0.220259	
+0.035234 0.225972	
+0.038678 0.227459	
+0.056329 0.214195	
+0.054654 0.205638	
+0.047260 0.208342	
+0.032278 0.236539	
+0.057945 0.200979	
+0.046158 0.215517	
+0.048701 0.139510	
+0.067139 0.247636	
+0.050164 0.216769	
+0.104101 0.235222	
+0.029299 0.333765	
+0.058261 0.357490	
+0.044211 0.129657	
+0.046141 0.094839	
+0.052673 0.241503	
+0.058797 0.257453	
+0.029437 0.084639	
+0.062703 0.418553	
+0.066470 0.437755	
+0.050085 0.302760	
+0.033441 0.030621	
+0.048507 0.228986	
+0.046325 0.220470	
+0.051032 0.222528	
+0.013149 0.217604	
+0.057715 0.220283	
+0.022342 0.222948	
+0.027442 0.100702	
+0.059829 0.324430	
+0.045701 0.276351	
+0.060564 0.054541	
+0.034457 0.050550	
+0.033870 0.051765	
+0.052848 0.350087	
+0.031645 0.035302	
+0.070421 0.043590	
+0.029276 0.059801	
+0.071621 0.234123	
+0.073946 0.227553	
+0.076227 0.241762	
+0.059537 0.223990	
+0.091361 0.218569	
+0.072636 0.215347	
+0.095149 0.228662	
+0.073346 0.232102	
+0.073184 0.235805	
+0.111923 0.221411	
+0.073463 0.212681	
+0.060740 0.214503	
+0.075254 0.245648	
+0.089202 0.204363	
+0.085762 0.222072	
+0.073893 0.141940	
+0.102684 0.256444	
+0.069276 0.224756	
+0.121421 0.237982	
+0.062699 0.344623	
+0.097881 0.370725	
+0.092545 0.138491	
+0.087598 0.099388	
+0.064842 0.252378	
+0.111088 0.267590	
+0.023263 0.082151	
+0.107270 0.436857	
+0.098549 0.455194	
+0.078319 0.314211	
+0.044128 0.028360	
+0.073315 0.238088	
+0.077278 0.229900	
+0.070568 0.233599	
+0.048562 0.224221	
+0.105951 0.227886	
+0.062885 0.231615	
+0.025403 0.100403	
+0.103638 0.335161	
+0.065633 0.293591	
+0.045961 0.054620	
+0.032949 0.050771	
+0.039879 0.052348	
+0.082602 0.364969	
+0.028213 0.035275	
+0.072527 0.046757	
+0.061869 0.056067	
+0.054457 0.092006	
+0.062970 0.101057	
+0.062461 0.160053	
+0.090957 0.156575	
+0.068148 0.112377	
+0.088861 0.123871	
+0.059549 0.132939	
+0.055433 0.137743	
+0.095395 0.121728	
+0.057853 0.111235	
+0.056146 0.116708	
+0.062492 0.148585	
+0.081681 0.107559	
+0.074790 0.126395	
+0.075125 0.224339	
+0.097263 0.132511	
+0.072537 0.162927	
+0.099533 0.192697	
+0.060726 0.392134	
+0.105947 0.409365	
+0.104356 0.324474	
+0.107856 0.293544	
+0.059146 0.135511	
+0.100302 0.151415	
+0.046116 0.250677	
+0.110283 0.460495	
+0.113658 0.476087	
+0.058882 0.142150	
+0.081787 0.234389	
+0.064340 0.164802	
+0.060082 0.156691	
+0.062917 0.156346	
+0.039751 0.160717	
+0.100946 0.161195	
+0.045330 0.164935	
+0.047171 0.258367	
+0.110307 0.383297	
+0.077185 0.393962	
+0.070700 0.209037	
+0.059593 0.222048	
+0.066948 0.223433	
+0.060665 0.219864	
+0.057271 0.219848	
+0.096429 0.235072	
+0.071115 0.245386	
+0.040402 0.063494	
+0.036890 0.138129	
+0.059330 0.132807	
+0.029012 0.090430	
+0.052154 0.103393	
+0.054360 0.110593	
+0.060879 0.116600	
+0.072332 0.099461	
+0.062379 0.094348	
+0.033790 0.093719	
+0.054644 0.124587	
+0.044053 0.086726	
+0.058129 0.103539	
+0.088323 0.217350	
+0.052873 0.118029	
+0.044418 0.140952	
+0.136193 0.174093	
+0.070227 0.401503	
+0.081490 0.416671	
+0.084740 0.320075	
+0.080932 0.287924	
+0.047334 0.124228	
+0.075153 0.138415	
+0.032978 0.247306	
+0.088821 0.467419	
+0.077060 0.481751	
+0.059928 0.186173	
+0.052909 0.227213	
+0.064553 0.142740	
+0.070974 0.135383	
+0.058276 0.136068	
+0.038844 0.142314	
+0.070623 0.136309	
+0.054964 0.144649	
+0.026923 0.252111	
+0.084394 0.388689	
+0.065053 0.393534	
+0.072460 0.206788	
+0.046883 0.216618	
+0.048947 0.216069	
+0.079203 0.268653	
+0.044100 0.215207	
+0.114242 0.233349	
+0.095029 0.242442	
+0.034098 0.150826	
+0.041562 0.143454	
+0.025049 0.100171	
+0.038008 0.111885	
+0.036901 0.119998	
+0.048816 0.126479	
+0.043369 0.106191	
+0.064287 0.105180	
+0.033340 0.105242	
+0.030160 0.132115	
+0.033785 0.094848	
+0.039830 0.112163	
+0.090174 0.230178	
+0.037003 0.119494	
+0.038057 0.153215	
+0.154005 0.190042	
+0.060989 0.407909	
+0.057253 0.418861	
+0.053181 0.324056	
+0.053629 0.294705	
+0.046480 0.124889	
+0.045265 0.138940	
+0.039108 0.259806	
+0.062260 0.468940	
+0.057057 0.483143	
+0.051269 0.188099	
+0.044037 0.237176	
+0.061841 0.155707	
+0.064848 0.147234	
+0.057792 0.144755	
+0.021467 0.152583	
+0.045411 0.149282	
+0.039080 0.156791	
+0.027047 0.262258	
+0.058105 0.392783	
+0.058972 0.393909	
+0.094479 0.221895	
+0.052686 0.227112	
+0.049480 0.227916	
+0.074351 0.268426	
+0.051239 0.227772	
+0.139929 0.245614	
+0.096923 0.256483	
+0.023702 0.041713	
+0.025061 0.077570	
+0.030666 0.090645	
+0.019246 0.106966	
+0.028421 0.115161	
+0.027051 0.085130	
+0.046632 0.083235	
+0.029469 0.082946	
+0.015989 0.125323	
+0.027463 0.072598	
+0.025078 0.089108	
+0.065063 0.203453	
+0.034365 0.128316	
+0.026729 0.065898	
+0.104722 0.122344	
+0.038319 0.411548	
+0.045135 0.421148	
+0.036534 0.305641	
+0.039092 0.275752	
+0.040752 0.130831	
+0.031887 0.148289	
+0.042414 0.244311	
+0.049307 0.474262	
+0.050346 0.488300	
+0.042703 0.280061	
+0.037882 0.219043	
+0.033923 0.073871	
+0.032111 0.069250	
+0.035649 0.068971	
+-0.000956 0.075626	
+0.026551 0.068340	
+0.008675 0.078712	
+0.029702 0.246452	
+0.045503 0.394351	
+0.046011 0.381245	
+0.101799 0.205122	
+0.050515 0.207075	
+0.044200 0.208752	
+0.055103 0.357839	
+0.050556 0.210715	
+0.130796 0.229120	
+0.067936 0.241760	
+0.018303 0.075075	
+0.027466 0.084439	
+0.032040 0.099208	
+0.060198 0.108022	
+0.028088 0.076738	
+0.080600 0.078801	
+0.032038 0.078762	
+0.021781 0.114013	
+0.023696 0.066326	
+0.031705 0.081859	
+0.108960 0.193435	
+0.026472 0.123124	
+0.028044 0.065694	
+0.180682 0.112574	
+0.072474 0.403197	
+0.046641 0.413336	
+0.038216 0.297930	
+0.038976 0.269696	
+0.054229 0.127394	
+0.031066 0.139420	
+0.042149 0.240600	
+0.051302 0.466719	
+0.045355 0.481683	
+0.063774 0.271987	
+0.038371 0.214692	
+0.063090 0.070569	
+0.069441 0.063800	
+0.057145 0.063484	
+0.008414 0.063256	
+0.026796 0.062677	
+0.033967 0.068656	
+0.024709 0.241966	
+0.045421 0.387304	
+0.061649 0.376414	
+0.114948 0.203012	
+0.058403 0.202766	
+0.052122 0.204179	
+0.102492 0.348989	
+0.057881 0.207698	
+0.176387 0.226424	
+0.127449 0.233512	
+0.024024 0.054627	
+0.045753 0.060474	
+0.022149 0.039620	
+0.070667 0.046718	
+0.030708 0.043345	
+0.015154 0.068662	
+0.020986 0.032369	
+0.026670 0.047367	
+0.110962 0.203769	
+0.023626 0.086236	
+0.031379 0.093116	
+0.189876 0.142121	
+0.073739 0.406360	
+0.045224 0.415832	
+0.036178 0.305453	
+0.037667 0.276261	
+0.052408 0.096301	
+0.026530 0.106126	
+0.047569 0.250102	
+0.050116 0.469421	
+0.045513 0.483513	
+0.060085 0.248766	
+0.040442 0.222668	
+0.067120 0.095600	
+0.071931 0.088280	
+0.060548 0.085764	
+0.011276 0.094156	
+0.026359 0.088883	
+0.033856 0.096572	
+0.028484 0.251603	
+0.043851 0.389404	
+0.064750 0.381597	
+0.126794 0.212550	
+0.064342 0.212642	
+0.056020 0.213717	
+0.099590 0.331931	
+0.063136 0.215663	
+0.186704 0.233274	
+0.128840 0.245206	
+0.062542 0.019866	
+0.043938 0.034696	
+0.057806 0.046667	
+0.015895 0.038471	
+0.054660 0.042739	
+0.013268 0.034408	
+0.039440 0.041052	
+0.097634 0.224400	
+0.025756 0.089629	
+0.024573 0.111411	
+0.153000 0.165421	
+0.101424 0.431074	
+0.063219 0.434509	
+0.070994 0.327128	
+0.061359 0.291244	
+0.035189 0.093851	
+0.052886 0.107000	
+0.023157 0.247712	
+0.072046 0.487145	
+0.054187 0.500998	
+0.064271 0.270266	
+0.033245 0.225976	
+0.063811 0.112331	
+0.082569 0.112796	
+0.054297 0.111334	
+0.061596 0.114413	
+0.043025 0.108125	
+0.086297 0.118461	
+0.015157 0.251850	
+0.063669 0.405899	
+0.055940 0.412694	
+0.064929 0.209013	
+0.035062 0.214895	
+0.035698 0.216126	
+0.099634 0.362363	
+0.034112 0.216331	
+0.112827 0.240817	
+0.123986 0.251005	
+0.082193 0.043036	
+0.054243 0.053765	
+0.019126 0.042872	
+0.076968 0.050269	
+0.032451 0.041554	
+0.062073 0.047539	
+0.089423 0.227215	
+0.048600 0.094971	
+0.037708 0.118626	
+0.125976 0.173445	
+0.096505 0.438719	
+0.100952 0.439921	
+0.113763 0.333692	
+0.101869 0.296051	
+0.040607 0.104509	
+0.093658 0.116049	
+0.022142 0.247739	
+0.114505 0.492403	
+0.090689 0.506152	
+0.076496 0.278499	
+0.051228 0.229280	
+0.063670 0.122724	
+0.076488 0.120912	
+0.053720 0.117583	
+0.066518 0.125288	
+0.080239 0.115196	
+0.076807 0.127263	
+0.017675 0.253580	
+0.108598 0.411187	
+0.066497 0.421411	
+0.054231 0.208279	
+0.037774 0.218681	
+0.043294 0.218810	
+0.093797 0.373593	
+0.033867 0.217523	
+0.094786 0.242425	
+0.103609 0.253680	
+0.090070 0.036087	
+0.027913 0.029737	
+0.029753 0.050490	
+0.016299 0.019221	
+0.035516 0.031304	
+0.143428 0.203573	
+0.019698 0.077474	
+0.029719 0.088182	
+0.234444 0.142791	
+0.116093 0.406439	
+0.050144 0.415571	
+0.045414 0.301421	
+0.041342 0.271410	
+0.054221 0.082664	
+0.031187 0.093883	
+0.040638 0.242051	
+0.054744 0.469553	
+0.043712 0.484507	
+0.080131 0.250933	
+0.037603 0.214718	
+0.089682 0.086880	
+0.114687 0.086567	
+0.075943 0.083719	
+0.035738 0.086273	
+0.028783 0.084464	
+0.088076 0.090293	
+0.023876 0.244443	
+0.047621 0.389093	
+0.072056 0.380536	
+0.114829 0.205528	
+0.058821 0.204078	
+0.054104 0.205835	
+0.140546 0.333880	
+0.058369 0.209211	
+0.191998 0.229225	
+0.179586 0.237331	
+0.016482 0.037804	
+0.003092 0.028470	
+0.010046 0.032763	
+0.009762 0.022219	
+0.040644 0.030510	
+0.020862 0.014311	
+-0.001083 0.044772	
+0.014779 0.022100	
+0.009329 0.020533	
+0.076822 0.194932	
+0.018601 0.071275	
+0.023237 0.079667	
+0.141986 0.129350	
+0.040235 0.391043	
+0.034080 0.402227	
+0.038526 0.037839	
+0.064803 0.067835	
+0.059046 0.029157	
+0.069466 0.042544	
+0.080172 0.199353	
+0.085895 0.082941	
+0.058083 0.084861	
+0.106583 0.141258	
+0.071817 0.408707	
+0.114033 0.419133	
+0.114130 0.308987	
+0.113423 0.274421	
+0.051133 0.085339	
+0.104973 0.105048	
+0.036953 0.230159	
+0.121058 0.473870	
+0.115456 0.488383	
+0.076638 0.246534	
+0.075278 0.209965	
+0.060781 0.089433	
+0.061903 0.086929	
+0.057256 0.083105	
+0.042483 0.089559	
+0.096344 0.086825	
+0.050344 0.094721	
+0.037120 0.236666	
+0.120035 0.389852	
+0.077824 0.394185	
+0.063182 0.188712	
+0.050092 0.196433	
+0.059389 0.197514	
+0.079840 0.335994	
+0.048895 0.196300	
+0.095058 0.217821	
+0.080771 0.228407	
+0.022840 0.290846	
+0.027346 0.265100	
+0.013667 0.054364	
+0.027406 0.027546	
+0.022495 0.025063	
+0.062296 0.195489	
+0.036375 0.078669	
+0.031561 0.085868	
+0.104248 0.131038	
+0.041289 0.394427	
+0.049160 0.408829	
+0.041529 0.297611	
+0.044406 0.268287	
+0.037472 0.082208	
+0.034686 0.094912	
+0.040232 0.236540	
+0.053781 0.461961	
+0.054245 0.477481	
+0.043022 0.243904	
+0.040564 0.211304	
+0.036369 0.084680	
+0.034033 0.081368	
+0.037278 0.079231	
+0.003256 0.087259	
+0.033746 0.083987	
+0.010846 0.089694	
+0.028699 0.239558	
+0.050172 0.382345	
+0.047628 0.372467	
+0.094077 0.196274	
+0.049674 0.199524	
+0.044759 0.200762	
+0.056427 0.324147	
+0.049021 0.202522	
+0.122911 0.218511	
+0.067616 0.228097	
+0.037336 0.075327	
+0.014926 0.088334	
+0.049740 0.239389	
+0.006869 0.048576	
+0.031991 0.055090	
+0.105212 0.237095	
+0.012668 0.101890	
+0.019021 0.128056	
+0.170866 0.180173	
+0.122478 0.441653	
+0.048965 0.443398	
+0.055742 0.337587	
+0.046643 0.301495	
+0.036336 0.112995	
+0.034717 0.120929	
+0.020841 0.257587	
+0.059366 0.494717	
+0.039620 0.508166	
+0.063633 0.282736	
+0.024066 0.237729	
+0.068816 0.129653	
+0.092994 0.128198	
+0.055320 0.125983	
+0.078145 0.131127	
+0.028213 0.123270	
+0.107597 0.132087	
+0.010407 0.261784	
+0.050331 0.415264	
+0.051639 0.424408	
+0.066599 0.220464	
+0.034070 0.227175	
+0.031851 0.228108	
+0.109271 0.376530	
+0.031845 0.228329	
+0.119219 0.255275	
+0.142474 0.263517	
+0.038653 0.456131	
+0.038470 0.470580	
+0.040406 0.240576	
+0.033629 0.212101	
+0.034800 0.077374	
+0.033389 0.075746	
+0.037879 0.073337	
+-0.009432 0.081906	
+0.016009 0.079462	
+0.002359 0.084537	
+0.020069 0.030350	
+0.103010 0.184018	
+0.022045 0.070073	
+0.028064 0.074957	
+0.179231 0.118997	
+0.061863 0.376162	
+0.041962 0.390837	
+0.031067 0.282241	
+0.033769 0.255239	
+0.045837 0.073851	
+0.022392 0.086272	
+0.046056 0.231354	
+0.045720 0.447565	
+0.042850 0.463344	
+0.053621 0.228519	
+0.037544 0.202032	
+0.056351 0.075321	
+0.060047 0.071866	
+0.054144 0.069445	
+0.000138 0.071783	
+0.022405 0.071575	
+0.022416 0.077228	
+0.027588 0.233501	
+0.040495 0.366450	
+0.060126 0.355357	
+0.126426 0.191137	
+0.061533 0.190686	
+0.053152 0.192634	
+0.090034 0.306846	
+0.061766 0.196118	
+0.186440 0.210328	
+0.116661 0.217509	
+0.109305 0.206568	
+0.026475 0.083911	
+0.028661 0.092175	
+0.178642 0.143854	
+0.082123 0.410694	
+0.055393 0.420271	
+0.053776 0.309177	
+0.050068 0.277411	
+0.045212 0.089788	
+0.041479 0.100442	
+0.033451 0.241901	
+0.061285 0.474032	
+0.049939 0.488770	
+0.066579 0.258777	
+0.036619 0.216635	
+0.068935 0.091788	
+0.085007 0.089728	
+0.060667 0.090014	
+0.028411 0.093942	
+0.036857 0.088448	
+0.062449 0.096492	
+0.021474 0.244515	
+0.055447 0.393684	
+0.061041 0.389481	
+0.090046 0.201769	
+0.047969 0.205907	
+0.045407 0.206393	
+0.105352 0.343449	
+0.046572 0.208162	
+0.148272 0.227954	
+0.128164 0.238880	
+0.030634 0.243260	
+0.034190 0.377864	
+0.048081 0.361442	
+0.135579 0.200204	
+0.060121 0.200146	
+0.048398 0.202350	
+0.065239 0.317960	
+0.060832 0.204254	
+0.174522 0.216638	
+0.080744 0.229686	
+0.119161 0.239576	
+0.079704 0.199260	
+0.113717 0.217265	
+0.091373 0.384224	
+0.126239 0.403479	
+0.131218 0.244361	
+0.122649 0.206160	
+0.074694 0.246004	
+0.143371 0.257270	
+0.028993 0.174625	
+0.137171 0.463300	
+0.123720 0.478749	
+0.095684 0.318555	
+0.072267 0.142710	
+0.085795 0.224459	
+0.086346 0.211346	
+0.077659 0.213639	
+0.074605 0.210555	
+0.130335 0.202390	
+0.080271 0.216218	
+0.022556 0.169621	
+0.132598 0.370149	
+0.081024 0.353271	
+0.047460 0.112664	
+0.041255 0.114753	
+0.052665 0.112748	
+0.100080 0.387032	
+0.041941 0.131990	
+0.084827 0.149864	
+0.088102 0.152891	
+0.033654 0.130052	
+0.215183 0.182115	
+0.070199 0.425034	
+0.042022 0.431469	
+0.030545 0.329477	
+0.034291 0.302511	
+0.047084 0.049995	
+0.016878 0.058103	
+0.054350 0.276295	
+0.046679 0.483438	
+0.043244 0.495642	
+0.059070 0.258881	
+0.041400 0.248993	
+0.073935 0.131668	
+0.079035 0.125941	
+0.069426 0.123110	
+0.011290 0.136091	
+0.023665 0.128251	
+0.035515 0.139233	
+0.031998 0.276447	
+0.040438 0.406169	
+0.066603 0.399701	
+0.150333 0.240893	
+0.072764 0.240259	
+0.061551 0.241367	
+0.100939 0.342214	
+0.072439 0.242649	
+0.214422 0.260421	
+0.133362 0.273690	
+0.132396 0.107033	
+0.045980 0.417200	
+0.047813 0.425248	
+0.039110 0.308042	
+0.041540 0.277565	
+0.046566 0.135386	
+0.034197 0.150392	
+0.041490 0.244813	
+0.052100 0.478011	
+0.050950 0.491809	
+0.051267 0.285365	
+0.038811 0.218335	
+0.044842 0.083739	
+0.046353 0.079197	
+0.045060 0.075241	
+0.002655 0.085855	
+0.028859 0.073490	
+0.018219 0.089862	
+0.135270 0.435422	
+0.233670 0.443912	
+0.238490 0.344435	
+0.239646 0.305975	
+0.113206 0.188864	
+0.242561 0.203419	
+0.063766 0.256319	
+0.244863 0.494604	
+0.240000 0.508653	
+0.152147 0.311762	
+0.164490 0.240728	
+0.118142 0.146721	
+0.112331 0.134826	
+0.109731 0.132777	
+0.116810 0.141369	
+0.216585 0.131012	
+0.114510 0.146915	
+0.065852 0.256840	
+0.244171 0.414603	
+0.146404 0.429048	
+0.064028 0.210532	
+0.086177 0.225670	
+0.120580 0.225222	
+0.136295 0.397142	
+0.089759 0.224134	
+0.101709 0.247150	
+0.119314 0.252490	
+0.028472 0.245777	
+0.047702 0.397414	
+0.052761 0.386573	
+0.104505 0.204714	
+0.053019 0.206283	
+0.046811 0.206830	
+0.071144 0.362102	
+0.052550 0.209504	
+0.145699 0.228856	
+0.082939 0.242250	
+0.026532 0.020688	
+0.109532 0.437975	
+0.100009 0.398966	
+0.052197 0.434672	
+0.106369 0.441624	
+0.014363 0.341140	
+0.089526 0.450603	
+0.059359 0.463312	
+0.075552 0.448393	
+0.040371 0.340014	
+0.076477 0.438629	
+0.092603 0.434341	
+0.065759 0.431451	
+0.118105 0.436234	
+0.092611 0.410024	
+0.118164 0.441286	
+0.012771 0.349089	
+0.057064 0.189415	
+0.055708 0.501129	
+0.042982 0.313851	
+0.029652 0.336647	
+0.033037 0.334408	
+0.098360 0.500447	
+0.024144 0.327805	
+0.082042 0.355715	
+0.114691 0.366575	
+0.050549 0.438084	
+0.049031 0.406713	
+0.075527 0.439847	
+0.049545 0.444529	
+0.044163 0.365987	
+0.051195 0.447103	
+0.043001 0.459991	
+0.079192 0.452880	
+0.044105 0.358334	
+0.102964 0.441050	
+0.119849 0.438598	
+0.092714 0.435907	
+0.049299 0.437502	
+0.048577 0.419142	
+0.088553 0.441598	
+0.028574 0.367904	
+0.037066 0.190211	
+0.067606 0.488890	
+0.112838 0.349067	
+0.061637 0.360118	
+0.056728 0.359115	
+0.118034 0.490961	
+0.059946 0.354068	
+0.174675 0.378617	
+0.139426 0.390454	
+0.030126 0.076865	
+0.069076 0.337485	
+0.044802 0.345601	
+0.029728 0.157202	
+0.056938 0.494658	
+0.043263 0.505617	
+0.084848 0.394608	
+0.029289 0.124021	
+0.106281 0.334763	
+0.131640 0.330233	
+0.091514 0.325638	
+0.060705 0.328790	
+0.040937 0.307531	
+0.112090 0.335673	
+0.016911 0.180396	
+0.048556 0.403789	
+0.064292 0.373795	
+0.093463 0.149297	
+0.047961 0.145210	
+0.044691 0.146457	
+0.136604 0.450476	
+0.045233 0.128384	
+0.158272 0.154178	
+0.151423 0.167619	
+0.071694 0.304228	
+0.041804 0.313886	
+0.032213 0.129307	
+0.054275 0.467538	
+0.045014 0.481525	
+0.080888 0.363592	
+0.030711 0.089128	
+0.101092 0.297396	
+0.120466 0.291316	
+0.090406 0.290206	
+0.051224 0.288173	
+0.039624 0.276657	
+0.092681 0.294591	
+0.019645 0.153340	
+0.047058 0.373782	
+0.063847 0.333635	
+0.100159 0.117980	
+0.050611 0.110824	
+0.046147 0.111960	
+0.129359 0.415067	
+0.047491 0.095828	
+0.158455 0.116989	
+0.135219 0.125114	
+0.048905 0.048844	
+0.041809 0.264540	
+0.079422 0.491474	
+0.080829 0.505187	
+0.054685 0.264822	
+0.056360 0.243953	
+0.051867 0.139353	
+0.052973 0.138108	
+0.052408 0.134584	
+0.022165 0.143265	
+0.059924 0.136071	
+0.032772 0.148713	
+0.036204 0.269359	
+0.076830 0.411302	
+0.061203 0.413784	
+0.082664 0.227633	
+0.051586 0.232202	
+0.053044 0.234996	
+0.061486 0.352696	
+0.051852 0.235237	
+0.111285 0.257825	
+0.072477 0.271533	
+0.042818 0.280642	
+0.054712 0.496049	
+0.043737 0.508087	
+0.078413 0.276898	
+0.039177 0.256900	
+0.099214 0.153258	
+0.121216 0.149582	
+0.084680 0.147333	
+0.040470 0.154414	
+0.031790 0.145592	
+0.090799 0.157894	
+0.025097 0.282061	
+0.047316 0.418042	
+0.071731 0.419632	
+0.119905 0.247723	
+0.062006 0.249629	
+0.056593 0.250769	
+0.133964 0.362894	
+0.061235 0.251994	
+0.196033 0.274721	
+0.169898 0.285561	
+0.048064 0.419423	
+0.054451 0.437769	
+0.036367 0.317816	
+0.029230 0.081855	
+0.031362 0.249085	
+0.027790 0.244195	
+0.036751 0.247636	
+0.003425 0.239332	
+0.042714 0.248826	
+0.008748 0.245247	
+0.033762 0.140473	
+0.045666 0.337719	
+0.032533 0.290464	
+0.054934 0.086873	
+0.032663 0.096545	
+0.029348 0.099140	
+0.031267 0.354419	
+0.030520 0.082000	
+0.053299 0.088870	
+0.009911 0.099792	
+0.023538 0.065102	
+0.086636 0.494501	
+0.048294 0.423127	
+0.111162 0.494653	
+0.132975 0.493089	
+0.099454 0.489326	
+0.061642 0.487915	
+0.053042 0.474337	
+0.110853 0.495585	
+0.033549 0.425252	
+0.050885 0.444058	
+0.073474 0.534525	
+0.116233 0.408697	
+0.065391 0.422702	
+0.061099 0.421133	
+0.132425 0.526665	
+0.064241 0.419965	
+0.181840 0.444976	
+0.158236 0.453249	
+0.073533 0.505958	
+0.047440 0.440593	
+0.100604 0.506257	
+0.113200 0.505306	
+0.094895 0.501991	
+0.036884 0.501406	
+0.044255 0.488337	
+0.071605 0.507566	
+0.035950 0.440643	
+0.043600 0.458711	
+0.068525 0.541684	
+0.136688 0.431604	
+0.071573 0.441506	
+0.062782 0.440158	
+0.106680 0.534368	
+0.070404 0.438996	
+0.195315 0.463218	
+0.128188 0.469910	
+0.055246 0.307266	
+0.078219 0.296686	
+0.085180 0.287269	
+0.069865 0.285648	
+0.050688 0.293413	
+0.076157 0.279779	
+0.070661 0.295671	
+0.028320 0.322879	
+0.081718 0.428697	
+0.066931 0.459531	
+0.077945 0.287673	
+0.048988 0.297964	
+0.052796 0.299054	
+0.070078 0.156022	
+0.048680 0.295462	
+0.120763 0.320656	
+0.103615 0.330030	
+0.062931 0.230839	
+0.068913 0.226561	
+0.062688 0.227089	
+0.011652 0.220403	
+0.038528 0.221300	
+0.033303 0.227231	
+0.020658 0.099538	
+0.043936 0.325864	
+0.047785 0.272524	
+0.082629 0.055827	
+0.038282 0.049000	
+0.034103 0.050236	
+0.075245 0.353895	
+0.035587 0.033190	
+0.111678 0.046069	
+0.052341 0.057095	
+0.058953 0.049162	
+0.048630 0.046042	
+0.038702 0.057001	
+0.078973 0.074961	
+0.048141 0.058255	
+0.027661 0.253997	
+0.108006 0.413358	
+0.070736 0.417544	
+0.063448 0.207858	
+0.046630 0.218958	
+0.052863 0.220236	
+0.086775 0.385132	
+0.043323 0.218744	
+0.100844 0.243508	
+0.088353 0.256057	
+0.044559 0.030011	
+0.058733 0.054483	
+0.095166 0.069222	
+0.064077 0.056711	
+0.024529 0.248911	
+0.127507 0.408690	
+0.076375 0.416286	
+0.054500 0.201189	
+0.043354 0.212376	
+0.053547 0.212853	
+0.095021 0.379627	
+0.040721 0.211897	
+0.092724 0.236250	
+0.096962 0.248384	
+0.026654 0.050680	
+0.067916 0.067649	
+0.034053 0.055774	
+0.031049 0.251120	
+0.095737 0.407263	
+0.068731 0.407662	
+0.070858 0.205761	
+0.049569 0.213644	
+0.054314 0.214840	
+0.078596 0.375894	
+0.047636 0.214130	
+0.103973 0.237311	
+0.080683 0.251334	
+0.016986 0.071682	
+0.086965 0.039525	
+-0.003394 0.245978	
+0.051210 0.407460	
+0.036962 0.419544	
+0.035689 0.195860	
+0.014183 0.207440	
+0.013487 0.207451	
+0.087012 0.390335	
+0.011407 0.208041	
+0.075522 0.233251	
+0.109860 0.241456	
+0.058754 0.077223	
+0.024877 0.249375	
+0.046290 0.393601	
+0.068946 0.386699	
+0.119096 0.210783	
+0.060437 0.211512	
+0.055054 0.212627	
+0.127823 0.359617	
+0.060096 0.214853	
+0.192905 0.234243	
+0.156388 0.244125	
+0.002449 0.248705	
+0.099719 0.412427	
+0.052116 0.425890	
+0.038026 0.202126	
+0.021843 0.214789	
+0.026612 0.213745	
+0.095476 0.391555	
+0.018541 0.213837	
+0.077829 0.240051	
+0.109511 0.248368	
+0.029939 0.341248	
+0.020428 0.266493	
+0.074942 0.098259	
+0.030295 0.097138	
+0.023771 0.097481	
+0.030664 0.361566	
+0.030860 0.095539	
+0.072986 0.105788	
+0.017763 0.114723	
+0.069943 0.460524	
+0.117748 0.318700	
+0.063286 0.326388	
+0.058430 0.326143	
+0.126843 0.467155	
+0.062068 0.321674	
+0.182912 0.342955	
+0.151703 0.356400	
+0.077809 0.272983	
+0.047002 0.278520	
+0.047376 0.277166	
+0.079487 0.510615	
+0.044897 0.269842	
+0.113544 0.308018	
+0.076951 0.320687	
+0.028703 0.019687	
+0.047289 0.348022	
+0.032582 0.043195	
+0.065673 0.055436	
+0.027154 0.066752	
+0.052037 0.034456	
+0.058240 0.034506	
+0.060962 0.331719	
+0.053186 0.043659	
+0.046841 0.050142	
+0.024800 0.057575	
+0.059966 0.346898	
+0.032133 0.042723	
+0.084042 0.055194	
+0.037810 0.065643	
+0.046584 0.341179	
+0.099945 0.373865	
+0.107152 0.388982	
+0.057855 0.036955	
+0.016745 0.044821	
+0.060404 0.066438	

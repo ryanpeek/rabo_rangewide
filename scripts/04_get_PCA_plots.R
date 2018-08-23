@@ -20,14 +20,17 @@ metadat <- metadat %>%
 
 
 # set site/reads for bamlist/covar filepaths:
-reads <- "100k_thresh"
-site <- "all_rabo"
+reads <- "75k_thresh"
+site <- "all_rabo_filt"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "ecoreg", plotlyplot = TRUE))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(1,2), colvar = "ecoreg", plotlyplot = T))
 
+ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
+       units = "in", dpi = 300)
+        
 
 # THE INNER BITS ----------------------------------------------------------
 

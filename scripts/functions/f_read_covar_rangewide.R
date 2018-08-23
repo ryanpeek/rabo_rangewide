@@ -69,8 +69,8 @@ read_covar_range <- function(covmat, # @path to covar file
   cat("All Finished! Available in current dataframe...\n")  
   } else {
     
-    (ggpca <- ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
-                               color=quote(colvar), shape=quote(shapevar),
+    (ggpca <<- ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
+                               color=colvar, #shape=shapevar,
                                text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
     
     geom_point(size=4, alpha=0.8) +
@@ -79,7 +79,6 @@ read_covar_range <- function(covmat, # @path to covar file
     #theme(legend.position="bottom") +
     scale_color_viridis_d("River") + 
     ggtitle(paste0(title)))
-    
     return(ggpca)
   }
 
