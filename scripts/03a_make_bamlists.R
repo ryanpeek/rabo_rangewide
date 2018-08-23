@@ -21,13 +21,17 @@ set.seed(111) # for repeatable random sampling
 # SET SITES AND SUBSAMPLE LEVEL -------------------------------------------
 
 # set the reads threshold (number of minimum reads subsampled
-bamNo<-50
+bamNo<-75
 
-site <- "all_rabo"
+site <- "all_rabo_filt"
 
 # 02. LOAD METADATA --------------------------------------------
 
 metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
+
+# Fix trin-sftrinity sandybar
+unique(metadat$Locality) %>% sort()
+metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
 
 # view summary of data:
 metadat %>% group_by(HUC_8) %>% tally %>% print(n=Inf)
@@ -56,18 +60,18 @@ dat <- metadat # for all samples if no filter needed
 # 04b. NORTHCOAST ---------------------------------------------------------
 
 # set site name (will be appended into filename)
-site <- "ncoast_rabo"
+#site <- "ncoast_rabo"
 
-summary(as.factor(metadat$HU_8_NAME))
+#summary(as.factor(metadat$HU_8_NAME))
 
 # By HUC8 (Wide Range)
 # dat<- filter(metadat, HU_8_NAME %in% c("Mad-Redwood", "Mattole", "Lower Eel", "Russion", "Tomales-Drake Bays", "Trinity", "South Fork Trinity", "Smith", "Lower Klamath", "Gualala-Salmon"))
 
 # By EcoRgions
 
-summary(as.factor(metadat$EcoRegion))
-dat <- filter(metadat, grepl("^North Coast|North Coast$", EcoRegion))
-summary(as.factor(metadat$HU_8_NAME))
+# summary(as.factor(metadat$EcoRegion))
+# dat <- filter(metadat, grepl("^North Coast|North Coast$", EcoRegion))
+# summary(as.factor(metadat$HU_8_NAME))
 
 
 # 04c. SIERRAS/BASIN RANGE ------------------------------------------------
@@ -116,13 +120,35 @@ summary(as.factor(metadat$HU_8_NAME))
 # check col names for join...should be BAMFILE name with plate/well ID
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
+# check for duplicates:
+dfout[duplicated(dfout$Seq),] %>% arrange(SampleID) %>% tally()
+
 # check tally's of groups
-dfout %>% group_by(River, SPP_ID) %>% tally
-dfout %>% group_by(Locality, SPP_ID) %>% tally
+#dfout %>% group_by(River) %>% tally
+#dfout %>% group_by(Locality) %>% tally
+
+
+# 05b. Filter out sites with low sample n ---------------------------------
+
+dfout <- dfout %>% group_by(Locality) %>% add_tally() %>% 
+  rename(n_locality=n)
+#dfout %>% select(Locality, n_locality) %>% View
+
+# filter out localities with less than 3 samples
+dfout <- dfout %>% filter(n_locality>2)
+
+# filter out outliers
+outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",
+            "RAP-177","RAP-226", "RAP-278", "RAP-335",
+            "RAP-346", "RAP-347", "RAP-348", "RAP-1649", 
+            # hybrids:
+            "RAP1745", "RAP1587")
+# possible outliers: RAP-357, RAP-039, RAP-420
 
 # check tallys of NA
 #dfout %>% filter(is.na(River)) %>% tally
 #dfout %>% filter(is.na(Locality)) %>% tally
+dfout <- filter(dfout, !SampleID %in% outliers)
 
 # 06. WRITE TO BAMLIST SINGLE ----------------------------------------
 
@@ -144,7 +170,7 @@ paste0("put ",site,"_*",bamNo,"k*.bamlist") # (this goes from local to cluster)
 lsite<- tolower(site)
 
 # NEW IBS METHOD
-paste0("sbatch -p high -t 2880 --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k_thresh.bamlist", " ", lsite, "_",bamNo,"k")
+paste0("sbatch -p high -t 3600 --mem=32G --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k")
 
 
 

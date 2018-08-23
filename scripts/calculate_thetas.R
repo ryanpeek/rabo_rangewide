@@ -29,6 +29,14 @@ input.file <- paste("data_output/thetas/",input, sep = "")
 
 dat <- read_delim(input.file, col_names = c("ID", "Tw", "Tp", "tD","nsites"), skip = 1, delim = " ")
 
+# to calc 95% CI (z-value = 1.96, 90%=1.645)
+#a <- 0.00677853 # mean
+#s <- 0.0403985 # SD
+#n <- 2857858 # total sites
+#error <- qnorm(0.975)* std/sqrt(samplesize)
+#ctst <- tibble(meanTw = a, CIlo= (meanTw - error), CIhi=meanTw + error, site="arroyo")
+#ggplot() + geom_pointrange(data=ctst, aes(y=meanTw, x=site, ymin=CIlo, ymax=CIhi))
+
 # TIDY AND ADD RIVER-WATERSHED --------------------------------------------
 
 # remove file extensions

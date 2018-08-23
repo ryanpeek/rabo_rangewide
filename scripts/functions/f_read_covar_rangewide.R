@@ -19,7 +19,7 @@ read_covar_range <- function(covmat, # @path to covar file
   # get bamlist for spp
   bams <- read.table(bamlist, stringsAsFactors = F, header = F) # read in the bamlist
   bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
-  annot <- inner_join(bams, metadata, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
+  annot <- left_join(bams, metadata, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
   
   # Eigenvalues
   eig <- eigen(covar, symm=TRUE)

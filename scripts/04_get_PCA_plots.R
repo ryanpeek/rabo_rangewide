@@ -20,14 +20,13 @@ metadat <- metadat %>%
 
 
 # set site/reads for bamlist/covar filepaths:
-reads <- "25k"
+reads <- "100k_thresh"
 site <- "all_rabo"
-covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat")
-bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, "_thresh.bamlist")
+(covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
+(bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, c(2,3),plotlyplot = TRUE))
-
+(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "ecoreg", plotlyplot = TRUE))
 
 
 # THE INNER BITS ----------------------------------------------------------
@@ -37,7 +36,7 @@ covar <- read.table(covarpath, stringsAsFactors = F)
 # get bamlist for spp
 bams <- read.table(bampath, stringsAsFactors = F, header = F) # read in the bamlist
 bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
-annot <- inner_join(bams, metadat, by=c("V2"="Seq")) %>% 
+annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% 
   distinct(V2, .keep_all = T) %>% # drop any duplicates
   select(-V1) # join with the metadata
 
@@ -58,10 +57,29 @@ PC$LabID <- factor(annot$LabID)
 PC$ecoreg <- factor(annot$EcoRegion)
 
 # set up plot
+pcs <- c(1,2)
+colvar <- "ecoreg"
 
 # PC's:
 pc1 <- pcs[1]
 pc2 <- pcs[2]
 
+
 # Title: (% explained)
 title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc2," (",signif(eig$val[pc2], digits=3)*100,"%)", sep="",collapse="")
+
+plotpca <- ggplotly(p = 
+                      ggplot(data=PC, 
+                             aes_string(x=paste0("PC",pc1), 
+                                        y=paste0("PC",pc2), 
+                                        color=colvar, 
+                                        #shape=shapevar, # can be Pop, HU_8_NAME, HUC6, ecoreg etc 
+                                        text=quote((paste0("ID: ", ID, 
+                                                           " <br> River: ",
+                                                           Locality))))) +
+                      geom_point(size=4, alpha=0.8) + 
+                      theme_bw(base_size = 9) +
+                      scale_color_viridis_d() + 
+                      ggtitle(paste0(title)))
+
+plotpca
