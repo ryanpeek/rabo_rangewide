@@ -20,7 +20,7 @@ metadat <- metadat %>%
 
 
 # set site/reads for bamlist/covar filepaths:
-reads <- "75k_thresh"
+reads <- "100k_thresh"
 site <- "all_rabo_filt"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))

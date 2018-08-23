@@ -42,7 +42,7 @@ levels(annot$EcoRegion)
 
 # GET QOPT ADMIX DATA -----------------------------------------------------
 
-k <- 7
+k <- 8
 
 #admixfile <- paste0("data_output/admix/", qopt_file, "k", k,"_admix", admixk, ".qopt")
 # Read inferred admixture proportions
@@ -84,9 +84,9 @@ dev.off()
 
 # PLOT LOGLIKS ------------------------------------------------------------
 
-k <- c(2:7)
+k <- c(2:8)
 logs <- c(-33148006.008206, -31793778.761774, -30793224.392646, 
-          -30546187.662216, -30316365.727090, -30121297.356706)
+          -30546187.662216, -30316365.727090, -30121297.356706, -29978921.546022)
 #nsites 69425 # nind 635
 admixLogs <- tibble(k=k, bestLik=logs)
 
