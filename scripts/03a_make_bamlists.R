@@ -21,9 +21,18 @@ set.seed(111) # for repeatable random sampling
 # SET SITES AND SUBSAMPLE LEVEL -------------------------------------------
 
 # set the reads threshold (number of minimum reads subsampled
-bamNo<-75
+bamNo<-100
 
-site <- "all_rabo_filt"
+site <- "rabo_nosocoast_filt10_1" 
+
+# rabo_nosocoast_filt10_1_100k: no southwest coast samples, filtered outliers, samples per locality between 1-10
+# rabo_nofeath_filt10_1_100k: no feather samples, filtered outliers, samples per locality between 1-10
+# all_rabo_filt10_100k: filtered outliers, samples per locality between 2-10
+# all_rabo_filt10_1_100k: filtered outliers, samples per locality between 1-10
+# all_rabo_filt_100k: filtered outliers, samples per locality > 2
+# all_rabo_100k: no filter, no restriction, all samples.
+
+
 
 # 02. LOAD METADATA --------------------------------------------
 
@@ -57,33 +66,22 @@ bams[duplicated(bams$X1),] # yay
 
 dat <- metadat # for all samples if no filter needed
 
-# 04b. NORTHCOAST ---------------------------------------------------------
-
-# set site name (will be appended into filename)
-#site <- "ncoast_rabo"
-
-#summary(as.factor(metadat$HU_8_NAME))
-
-# By HUC8 (Wide Range)
-# dat<- filter(metadat, HU_8_NAME %in% c("Mad-Redwood", "Mattole", "Lower Eel", "Russion", "Tomales-Drake Bays", "Trinity", "South Fork Trinity", "Smith", "Lower Klamath", "Gualala-Salmon"))
+# 04b. ECOREGIONS ---------------------------------------------------------
 
 # By EcoRgions
+dat %>% group_by(EcoRegion) %>% tally
 
 # summary(as.factor(metadat$EcoRegion))
-# dat <- filter(metadat, grepl("^North Coast|North Coast$", EcoRegion))
-# summary(as.factor(metadat$HU_8_NAME))
+dat <- filter(metadat, !grepl("^Central CA Coastal Foothills|Central Coast$", EcoRegion))
 
+dat %>% group_by(EcoRegion) %>% tally
 
-# 04c. SIERRAS/BASIN RANGE ------------------------------------------------
-
-# Sierras/BASIN
-# dat <- filter(metadat, SPP_ID=="RABO" | SPP_pc1=="RABO") %>%
-#   filter(EcoRegion=="Sierra Nevada" | EcoRegion=="Sierra/Basin Range")
+# Filter out Feather Sierras/BASIN Range Samples
+#dat <- filter(metadat, !EcoRegion=="Sierra/Basin Range")
 
 # be aware outliers: 
 ## BEAR-MISS Canyon RAP-278
 ## SFY-SpringCk RAP 122
-
 
 # 04d. FILTER BY SITE NAME -------------------------------------------------
 
@@ -121,12 +119,11 @@ dat <- metadat # for all samples if no filter needed
 dfout <- inner_join(dat, bams, by=c("Seq"="X1")) %>% arrange(Seq)
 
 # check for duplicates:
-dfout[duplicated(dfout$Seq),] %>% arrange(SampleID) %>% tally()
+#dfout[duplicated(dfout$Seq),] %>% arrange(SampleID) %>% tally()
 
 # check tally's of groups
 #dfout %>% group_by(River) %>% tally
 #dfout %>% group_by(Locality) %>% tally
-
 
 # 05b. Filter out sites with low sample n ---------------------------------
 
@@ -134,8 +131,14 @@ dfout <- dfout %>% group_by(Locality) %>% add_tally() %>%
   rename(n_locality=n)
 #dfout %>% select(Locality, n_locality) %>% View
 
+# filter down to all samples between 2 & 10 per locality:
+#dfout <- bind_rows(filter(dfout, n_locality<10, n_locality>1), sample_n(dfout[dfout$n_locality>10,], 10))
+
+# filter down to all samples between 1 & 10 per locality:
+dfout <- bind_rows(filter(dfout, n_locality<10), sample_n(dfout[dfout$n_locality>10,], 10))
+
 # filter out localities with less than 3 samples
-dfout <- dfout %>% filter(n_locality>2)
+#dfout <- dfout %>% filter(n_locality>2)
 
 # filter out outliers
 outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",
@@ -172,5 +175,8 @@ lsite<- tolower(site)
 # NEW IBS METHOD
 paste0("sbatch -p high -t 3600 --mem=32G --mail-type ALL --mail-user rapeek@ucdavis.edu 03_pca_ibs.sh ",site,"_",bamNo,"k")
 
+
+# ADMIX k=12 (sbatch -t 3600 -p med --mem=60G 04_get_admix.sh all_rabo_filt10_100k 12)
+paste0("sbatch -p med -t 3600 --mem=60G --mail-type ALL --mail-user rapeek@ucdavis.edu 04_get_admix.sh ", site,"_",bamNo,"k ", 12)
 
 

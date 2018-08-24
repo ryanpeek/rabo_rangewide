@@ -91,3 +91,21 @@ plotly::ggplotly(ggplot() +
                    theme_bw(base_family = "Roboto Condensed")
 )
 
+q
+# new way:
+# 0.094109 0.298953
+
+# folded old way:
+# 0.200429 0.390657
+
+# unfolded old way:
+# 0.089041 0.361736
+
+
+
+
+
+
+
+
+

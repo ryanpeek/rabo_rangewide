@@ -19,8 +19,6 @@ set.seed(111) # for repeatable random sampling
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-100
 
-# set site name (will be appended into filename)
-#site <- "ncoast_rabo_n9" # all_rabo, all_rabo_filt01
 
 # 02. LOAD METADATA --------------------------------------------
 
@@ -43,7 +41,6 @@ metadat[duplicated(metadat$Seq),] %>% arrange(SampleID) %>% tally()
 # 03. READ FULL BAMLIST --------------------------------------------------
 
 # this can be a full bamlist (all bams) or subsampled bamlist
-
 bams <- read_tsv(paste0("data_output/bamlists/bamlist_flt_mrg_",bamNo,"k"), col_names = F)
 
 # remove the *000 component for join, requires fixing scipen for digits
@@ -66,6 +63,7 @@ outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",
 
 # NO FILTER
 # dat <- metadat # all samples, NO FILTER
+
 # view and sort
 # summary(as.factor(metadat$HU_8_NAME))
 # dat %>% group_by(River) %>% tally %>% arrange(n) %>%  print(n=Inf)
@@ -148,7 +146,7 @@ dfout_sf <- st_as_sf(dfout_sf,
                      remove = F, # don't remove these lat/lon cols from df
                      crs = 4326) # add projection
 
-st_write(dfout_sf, paste0("data_output/sites_",bamNo, "k_filtered.shp"), delete_dsn = T)
+#st_write(dfout_sf, paste0("data_output/sites_",bamNo, "k_filtered.shp"), delete_dsn = T)
 
 mapview(dfout_sf) %>% addMouseCoordinates()
 

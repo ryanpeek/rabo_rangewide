@@ -84,9 +84,10 @@ dev.off()
 
 # PLOT LOGLIKS ------------------------------------------------------------
 
-k <- c(2:8)
+k <- c(2:12)
 logs <- c(-33148006.008206, -31793778.761774, -30793224.392646, 
-          -30546187.662216, -30316365.727090, -30121297.356706, -29978921.546022)
+          -30546187.662216, -30316365.727090, -30121297.356706, -29978921.546022,
+          -29737643.919022, -29825944.804667, -29498362.645870, -29431334.806164)
 #nsites 69425 # nind 635
 admixLogs <- tibble(k=k, bestLik=logs)
 
@@ -98,10 +99,7 @@ ggplot() + geom_point(data=admixLogs, aes(x=k, y=bestLik), col="maroon", size=3)
 
 library(pophelper)
 
-#k <- 5
-#admixk <- 5
-#qopt_file <- "all_rabo_n4_25k_"
-admixfiles <- list.files(path = "data_output/admix/", "*.qopt", full.names = T)
+admixfiles <- list.files(path = "data_output/admix/", bamfile, full.names = T)
 #admixfile <- paste0("data_output/admix/", qopt_file, "k", k,"_admix", admixk, ".qopt")
 
 # read in multiple files
@@ -114,34 +112,39 @@ tabulateQ(qlist=poplist, sorttable = F)
 summariseQ(tabulateQ(qlist=poplist))
 
 # GET LABELS:
-admix_labels <- annot[,c("EcoRegion", "HU_6_NAME")]
+admix_labels <- annot %>% select("EcoRegion") %>% 
+  mutate_at(c("EcoRegion"), as.character)
 
-# replace NA's
-admix_labels <- admix_labels %>% replace(., is.na(.), "unknown")
+# replace NA's if they exist:
+if(length(admix_labels[is.na(admix_labels)])){
+  admix_labels <- admix_labels %>% replace(., is.na(.), "unknown")
+  } else {
+    print("no NAs")
+  }
 
 # make factors
 # admix_labels <- admix_labels %>% 
 #   mutate_at(.vars = c("HU_6_NAME", "River", "EcoRegion"), as.factor)
 # summary(admix_labels)
 
-par(mar=c(6,1,1,1))
-p1 <- plotQ(poplist[9], 
-            #imgoutput="join", 
-            returnplot = F, exportplot = T, quiet=T,
-            width = 6, height=5, units = "in", 
+par(mar=c(11,3,2,2))
+p1 <- plotQ(poplist[c(10,11,1)], 
+            imgoutput="join", 
+            returnplot = T, exportplot = T, quiet=T,
+            #width = 7, height=4, units = "in", 
             font = "Roboto Condensed", 
             #sharedindlab = T, 
-            sortind = 'all', 
-            splab = paste0("K=",sapply(poplist[c(8)],ncol)),splabsize = 5, 
+            #sortind = 'all', 
+            splab = paste0("K=",sapply(poplist[c(10,11,1)],ncol)),splabsize = 5, 
             #subsetgrp=c("North Coast","Sierra Nevada", "Central Coast"), 
             selgrp="EcoRegion",  
-            showlegend=T, showtitle=F,showsubtitle=F,titlelab="Structure",
+            showlegend=T, showtitle=T,showsubtitle=F, titlelab="All 100k Admixture",
             grplabangle = 90, grplabsize = 2, grplab=admix_labels, ordergrp=T, 
-            grplabpos = 0.4, grplabheight = 1, grplabjust = 0.2, grplabspacer = .1,
-            linepos = 0.9,
+            grplabpos = 1, grplabheight = .5, grplabjust = 1, grplabspacer = .2,
+            linepos = 1,
             #showindlab=T, indlabsize=2, indlabheight=0.1, indlabspacer=-1,indlabangle=70,
             barbordercolour="white", barbordersize=0, 
-            outputfilename="figs/admix/all_n4_25k_k3_k5", imgtype="png")
+            outputfilename=paste0("figs/admix/",bamfile,"k8-k10.png"), imgtype="png")
 
 dev.off()
 print(p1$plot[[1]])

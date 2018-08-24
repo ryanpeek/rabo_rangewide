@@ -26,7 +26,7 @@ site <- "all_rabo_filt"
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(1,2), colvar = "ecoreg", plotlyplot = T))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(3,4), colvar = "ecoreg", plotlyplot = T))
 
 ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
        units = "in", dpi = 300)
