@@ -7,7 +7,7 @@ library(sf)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt10_1_100k"
+bamfile <- "all_rabo_filt10_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -91,13 +91,24 @@ counties <- us_counties(resolution = "low", states=state_names) %>% # use list o
   mutate(lon=map_dbl(geometry, ~st_centroid(.x)[[1]]), # add centroid values for labels
          lat=map_dbl(geometry, ~st_centroid(.x)[[2]])) # add centroid values for labels
 
+# add color palette: 
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
 # plot
 ggplot() + geom_sf(data=CA, fill="gray80") + geom_sf(data=counties, col="gray20", alpha=0.8) +
   geom_sf(data=annot_sf, aes(color=admix_groups), size=3.5) + 
-  #scale_color_viridis(discrete = TRUE) +
-  theme_bw()
+  scale_color_manual("Admix Groups", 
+                     values = c("East"=cbbPalette[1], 
+                                "North-East"=cbbPalette[2], 
+                                "North-West"=cbbPalette[3],
+                                "Feather-North"=cbbPalette[4],
+                                "West"=cbbPalette[5], 
+                                "South-West"=cbbPalette[6])) +
+  theme_bw(base_family = "Roboto Condensed") 
+  
+  #scale_color_viridis(discrete = TRUE) 
 
-ggsave(filename = paste0("figs/maps_", bamfile, "_Ecoregion.png"), width = 8, height = 11, 
+ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups.png"), width = 8, height = 11, 
               units = "in", dpi = 300)
 
 

@@ -1,4 +1,5 @@
 # function to read in covar and plot 
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 read_covar_range <- function(covmat, # @path to covar file 
                        bamlist, # @path to bamlist
@@ -12,6 +13,7 @@ read_covar_range <- function(covmat, # @path to covar file
   if(!require(ggplot2)) { install.packages("ggplot2"); require(ggplot2, warn.conflicts = F)}
   if(!require(dplyr)) { install.packages("dplyr"); require(dplyr, warn.conflicts = F)}
   if(!require(plotly)) { install.packages("plotly"); require(plotly, warn.conflicts = F)}
+  if(!require(ggthemes)) { install.packages("ggthemes"); require(ggthemes, warn.conflicts = F)}
   
   # read covar file
   covar <- read.table(covmat, stringsAsFactors = F)
@@ -36,6 +38,7 @@ read_covar_range <- function(covmat, # @path to covar file
   PC$HUC6 <- factor(annot$HUC_6)
   PC$LabID <- factor(annot$LabID)
   PC$ecoreg <- factor(annot$EcoRegion)
+  PC$admix_groups<-factor(annot$admix_groups)
   
   # set up plot
   
@@ -45,6 +48,7 @@ read_covar_range <- function(covmat, # @path to covar file
   
   # Title: (% explained)
   title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc2," (",signif(eig$val[pc2], digits=3)*100,"%)", sep="",collapse="")
+  
   
   # plotly
   if(plotlyplot){
@@ -61,7 +65,16 @@ read_covar_range <- function(covmat, # @path to covar file
                                                     Locality))))) +
                geom_point(size=4, alpha=0.8) + 
                theme_bw(base_size = 9) +
-               scale_color_viridis_d() + 
+               scale_color_manual("Admix Groups", 
+                                  values = c("East"=cbbPalette[1], 
+                                             "North-East"=cbbPalette[2], 
+                                             "North-West"=cbbPalette[3],
+                                             "Feather-North"=cbbPalette[4],
+                                             "West"=cbbPalette[5], 
+                                             "South-West"=cbbPalette[6])) +
+                 theme_bw(base_family = "Roboto Condensed") +
+               #scale_color_colorblind() +
+               #scale_color_viridis_d() + 
                ggtitle(paste0(title)))
     )
     return(plotpca)
@@ -77,7 +90,16 @@ read_covar_range <- function(covmat, # @path to covar file
     #ggforce::geom_mark_circle(aes(group=watershed))+
     theme_bw(base_family = "Roboto Condensed") +
     #theme(legend.position="bottom") +
-    scale_color_viridis_d("River") + 
+    scale_color_manual("Admix Groups", 
+                       values = c("East"=cbbPalette[1], 
+                                  "North-East"=cbbPalette[2], 
+                                  "North-West"=cbbPalette[3],
+                                  "Feather-North"=cbbPalette[4],
+                                  "West"=cbbPalette[5], 
+                                  "South-West"=cbbPalette[6])) +
+      theme_bw(base_family = "Roboto Condensed") +
+      #scale_color_colorblind("Group") +
+    #scale_color_viridis_d("River") + 
     ggtitle(paste0(title)))
     return(ggpca)
   }

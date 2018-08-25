@@ -18,7 +18,7 @@ library(tidyverse)
 # GET PCA -----------------------------------------------------------------
 
 # source the function to plot
-source(paste0(here(),"/scripts/functions/f_read_covar.R"))
+#source(paste0(here(),"/scripts/functions/f_read_covar.R"))
 source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
 
 # load the metadata
@@ -40,19 +40,27 @@ metadat<- metadat %>%
     grepl("SANCARP", River) ~ "South-West") # South Coast
   )
 
+# scale_color_manual("Admix Groups", 
+#                    values = c("East"=cbbPalette[1], 
+#                               "North-East"=cbbPalette[2], 
+#                               "North-West"=cbbPalette[3],
+#                               "Feather-North"=cbbPalette[4],
+#                               "West"=cbbPalette[5], 
+#                               "South-West"=cbbPalette[6])) +
+#   theme_bw(base_family = "Roboto Condensed") +
 
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
-site <- "rabo_nofeath_filt10_1"
+site <- "all_rabo_filt10_1"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "ecoreg", plotlyplot = T))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "admix_groups", plotlyplot = F))
 
-#ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
-#       units = "in", dpi = 300)
+ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
+       units = "in", dpi = 300)
         
 
 # THE INNER BITS ----------------------------------------------------------
