@@ -1,4 +1,15 @@
 
+
+# GET covMat DATA ---------------------------------------------------------
+
+# rsync -avh -e "ssh -p 2022" rapeek@farm.cse.ucdavis.edu:home/rapeek/projects/rangewide/pop_gen/all_rabo_filt10_1_100k_thresh.covMat
+
+# scp -P 2022 rapeek@agri.cse.ucdavis.edu:/home/rapeek/projects/rangewide/pop_gen/all_rabo_filt10_1_100k_thresh.covMat .
+
+# sftp: farmer
+# cd projects/rangewide/pop_gen/results_pca
+# get *covMat
+
 # libraries ---------------------------------------------------------------
 
 library(here)
@@ -18,18 +29,30 @@ metadat <- metadat %>%
   separate(seqID, into = c("barcode", "wellcode"), drop=T) %>% 
   mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
 
+# add groups based on Shaffer and PCA splits:
+metadat<- metadat %>% 
+  mutate(admix_groups = case_when(
+    grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
+    grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+    grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+    grepl("SANCARP", River) ~ "South-West") # South Coast
+  )
+
+
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
-site <- "all_rabo_filt"
+site <- "rabo_nofeath_filt10_1"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(3,4), colvar = "ecoreg", plotlyplot = T))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "ecoreg", plotlyplot = T))
 
-ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
-       units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
+#       units = "in", dpi = 300)
         
 
 # THE INNER BITS ----------------------------------------------------------
