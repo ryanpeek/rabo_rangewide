@@ -7,7 +7,7 @@ library(sf)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt10_100k"
+bamfile <- "all_rabo_filt_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -34,10 +34,11 @@ summary(annot$EcoRegion)
 # recode levels based on Shaffer paper (E=Southern Sierra Nevada, NE=Northern Sierra Nevada, NW=North Coast, W=Central Coast, SW=South Coast, NEW::::Sierra/Basin Range)
 
 # view groups with:
-# annot %>% distinct(EcoRegion)
+#annot %>% distinct(EcoRegion)
 # annot %>% filter(EcoRegion=="Sierra Nevada") %>% group_by(River) %>% tally()
 # annot %>% filter(grepl("Southern OR Coastal|North Coast|Cascades|Klamath North Coast|Northern CA Coastal Foothills", EcoRegion)) %>% group_by(River) %>% distinct(River)
 # annot %>% filter(grepl("Sierra/Basin Range", EcoRegion)) %>% group_by(River) %>% distinct(River)
+#annot %>% filter(grepl("^Central Coast$|^Central CA Coastal Foothills", EcoRegion)) %>% group_by(River) %>% distinct(River)
 
 annot<- annot %>% 
   mutate(admix_groups = case_when(
@@ -46,12 +47,11 @@ annot<- annot %>%
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
     grepl("NFF|FEA", River) ~ "Feather-North", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-    grepl("SANCARP", River) ~ "South-West") # South Coast
+    grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
 
 # 05c. MAKE QUICK MAP ----------------------------------------------------------
-
 
 # jitter coords slightly for viewing
 annot_sf <- annot %>% filter(!is.na(lat)) %>%  
@@ -77,14 +77,32 @@ mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 
 library(USAboundaries)
 library(purrr)
+library(sf)
+library(ggsn)
 
-# Pick a State
-state_names <- c("california", "oregon")
+# get name
+bamfile <- "all_rabo_filt_100k"
 
+# get shp file with data
+annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
+st_crs(annot_sf)
+
+# get shp of range
+# rb_range <- st_read("data/Rb_Potential_Range_CAandOR.shp") %>% 
+#   st_transform(crs = 4326)
+# st_crs(rb_range)
+# rb_range_simple <- st_simplify(rb_range)
+# plot(st_geometry(rb_range_simple))
+
+
+# Get states
+state_names <- c("california", "oregon") # for RABO range
+bg_states <- c("california", "oregon", "washington", "idaho","montana", "nevada","utah", "arizona")
 # Download STATE data and add projection
-CA<-us_states(resolution = "low", states = state_names) #%>%
-#st_transform(crs = 32610)
-st_crs(CA)
+CA<-us_states(resolution = "low", states = state_names)
+bgSTs <- us_states(resolution = "low", states=bg_states)
+#st_crs(CA)
+#plot(st_geometry(bgSTs))
 
 # get COUNTY data for a given state
 counties <- us_counties(resolution = "low", states=state_names) %>% # use list of state(s) here
@@ -94,21 +112,43 @@ counties <- us_counties(resolution = "low", states=state_names) %>% # use list o
 # add color palette: 
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
+# get range of lat/longs from for mapping
+mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
+
 # plot
-ggplot() + geom_sf(data=CA, fill="gray80") + geom_sf(data=counties, col="gray20", alpha=0.8) +
-  geom_sf(data=annot_sf, aes(color=admix_groups), size=3.5) + 
-  scale_color_manual("Admix Groups", 
+ggplot() + 
+  geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
+  geom_sf(data=CA, fill="gray20") + 
+  geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
+  geom_sf(data=annot_sf, aes(fill=admx_gr), size=3, pch=21, show.legend = 'point') +
+  #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
+
+  scale_fill_manual("Groups", 
                      values = c("East"=cbbPalette[1], 
                                 "North-East"=cbbPalette[2], 
                                 "North-West"=cbbPalette[3],
                                 "Feather-North"=cbbPalette[4],
                                 "West"=cbbPalette[5], 
                                 "South-West"=cbbPalette[6])) +
-  theme_bw(base_family = "Roboto Condensed") 
-  
-  #scale_color_viridis(discrete = TRUE) 
+  theme_bw(base_family = "Roboto Condensed") +
+  # remove graticule and rotate x axis labels
+  theme(panel.grid.major = element_line(color = 'transparent'),
+        panel.background = element_rect(fill="darkslategray4"),
+        axis.text.x = element_text(angle = 45, vjust = .75)) +
+  coord_sf(xlim = mapRange[c(1:2)], ylim = mapRange[c(3:4)]) +
+  # add north arrow
+  north(x.min = -124.2, x.max = -122.2,
+        y.min = 33, y.max = 34.5,
+        location = "bottomleft", scale = 0.5) +
+  # add scale bar
+  scalebar(location = "bottomleft", dist = 200,
+           dd2km = TRUE, model = 'WGS84',           
+           x.min = -124, x.max = -121,
+           y.min = 32.4, y.max = 33.7, height = .15,
+           st.size = 2.5, st.dist = .2)
 
-ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups.png"), width = 8, height = 11, 
+
+ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups_plain.png"), width = 8, height = 11, 
               units = "in", dpi = 300)
 
 
