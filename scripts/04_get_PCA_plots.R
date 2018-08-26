@@ -37,7 +37,7 @@ metadat<- metadat %>%
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
     grepl("NFF|FEA", River) ~ "Feather-North", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-    grepl("SANCARP", River) ~ "South-West") # South Coast
+    grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
 # scale_color_manual("Admix Groups", 
@@ -52,16 +52,27 @@ metadat<- metadat %>%
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
-site <- "all_rabo_filt10_1"
+site <- "all_rabo_filt"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(1,3), colvar = "admix_groups", plotlyplot = F))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(4,5), colvar = "admix_groups", plotlyplot = F))
+
+ggpca12 <- ggpca
+ggpca13 <- ggpca
+ggpca23 <- ggpca
+ggpca45 <- ggpca
 
 ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
        units = "in", dpi = 300)
         
+# cowplot:
+library(cowplot)
+
+pcaquad <- cowplot::plot_grid(ggpca12, ggpca13, ggpca23, ggpca45, nrow = 2, labels = "AUTO")
+
+save_plot(plot = pcaquad, filename = paste0("figs/pca_quadplot_", site, "_", reads, ".png"), base_width = 8, dpi=300)
 
 # THE INNER BITS ----------------------------------------------------------
 
