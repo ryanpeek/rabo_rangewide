@@ -8,70 +8,134 @@
 
 library(tidyverse)
 library(stringr)
+library(here)
 
 # GET DATA ----------------------------------------------------------------
 
-# create in bash in farm:
-# tail -n+2 -q *fst | cat > all_global_fst_DATA.txt
-# visual block delete space 
-# sed out crap
-# :%s/\.folded\.fst\.gz//g
-# :%s/ST\.Unweight\[//g
-# :%s/ssuming\ \.fst\.gz\ file\:\ results_fst\///g
+# make spaces to tab delimited
+# :%s/ /\t/g
 
-# finally, fix file that's messed up: missing (calav-esperck.nfa-slar_25k.folded.fst.idx), manually deleted line.
-
-
-dat <- read_csv("data_output/fst/all_global_fst_25k_n3.txt", col_names = "alldat")
-
-# now pull out first line and add as a new col
-datFiles <- dat[seq(from=1, nrow(dat), by=2),]
-datFst <- dat[seq(from=2, nrow(dat), by=2),]
-
-fsts <- bind_cols(datFiles, datFst) %>% 
-  rename(fst=alldat1, filenames=alldat)
-
-rm(datFiles, datFst)
+dat <- read_tsv("data_output/fst/all_rabo_100k_folded_adj_fst.txt", col_names = c("fst_unad", "fst_adj", "filenames"))
 
 # FIX WEIRD TXT -----------------------------------------------------------
 
-fsts$filenames <- gsub(x = fsts$filenames, pattern = "_25k", replacement = "")
+dat$filenames <- gsub(x = dat$filenames, pattern = "_100k.folded.finalFSTout", replacement = "")
 
 # SEPARATE COLS -----------------------------------------------------------
 
 # separate and cleanup
-fsts2 <- fsts %>% 
+fsts <- dat %>% 
   separate(col = filenames, into = c("siteA", "siteB"), sep = "\\.") %>% 
-  separate(col = fst, into = c("no_obs_loci", "fst_unweight", "fst_weight"), sep=" ") %>% 
-  mutate(no_obs_loci = gsub(no_obs_loci, pattern="nObs:", replacement=""),
-         fst_unweight = gsub(fst_unweight, pattern=":", replacement=""),
-         fst_weight = gsub(fst_weight, pattern="Fst.Weight:", replacement="")) %>% 
-  mutate_at(c("no_obs_loci", "fst_unweight", "fst_weight"), .funs = as.numeric) %>%
   mutate(sitepair = paste0(siteA, "_", siteB))
 
-
-
-# FILTER OUT SITES WITH <3 samples ----------------------------------------
-
-# 25k samples:
-# filtout <- c("cache-wfsulphurck", "fea-spanish-rockck", "fea-spanish-wapaunsie",
-#              "nfa-nfnfa", "nfy-slate", "sancarp-sancarpoforock", "sfeel", "stan-roseck")
-
-#fsts_out <- fsts2 %>% filter(!siteA %in% filtout, !siteB %in% filtout)
-
-#head(fsts_out)
-fsts_out <- fsts2
+fsts %>% group_by(siteA) %>% tally
+fsts %>% group_by(siteA) %>% tally
 
 # convert to a matrix for other stuff:
-fst_mat <- fsts_out %>% select(siteA, siteB, fst_weight)
+fst_mat <- fsts %>% select(siteA, siteB, fst_adj)
 
-fst_mat <- with(fst_mat,tapply(fst_weight,list(siteA,siteB),"[[",1)) 
+fst_mat <- with(fst_mat,tapply(fst_adj,list(siteA,siteB),"[[",1)) 
 
-#write.csv(fst_mat, file = "data_output/fst/fst_matrix_25k_n3.csv")
+write.csv(fst_mat, file = "data_output/fst/fst_matrix_all_rabo_filt_100k_folded.csv")
 
-# fst_long <- select(fsts_out, fst_weight, siteA, siteB) %>% 
-#   gather(pair, site, -fst_weight) %>% group_by(site) %>% 
+# load the metadata
+metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
+
+# need to make a new field to match the bam names (this is lame but whatever)
+metadat <- metadat %>% 
+  separate(seqID, into = c("barcode", "wellcode"), drop=T) %>% 
+  mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
+
+# add groups based on Shaffer and PCA splits:
+metadat<- metadat %>% 
+  mutate(admix_groups = case_when(
+    grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
+    grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+    grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+    grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
+  ) %>% 
+  select(Seq, admix_groups, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
+
+bamfile <- "all_rabo_filt_100k"
+
+# Get ID and pop info for each individual from bamlists
+bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
+bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
+
+annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
+
+annot %>% group_by(Locality) %>% tally
+
+# get only the sites for pairings
+annot <- annot %>% distinct(Locality, .keep_all = T)
+annot$Locality <- tolower(annot$Locality)
+
+# now join with fst data:
+annot_fst <- annot %>% select(admix_groups, Locality, lat, lon, HUC_6, EcoRegion)
+
+fstsA <- left_join(fsts, annot_fst, by=c("siteA"="Locality")) %>% 
+  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
+
+fsts_out <- left_join(fstsA, annot_fst, by=c("siteB"="Locality")) %>% 
+  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B")))
+
+# fst_long <- select(fsts_out, fst_adj, siteA, siteB) %>% 
+#   gather(pair, site, -fst_adj) %>% group_by(site) %>% 
 #   summarize(fst_mean=mean(fst_weight)) %>% rename(sites = site)
+
+
+# HEATMAP -----------------------------------------------------------------
+
+library(reshape2)
+
+# Get lower triangle of the correlation matrix
+get_lower_tri<-function(cormat){
+  cormat[upper.tri(cormat)] <- NA
+  return(cormat)
+}
+# Get upper triangle of the correlation matrix
+get_upper_tri <- function(cormat){
+  cormat[lower.tri(cormat)]<- NA
+  return(cormat)
+}
+
+fst_mat2 <- get_upper_tri(fst_mat)
+
+# reorder by dist w hclust
+reorder_cormat <- function(cormat){
+  # Use correlation between variables as distance
+  dd <- as.dist((1-cormat)/2)
+  hc <- hclust(dd)
+  cormat <-cormat[hc$order, hc$order]
+}
+
+melted_fst <- melt(fst_mat2, na.rm = TRUE)
+summary(melted_fst)
+
+# plot
+ggplot() + 
+  geom_tile(data = melted_fst, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
+  theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
+  scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
+  coord_fixed() + 
+  geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
+# add text
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank(),
+    axis.ticks = element_blank(),
+    legend.justification = c(1, 0),
+    legend.position = c(0.8, 0.1),
+    legend.direction = "horizontal")+
+  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+                               title.position = "top", title.hjust = 0.5))
+
 
 
 # TEST PLOTS: POINTS ------------------------------------------------------
@@ -79,7 +143,7 @@ fst_mat <- with(fst_mat,tapply(fst_weight,list(siteA,siteB),"[[",1))
 library(viridis)
 
 ggplot() + 
-  geom_point(data=fsts_out, aes(y=fst_weight/(1-fst_weight), x=sitepair, color=fst_weight)) + 
+  geom_point(data=fsts, aes(y=fst_adj/(1-fst_adj), x=sitepair, color=fst_adj)) + 
   theme_bw(base_family = "Roboto Condensed") + 
   scale_color_viridis_c() + 
   theme(axis.text.x = element_blank())
@@ -87,7 +151,7 @@ ggplot() +
 library(plotly)
 ggplotly(
   ggplot() + 
-    geom_point(data=fsts_out, aes(y=fst_weight/(1-fst_weight), x=sitepair, color=fst_weight)) + 
+    geom_point(data=fsts, aes(y=fst_adj/(1-fst_adj), x=sitepair, color=fst_adj)) + 
     theme_bw(base_family = "Roboto Condensed") + 
     scale_color_viridis_c() + 
     theme(axis.text.x = element_blank())
