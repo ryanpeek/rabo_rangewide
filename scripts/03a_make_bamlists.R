@@ -40,7 +40,12 @@ metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
 
 # Fix trin-sftrinity sandybar
 unique(metadat$Locality) %>% sort()
-metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
+metadat$Locality<-tolower(gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality))
+
+# fix deer-clearck/ deer-clec
+metadat$Locality <- gsub(pattern="deer-clearck", replacement = "deer-clec", x=metadat$Locality)
+
+
 
 # view summary of data:
 metadat %>% group_by(HUC_8) %>% tally %>% print(n=Inf)

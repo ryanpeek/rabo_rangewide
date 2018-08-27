@@ -24,6 +24,8 @@ source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
 # load the metadata
 metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
 
+metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
+
 # need to make a new field to match the bam names (this is lame but whatever)
 metadat <- metadat %>% 
   separate(seqID, into = c("barcode", "wellcode"), drop=T) %>% 

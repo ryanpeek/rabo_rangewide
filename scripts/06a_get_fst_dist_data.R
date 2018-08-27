@@ -9,6 +9,7 @@
 library(tidyverse)
 library(stringr)
 library(here)
+library(viridis)
 
 # GET DATA ----------------------------------------------------------------
 
@@ -31,15 +32,17 @@ fsts <- dat %>%
 fsts %>% group_by(siteA) %>% tally
 fsts %>% group_by(siteA) %>% tally
 
-# convert to a matrix for other stuff:
-fst_mat <- fsts %>% select(siteA, siteB, fst_adj)
 
-fst_mat <- with(fst_mat,tapply(fst_adj,list(siteA,siteB),"[[",1)) 
-
-write.csv(fst_mat, file = "data_output/fst/fst_matrix_all_rabo_filt_100k_folded.csv")
+# Get Metadata and Clean --------------------------------------------------
 
 # load the metadata
 metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
+
+# fix trinity spaces
+metadat$Locality<-tolower(gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality))
+
+# fix deer-clearck/ deer-clec
+metadat$Locality <- gsub(pattern="deer-clearck", replacement = "deer-clec", x=metadat$Locality)
 
 # need to make a new field to match the bam names (this is lame but whatever)
 metadat <- metadat %>% 
@@ -58,6 +61,14 @@ metadat<- metadat %>%
   ) %>% 
   select(Seq, admix_groups, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
 
+# set order in way that you want
+ords_admix_grps <- c("East", "North-East", "Feather-North", "North-West", "South-West", "West")
+
+metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
+
+
+# GET BAMILES -------------------------------------------------------------
+
 bamfile <- "all_rabo_filt_100k"
 
 # Get ID and pop info for each individual from bamlists
@@ -72,6 +83,8 @@ annot %>% group_by(Locality) %>% tally
 annot <- annot %>% distinct(Locality, .keep_all = T)
 annot$Locality <- tolower(annot$Locality)
 
+# JOIN DATA ---------------------------------------------------------------
+
 # now join with fst data:
 annot_fst <- annot %>% select(admix_groups, Locality, lat, lon, HUC_6, EcoRegion)
 
@@ -79,40 +92,80 @@ fstsA <- left_join(fsts, annot_fst, by=c("siteA"="Locality")) %>%
   rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
 
 fsts_out <- left_join(fstsA, annot_fst, by=c("siteB"="Locality")) %>% 
-  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B")))
+  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A)
 
-# fst_long <- select(fsts_out, fst_adj, siteA, siteB) %>% 
-#   gather(pair, site, -fst_adj) %>% group_by(site) %>% 
-#   summarize(fst_mean=mean(fst_weight)) %>% rename(sites = site)
+fsts_out$admix_groups_A <- factor(fsts_out$admix_groups_A)
+#fsts_out$siteA <- factor(fsts_out$siteA, levels=fsts_out$siteA, labels=fsts_out$admix_groups_A)
+#fsts_out$siteB <- factor(fsts_out$siteB, levels=fsts_out$siteB, labels=fsts_out$admix_groups_B)
+
+summary(fsts_out)
+
+# HEATMAP PLOT ------------------------------------------------------------
+
+# plot
+ggplot() + 
+  geom_tile(data = fsts_out, aes(x=siteA, y=siteB, fill=fst_adj)) + ylab("") + xlab("")+
+  theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
+  scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
+  coord_fixed() + 
+  #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
+  # add text
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank(),
+    axis.ticks = element_blank(),
+    legend.justification = c(1, 0),
+    legend.position = c(0.9, 0.1),
+    legend.direction = "horizontal")+
+  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+                               title.position = "top", title.hjust = 0.5))
+
+#ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
 
 
-# HEATMAP -----------------------------------------------------------------
+# EVERYTHING AFTER THIS IS JUST WHO THE FUCK KNOWS... ---------------------
+
+# tried to reorder things through here but no luck...or weird patterns. should be this hard but it is. Will need to deal with this later if it's worth it.
+
+
+# MAKE MATRIX -------------------------------------------------------------
+
+fst_mat <- fsts_out %>% select(siteA, siteB, fst_adj, admix_groups_A)
+fst_mat$siteA <- as.factor(siteA)
+fst_mat$admix_groups_A <- as.factor(fst_mat$admix_groups_A)
+#fst_mat <- fst_mat[order(fsts_out$admix_groups_A),]
+
+fst_mat <- fst_mat[,c(1, 2, 3)] %>% as.data.frame()
+
+#library(spaa)
+#fst_mat <- list2dist(dat = fst_mat)
+
+# convert to a matrix for other stuff:
+fst_mat <- fsts_out %>% select(siteA, siteB, fst_adj)
+fst_mat <- with(fst_mat,tapply(fst_adj,list(siteA,siteB),"[[",1))
+
+melted_fst <- melt(fst_mat, na.rm = T)
 
 library(reshape2)
-
-# Get lower triangle of the correlation matrix
+# # Get lower triangle of the correlation matrix
 get_lower_tri<-function(cormat){
-  cormat[upper.tri(cormat)] <- NA
-  return(cormat)
+cormat[upper.tri(cormat)] <- NA
+return(cormat)
 }
 # Get upper triangle of the correlation matrix
 get_upper_tri <- function(cormat){
-  cormat[lower.tri(cormat)]<- NA
-  return(cormat)
+cormat[lower.tri(cormat)]<- NA
+return(cormat)
 }
-
 fst_mat2 <- get_upper_tri(fst_mat)
 
-# reorder by dist w hclust
-reorder_cormat <- function(cormat){
-  # Use correlation between variables as distance
-  dd <- as.dist((1-cormat)/2)
-  hc <- hclust(dd)
-  cormat <-cormat[hc$order, hc$order]
-}
 
-melted_fst <- melt(fst_mat2, na.rm = TRUE)
-summary(melted_fst)
+# PLOT --------------------------------------------------------------------
+
 
 # plot
 ggplot() + 
@@ -121,7 +174,7 @@ ggplot() +
   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
   coord_fixed() + 
-  geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
+  #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
 # add text
   theme(
     axis.title.x = element_blank(),
@@ -131,31 +184,12 @@ ggplot() +
     panel.background = element_blank(),
     axis.ticks = element_blank(),
     legend.justification = c(1, 0),
-    legend.position = c(0.8, 0.1),
+    legend.position = c(0.9, 0.1),
     legend.direction = "horizontal")+
   guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
                                title.position = "top", title.hjust = 0.5))
 
-
-
-# TEST PLOTS: POINTS ------------------------------------------------------
-
-library(viridis)
-
-ggplot() + 
-  geom_point(data=fsts, aes(y=fst_adj/(1-fst_adj), x=sitepair, color=fst_adj)) + 
-  theme_bw(base_family = "Roboto Condensed") + 
-  scale_color_viridis_c() + 
-  theme(axis.text.x = element_blank())
-
-library(plotly)
-ggplotly(
-  ggplot() + 
-    geom_point(data=fsts, aes(y=fst_adj/(1-fst_adj), x=sitepair, color=fst_adj)) + 
-    theme_bw(base_family = "Roboto Condensed") + 
-    scale_color_viridis_c() + 
-    theme(axis.text.x = element_blank())
-)
+#ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
 
 
 # Calculate distances -----------------------------------------------------

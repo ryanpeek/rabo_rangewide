@@ -15,6 +15,7 @@ bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file exten
 
 # get metadat
 metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
+metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
 
 # join together
 annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
