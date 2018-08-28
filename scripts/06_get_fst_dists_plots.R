@@ -15,6 +15,8 @@ library(viridis)
 
 # make spaces to tab delimited
 # :%s/ /\t/g
+# :%s/_100k\.folded\.finalFSTout//g
+# need pop 1, pop 2, fst for perlscript
 
 dat <- read_tsv("data_output/fst/all_rabo_100k_folded_adj_fst.txt", col_names = c("fst_unad", "fst_adj", "filenames"))
 
@@ -32,6 +34,7 @@ fsts <- dat %>%
 fsts %>% group_by(siteA) %>% tally
 fsts %>% group_by(siteA) %>% tally
 
+#fsts_only <- fsts %>% select(siteA, siteB, fst_adj)
 
 # Get Metadata and Clean --------------------------------------------------
 
@@ -92,19 +95,41 @@ fstsA <- left_join(fsts, annot_fst, by=c("siteA"="Locality")) %>%
   rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
 
 fsts_out <- left_join(fstsA, annot_fst, by=c("siteB"="Locality")) %>% 
-  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A)
+  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A) %>% 
+  as.data.frame()
 
-fsts_out$admix_groups_A <- factor(fsts_out$admix_groups_A)
+#fsts_out$admix_groups_A <- factor(fsts_out$admix_groups_A)
+
+# append to site names based on admix groups:
+head(fsts_out)
+fsts_out <- fsts_out %>% 
+  mutate(sitea = paste0(admix_groups_A,"_",siteA),
+         siteb = paste0(admix_groups_B, "_", siteB))
+
+
+# fsts_out %>% group_by(admix_groups_A) %>% select(siteA) %>% as.data.frame() %>% select(siteA) %>% distinct(siteA) %>% 
+#   as.factor -> siteA_ord
+# fsts_out %>% group_by(admix_groups_B) %>% select(siteB) %>% as.data.frame() %>% select(siteB) %>% distinct(siteB) %>% 
+#   as.factor -> siteB_ord
+# siteA_ord
+
+siteA_ord <- c("sfa-cami", "tuo-clavey", "bear", "bear-grhn", "bear-sth2", "bear-stha", "bear-sthc", "deer-clec", "mfa-amec", "mfa-gasc", "mfa-todc", "mfy-oregck", "mfy-us-oh", "nfa-bunc", "nfa-euchds", "nfa-euchus", "nfa-indc", "nfa", "nfa-pond", "nfa-robr", "nfa-saic", "nfa-shic", "nfa-slar", "nfmfa-sc", "nfy", "nfy-slate-cgrav", "rub-lc-us", "rub-usph", "sfy-fallck", "sfy-loga", "sfy-misc", "sfy-rockck", "sfy-shadyck", "sfy-springck", "fea-beanck", "fea-spanish-bgulch", "fea-spanishck", "fea-spanish-silverck", "nff-poe", "eel", "mad-mapleck", "mad-redwoodck2", "mad-redwoodck", "mat-bearriver", "mat-lowermattole", "put-cold", "put-wildhorseck", "russ-mwsprngck", "sfeel-cedar", "smith-hurdygurdyck", "ssantiam", "trin-sftrinity-sandybar", "trin-sftrinity", "trin-tishtang", "vandz-dinsmore", "vandz-rootcreek", "salin-losburros", "sancarp-dutrack", "ala-arroyomocho", "paj-clearck", "paj-sanbenito", "soquel-ebsc")
+
+siteB_ord <- c("sfeel-cedar", "sfy-fallck", "sfy-loga", "sfy-misc", "sfy-rockck", "sfy-shadyck", "sfy-springck", "smith-hurdygurdyck", "soquel-ebsc", "ssantiam", "trin-sftrinity", "trin-sftrinity-sandybar", "trin-tishtang", "tuo-clavey", "vandz-dinsmore", "vandz-rootcreek", "vandz-shanty", "bear-grhn", "bear-sth2", "bear-stha", "bear-sthc", "deer-clec", "eel", "fea-beanck", "fea-spanish-bgulch", "fea-spanishck", "fea-spanish-silverck", "mad-mapleck", "mad-redwoodck", "mad-redwoodck2", "mat-bearriver", "mat-lowermattole", "mfa-amec", "mfa-gasc", "mfa-todc", "mfy-oregck", "mfy-us-oh", "nfa", "nfa-bunc", "nfa-euchds", "nfa-euchus", "nfa-indc", "nfa-pond", "nfa-robr", "nfa-saic", "nfa-shic", "nfa-slar", "nff-poe", "nfmfa-sc", "nfy", "nfy-slate-cgrav", "paj-clearck", "paj-sanbenito", "put-cold", "put-wildhorseck", "rub-lc-us", "rub-usph", "russ-mwsprngck", "salin-losburros", "sancarp-dutrack", "sfa-cami", "bear") 
+
+#anti_join(siteA_ord, siteB_ord, by=c("siteA"="siteB"))
+
+fsts_out$siteA <- factor(fsts_out$siteA, levels=siteA_ord)
+fsts_out$siteB <- factor(fsts_out$siteB, levels=siteB_ord)
 #fsts_out$siteA <- factor(fsts_out$siteA, levels=fsts_out$siteA, labels=fsts_out$admix_groups_A)
 #fsts_out$siteB <- factor(fsts_out$siteB, levels=fsts_out$siteB, labels=fsts_out$admix_groups_B)
 
-summary(fsts_out)
 
 # HEATMAP PLOT ------------------------------------------------------------
 
 # plot
 ggplot() + 
-  geom_tile(data = fsts_out, aes(x=siteA, y=siteB, fill=fst_adj)) + ylab("") + xlab("")+
+  geom_tile(data = fsts_out, aes(x=sitea, y=siteb, fill=fst_adj)) + ylab("") + xlab("")+
   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
@@ -118,14 +143,15 @@ ggplot() +
     panel.border = element_blank(),
     panel.background = element_blank(),
     axis.ticks = element_blank(),
-    legend.justification = c(1, 0),
-    legend.position = c(0.9, 0.1),
-    legend.direction = "horizontal")+
-  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
-                               title.position = "top", title.hjust = 0.5))
+    #legend.justification = c(1, 0),
+    #legend.position = c(0.9, 0.1),
+    legend.direction = "vertical")#+
+    #legend.direction = "horizontal")+
+  #guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+   #                            title.position = "top", title.hjust = 0.5))
 
-#ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
-
+#ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.svg", width = 8, height=7, units = "in", dpi=600)
+ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=600)
 
 # EVERYTHING AFTER THIS IS JUST WHO THE FUCK KNOWS... ---------------------
 
@@ -297,4 +323,51 @@ final_fst <- left_join(fsts_out, site_dist_df, by="sitepair") %>% select(siteA.x
 # SAVE OUT ----------------------------------------------------------------
 
 save(final_fst, file = "data_output/fst/final_fst_25k_n3.rda") 
+
+
+# PLOT FST WITH IMAGE -----------------------------------------------------
+
+fsts_only <- fsts_out %>% select(siteA, siteB, fst_adj) %>% as.data.frame()
+str(fsts_only)
+
+tst <- with(fsts_only, sort(unique(c(as.character(siteA_ord),
+                                     as.character(siteB_ord)))))
+#tst <- with(fsts_only, sort(unique(c(as.character(siteA),
+#                              as.character(siteB)))))
+M <- array(0, c(length(tst), length(tst)), list(tst, tst))
+i <- match(fsts_only$siteA, tst)
+j <- match(fsts_only$siteB, tst)
+M[cbind(i,j)] <- M[cbind(j,i)] <- fsts_only$fst_adj
+
+
+
+values = data.frame(Eel_M = values.o$Eel_M, Tri_M = values.o$Tri_M, Tri_P = values.o$Tri_P, Sal_M = values.o$Sal_M, Sal_P = values.o$Sal_P, Rog_M = values.o$Rog_M, Rog_P = values.o$Rog_P, Sou_M = values.o$Sou_M, Nor_P = values.o$Nor_P, Sil_M = values.o$Sil_M, Sil_P = values.o$Sil_P, Puy_M = values.o$Puy_M, Puy_P = values.o$Puy_P, Noo_M = values.o$Noo_M, Noo_P = values.o$Noo_P, Sou_P = values.o$Sou_P)
+rownames(fsts_values) <- siteA_ord
+  fst_values$Sou_P <- NULL
+  fst_values <- head(fst_values,-1)
+  siteA_ord <- head(siteA_ord, -1)
+
+n1<-nrow(values)-1
+n2<-ncol(values)-1
+key <- c(seq(from = 0.015, to = 0.22, by = (0.205/n1)))
+values$key <- key
+values <- rbind(values, key)
+values <- as.matrix(values)
+key <- round(key,2)
+colv <- colorRampPalette(c("black", "white"))
+
+
+# Plot
+output.file = paste("plots/",spp, "_fst.pdf", sep = "")
+pdf(file = output.file, height = 6.5/2.54, width = 6.5/2.54)
+par(mar=c(5,5,5,5), cex= 0.3)
+image(x=seq(0,n1+1), y=seq(0,n2+1), col=colv(1000), z=(-values), axes = F, xlab = "", ylab = "")
+axis(1, at = c(0:(n1)), labels = order, las =2)
+axis(2, at = c(0:(n1)), labels = order, las =2)
+axis(1, at = c(n1+1), labels = c("key"), las =2)
+axis(2, at = c(n1+1), labels = c("key"), las =2)
+axis(3, at = c(0:(n1)), labels = key, las =2, cex.lab= 0.0001)
+axis(4, at = c(0:(n1)), labels = key, las =2, cex.lab= 0.0001)
+dev.off();
+
 

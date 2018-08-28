@@ -7,7 +7,7 @@ library(sf)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt_100k"
+bamfile <- "all_rabo_filt10_1_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -51,13 +51,19 @@ annot<- annot %>%
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
+ords_admix_grps <- c("East", "North-East", "Feather-North", "North-West", "South-West", "West")
+
+annot$admix_groups <- factor(annot$admix_groups, levels = ords_admix_grps)
+
 
 # 05c. MAKE QUICK MAP ----------------------------------------------------------
 
 # jitter coords slightly for viewing
 annot_sf <- annot %>% filter(!is.na(lat)) %>%  
-  distinct(lat,.keep_all = T) %>% 
-  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion)
+  distinct(Locality,.keep_all = T) %>% 
+  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion) %>% 
+  arrange(admix_groups, Locality) %>% 
+  mutate(siteID=row_number()) # for matching labels, etc
 
 # make sf:
 annot_sf <- st_as_sf(annot_sf, 
@@ -82,7 +88,7 @@ library(sf)
 library(ggsn)
 
 # get name
-bamfile <- "all_rabo_filt_100k"
+bamfile <- "all_rabo_filt10_1_100k"
 
 # get shp file with data
 annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
@@ -94,6 +100,9 @@ st_crs(annot_sf)
 # st_crs(rb_range)
 # rb_range_simple <- st_simplify(rb_range)
 # plot(st_geometry(rb_range_simple))
+
+# get shaffer sites:
+shaff <- read_csv("data/mccartney_shaffer_samples.csv")
 
 
 # Get states
@@ -121,10 +130,12 @@ ggplot() +
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
   geom_sf(data=CA, fill="gray20") + 
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
-  geom_sf(data=annot_sf, aes(fill=admx_gr), size=3, pch=21, show.legend = 'point') +
+  geom_sf(data=annot_sf, fill="black", col="gray30", size=3, pch=21, show.legend = 'point') +
+  ggforce::geom_circle(data=annot_sf, aes(x0=lat, y0=lon, color=admx_gr, r=10))+
+  #geom_sf(data=annot_sf, aes(fill=admx_gr), size=3, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
 
-  scale_fill_manual("Groups", 
+  scale_color_manual("Groups", 
                      values = c("East"=cbbPalette[1], 
                                 "North-East"=cbbPalette[2], 
                                 "North-West"=cbbPalette[3],
@@ -149,8 +160,8 @@ ggplot() +
            st.size = 2.5, st.dist = .2)
 
 
-ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups_plain.png"), width = 8, height = 11, 
-              units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups_plain.png"), width = 8, height = 11, 
+#              units = "in", dpi = 300)
 
 
 

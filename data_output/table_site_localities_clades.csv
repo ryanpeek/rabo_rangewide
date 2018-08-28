@@ -1,0 +1,64 @@
+siteID,locality,River,Site,clade,lat,lon,HUC_6,EcoRegion
+1,sfa-cami,sfa,cami,East,38.811511,-120.57871,180201,Sierra Nevada
+2,tuo-clavey,tuo,clavey,East,37.866427,-120.113357,180400,Sierra Nevada
+3,bear,bear,mainstem,North-East,39.17484,-120.899775,180201,Sierra Nevada
+4,bear-grhn,bear,grhn,North-East,39.232063,-120.901893,180201,Sierra Nevada
+5,bear-sth2,bear,sth2,North-East,39.19444,-120.88778,180201,Sierra Nevada
+6,bear-stha,bear,stha,North-East,39.18833,-120.8981,180201,Sierra Nevada
+7,bear-sthc,bear,sthc,North-East,39.202307,-120.875371,180201,Sierra Nevada
+8,deer-clec,deer,clec,North-East,39.18287,-121.14099,180201,Sierra Nevada
+9,mfa-amec,mfa,amec,North-East,38.933963,-120.943562,180201,Sierra Nevada
+10,mfa-gasc,mfa,gasc,North-East,38.966512,-120.932521,180201,Sierra Nevada
+11,mfa-todc,mfa,todc,North-East,38.963848,-120.921578,180201,Sierra Nevada
+12,mfy-oregck,mfy,oregck,North-East,39.441876,-121.057534,180201,Sierra Nevada
+13,mfy-us-oh,mfy,us,North-East,39.413048,-120.990346,180201,Sierra Nevada
+14,nfa,nfa,mainstem,North-East,39.111151,-120.916844,180201,Sierra Nevada
+15,nfa-bunc,nfa,bunc,North-East,39.037618,-120.91028,180201,Sierra Nevada
+16,nfa-euchds,nfa,euchds,North-East,39.18492,-120.76204,180201,Sierra Nevada
+17,nfa-euchus,nfa,euchus,North-East,39.18444,-120.75049,180201,Sierra Nevada
+18,nfa-indc,nfa,indc,North-East,39.056651,-120.908539,180201,Sierra Nevada
+19,nfa-pond,nfa,pond,North-East,38.999947,-120.940596,180201,Sierra Nevada
+20,nfa-robr,nfa,robr,North-East,39.104505,-120.926715,180201,Sierra Nevada
+21,nfa-saic,nfa,saic,North-East,39.216943,-120.495953,180201,Sierra Nevada
+22,nfa-shic,nfa,shic,North-East,39.04445788,-120.8993659,180201,Sierra Nevada
+23,nfa-slar,nfa,slar,North-East,39.098653,-120.925481,180201,Sierra Nevada
+24,nfmfa-sc,nfmfa,sc,North-East,39.022372,-120.736932,180201,Sierra Nevada
+25,nfy,nfy,mainstem,North-East,39.511905,-120.977379,180201,Sierra Nevada
+26,nfy-slate-cgrav,nfy,slate,North-East,39.68912801,-120.9388908,180201,Sierra Nevada
+27,rub-lc-us,rub,lc,North-East,38.988871,-120.689958,180201,Sierra Nevada
+28,rub-usph,rub,usph,North-East,38.999276,-120.723327,180201,Sierra Nevada
+29,sfy-fallck,sfy,fallck,North-East,39.35532,-120.73704,180201,Sierra Nevada
+30,sfy-loga,sfy,loga,North-East,39.36914,-120.85258,180201,Sierra Nevada
+31,sfy-misc,sfy,misc,North-East,39.360961,-120.88138,180201,Sierra Nevada
+32,sfy-rockck,sfy,rockck,North-East,39.32983398,-120.9863358,180201,Sierra Nevada
+33,sfy-shadyck,sfy,shadyck,North-East,39.35433197,-121.0589981,180201,Sierra Nevada
+34,sfy-springck,sfy,springck,North-East,39.33233261,-120.9889984,180201,Sierra Nevada
+35,fea-beanck,fea,beanck,Feather-North,39.96805584,-121.084852,180201,Sierra/Basin Range
+36,fea-spanish-bgulch,fea,spanish,Feather-North,39.95460377,-121.0886507,180201,Sierra/Basin Range
+37,fea-spanishck,fea,spanishck,Feather-North,39.9463667,-121.0325059,180201,Sierra/Basin Range
+38,fea-spanish-silverck,fea,spanish,Feather-North,39.93732788,-121.0904138,180201,Sierra/Basin Range
+39,nff-poe,nff,poe,Feather-North,39.73597951,-121.4702313,180201,Sierra/Basin Range
+40,eel,eel,mainstem,North-West,40.21517973,-123.6302984,180101,Klamath/North Coast
+41,mad-mapleck,mad,mapleck,North-West,40.78112534,-123.8777594,180101,North Coast
+42,mad-redwoodck,mad,redwoodck,North-West,41.20780182,-124.0112,180101,North Coast
+43,mad-redwoodck2,mad,redwoodck2,North-West,41.23419952,-124.0170975,180101,North Coast
+44,mat-bearriver,mat,bearriver,North-West,40.46382847,-124.3651821,180101,Klamath/North Coast
+45,mat-lowermattole,mat,lowermattole,North-West,40.31407987,-124.2830167,180101,North Coast
+46,put-cold,put,cold,North-West,38.49829,-122.09877,180201,Northern CA Coastal Foothills
+47,put-wildhorseck,put,wildhorseck,North-West,38.48599,-122.0865,180201,Northern CA Coastal Foothills
+48,russ-mwsprngck,russ,mwsprngck,North-West,38.547572,-122.708638,180101,Northern CA Coastal Foothills
+49,sfeel-cedar,sfeel,cedar,North-West,39.757843,-123.636436,180101,North Coast
+50,smith-hurdygurdyck,smith,hurdygurdyck,North-West,41.695,-123.9043,180101,Klamath/North Coast
+51,ssantiam,ssantiam,mainstem,North-West,44.36750031,-122.625,170900,Cascades
+52,trin-sftrinity,trin,sftrinity,North-West,40.786192,-123.557467,180102,Klamath/North Coast
+53,trin-sftrinity-sandybar,trin,sftrinity,North-West,40.87796912,-123.6088182,180102,Klamath/North Coast
+54,trin-tishtang,trin,tishtang,North-West,41.02207631,-123.6350975,180102,Klamath/North Coast
+55,vandz-dinsmore,vandz,dinsmore,North-West,40.4875864,-123.591766,180101,Klamath/North Coast
+56,vandz-rootcreek,vandz,rootcreek,North-West,40.47422399,-123.9400251,180101,North Coast
+57,vandz-shanty,vandz,shanty,North-West,40.376699,-123.50614,180101,Klamath/North Coast
+58,salin-losburros,salin,losburros,South-West,35.867,-121.289,180600,Central CA Coastal Foothills
+59,sancarp-dutrack,sancarp,dutrack,South-West,35.80216599,-121.2931671,180600,Central CA Coastal Foothills
+60,ala-arroyomocho,ala,arroyomocho,West,37.60299482,-121.6691202,180500,Central CA Coastal Foothills
+61,paj-clearck,paj,clearck,West,36.37111282,-120.7399979,180600,Central CA Coastal Foothills
+62,paj-sanbenito,paj,sanbenito,West,36.34166718,-120.6580582,180600,Central CA Coastal Foothills
+63,soquel-ebsc,soquel,ebsc,West,37.073,-121.927,180600,Central Coast
