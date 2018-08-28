@@ -69,7 +69,7 @@ read_covar_range <- function(covmat, # @path to covar file
                                   values = c("East"=cbbPalette[1], 
                                              "North-East"=cbbPalette[2], 
                                              "North-West"=cbbPalette[3],
-                                             "Feather-North"=cbbPalette[4],
+                                             "North-Feather"=cbbPalette[4],
                                              "West"=cbbPalette[5], 
                                              "South-West"=cbbPalette[6])) +
                  theme_bw(base_family = "Roboto Condensed") +
@@ -94,7 +94,7 @@ read_covar_range <- function(covmat, # @path to covar file
                        values = c("East"=cbbPalette[1], 
                                   "North-East"=cbbPalette[2], 
                                   "North-West"=cbbPalette[3],
-                                  "Feather-North"=cbbPalette[4],
+                                  "North-Feather"=cbbPalette[4],
                                   "West"=cbbPalette[5], 
                                   "South-West"=cbbPalette[6])) +
       theme_bw(base_family = "Roboto Condensed") +

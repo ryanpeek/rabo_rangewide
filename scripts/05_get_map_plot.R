@@ -4,10 +4,15 @@
 library(tidyverse)
 library(mapview)
 library(sf)
+library(USAboundaries)
+library(purrr)
+library(ggsn)
+library(dplyr)
+library(smoothr)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt10_1_100k"
+bamfile <- "all_rabo_filt_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -46,17 +51,17 @@ annot<- annot %>%
     grepl("STAN|TUO|SFA|CALAV", River) ~ "East", # southern siera
     grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("NFF|FEA", River) ~ "North-Feather", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
-ords_admix_grps <- c("East", "North-East", "Feather-North", "North-West", "South-West", "West")
+ords_admix_grps <- c("East", "North-East", "North-Feather", "North-West", "South-West", "West")
 
 annot$admix_groups <- factor(annot$admix_groups, levels = ords_admix_grps)
 
 
-# 05c. MAKE QUICK MAP ----------------------------------------------------------
+# MAKE QUICK MAP ----------------------------------------------------------
 
 # jitter coords slightly for viewing
 annot_sf <- annot %>% filter(!is.na(lat)) %>%  
@@ -80,30 +85,97 @@ st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
 # make a quick mapview map
 mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 
-# Get Counties  -----------------------------------------------------------
-
-library(USAboundaries)
-library(purrr)
-library(sf)
-library(ggsn)
+# 01. GET SHAPES --------------------------------------------------------------
 
 # get name
-bamfile <- "all_rabo_filt10_1_100k"
+bamfile <- "all_rabo_filt_100k"
 
 # get shp file with data
 annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
 st_crs(annot_sf)
 
 # get shp of range
-# rb_range <- st_read("data/Rb_Potential_Range_CAandOR.shp") %>% 
+#rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) %>% 
 #   st_transform(crs = 4326)
-# st_crs(rb_range)
-# rb_range_simple <- st_simplify(rb_range)
-# plot(st_geometry(rb_range_simple))
+#file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
+#st_crs(rb_range)
+
+
+# 02. SIMPLIFY FIX SHPS -------------------------------------------------------
+
+# simplify
+rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
+plot(rb_range_simple$geometry, col="skyblue")
+
+# smooth
+rb_smooth <- smooth(rb_range_simple, method = "ksmooth") # or spline / ksmooth
+plot(rb_smooth$geometry, col="maroon")
+
+# rm small bits
+area_thresh <- units::set_units(400, km^2)
+rb_dropped <- drop_crumbs(rb_smooth, threshold = area_thresh)
+plot(rb_dropped$geometry, col="orange")
+
+#fill holes
+area_thresh <- units::set_units(800, km^2)
+rb_filled <- fill_holes(rb_dropped, threshold = area_thresh)
+plot(rb_filled$geometry, col="purple")
+
+# now add fields
+rb_filled <- rb_filled %>% 
+  mutate(state = case_when(
+    SEASON=="Y" ~ "CA",
+    is.na(SEASON) ~ "OR"),
+    keeppoly = "Y") %>% 
+  select(-SEASON, -SHAPE_NAME, -Id)
+
+# get OR
+or_rb <- rb_filled %>% filter(state=="OR")
+or_rb_buff <- st_buffer(or_rb, dist = .08)
+
+plot(rb_filled$geometry, border="gray", lwd=1)
+plot(or_rb_buff$geometry, border="blue", add=T)
+#plot(or_rb$geometry, border="red", add=T)
+
+# get CA only
+ca_rb <- rb_filled %>% filter(state=="CA")
+
+# combine
+rb_all <- st_union(or_rb_buff, ca_rb, by_feature = "state")
+plot(rb_all$geometry, col="pink")
+
+rb_diss <- rb_all %>% 
+  group_by(keeppoly) %>% 
+  summarize()
+
+plot(rb_diss$geometry, col="purple")
+
+# write out
+st_write(rb_diss, "data_output/rabo_range_simple.shp", delete_dsn = T)
+
+# rm interm files:
+rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
+
+
+# 03. GET SHAFFER SITES -------------------------------------------------------
 
 # get shaffer sites:
 shaff <- read_csv("data/mccartney_shaffer_samples.csv")
 
+# make spatial
+shaff_sf <- st_as_sf(shaff, 
+                     coords = c("lon", "lat"), 
+                     remove = F, # don't remove these lat/lon cols from df
+                     crs = 4326) # add projection
+
+# check proj
+st_crs(shaff_sf)
+
+# quick map
+#mapview(shaff_sf) + mapview(annot_sf)
+
+
+# GET STATE AND COUNTIES --------------------------------------------------
 
 # Get states
 state_names <- c("california", "oregon") # for RABO range
@@ -119,34 +191,42 @@ counties <- us_counties(resolution = "low", states=state_names) %>% # use list o
   mutate(lon=map_dbl(geometry, ~st_centroid(.x)[[1]]), # add centroid values for labels
          lat=map_dbl(geometry, ~st_centroid(.x)[[2]])) # add centroid values for labels
 
+# SET UP COLOR AND RANGE --------------------------------------------------
+
 # add color palette: 
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 # get range of lat/longs from for mapping
 mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
 
+rb_range <- st_read("data_output/rabo_range_simple.shp")
+
+# FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
+
 # plot
 ggplot() + 
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
-  geom_sf(data=CA, fill="gray20") + 
+  geom_sf(data=CA, fill="gray20") + xlab("")+
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
-  geom_sf(data=annot_sf, fill="black", col="gray30", size=3, pch=21, show.legend = 'point') +
-  ggforce::geom_circle(data=annot_sf, aes(x0=lat, y0=lon, color=admx_gr, r=10))+
-  #geom_sf(data=annot_sf, aes(fill=admx_gr), size=3, pch=21, show.legend = 'point') +
-  #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
-
-  scale_color_manual("Groups", 
-                     values = c("East"=cbbPalette[1], 
-                                "North-East"=cbbPalette[2], 
-                                "North-West"=cbbPalette[3],
-                                "Feather-North"=cbbPalette[4],
-                                "West"=cbbPalette[5], 
-                                "South-West"=cbbPalette[6])) +
+  geom_sf(data=rb_range, col="orange", fill="orange", alpha=0.7) +
+  geom_sf(data=shaff_sf, aes(fill="white"), size=1.7, pch=21, show.legend = 'point') +
+  geom_sf(data=annot_sf, aes(fill="black"), alpha=0.7,size=2.4, pch=21, show.legend = 'point') +
+  ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
+  scale_fill_manual(name = 'Localities', 
+                    values =c('black'='black', 'white'='white'), 
+                    labels = c('Peek et al.', 'McCartney-Melstad et al. 2018')) +
   theme_bw(base_family = "Roboto Condensed") +
   # remove graticule and rotate x axis labels
   theme(panel.grid.major = element_line(color = 'transparent'),
         panel.background = element_rect(fill="darkslategray4"),
-        axis.text.x = element_text(angle = 45, vjust = .75)) +
+        axis.text.x = element_text(angle = 45, vjust = .75),
+        legend.justification = c(0.1, 0.1),
+        legend.position = c(0.55, 0.5),
+        legend.title = element_blank(),
+        legend.key.height=unit(1,"line"),
+        legend.key.width = unit(1,"line"),
+        legend.key = element_blank(),
+        legend.background = element_rect(fill = "white")) +
   coord_sf(xlim = mapRange[c(1:2)], ylim = mapRange[c(3:4)]) +
   # add north arrow
   north(x.min = -124.2, x.max = -122.2,
@@ -159,9 +239,49 @@ ggplot() +
            y.min = 32.4, y.max = 33.7, height = .15,
            st.size = 2.5, st.dist = .2)
 
+ggsave(filename = paste0("figs/maps_", bamfile, "_range_localities.png"), width = 8, height = 11, 
+              units = "in", dpi = 300)
 
-#ggsave(filename = paste0("figs/maps_", bamfile, "_admix_groups_plain.png"), width = 8, height = 11, 
-#              units = "in", dpi = 300)
+# FIG OF ADMIX GROUPS -----------------------------------------------------
 
+# plot
+ggplot() + 
+  geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
+  geom_sf(data=CA, fill="gray20") + xlab("") +
+  geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
+  geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
+  geom_sf(data=annot_sf, aes(fill=admx_gr), size=2.5, pch=21, show.legend = 'point') +
+  #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
+  
+  scale_fill_manual(values = c("East"=cbbPalette[1], 
+                                "North-East"=cbbPalette[2], 
+                                "North-West"=cbbPalette[3],
+                                "North-Feather"=cbbPalette[4],
+                                "West"=cbbPalette[5], 
+                                "South-West"=cbbPalette[6])) +
+  theme_bw(base_family = "Roboto Condensed") + 
+  # remove graticule and rotate x axis labels
+  theme(panel.grid.major = element_line(color = 'transparent'),
+        panel.background = element_rect(fill="darkslategray4"),
+        axis.text.x = element_text(angle = 45, vjust = .75),
+        legend.justification = c(0.1, 0.1),
+        legend.position = c(0.6, 0.5),
+        legend.title = element_blank(),
+        legend.key.height=unit(1,"line"),
+        legend.key.width = unit(1,"line"),
+        legend.key = element_blank(),
+        legend.background = element_rect(fill = "white")) +
+  coord_sf(xlim = mapRange[c(1:2)], ylim = mapRange[c(3:4)]) +
+  # add north arrow
+  north(x.min = -124.2, x.max = -122.2,
+        y.min = 33, y.max = 34.5,
+        location = "bottomleft", scale = 0.5) +
+  # add scale bar
+  scalebar(location = "bottomleft", dist = 200,
+           dd2km = TRUE, model = 'WGS84',           
+           x.min = -124, x.max = -121,
+           y.min = 32.4, y.max = 33.7, height = .15,
+           st.size = 2.5, st.dist = .2)
 
-
+ggsave(filename = paste0("figs/maps_", bamfile, "_clades.png"), width = 8, height = 11, 
+       units = "in", dpi = 300)

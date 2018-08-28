@@ -37,7 +37,7 @@ metadat<- metadat %>%
     grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
     grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("NFF|FEA", River) ~ "North-Feather", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
@@ -46,7 +46,7 @@ metadat<- metadat %>%
 #                    values = c("East"=cbbPalette[1], 
 #                               "North-East"=cbbPalette[2], 
 #                               "North-West"=cbbPalette[3],
-#                               "Feather-North"=cbbPalette[4],
+#                               "North-Feather"=cbbPalette[4],
 #                               "West"=cbbPalette[5], 
 #                               "South-West"=cbbPalette[6])) +
 #   theme_bw(base_family = "Roboto Condensed") +
@@ -59,22 +59,26 @@ site <- "all_rabo_filt"
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(4,5), colvar = "admix_groups", plotlyplot = F))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(3,4), colvar = "admix_groups", plotlyplot = F))
 
 ggpca12 <- ggpca
 ggpca13 <- ggpca
 ggpca23 <- ggpca
-ggpca45 <- ggpca
+ggpca34 <- ggpca
 
 ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
        units = "in", dpi = 300)
         
 # cowplot:
 library(cowplot)
+ggpca12
+ggpca13
+ggpca34
+(pcaquad <- cowplot::plot_grid(ggpca12,ggpca13, ggpca34, nrow = 3, labels = "AUTO"))
 
-pcaquad <- cowplot::plot_grid(ggpca12, ggpca13, ggpca23, ggpca45, nrow = 2, labels = "AUTO")
+save_plot(plot = pcaquad, filename = paste0("figs/pca_12_13_34_", site, "_", reads, ".png"), base_width = 4.25, base_height = 6, base_aspect_ratio = 1.3, dpi=300)
 
-save_plot(plot = pcaquad, filename = paste0("figs/pca_quadplot_", site, "_", reads, ".png"), base_width = 8, dpi=300)
+#save_plot(plot = pcaquad, filename = paste0("figs/pca_12_34_", site, "_", reads, ".png"), base_width = 4.5, base_height = 4.5, dpi=300)
 
 # THE INNER BITS ----------------------------------------------------------
 
