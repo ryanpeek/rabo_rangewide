@@ -23,7 +23,7 @@ set.seed(111) # for repeatable random sampling
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-100
 
-site <- "rabo_nosocoast_filt10_1" 
+site <- "all_rabo_filt_100k" 
 
 # rabo_nosocoast_filt10_1_100k: no southwest coast samples, filtered outliers, samples per locality between 1-10
 # rabo_nofeath_filt10_1_100k: no feather samples, filtered outliers, samples per locality between 1-10
@@ -74,12 +74,12 @@ dat <- metadat # for all samples if no filter needed
 # 04b. ECOREGIONS ---------------------------------------------------------
 
 # By EcoRgions
-dat %>% group_by(EcoRegion) %>% tally
-
-# summary(as.factor(metadat$EcoRegion))
-dat <- filter(metadat, !grepl("^Central CA Coastal Foothills|Central Coast$", EcoRegion))
-
-dat %>% group_by(EcoRegion) %>% tally
+# dat %>% group_by(EcoRegion) %>% tally
+# 
+# # summary(as.factor(metadat$EcoRegion))
+# dat <- filter(metadat, !grepl("^Central CA Coastal Foothills|Central Coast$", EcoRegion))
+# 
+# dat %>% group_by(EcoRegion) %>% tally
 
 # Filter out Feather Sierras/BASIN Range Samples
 #dat <- filter(metadat, !EcoRegion=="Sierra/Basin Range")
@@ -143,7 +143,7 @@ dfout <- dfout %>% group_by(Locality) %>% add_tally() %>%
 dfout <- bind_rows(filter(dfout, n_locality<10), sample_n(dfout[dfout$n_locality>10,], 10))
 
 # filter out localities with less than 3 samples
-#dfout <- dfout %>% filter(n_locality>2)
+dfout <- dfout %>% filter(n_locality>2)
 
 # filter out outliers
 outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",

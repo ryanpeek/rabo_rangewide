@@ -18,9 +18,14 @@ bamfile <- "all_rabo_filt_100k"
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
 bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
 
-# get metadat
+# get metadat and fix sandy bar space and deer ck
 metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
+
+# fix trinity spaces
 metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
+
+# fix deer-clearck/ deer-clec
+metadat$Locality <- gsub(pattern="deer-clearck", replacement = "deer-clec", x=metadat$Locality)
 
 # join together
 annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
@@ -65,10 +70,20 @@ annot$admix_groups <- factor(annot$admix_groups, levels = ords_admix_grps)
 
 # jitter coords slightly for viewing
 annot_sf <- annot %>% filter(!is.na(lat)) %>%  
+  group_by(Locality) %>% add_tally() %>% 
   distinct(Locality,.keep_all = T) %>% 
-  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion) %>% 
+  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion, n) %>% 
   arrange(admix_groups, Locality) %>% 
   mutate(siteID=row_number()) # for matching labels, etc
+
+# save out table of sites
+annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, lat, lon, HUC_6, county, n) %>% 
+  dplyr::rename("clade" = admix_groups, "n_samples"=n)
+
+write_csv(annot_out, path = "data_output/table_site_localities_clades.csv")
+knitr::kable(thetas_out)
+
+
 
 # make sf:
 annot_sf <- st_as_sf(annot_sf, 
@@ -80,7 +95,7 @@ annot_sf <- st_as_sf(annot_sf,
 st_crs(annot_sf)
 
 # write out and delete there's a file with same name (will give warning if first time saving)
-st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
+#st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
 
 # make a quick mapview map
 mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()

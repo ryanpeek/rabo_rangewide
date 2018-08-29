@@ -64,7 +64,6 @@ dat <- dat %>% separate(ID, c("River", "Site"), "-", remove = FALSE)
 dat <- dat %>% mutate(Site=if_else(is.na(Site), "mainstem", Site))
 
 
-
 # GET METADATA ------------------------------------------------------------
 
 
@@ -103,7 +102,9 @@ metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
 # Fix Thetas and Join -----------------------------------------------------
 
 # now join with fst data:
-annot <- metadat %>% select(admix_groups, Locality, lat, lon, HUC_6, EcoRegion) %>% distinct(Locality, .keep_all = T)
+annot <- metadat %>% select(admix_groups, Locality, lat, lon, HUC_6, EcoRegion) %>% 
+  #group_by(Locality) %>% add_tally() %>% 
+  distinct(Locality, .keep_all = T)
 
 thetas <- left_join(dat, annot, by=c("ID"="Locality")) %>% 
   mutate(Tdiff = Tp - Tw) %>% 
@@ -191,7 +192,6 @@ plot_grid(tpplot, twplot)
 # thetas$region <- factor(thetas$region, levels = c("north_coast","central_coast", "south_coast", "sierras"), 
 #                      labels=c("North Coast", "Central Coast", "South Coast", "Sierra Nevada"))
 
-
 # get colors
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
@@ -215,15 +215,7 @@ ggplot() + theme_bw(base_size = 9) +
   xlab(label = expression(paste("Tajima's ", theta, " - Watterson's ", theta, " (", Delta, " ", theta, ")"))) +
   facet_grid(admix_groups~.,scales = "free_y")
 
-ggsave(filename = paste0("figs/thetas_tdiff_100k.png"), width = 8, height = 7, units = "in", dpi=300)
-
-
-# save out table of sites
-thetas_out <- select(thetas, IDnumber, ID, River, Site, admix_groups, lat, lon, HUC_6, EcoRegion) %>% 
-  dplyr::rename("clade" = admix_groups, "locality" = ID, "siteID" = IDnumber)
-
-write_csv(thetas_out, path = "data_output/table_site_localities_clades.csv")
-knitr::kable(thetas_out)
+#ggsave(filename = paste0("figs/thetas_tdiff_100k.png"), width = 8, height = 7, units = "in", dpi=300)
 
 
 library(plotly)
