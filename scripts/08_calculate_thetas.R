@@ -66,7 +66,6 @@ dat <- dat %>% mutate(Site=if_else(is.na(Site), "mainstem", Site))
 
 # GET METADATA ------------------------------------------------------------
 
-
 # load the metadata
 metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
 
@@ -87,14 +86,16 @@ metadat<- metadat %>%
     grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
     grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("NFF|FEA", River) ~ "North-Feather", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   ) %>% 
   select(Seq, admix_groups, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
 
 # set order in way that you want
-ords_admix_grps <- c("East", "North-East", "Feather-North", "North-West", "South-West", "West")
+ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
+
+#ords_admix_grps <- c("North-Feather", "North-East","East", "North-West", "South-West", "West")
 
 metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
 
@@ -143,6 +144,7 @@ CIsTp %>% mutate_at(2:4, round, digits=4)
 CIsTp[1,2] <- .008
 CIsTp[1,4] <- .005
 
+# Tpi
 tpplot <- ggplot() + 
   geom_pointrange(data=CIsTp, aes(x=admix_groups, y=Tp.mean, ymin=Tp.lower, 
                                 ymax=Tp.upper, color=admix_groups), size=1, show.legend = F) +
@@ -150,7 +152,7 @@ tpplot <- ggplot() +
                      values = c("East"=cbbPalette[1], 
                                 "North-East"=cbbPalette[2], 
                                 "North-West"=cbbPalette[3],
-                                "Feather-North"=cbbPalette[4],
+                                "North-Feather"=cbbPalette[4],
                                 "West"=cbbPalette[5], 
                                 "South-West"=cbbPalette[6])) +
   theme_bw(base_family = "Roboto Condensed") +
@@ -164,8 +166,8 @@ CIsTw[1,2] <- .007
 CIsTw[1,4] <- .004
 
 
-
-twplot <- ggplot() + 
+# Tw
+(twplot <- ggplot() + 
   geom_pointrange(data=CIsTw, aes(x=admix_groups, y=Tw.mean, ymin=Tw.lower, 
                                   ymax=Tw.upper, color=admix_groups), size=1, show.legend = F) +
   ylim(c(0.004,.011))+
@@ -173,15 +175,20 @@ twplot <- ggplot() +
                      values = c("East"=cbbPalette[1], 
                                 "North-East"=cbbPalette[2], 
                                 "North-West"=cbbPalette[3],
-                                "Feather-North"=cbbPalette[4],
+                                "North-Feather"=cbbPalette[4],
                                 "West"=cbbPalette[5], 
                                 "South-West"=cbbPalette[6])) +
   theme_bw(base_family = "Roboto Condensed") +
   ylab(label = expression(paste("Watterson's ", theta))) +
-  xlab("Region")
+  xlab("Region"))
+
 
 library(cowplot)
-plot_grid(tpplot, twplot)
+thetaplot <- plot_grid(tpplot, twplot, nrow = 2, labels = "AUTO")
+thetaplot
+
+save_plot(thetaplot , filename = "figs/thetas_taj_watt_95CI.png", base_width = 5,
+          base_aspect_ratio = 1.5, dpi = 300)
 
 # MAKE THETA PLOTS --------------------------------------------------------
 
@@ -205,7 +212,7 @@ ggplot() + theme_bw(base_size = 9) +
                     values = c("East"=cbbPalette[1], 
                                "North-East"=cbbPalette[2], 
                                "North-West"=cbbPalette[3],
-                               "Feather-North"=cbbPalette[4],
+                               "North-Feather"=cbbPalette[4],
                                "West"=cbbPalette[5], 
                                "South-West"=cbbPalette[6])) +
   theme_bw(base_family = "Roboto Condensed") +
@@ -233,41 +240,106 @@ ggplotly(ggplot() + theme_bw(base_size = 9) +
 library(ggsignif)
 
 
-dat_region <- dat %>% select(region, Tw, Tp, Tdiff, nsites) %>% 
-  group_by(region) %>%
+dat_region <- thetas %>% select(admix_groups, Tw, Tp, Tdiff, nsites) %>% 
+  group_by(admix_groups) %>%
   summarise_all(c("mean", "sd", "median", "IQR"), na.rm=TRUE)
 
 
 # stats Kruskal wallis rank sum test and ggpubr (http://www.sthda.com/english/wiki/kruskal-wallis-test-in-r)
-kruskal.test(Tdiff_mean ~ region, data = dat_region)
-#Kruskal-Wallis chi-squared = 10.698, df = 2, p-value = 0.004754
+kruskal.test(Tdiff_mean ~ admix_groups, data = dat_region)
+# Kruskal-Wallis chi-squared = 5, df = 5, p-value = 0.4159
+
+kruskal.test(Tdiff ~ admix_groups, data = thetas)
+#Kruskal-Wallis chi-squared = 20.508, df = 5, p-value = 0.001003
 
 # pairwise wilcox test:
-pairwise.wilcox.test(dat$Tdiff, dat$region, p.adjust.method = "BH")
-pairwise.wilcox.test(dat$Tdiff, dat$region, p.adjust.method = "bonferroni")
+pairwise.wilcox.test(thetas$Tdiff, thetas$admix_groups, p.adjust.method = "BH")
+#               East    North-East North-Feather North-West South-West
+# North-East    1.00000 -          -             -          -         
+# North-Feather 0.71429 0.61224    -             -          -         
+# North-West    0.28421 0.00017    0.22854       -          -         
+# South-West    1.00000 0.71429    0.71429       0.28421    -         
+# West          0.71429 0.71429    0.61224       0.19275    1.00000   
+
+pairwise.wilcox.test(thetas$Tw, thetas$admix_groups, p.adjust.method = "BH")
+pairwise.wilcox.test(thetas$Tp, thetas$admix_groups, p.adjust.method = "BH")
 
 # color palette
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
+
+# GET TDIFF BOXPLOT -------------------------------------------------------
+
 # theta plot w/ wilcox test of signif
 (group_box <- ggplot() + theme_bw(base_size = 8, base_family = "Helvetica") +
-    
     geom_hline(yintercept = 0, col="gray", lty=2, size=1.5) +
-    #ylim(-.0009,0.00055)+
-    geom_boxplot(data=dat, aes(y=Tdiff, x=region, fill=region), show.legend = T) +
-    scale_fill_viridis_d()+
-    # scale_fill_manual("Regulation Type", values = c("Unregulated"=cbbPalette[3], 
-    #                                                 "Bypass"=cbbPalette[2], 
-    #                                                 "Hydropeaking"=cbbPalette[7]),
-    #                   guide=guide_legend(reverse=TRUE)) +
+    geom_boxplot(data=thetas, aes(y=Tdiff, x=admix_groups, fill=admix_groups), show.legend = F) +
+    scale_fill_manual("Groups", 
+                      values = c("East"=cbbPalette[1], 
+                                 "North-East"=cbbPalette[2], 
+                                 "North-West"=cbbPalette[3],
+                                 "North-Feather"=cbbPalette[4],
+                                 "West"=cbbPalette[5], 
+                                 "South-West"=cbbPalette[6])) +
+    #theme_bw(base_family = "Roboto Condensed") +
     labs(y = expression(paste("Tajima's ", theta, 
                               " - Watterson's ", theta, " (", Delta, " ", theta, ")")),
          x="") +
-    #theme(legend.position = c(0.1, 0.75), axis.text.y=element_blank()) +
-    geom_signif(data=dat, aes(y=Tdiff, x=region), comparisons = list(c("Sierra Nevada", "North Coast"), 
-                                                                     c("Sierra Nevada", "Central Coast")), 
-                y_position = c(.0014, 0.0011),
-                map_signif_level=TRUE)) #+ coord_flip())
+    theme(legend.position = c(0.1, 0.3))) #axis.text.y=element_blank()))
+    #coord_flip())
+    # geom_signif(data=thetas, aes(y=Tdiff, x=admix_groups), 
+    #             comparisons = list(c("East", "North-West"), c("North-West", "West")),
+    #             #y_position = c(.0014, 0.0011),
+    #             map_signif_level=TRUE)) 
 
 
-ggsave(filename = "figs/rangewide_theta_boxplot_region_signif.png", width = 8, height = 6.5, units = "in", dpi = 300)
+#ggsave(filename = "figs/rangewide_theta_boxplot_region_signif.png", width = 8, height = 6.5, units = "in", dpi = 300)
+
+
+# TP ----------------------------------------------------------------------
+
+(group_box_Tp <- ggplot() + theme_bw(base_size = 8, base_family = "Helvetica") +
+   #geom_hline(yintercept = 0, col="gray", lty=2, size=1.5) +
+   geom_boxplot(data=thetas, aes(y=Tp, x=admix_groups, fill=admix_groups), show.legend = F) +
+   scale_fill_manual("Groups", 
+                     values = c("East"=cbbPalette[1], 
+                                "North-East"=cbbPalette[2], 
+                                "North-West"=cbbPalette[3],
+                                "North-Feather"=cbbPalette[4],
+                                "West"=cbbPalette[5], 
+                                "South-West"=cbbPalette[6])) +
+   labs(y = expression(paste("Tajima's ", theta)),
+        x="") +
+   theme(legend.position = c(0.12, 0.7)))
+
+# TW ----------------------------------------------------------------------
+
+(group_box_Tw <- ggplot() + theme_bw(base_size = 8, base_family = "Helvetica") +
+   #geom_hline(yintercept = 0, col="gray", lty=2, size=1.5) +
+   geom_boxplot(data=thetas, aes(y=Tw, x=admix_groups, fill=admix_groups), show.legend = F) +
+   scale_fill_manual("Groups", 
+                     values = c("East"=cbbPalette[1], 
+                                "North-East"=cbbPalette[2], 
+                                "North-West"=cbbPalette[3],
+                                "North-Feather"=cbbPalette[4],
+                                "West"=cbbPalette[5], 
+                                "South-West"=cbbPalette[6])) +
+   labs(y = expression(paste("Watterson's ", theta)),
+        x="") +
+   theme(legend.position = c(0.12, 0.7)))
+
+
+# Cowplot them together ---------------------------------------------------
+
+library(cowplot)
+
+
+(tw_tp_box <- plot_grid(group_box_Tp, group_box_Tw, nrow= 2, labels="AUTO"))
+
+(tw_tp_tdiff_box <- plot_grid(group_box_Tp, group_box_Tw, group_box, label_x = 0.06,
+                              label_y = 0.95, #labels="AUTO",
+                              #nrow = 3, rel_heights = c(1, 0.75,1)))
+                              nrow = 3 ))
+
+save_plot(tw_tp_tdiff_box, filename = "figs/thetas_tw_tp_tdiff_boxplot.png", base_width = 6, base_aspect_ratio = 1.5)
+  

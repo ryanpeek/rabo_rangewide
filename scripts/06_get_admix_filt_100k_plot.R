@@ -48,7 +48,9 @@ metadat <- metadat %>%
 )
 
 # set order in way that you want
-ords_admix_grps <- c("North-Feather", "North-East","East", "North-West", "South-West", "West")
+#ords_admix_grps <- c("North-Feather", "North-East","East", "North-West", "South-West", "West")
+
+ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
 
 metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
 levels(metadat$admix_groups)
@@ -128,7 +130,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
          axis.text.x=element_blank(),
          axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 
 
 # K4 ----------------------------------------------------------------------
@@ -177,7 +179,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 
@@ -227,7 +229,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
          axis.text.x=element_blank(),
          axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K6 ----------------------------------------------------------------------
@@ -277,7 +279,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K7 ----------------------------------------------------------------------
@@ -327,7 +329,60 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+# width = 9, height = 6, units = "in", res = 300
+
+# K8 ----------------------------------------------------------------------
+
+k <- 8
+
+# Read inferred admixture proportions
+q<-read.table(paste0("data_output/admix/", bamfile, "_k", k,"_admix.qopt"))
+
+# bind with metadat
+admix <- bind_cols(q, annot)
+
+admix_gg <- admix %>% gather(clustname, "clust", V1:V8) %>% 
+  arrange(clustname, clust) %>% #group_by(clustname) %>% 
+  mutate(
+    clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5","V6","V7","V8")), clustname, clust),
+    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    admix_groups = fct_reorder2(admix_groups, clustname, clust))
+
+ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
+admix_gg$admix_groups <- factor(admix_gg$admix_groups, levels = ords_admix_grps)
+levels(admix_gg$admix_groups)
+
+# replace V with Clust
+admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
+
+# plot
+(plotk8 <- ggplot(data = admix_gg,
+                  aes(x = annotID , y = clust, fill = clustname)) + 
+    geom_col(position = "fill", width=1, show.legend = F) +
+    scale_x_discrete(expand=c(0,0)) +
+    scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
+    scale_fill_manual(values = c("Clust7"=cbbPalette[1], # East
+                                 "Clust2"=cbbPalette[2], # North-East
+                                 "Clust3"=cbbPalette[3], # North-West
+                                 "Clust1"=cbbPalette[4], # North-Feather
+                                 "Clust5"=cbbPalette[5], # West / South-West
+                                 "Clust8"=cbbPalette[6], # branch of NorthWest
+                                 "Clust4"=cbbPalette[7],
+                                 "Clust6"=cbbPalette[8]))+ # Branch of Northwest
+    
+    labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 8) +
+    #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
+    labs(x="", y="fraction ancestry") +
+    facet_grid(.~ admix_groups, scales = "free_x") +
+    theme(strip.background = element_blank(), 
+          panel.spacing = unit(0, "lines"),
+          panel.border = element_rect(fill = NA, color = "gray40"),
+          axis.text.x=element_blank(),
+          axis.ticks.x = element_blank()))
+
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K9 ----------------------------------------------------------------------
@@ -381,7 +436,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 
@@ -389,10 +444,13 @@ ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4
 
 library(cowplot)
 
-kplots <- plot_grid(plotk3, plotk4, plotk5, plotk6, align = "hv", nrow = 2, labels = "AUTO")
+(kplots <- plot_grid(plotk3, plotk4, plotk5, plotk6, align = "hv", nrow = 2, labels = "AUTO"))
 
-kplots
 save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k3-6",".png"), base_width = 8, base_height = 4, base_aspect_ratio = 1.5, dpi=300)
+
+(kplots <- plot_grid(plotk7, plotk8, plotk9, nrow=3, labels = "AUTO"))
+
+save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k7-9",".png"), base_width = 8, base_height = 4, base_aspect_ratio = 1.5, dpi=300)
 
 # ggsave(filename = "figs/figure_03_admix_rana_by_watershed_25k_k2.pdf", width = 7, height = 4, scale = 1.1, units = "in", dpi = 300)
 # 
