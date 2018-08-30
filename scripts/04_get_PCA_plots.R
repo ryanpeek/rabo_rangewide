@@ -15,11 +15,13 @@
 library(here)
 library(tidyverse)
 
-# GET PCA -----------------------------------------------------------------
+#devtools::install_github('thomasp85/ggforce')
+library(ggforce)
 
-# source the function to plot
+# GET DATA AND FORMAT -----------------------------------------------------
+
 #source(paste0(here(),"/scripts/functions/f_read_covar.R"))
-source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
+#source(paste0(here(),"/scripts/functions/f_read_covar_rangewide.R"))
 
 # load the metadata
 metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
@@ -33,24 +35,26 @@ metadat <- metadat %>%
 
 # add groups based on Shaffer and PCA splits:
 metadat<- metadat %>% 
-  mutate(admix_groups = case_when(
-    grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
-    grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
-    grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "North-Feather", # feather
-    grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-    grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
+  mutate(
+    admix_orig = case_when(
+      grepl("STAN|TUO|CALAV", River) ~ "East", # southern siera
+      grepl("SFA", River) ~ "Unknown",
+      grepl("NFF|FEA|ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+      #grepl("NFF|FEA", River) ~ "North-Feather", # feather
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "South-West"), # South Coast
+    admix_groups = case_when(
+      grepl("STAN|TUO|CALAV|SFA", River) ~ "East", # southern siera
+      grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+      grepl("NFF|FEA", River) ~ "North-Feather", # feather
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
-# scale_color_manual("Admix Groups", 
-#                    values = c("East"=cbbPalette[1], 
-#                               "North-East"=cbbPalette[2], 
-#                               "North-West"=cbbPalette[3],
-#                               "North-Feather"=cbbPalette[4],
-#                               "West"=cbbPalette[5], 
-#                               "South-West"=cbbPalette[6])) +
-#   theme_bw(base_family = "Roboto Condensed") +
 
+# SET BAMLIST AND COVMAT --------------------------------------------------
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
@@ -59,37 +63,16 @@ site <- "all_rabo_filt"
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(3,4), colvar = "admix_groups", plotlyplot = F))
+#(read_covar_range(covarpath, bampath, metadat, pcs = c(3,4), colvar = "admix_orig", plotlyplot = F))
 
-ggpca12 <- ggpca
-ggpca13 <- ggpca
-ggpca23 <- ggpca
-ggpca34 <- ggpca
-
-ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc1-3.png"), width = 8, height = 5, 
-       units = "in", dpi = 300)
-        
-# cowplot:
-library(cowplot)
-ggpca12
-ggpca13
-ggpca34
-(pcaquad <- cowplot::plot_grid(ggpca12,ggpca13, ggpca34, nrow = 3, labels = "AUTO"))
-
-save_plot(plot = pcaquad, filename = paste0("figs/pca_12_13_34_", site, "_", reads, ".png"), base_width = 4.25, base_height = 6, base_aspect_ratio = 1.3, dpi=300)
-
-#save_plot(plot = pcaquad, filename = paste0("figs/pca_12_34_", site, "_", reads, ".png"), base_width = 4.5, base_height = 4.5, dpi=300)
-
-# THE INNER BITS ----------------------------------------------------------
+# PARSE COVAR FILE FOR PCA ------------------------------------------------
 
 covar <- read.table(covarpath, stringsAsFactors = F)
 
 # get bamlist for spp
 bams <- read.table(bampath, stringsAsFactors = F, header = F) # read in the bamlist
 bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file extension
-annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% 
-  distinct(V2, .keep_all = T) %>% # drop any duplicates
-  select(-V1) # join with the metadata
+annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
 
 # Eigenvalues
 eig <- eigen(covar, symm=TRUE)
@@ -106,31 +89,97 @@ PC$HU_8_NAME <- factor(annot$HU_8_NAME)
 PC$HUC6 <- factor(annot$HUC_6)
 PC$LabID <- factor(annot$LabID)
 PC$ecoreg <- factor(annot$EcoRegion)
+PC$admix_groups<-factor(annot$admix_groups)
+PC$admix_orig<-factor(annot$admix_orig)
 
-# set up plot
+# weird issue with a single sample from North-West RAP-111, (MAD, clusters wiht Sierras near SFY). Likely mis-labeled or ID'd.
+PC <- PC %>% dplyr::filter(!ID=="RAP-111")
+
+# SETUP PLOT --------------------------------------------------------------
+
+# define colors
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#CFCFCF")
+
+# define PCs
 pcs <- c(1,2)
-colvar <- "ecoreg"
+colvar <- "admix_orig" #"admix_groups"
 
 # PC's:
 pc1 <- pcs[1]
 pc2 <- pcs[2]
 
-
 # Title: (% explained)
 title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc2," (",signif(eig$val[pc2], digits=3)*100,"%)", sep="",collapse="")
 
-plotpca <- ggplotly(p = 
-                      ggplot(data=PC, 
-                             aes_string(x=paste0("PC",pc1), 
-                                        y=paste0("PC",pc2), 
-                                        color=colvar, 
-                                        #shape=shapevar, # can be Pop, HU_8_NAME, HUC6, ecoreg etc 
-                                        text=quote((paste0("ID: ", ID, 
-                                                           " <br> River: ",
-                                                           Locality))))) +
-                      geom_point(size=4, alpha=0.8) + 
-                      theme_bw(base_size = 9) +
-                      scale_color_viridis_d() + 
-                      ggtitle(paste0(title)))
+# PLOT AND SAVE -----------------------------------------------------------
 
-plotpca
+#plotly::ggplotly(
+(ggpca <- ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
+                                     color=colvar, #shape=shapevar)
+                                     text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
+  
+  geom_point(size=4, alpha=0.8) +
+  #ggforce::geom_mark_ellipsis(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2), color=colvar, group=colvar))+
+  theme_bw(base_family = "Roboto Condensed") +
+  theme(legend.position="bottom") +
+  # fix colors
+  scale_color_manual("Admix Groups", 
+                     values = c("East"=cbbPalette[1], # E
+                                "North-East"=cbbPalette[2], # NE 
+                                "North-West"=cbbPalette[3], # NW
+                                #"North-Feather"=cbbPalette[4], #N Feather
+                                "West"=cbbPalette[5],  # W
+                                "South-West"=cbbPalette[6],# SW
+                                "Unknown"=cbbPalette[9]), # SFAmerican
+                     labels = c("S. Sierra (E)", # E
+                                "N. Sierra (NE)", # NE 
+                                "N. Coast (NW)", # NW
+                                #"N. Sierra-Feather", #N Feather
+                                "S. Coast (W)",  # W
+                                "Unknown",
+                                "C. Coast (SW)")) +
+  guides(col=guide_legend(nrow = 2, direction = "horizontal")) +#byrow = TRUE)) +
+  ggtitle(paste0(title))
+)
+#)
+
+
+# SAVE OUT ----------------------------------------------------------------
+
+ggpca_12 <-ggpca
+ggpca_34 <-ggpca
+
+ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc",pcs[1],"-",pcs[2], "_orig.png"), width = 7, height = 5, 
+       units = "in", dpi = 300)
+#ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc",pcs[1],"-",pcs[2], "_orig_ellipsis.png"), width = 7, height = 5, 
+#       units = "in", dpi = 300)
+
+
+# STACK PLOTS -------------------------------------------------------------
+
+# https://cran.r-project.org/web/packages/cowplot/vignettes/shared_legends.html        
+
+library(cowplot)
+
+# arrange in one row with no legend
+(pcastack <- plot_grid(ggpca_12 + theme(legend.position="none"), ggpca_34 + theme(legend.position = "none"), 
+                       align='vh', hjust=-1, nrow=1, labels = "AUTO"))
+
+#extract legend from a single plot
+plotLeg <- get_legend(ggpca_12)
+plotLeg
+
+# now add to the plot
+(pcastack_leg <- plot_grid(pcastack, plotLeg, nrow = 2, rel_heights = c(1, .2))) # fuck yes!!
+
+# try annotate? wow this is cool
+(pca_final <- pcastack_leg + 
+    annotate("text", x = 0.27, y=.85, label="Feather", col="gray30", size=3.5, fontface="italic") +
+    annotate("text", x = 0.23, y=0.6, col="gray30", label="SF American",fontface="italic", size=3.5) +
+    annotate("text", x = 0.87, y=0.6, label="Feather", col="gray30", size=3.5, fontface="italic") +
+    annotate("text", x = 0.74, y=0.7, col="gray30", label="SF American",fontface="italic", size=3.5))
+
+
+save_plot(plot = pca_final, filename = paste0("figs/pca_12_34_", site, "_", reads, ".png"), base_width = 6, base_height = 4, base_aspect_ratio = 1.3, dpi=300)
+
+#save_plot(plot = pcaquad, filename = paste0("figs/pca_12_34_", site, "_", reads, ".png"), base_width = 4.5, base_height = 4.5, dpi=300)

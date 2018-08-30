@@ -151,7 +151,7 @@ outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",
             "RAP-346", "RAP-347", "RAP-348", "RAP-1649", 
             # hybrids:
             "RAP1745", "RAP1587")
-# possible outliers: RAP-357, RAP-039, RAP-420
+# possible outliers: RAP-357, RAP-039, RAP-420 # RAP-111 (from MAD but clusters as Sierras?)
 
 # check tallys of NA
 #dfout %>% filter(is.na(River)) %>% tally

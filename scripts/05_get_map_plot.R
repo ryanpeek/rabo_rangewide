@@ -55,7 +55,7 @@ annot<- annot %>%
   mutate(admix_groups = case_when(
     grepl("STAN|TUO|SFA|CALAV", River) ~ "East", # southern siera
     grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
-    grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+    grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
     grepl("NFF|FEA", River) ~ "North-Feather", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
@@ -73,6 +73,7 @@ annot_sf <- annot %>% filter(!is.na(lat)) %>%
   group_by(Locality) %>% add_tally() %>% 
   distinct(Locality,.keep_all = T) %>% 
   select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion, n) %>% 
+  ungroup() %>% 
   arrange(admix_groups, Locality) %>% 
   mutate(siteID=row_number()) # for matching labels, etc
 
@@ -80,10 +81,8 @@ annot_sf <- annot %>% filter(!is.na(lat)) %>%
 annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, lat, lon, HUC_6, county, n) %>% 
   dplyr::rename("clade" = admix_groups, "n_samples"=n)
 
-write_csv(annot_out, path = "data_output/table_site_localities_clades.csv")
-knitr::kable(thetas_out)
-
-
+#write_csv(annot_out, path = "data_output/table_site_localities_clades.csv")
+#knitr::kable(annot_out
 
 # make sf:
 annot_sf <- st_as_sf(annot_sf, 
@@ -106,7 +105,7 @@ mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 bamfile <- "all_rabo_filt_100k"
 
 # get shp file with data
-annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
+#annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
 st_crs(annot_sf)
 
 # get shp of range
@@ -209,7 +208,7 @@ counties <- us_counties(resolution = "low", states=state_names) %>% # use list o
 # SET UP COLOR AND RANGE --------------------------------------------------
 
 # add color palette: 
-cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#CFCFCF")
 
 # get range of lat/longs from for mapping
 mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
@@ -218,18 +217,35 @@ rb_range <- st_read("data_output/rabo_range_simple.shp")
 
 # FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
 
+# #scale_color_manual("Admix Groups", 
+# values = c("East"=cbbPalette[1], # E
+#            "North-East"=cbbPalette[2], # NE 
+#            "North-West"=cbbPalette[3], # NW
+#            #"North-Feather"=cbbPalette[4], #N Feather
+#            "West"=cbbPalette[5],  # W
+#            "South-West"=cbbPalette[6],# SW
+#            "Unknown"=cbbPalette[9]), # SFAmerican
+# labels = c("S. Sierra (E)", # E
+#            "N. Sierra (NE)", # NE 
+#            "N. Coast (NW)", # NW
+#            #"N. Sierra-Feather", #N Feather
+#            "S. Coast (W)",  # W
+#            "Unknown",
+#            "C. Coast (SW)")) +
+
 # plot
 ggplot() + 
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
   geom_sf(data=CA, fill="gray20") + xlab("")+
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
   geom_sf(data=rb_range, col="orange", fill="orange", alpha=0.7) +
-  geom_sf(data=shaff_sf, aes(fill="white"), size=1.7, pch=21, show.legend = 'point') +
-  geom_sf(data=annot_sf, aes(fill="black"), alpha=0.7,size=2.4, pch=21, show.legend = 'point') +
+  geom_sf(data=annot_sf, aes(fill="black"), alpha=0.7,size=2.6, pch=21, show.legend = 'point') +
   ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
+  geom_sf(data=shaff_sf, aes(fill="white"), size=1.4, pch=21, alpha=0.8, show.legend = 'point') +
+  
   scale_fill_manual(name = 'Localities', 
-                    values =c('black'='black', 'white'='white'), 
-                    labels = c('Peek et al.', 'McCartney-Melstad et al. 2018')) +
+                    values =c('white'='white', 'black'='black'), 
+                    labels = c( 'Peek et al.', 'McCartney-Melstad et al. 2018' )) +
   theme_bw(base_family = "Roboto Condensed") +
   # remove graticule and rotate x axis labels
   theme(panel.grid.major = element_line(color = 'transparent'),
@@ -253,6 +269,8 @@ ggplot() +
            x.min = -124, x.max = -121,
            y.min = 32.4, y.max = 33.7, height = .15,
            st.size = 2.5, st.dist = .2)
+
+
 
 ggsave(filename = paste0("figs/maps_", bamfile, "_range_localities.png"), width = 8, height = 11, 
               units = "in", dpi = 300)

@@ -1,5 +1,5 @@
 # function to read in covar and plot 
-cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#CFCFCF")
 
 read_covar_range <- function(covmat, # @path to covar file 
                        bamlist, # @path to bamlist
@@ -39,6 +39,8 @@ read_covar_range <- function(covmat, # @path to covar file
   PC$LabID <- factor(annot$LabID)
   PC$ecoreg <- factor(annot$EcoRegion)
   PC$admix_groups<-factor(annot$admix_groups)
+  PC$admix_orig<-factor(annot$admix_orig)
+  
   
   # set up plot
   
@@ -63,46 +65,61 @@ read_covar_range <- function(covmat, # @path to covar file
                                  text=quote((paste0("ID: ", ID, 
                                                     " <br> River: ",
                                                     Locality))))) +
-               geom_point(size=4, alpha=0.8) + 
-               theme_bw(base_size = 9) +
-               scale_color_manual("Admix Groups", 
-                                  values = c("East"=cbbPalette[1], 
-                                             "North-East"=cbbPalette[2], 
-                                             "North-West"=cbbPalette[3],
-                                             "North-Feather"=cbbPalette[4],
-                                             "West"=cbbPalette[5], 
-                                             "South-West"=cbbPalette[6])) +
-                 theme_bw(base_family = "Roboto Condensed") +
-               #scale_color_colorblind() +
-               #scale_color_viridis_d() + 
-               ggtitle(paste0(title)))
+                 geom_point(size=4, alpha=0.8) + 
+                 theme_bw(base_size = 9) +
+                 theme(legend.position="bottom") +
+                 scale_color_manual("Admix Groups", 
+                                    values = c("East"=cbbPalette[1], # E
+                                               "North-East"=cbbPalette[2], # NE 
+                                               "North-West"=cbbPalette[3], # NW
+                                               "North-Feather"=cbbPalette[4], #N Feather
+                                               "West"=cbbPalette[5],  # W
+                                               "South-West"=cbbPalette[6],
+                                               "Unknown"=cbbPalette[9]), # SW
+                                    labels = c("S. Sierra (E)", # E
+                                               "N. Sierra (NE)", # NE 
+                                               "N. Coast (NW)", # NW
+                                               "N. Sierra-Feather", #N Feather
+                                               "S. Coast (W)",  # W
+                                               "C. Coast (SW)", # SW
+                                               "Unknown")) +
+                 guides(col=guide_legend(nrow=2, byrow=TRUE)) +
+                 #scale_color_colorblind() +
+                 #scale_color_viridis_d() + 
+                 ggtitle(paste0(title)))
     )
     return(plotpca)
-  
-  cat("All Finished! Available in current dataframe...\n")  
+    
+    cat("All Finished! Available in current dataframe...\n")  
   } else {
     
     (ggpca <<- ggplot(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
-                               color=colvar, #shape=shapevar,
-                               text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
-    
-    geom_point(size=4, alpha=0.8) +
-    #ggforce::geom_mark_circle(aes(group=watershed))+
-    theme_bw(base_family = "Roboto Condensed") +
-    #theme(legend.position="bottom") +
-    scale_color_manual("Admix Groups", 
-                       values = c("East"=cbbPalette[1], 
-                                  "North-East"=cbbPalette[2], 
-                                  "North-West"=cbbPalette[3],
-                                  "North-Feather"=cbbPalette[4],
-                                  "West"=cbbPalette[5], 
-                                  "South-West"=cbbPalette[6])) +
-      theme_bw(base_family = "Roboto Condensed") +
-      #scale_color_colorblind("Group") +
-    #scale_color_viridis_d("River") + 
-    ggtitle(paste0(title)))
+                                          color=colvar, #shape=shapevar,
+                                          text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
+       
+       geom_point(size=4, alpha=0.8) +
+       #ggforce::geom_mark_circle(aes(group=watershed))+
+       theme_bw(base_family = "Roboto Condensed") +
+       theme(legend.position="bottom") +
+       scale_color_manual("Admix Groups", 
+                          values = c("East"=cbbPalette[1], # E
+                                     "North-East"=cbbPalette[2], # NE 
+                                     "North-West"=cbbPalette[3], # NW
+                                     "North-Feather"=cbbPalette[4], #N Feather
+                                     "West"=cbbPalette[5],  # W
+                                     "South-West"=cbbPalette[6],
+                                     "Unknown"=cbbPalette[9]), # SW
+                          labels = c("S. Sierra (E)", # E
+                                     "N. Sierra (NE)", # NE 
+                                     "N. Coast (NW)", # NW
+                                     "N. Sierra-Feather", #N Feather
+                                     "S. Coast (W)",  # W
+                                     "C. Coast (SW)", # SW
+                                     "Unknown")) +
+       guides(col=guide_legend(nrow=2, byrow=TRUE)) +
+       ggtitle(paste0(title)))
     return(ggpca)
   }
-
+  
 }
 

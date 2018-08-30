@@ -57,7 +57,7 @@ levels(metadat$admix_groups)
 
 # join together
 annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1)  %>% # join with the metadata
-  mutate(annotID = row_number()) # original order of bamlist
+  mutate(bamID = row_number()) # original order of bamlist
 
 # check for duplicates?
 #annot[duplicated(annot$V2),]
@@ -68,8 +68,8 @@ annot <- annot %>%
   arrange(admix_groups, Locality) %>% # now arrange and number localities by admix groups
   mutate(siteID=row_number(),
          Locality=tolower(Locality)) %>% 
-  select(siteID, annotID, admix_groups, mccartClades, Locality:HUC_10,county, EcoRegion) %>% 
-  arrange(annotID)
+  select(siteID, bamID, admix_groups, mccartClades, Locality:HUC_10,county, EcoRegion) %>% 
+  arrange(bamID)
 
 # GGPLOT VERSION ----------------------------------------------------------
 
@@ -97,7 +97,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V3) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    #annotID = fct_reorder2(as.factor(annotID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -243,22 +243,31 @@ q<-read.table(paste0("data_output/admix/", bamfile, "_k", k,"_admix.qopt"))
 admix <- bind_cols(q, annot)
 
 admix_gg <- admix %>% gather(clustname, "clust", V1:V6) %>% 
-  arrange(clustname, clust) %>% #group_by(clustname) %>% 
-  mutate(
-    clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5", "V6")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
-    admix_groups = fct_reorder2(admix_groups, clustname, clust))
+  #mutate(annotID=row_number()) %>% 
+  arrange(clustname, clust) %>% 
+  mutate(annotID = sort(clust),
+         clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5", "V6")), clustname, clust),
+         admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
+# add a reorder for the variables
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
 admix_gg$admix_groups <- factor(admix_gg$admix_groups, levels = ords_admix_grps)
 levels(admix_gg$admix_groups)
 
+# admix_gg <- admix_gg %>% ungroup() %>% 
+#   arrange(clustname, clust) #%>% 
+  #mutate(admix_groups = fct_reorder2(admix_groups, annotID, clust),
+         #annotID = row_number())
+
+
 # replace V with Clust
 admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
-(plotk6 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
-    geom_col(position = "fill", width=1, show.legend = F) +
+(plotk6 <- ggplot() + 
+    geom_col(data = admix_gg,
+             aes(x = annotID , y = clust, 
+                 fill = clustname),
+             position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
     #scale_fill_viridis_d("Cluster") + 
