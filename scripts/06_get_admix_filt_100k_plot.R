@@ -10,7 +10,7 @@ library(scales)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_100k"
+bamfile <- "all_rabo_100k" # all_rabo_filt10_1_100k
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -97,7 +97,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V3) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3")), clustname, clust),
-    #annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -109,7 +109,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 # the plot
 (plotk3 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
+                  aes(x = bamID , y = clust, fill = clustname)) + 
    geom_col(position = "fill", width=1, show.legend = F) + # switch legend off for print/save
    scale_x_discrete(expand=c(0,0)) +
    scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -119,8 +119,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                  "Clust2"=cbbPalette[5], #North-West
                                  "Clust3"=cbbPalette[4]))+ # North-Feather
                                  #"Clust2"=cbbPalette[5])) + # West / South-West
-   labs(title=paste0("NGSadmix k=",k)) +
-   theme_classic(base_size = 8) +
+   #labs(title=paste0("NGSadmix k=",k)) +
+   theme_classic(base_size = 9) +
    theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
    labs(x="", y="fraction ancestry") +
    facet_grid(.~ admix_groups, scales = "free_x") +
@@ -130,7 +130,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
          axis.text.x=element_blank(),
          axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 
 
 # K4 ----------------------------------------------------------------------
@@ -147,7 +147,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V4) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -158,7 +158,7 @@ levels(admix_gg$admix_groups)
 admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 (plotk4 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
+                  aes(x = bamID , y = clust, fill = clustname)) + 
     geom_col(position = "fill", width=1, show.legend = F) + # turn off legend
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -168,8 +168,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                  "Clust4"=cbbPalette[3], #North-West
                                  "Clust1"=cbbPalette[4], # North-Feather
                                  "Clust3"=cbbPalette[5])) + # West / South-West
-    labs(title=paste0("NGSadmix k=",k)) +
-    theme_classic(base_size = 8) +
+    #labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 9) +
     theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
     facet_grid(.~ admix_groups, scales = "free_x") +
@@ -179,7 +179,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 
@@ -197,7 +197,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V5) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -208,7 +208,7 @@ levels(admix_gg$admix_groups)
 admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 (plotk5 <- ggplot(data = admix_gg,
-                 aes(x = annotID , y = clust, fill = clustname)) + 
+                 aes(x = bamID , y = clust, fill = clustname)) + 
    geom_col(position = "fill", width=1, show.legend = F) +
    scale_x_discrete(expand=c(0,0)) +
    scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -218,8 +218,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                 "Clust3"=cbbPalette[4], # North-Feather
                                 "Clust1"=cbbPalette[3], #North-West
                                 "Clust2"=cbbPalette[5])) + # West / South-West
-   labs(title=paste0("NGSadmix k=",k)) +
-   theme_classic(base_size = 8) +
+   #labs(title=paste0("NGSadmix k=",k)) +
+   theme_classic(base_size = 9) +
    theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
    labs(x="", y="fraction ancestry") +
    facet_grid(.~ admix_groups, scales = "free_x") +
@@ -229,7 +229,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
          axis.text.x=element_blank(),
          axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K6 ----------------------------------------------------------------------
@@ -243,11 +243,11 @@ q<-read.table(paste0("data_output/admix/", bamfile, "_k", k,"_admix.qopt"))
 admix <- bind_cols(q, annot)
 
 admix_gg <- admix %>% gather(clustname, "clust", V1:V6) %>% 
-  #mutate(annotID=row_number()) %>% 
-  arrange(clustname, clust) %>% 
-  mutate(annotID = sort(clust),
-         clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5", "V6")), clustname, clust),
-         admix_groups = fct_reorder2(admix_groups, clustname, clust))
+  arrange(clustname, clust) %>% #group_by(clustname) %>% 
+  mutate(
+    clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5", "V6")), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
+    admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 # add a reorder for the variables
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -256,8 +256,8 @@ levels(admix_gg$admix_groups)
 
 # admix_gg <- admix_gg %>% ungroup() %>% 
 #   arrange(clustname, clust) #%>% 
-  #mutate(admix_groups = fct_reorder2(admix_groups, annotID, clust),
-         #annotID = row_number())
+  #mutate(admix_groups = fct_reorder2(admix_groups, bamID, clust),
+         #bamID = row_number())
 
 
 # replace V with Clust
@@ -265,7 +265,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 (plotk6 <- ggplot() + 
     geom_col(data = admix_gg,
-             aes(x = annotID , y = clust, 
+             aes(x = bamID , y = clust, 
                  fill = clustname),
              position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
@@ -277,8 +277,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                  "Clust2"=cbbPalette[4], # North-Feather
                                  "Clust6"=cbbPalette[5], # West / South-West
                                  "Clust1"=cbbPalette[6]))+ # ??
-    labs(title=paste0("NGSadmix k=",k)) +
-    theme_classic(base_size = 8)+ #base_family = "Roboto") +
+    #labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 9)+ #base_family = "Roboto") +
     theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
     facet_grid(.~ admix_groups, scales = "free_x") +
@@ -288,7 +288,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K7 ----------------------------------------------------------------------
@@ -305,7 +305,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V7) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5","V6", "V7")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -316,7 +316,7 @@ levels(admix_gg$admix_groups)
 admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 (plotk7 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
+                  aes(x = bamID , y = clust, fill = clustname)) + 
     geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -327,8 +327,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                   "Clust5"=cbbPalette[5], # West / South-West
                                   "Clust3"=cbbPalette[6], # branch of NorthWest
                                   "Clust7"=cbbPalette[7]))+ # Branch of Northwest
-    labs(title=paste0("NGSadmix k=",k)) +
-    theme_classic(base_size = 8) +
+    #labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 9) +
     #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
     facet_grid(.~ admix_groups, scales = "free_x") +
@@ -338,7 +338,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K8 ----------------------------------------------------------------------
@@ -355,7 +355,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V8) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5","V6","V7","V8")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -367,7 +367,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 # plot
 (plotk8 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
+                  aes(x = bamID , y = clust, fill = clustname)) + 
     geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -380,8 +380,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                  "Clust4"=cbbPalette[7],
                                  "Clust6"=cbbPalette[8]))+ # Branch of Northwest
     
-    labs(title=paste0("NGSadmix k=",k)) +
-    theme_classic(base_size = 8) +
+    #labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 9) +
     #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
     facet_grid(.~ admix_groups, scales = "free_x") +
@@ -391,7 +391,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 # K9 ----------------------------------------------------------------------
@@ -408,7 +408,7 @@ admix_gg <- admix %>% gather(clustname, "clust", V1:V9) %>%
   arrange(clustname, clust) %>% #group_by(clustname) %>% 
   mutate(
     clustname = fct_reorder2(factor(clustname, levels = c("V1", "V2", "V3", "V4", "V5","V6","V7","V8","V9")), clustname, clust),
-    annotID = fct_reorder2(as.factor(annotID), clustname, clust),
+    bamID = fct_reorder2(as.factor(bamID), clustname, clust),
     admix_groups = fct_reorder2(admix_groups, clustname, clust))
 
 ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
@@ -420,7 +420,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 # plot
 (plotk9 <- ggplot(data = admix_gg,
-                  aes(x = annotID , y = clust, fill = clustname)) + 
+                  aes(x = bamID , y = clust, fill = clustname)) + 
     geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
@@ -434,8 +434,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
                                  "Clust1"=cbbPalette[8],
                                  "Clust4"=cbbPalette[9]))+ # Branch of Northwest
     
-    labs(title=paste0("NGSadmix k=",k)) +
-    theme_classic(base_size = 8) +
+    #labs(title=paste0("NGSadmix k=",k)) +
+    theme_classic(base_size = 9) +
     #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
     facet_grid(.~ admix_groups, scales = "free_x") +
@@ -445,7 +445,7 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
           axis.text.x=element_blank(),
           axis.ticks.x = element_blank()))
 
-#ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
+ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
 
 
@@ -453,9 +453,9 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 library(cowplot)
 
-(kplots <- plot_grid(plotk3, plotk4, plotk5, plotk6, align = "hv", nrow = 2, labels = "AUTO"))
+(kplots <- plot_grid(plotk3, plotk4, plotk5, plotk6, plotk7, plotk8, plotk9,  align = "hv", ncol = 1))#labels = "AUTO"))
 
-save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k3-6",".png"), base_width = 8, base_height = 4, base_aspect_ratio = 1.5, dpi=300)
+save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k3-9",".png"), base_width = 6, base_height=3, base_aspect_ratio = 1.1, dpi=300)
 
 (kplots <- plot_grid(plotk7, plotk8, plotk9, nrow=3, labels = "AUTO"))
 

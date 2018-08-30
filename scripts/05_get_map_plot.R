@@ -12,7 +12,8 @@ library(smoothr)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt_100k"
+#bamfile <- "all_rabo_filt_100k"
+bamfile <- "all_rabo_filt10_1_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -38,50 +39,52 @@ metadat[duplicated(metadat$Seq),]
 annot$EcoRegion <- as.factor(annot$EcoRegion)
 
 # make factor
-length(annot[is.na(annot$EcoRegion),])
-annot[is.na(annot$EcoRegion),] 
-summary(annot$EcoRegion)
+# length(annot[is.na(annot$EcoRegion),])
+# annot[is.na(annot$EcoRegion),] 
+# summary(annot$EcoRegion)
 
 # recode levels based on Shaffer paper (E=Southern Sierra Nevada, NE=Northern Sierra Nevada, NW=North Coast, W=Central Coast, SW=South Coast, NEW::::Sierra/Basin Range)
 
-# view groups with:
-#annot %>% distinct(EcoRegion)
-# annot %>% filter(EcoRegion=="Sierra Nevada") %>% group_by(River) %>% tally()
-# annot %>% filter(grepl("Southern OR Coastal|North Coast|Cascades|Klamath North Coast|Northern CA Coastal Foothills", EcoRegion)) %>% group_by(River) %>% distinct(River)
-# annot %>% filter(grepl("Sierra/Basin Range", EcoRegion)) %>% group_by(River) %>% distinct(River)
-#annot %>% filter(grepl("^Central Coast$|^Central CA Coastal Foothills", EcoRegion)) %>% group_by(River) %>% distinct(River)
 
 annot<- annot %>% 
-  mutate(admix_groups = case_when(
-    grepl("STAN|TUO|SFA|CALAV", River) ~ "East", # southern siera
-    grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
-    grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "North-Feather", # feather
-    grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-    grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
+  mutate(
+    admix_orig = case_when(
+      grepl("STAN|TUO|CALAV", River) ~ "East", # southern siera
+      grepl("SFA", River) ~ "Unknown",
+      grepl("NFF|FEA|ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+      #grepl("NFF|FEA", River) ~ "North-Feather", # feather
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "South-West"), # South Coast
+    admix_groups = case_when(
+      grepl("STAN|TUO|CALAV|SFA", River) ~ "East", # southern siera
+      grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+      grepl("NFF|FEA", River) ~ "North-Feather", # feather
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   )
 
 ords_admix_grps <- c("East", "North-East", "North-Feather", "North-West", "South-West", "West")
 
 annot$admix_groups <- factor(annot$admix_groups, levels = ords_admix_grps)
 
-
-# MAKE QUICK MAP ----------------------------------------------------------
+# MAKE SPATIAL ------------------------------------------------------------
 
 # jitter coords slightly for viewing
 annot_sf <- annot %>% filter(!is.na(lat)) %>%  
   group_by(Locality) %>% add_tally() %>% 
   distinct(Locality,.keep_all = T) %>% 
-  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, lat, lon, elev_m:Locality,Locality_details, EcoRegion, n) %>% 
+  select(River, Site, SampleID, LabID, SPP_ID, admix_groups, admix_orig, lat, lon, elev_m:Locality,Locality_details, EcoRegion, n) %>% 
   ungroup() %>% 
   arrange(admix_groups, Locality) %>% 
   mutate(siteID=row_number()) # for matching labels, etc
 
 # save out table of sites
-annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, lat, lon, HUC_6, county, n) %>% 
+annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, admix_orig, lat, lon, HUC_6, county, n) %>% 
   dplyr::rename("clade" = admix_groups, "n_samples"=n)
 
-#write_csv(annot_out, path = "data_output/table_site_localities_clades.csv")
+write_csv(annot_out, path = paste0("data_output/table_site_localities_clades_", bamfile, ".csv"))
 #knitr::kable(annot_out
 
 # make sf:
@@ -94,19 +97,21 @@ annot_sf <- st_as_sf(annot_sf,
 st_crs(annot_sf)
 
 # write out and delete there's a file with same name (will give warning if first time saving)
-#st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
+# st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
+
+# MAKE QUICK MAP ----------------------------------------------------------
 
 # make a quick mapview map
-mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
+mapview(annot_sf, zcol="admix_orig") %>% addMouseCoordinates()
 
 # 01. GET SHAPES --------------------------------------------------------------
 
 # get name
-bamfile <- "all_rabo_filt_100k"
+#bamfile <- "all_rabo_filt_100k"
 
 # get shp file with data
 #annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
-st_crs(annot_sf)
+#st_crs(annot_sf)
 
 # get shp of range
 #rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) %>% 
@@ -117,58 +122,58 @@ st_crs(annot_sf)
 
 # 02. SIMPLIFY FIX SHPS -------------------------------------------------------
 
-# simplify
-rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
-plot(rb_range_simple$geometry, col="skyblue")
-
-# smooth
-rb_smooth <- smooth(rb_range_simple, method = "ksmooth") # or spline / ksmooth
-plot(rb_smooth$geometry, col="maroon")
-
-# rm small bits
-area_thresh <- units::set_units(400, km^2)
-rb_dropped <- drop_crumbs(rb_smooth, threshold = area_thresh)
-plot(rb_dropped$geometry, col="orange")
-
-#fill holes
-area_thresh <- units::set_units(800, km^2)
-rb_filled <- fill_holes(rb_dropped, threshold = area_thresh)
-plot(rb_filled$geometry, col="purple")
-
-# now add fields
-rb_filled <- rb_filled %>% 
-  mutate(state = case_when(
-    SEASON=="Y" ~ "CA",
-    is.na(SEASON) ~ "OR"),
-    keeppoly = "Y") %>% 
-  select(-SEASON, -SHAPE_NAME, -Id)
-
-# get OR
-or_rb <- rb_filled %>% filter(state=="OR")
-or_rb_buff <- st_buffer(or_rb, dist = .08)
-
-plot(rb_filled$geometry, border="gray", lwd=1)
-plot(or_rb_buff$geometry, border="blue", add=T)
-#plot(or_rb$geometry, border="red", add=T)
-
-# get CA only
-ca_rb <- rb_filled %>% filter(state=="CA")
-
-# combine
-rb_all <- st_union(or_rb_buff, ca_rb, by_feature = "state")
-plot(rb_all$geometry, col="pink")
-
-rb_diss <- rb_all %>% 
-  group_by(keeppoly) %>% 
-  summarize()
-
-plot(rb_diss$geometry, col="purple")
-
-# write out
-st_write(rb_diss, "data_output/rabo_range_simple.shp", delete_dsn = T)
-
-# rm interm files:
-rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
+# # simplify
+# rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
+# plot(rb_range_simple$geometry, col="skyblue")
+# 
+# # smooth
+# rb_smooth <- smooth(rb_range_simple, method = "ksmooth") # or spline / ksmooth
+# plot(rb_smooth$geometry, col="maroon")
+# 
+# # rm small bits
+# area_thresh <- units::set_units(400, km^2)
+# rb_dropped <- drop_crumbs(rb_smooth, threshold = area_thresh)
+# plot(rb_dropped$geometry, col="orange")
+# 
+# #fill holes
+# area_thresh <- units::set_units(800, km^2)
+# rb_filled <- fill_holes(rb_dropped, threshold = area_thresh)
+# plot(rb_filled$geometry, col="purple")
+# 
+# # now add fields
+# rb_filled <- rb_filled %>% 
+#   mutate(state = case_when(
+#     SEASON=="Y" ~ "CA",
+#     is.na(SEASON) ~ "OR"),
+#     keeppoly = "Y") %>% 
+#   select(-SEASON, -SHAPE_NAME, -Id)
+# 
+# # get OR
+# or_rb <- rb_filled %>% filter(state=="OR")
+# or_rb_buff <- st_buffer(or_rb, dist = .08)
+# 
+# plot(rb_filled$geometry, border="gray", lwd=1)
+# plot(or_rb_buff$geometry, border="blue", add=T)
+# #plot(or_rb$geometry, border="red", add=T)
+# 
+# # get CA only
+# ca_rb <- rb_filled %>% filter(state=="CA")
+# 
+# # combine
+# rb_all <- st_union(or_rb_buff, ca_rb, by_feature = "state")
+# plot(rb_all$geometry, col="pink")
+# 
+# rb_diss <- rb_all %>% 
+#   group_by(keeppoly) %>% 
+#   summarize()
+# 
+# plot(rb_diss$geometry, col="purple")
+# 
+# # write out
+# st_write(rb_diss, "data_output/rabo_range_simple.shp", delete_dsn = T)
+# 
+# # rm interm files:
+# rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
 
 
 # 03. GET SHAFFER SITES -------------------------------------------------------
@@ -217,22 +222,6 @@ rb_range <- st_read("data_output/rabo_range_simple.shp")
 
 # FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
 
-# #scale_color_manual("Admix Groups", 
-# values = c("East"=cbbPalette[1], # E
-#            "North-East"=cbbPalette[2], # NE 
-#            "North-West"=cbbPalette[3], # NW
-#            #"North-Feather"=cbbPalette[4], #N Feather
-#            "West"=cbbPalette[5],  # W
-#            "South-West"=cbbPalette[6],# SW
-#            "Unknown"=cbbPalette[9]), # SFAmerican
-# labels = c("S. Sierra (E)", # E
-#            "N. Sierra (NE)", # NE 
-#            "N. Coast (NW)", # NW
-#            #"N. Sierra-Feather", #N Feather
-#            "S. Coast (W)",  # W
-#            "Unknown",
-#            "C. Coast (SW)")) +
-
 # plot
 ggplot() + 
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
@@ -242,7 +231,7 @@ ggplot() +
   geom_sf(data=annot_sf, aes(fill="black"), alpha=0.7,size=2.6, pch=21, show.legend = 'point') +
   ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
   geom_sf(data=shaff_sf, aes(fill="white"), size=1.4, pch=21, alpha=0.8, show.legend = 'point') +
-  
+  #ggforce::geom_mark_ellipsis(data=annot_sf, aes(y=lat, x=lon, group=admix_orig), col="black") +
   scale_fill_manual(name = 'Localities', 
                     values =c('white'='white', 'black'='black'), 
                     labels = c( 'Peek et al.', 'McCartney-Melstad et al. 2018' )) +
@@ -271,7 +260,6 @@ ggplot() +
            st.size = 2.5, st.dist = .2)
 
 
-
 ggsave(filename = paste0("figs/maps_", bamfile, "_range_localities.png"), width = 8, height = 11, 
               units = "in", dpi = 300)
 
@@ -283,15 +271,29 @@ ggplot() +
   geom_sf(data=CA, fill="gray20") + xlab("") +
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
   geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
-  geom_sf(data=annot_sf, aes(fill=admx_gr), size=2.5, pch=21, show.legend = 'point') +
+  geom_sf(data=annot_sf, aes(fill=admix_groups), size=2.4, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
-  
-  scale_fill_manual(values = c("East"=cbbPalette[1], 
-                                "North-East"=cbbPalette[2], 
-                                "North-West"=cbbPalette[3],
-                                "North-Feather"=cbbPalette[4],
-                                "West"=cbbPalette[5], 
-                                "South-West"=cbbPalette[6])) +
+  scale_fill_manual("Groups",
+                     values = c("East"=cbbPalette[1], # E
+                                "North-East"=cbbPalette[2], # NE
+                                "North-West"=cbbPalette[3], # NW
+                                "North-Feather"=cbbPalette[4], #N Feather
+                                "West"=cbbPalette[5],  # W
+                                "South-West"=cbbPalette[6]),# SW
+                     #"Unknown"=cbbPalette[9]), # SFAmerican
+                     labels = c("S. Sierra (E)", # E
+                                "N. Sierra (NE)", # NE
+                                "N. Coast (NW)", # NW
+                                "N. Sierra-Feather", #N Feather
+                                "S. Coast (W)",  # W
+                                #"Unknown",
+                                "C. Coast (SW)")) +
+  # scale_fill_manual(values = c("East"=cbbPalette[1], 
+  #                               "North-East"=cbbPalette[2], 
+  #                               "North-West"=cbbPalette[3],
+  #                               "North-Feather"=cbbPalette[4],
+  #                               "West"=cbbPalette[5], 
+  #                               "South-West"=cbbPalette[6])) +
   theme_bw(base_family = "Roboto Condensed") + 
   # remove graticule and rotate x axis labels
   theme(panel.grid.major = element_line(color = 'transparent'),

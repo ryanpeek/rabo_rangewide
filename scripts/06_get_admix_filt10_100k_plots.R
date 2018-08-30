@@ -10,7 +10,7 @@ library(scales)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt10_100k"
+bamfile <- "all_rabo_filt10_1_100k"
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -115,10 +115,10 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
    #scale_fill_viridis_d("Cluster") + 
    scale_fill_manual(values = c("Clust3"=cbbPalette[1], # East
                                  #"Clust3"=cbbPalette[2], # North-East
-                                 "Clust1"=cbbPalette[3], #North-West
-                                 #"Clust2"=cbbPalette[4], # North-Feather
+                                 #"Clust1"=cbbPalette[3], #North-West
+                                 "Clust1"=cbbPalette[4], # North-Feather
                                  "Clust2"=cbbPalette[5])) + # West / South-West
-   labs(title=paste0("NGSadmix k=",k)) +
+   #labs(title=paste0("NGSadmix k=",k)) +
    theme_classic(base_size = 10, base_family = "Roboto Condensed") +
    theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
    labs(x="", y="fraction ancestry") +
@@ -126,7 +126,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
    theme(strip.background = element_blank(), 
          panel.spacing = unit(0, "lines"),
          panel.border = element_rect(fill = NA, color = "gray40"),
-         axis.text.x=element_blank()))
+         axis.text.x=element_blank(),
+         axis.ticks.x = element_blank()))
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 
@@ -161,12 +162,12 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
     #scale_fill_viridis_d("Cluster") + 
-    scale_fill_manual(values = c("Clust2"=cbbPalette[1], # East
+    scale_fill_manual(values = c("Clust1"=cbbPalette[1], # East
                                  #"Clust5"=cbbPalette[2], # North-East
-                                 "Clust1"=cbbPalette[3], #North-West
+                                 "Clust4"=cbbPalette[3], #North-West
                                  "Clust3"=cbbPalette[4], # North-Feather
-                                 "Clust4"=cbbPalette[5])) + # West / South-West
-    labs(title=paste0("NGSadmix k=",k)) +
+                                 "Clust2"=cbbPalette[5])) + # West / South-West
+    #labs(title=paste0("NGSadmix k=",k)) +
     theme_classic(base_size = 10, base_family = "Roboto Condensed") +
     theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
@@ -174,7 +175,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     theme(strip.background = element_blank(), 
           panel.spacing = unit(0, "lines"),
           panel.border = element_rect(fill = NA, color = "gray40"),
-          axis.text.x=element_blank()))
+          axis.text.x=element_blank(),
+          axis.ticks.x = element_blank()))
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
@@ -211,11 +213,11 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
    scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
    #scale_fill_viridis_d("Cluster") + 
    scale_fill_manual(values = c("Clust3"=cbbPalette[1], # East
-                                "Clust5"=cbbPalette[2], # North-East
+                                "Clust4"=cbbPalette[2], # North-East
                                 "Clust2"=cbbPalette[3], #North-West
-                                "Clust4"=cbbPalette[4], # North-Feather
+                                "Clust5"=cbbPalette[4], # North-Feather
                                 "Clust1"=cbbPalette[5])) + # West / South-West
-   labs(title=paste0("NGSadmix k=",k)) +
+   #labs(title=paste0("NGSadmix k=",k)) +
    theme_classic(base_size = 10, base_family = "Roboto Condensed") +
    theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
    labs(x="", y="fraction ancestry") +
@@ -223,7 +225,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
    theme(strip.background = element_blank(), 
          panel.spacing = unit(0, "lines"),
          panel.border = element_rect(fill = NA, color = "gray40"),
-         axis.text.x=element_blank()))
+         axis.text.x=element_blank(),
+         axis.ticks.x = element_blank()))
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
@@ -258,13 +261,13 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
     #scale_fill_viridis_d("Cluster") + 
-    scale_fill_manual(values = c("Clust1"=cbbPalette[1], # East
-                                 "Clust6"=cbbPalette[2], # North-East
-                                 "Clust4"=cbbPalette[3], # North-West
-                                 "Clust2"=cbbPalette[4], # North-Feather
-                                 "Clust5"=cbbPalette[5], # West / South-West
+    scale_fill_manual(values = c("Clust4"=cbbPalette[1], # East
+                                 "Clust1"=cbbPalette[2], # North-East
+                                 "Clust6"=cbbPalette[3], # North-West
+                                 "Clust5"=cbbPalette[4], # North-Feather
+                                 "Clust2"=cbbPalette[5], # West / South-West
                                  "Clust3"=cbbPalette[6]))+ # ??
-    labs(title=paste0("NGSadmix k=",k)) +
+    #labs(title=paste0("NGSadmix k=",k)) +
     theme_classic(base_size = 10, base_family = "Roboto Condensed") +
     theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
@@ -272,7 +275,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     theme(strip.background = element_blank(), 
           panel.spacing = unit(0, "lines"),
           panel.border = element_rect(fill = NA, color = "gray40"),
-          axis.text.x=element_blank()))
+          axis.text.x=element_blank(),
+          axis.ticks.x = element_blank()))
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
@@ -306,14 +310,14 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
-     scale_fill_manual(values = c("Clust7"=cbbPalette[1], # East
-                                  "Clust3"=cbbPalette[2], # North-East
-                                  "Clust2"=cbbPalette[3], # North-West
+     scale_fill_manual(values = c("Clust4"=cbbPalette[1], # East
+                                  "Clust5"=cbbPalette[2], # North-East
+                                  "Clust1"=cbbPalette[3], # North-West
                                   "Clust6"=cbbPalette[4], # North-Feather
-                                  "Clust1"=cbbPalette[5], # West / South-West
-                                  "Clust4"=cbbPalette[6], # branch of NorthWest
-                                  "Clust5"=cbbPalette[7]))+ # Branch of Northwest
-    labs(title=paste0("NGSadmix k=",k)) +
+                                  "Clust7"=cbbPalette[5], # West / South-West
+                                  "Clust3"=cbbPalette[6], # branch of NorthWest
+                                  "Clust2"=cbbPalette[7]))+ # Branch of Northwest
+    #labs(title=paste0("NGSadmix k=",k)) +
     theme_classic(base_size = 10, base_family = "Roboto Condensed") +
     theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
@@ -321,7 +325,8 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
     theme(strip.background = element_blank(), 
           panel.spacing = unit(0, "lines"),
           panel.border = element_rect(fill = NA, color = "gray40"),
-          axis.text.x=element_blank()))
+          axis.text.x=element_blank(),
+          axis.ticks.x = element_blank()))
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
@@ -353,19 +358,19 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 # plot
 (plotk8 <- ggplot(data = admix_gg,
                   aes(x = annotID , y = clust, fill = clustname)) + 
-    geom_col(position = "fill", width=1, show.legend = T) +
+    geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
-    scale_fill_manual(values = c("Clust8"=cbbPalette[1], # East
-                                 "Clust3"=cbbPalette[2], # North-East
-                                 "Clust4"=cbbPalette[3], # North-West
-                                 "Clust7"=cbbPalette[4], # North-Feather
-                                 "Clust2"=cbbPalette[5], # West / South-West
+    scale_fill_manual(values = c("Clust2"=cbbPalette[1], # East
+                                 "Clust7"=cbbPalette[2], # North-East
+                                 "Clust3"=cbbPalette[3], # North-West
+                                 "Clust6"=cbbPalette[4], # North-Feather
+                                 "Clust4"=cbbPalette[5], # West / South-West
                                  "Clust5"=cbbPalette[6], # branch of NorthWest
-                                 "Clust6"=cbbPalette[7],
+                                 "Clust8"=cbbPalette[7],
                                  "Clust1"=cbbPalette[8]))+ # Branch of Northwest
     
-    labs(title=paste0("NGSadmix k=",k)) +
+    #labs(title=paste0("NGSadmix k=",k)) +
     theme_classic(base_size = 8) +
     #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
@@ -406,20 +411,20 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 # plot
 (plotk9 <- ggplot(data = admix_gg,
                   aes(x = annotID , y = clust, fill = clustname)) + 
-    geom_col(position = "fill", width=1, show.legend = T) +
+    geom_col(position = "fill", width=1, show.legend = F) +
     scale_x_discrete(expand=c(0,0)) +
     scale_y_continuous(expand=c(0,0), labels = percent, breaks = seq(0,1,0.1)) +
-    scale_fill_manual(values = c("Clust8"=cbbPalette[1], # East
-                                 "Clust3"=cbbPalette[2], # North-East
-                                 "Clust9"=cbbPalette[3], # North-West
+    scale_fill_manual(values = c("Clust9"=cbbPalette[1], # East
+                                 "Clust1"=cbbPalette[2], # North-East
+                                 "Clust2"=cbbPalette[3], # North-West
                                  "Clust7"=cbbPalette[4], # North-Feather
-                                 "Clust2"=cbbPalette[5], # West / South-West
-                                 "Clust5"=cbbPalette[6], # branch of NorthWest
-                                 "Clust6"=cbbPalette[7],
-                                 "Clust1"=cbbPalette[8],
-                                 "Clust4"=cbbPalette[9]))+ # Branch of Northwest
+                                 "Clust5"=cbbPalette[5], # West / South-West
+                                 "Clust3"=cbbPalette[6], # branch of NorthWest
+                                 "Clust4"=cbbPalette[7],
+                                 "Clust8"=cbbPalette[8],
+                                 "Clust6"=cbbPalette[9]))+ # Branch of Northwest
     
-    labs(title=paste0("NGSadmix k=",k)) +
+   # labs(title=paste0("NGSadmix k=",k)) +
     theme_classic(base_size = 8) +
     #theme(axis.text.x = element_text(angle = 80, hjust = 1, size = 7)) +
     labs(x="", y="fraction ancestry") +
@@ -432,9 +437,6 @@ admix_gg$clustname <- gsub("V", "Clust", admix_gg$clustname)
 
 ggsave(filename = paste0("figs/admix/",bamfile, "_k",k, "_admix.png"), width = 4.5, height = 2.7, scale = 1.3, units = "in", dpi = 300)
 # width = 9, height = 6, units = "in", res = 300
-
-
-
 
 # SAVE PLOT ---------------------------------------------------------------
 
