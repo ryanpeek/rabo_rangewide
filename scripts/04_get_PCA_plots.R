@@ -58,12 +58,12 @@ metadat<- metadat %>%
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
-site <-  "all_rabo_filt10_1" # "all_rabo_filt"
+site <-  "all_rabo" # "all_rabo_filt"
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
 # run function
-(read_covar_range(covarpath, bampath, metadat, pcs = c(1,2), colvar = "admix_orig", plotlyplot = F))
+(read_covar_range(covarpath, bampath, metadat, pcs = c(1,2), colvar = "admix_orig", plotlyplot = T))
 
 # PARSE COVAR FILE FOR PCA ------------------------------------------------
 

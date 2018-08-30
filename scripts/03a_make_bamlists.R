@@ -23,13 +23,16 @@ set.seed(111) # for repeatable random sampling
 # set the reads threshold (number of minimum reads subsampled
 bamNo<-100
 
-site <- "all_rabo_filt_100k" 
+site <- "all_rabo_filt_1" 
+
 
 # rabo_nosocoast_filt10_1_100k: no southwest coast samples, filtered outliers, samples per locality between 1-10
 # rabo_nofeath_filt10_1_100k: no feather samples, filtered outliers, samples per locality between 1-10
+
 # all_rabo_filt10_100k: filtered outliers, samples per locality between 2-10
 # all_rabo_filt10_1_100k: filtered outliers, samples per locality between 1-10
 # all_rabo_filt_100k: filtered outliers, samples per locality > 2
+# all_rabo_filt_1_100k: filtered outliers, all samples per locality as low as 1
 # all_rabo_100k: no filter, no restriction, all samples.
 
 
@@ -157,6 +160,9 @@ outliers <- c("RAP-040","RAP-092", "RAP-097", "RAP-104","RAP-122",
 #dfout %>% filter(is.na(River)) %>% tally
 #dfout %>% filter(is.na(Locality)) %>% tally
 dfout <- filter(dfout, !SampleID %in% outliers)
+
+# numb localites
+dfout %>% group_by(Locality) %>% tally
 
 # 06. WRITE TO BAMLIST SINGLE ----------------------------------------
 

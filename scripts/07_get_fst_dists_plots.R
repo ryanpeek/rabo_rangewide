@@ -52,22 +52,34 @@ metadat <- metadat %>%
   separate(seqID, into = c("barcode", "wellcode"), drop=T) %>% 
   mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
 
-# add groups based on Shaffer and PCA splits:
 metadat<- metadat %>% 
   mutate(admix_groups = case_when(
     grepl("STAN|TUO|SFA", River) ~ "East", # southern siera
     grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
     grepl("CHETCO|SFEEL|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|MAD|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-    grepl("NFF|FEA", River) ~ "Feather-North", # feather
+    grepl("NFF|FEA", River) ~ "North-Feather", # feather
     grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
     grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
   ) %>% 
   select(Seq, admix_groups, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
 
+# add McCartney Clades
+metadat <- metadat %>%  
+  mutate(mccartClades = case_when(
+    grepl("sfa-cami", Locality) ~ "NE",
+    grepl("stan-roseck|tuo-clavey", Locality) ~ "E",
+    grepl("North-Feather", admix_groups) ~ "NE",
+    grepl("North-East", admix_groups) ~ "NE",
+    grepl("North-West", admix_groups) ~ "NW",
+    grepl("South-West", admix_groups) ~"SW",
+    grepl("West", admix_groups) ~ "W")
+  ) %>%   select(Seq, admix_groups, mccartClades, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
+
 # set order in way that you want
-ords_admix_grps <- c("East", "North-East", "Feather-North", "North-West", "South-West", "West")
+ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
 
 metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
+levels(metadat$admix_groups)
 
 
 # GET BAMILES -------------------------------------------------------------
@@ -89,13 +101,14 @@ annot$Locality <- tolower(annot$Locality)
 # JOIN DATA ---------------------------------------------------------------
 
 # now join with fst data:
-annot_fst <- annot %>% select(admix_groups, Locality, lat, lon, HUC_6, EcoRegion)
+annot_fst <- annot %>% select(admix_groups, Locality) #lat, lon, HUC_6, EcoRegion)
 
 fstsA <- left_join(fsts, annot_fst, by=c("siteA"="Locality")) %>% 
-  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
+  rename_at(c("admix_groups"), funs( paste0(., "_A")))
+  #rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
 
 fsts_out <- left_join(fstsA, annot_fst, by=c("siteB"="Locality")) %>% 
-  rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A) %>% 
+  rename_at(c("admix_groups"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A) %>% 
   as.data.frame()
 
 #fsts_out$admix_groups_A <- factor(fsts_out$admix_groups_A)
@@ -119,17 +132,22 @@ siteB_ord <- c("sfeel-cedar", "sfy-fallck", "sfy-loga", "sfy-misc", "sfy-rockck"
 
 #anti_join(siteA_ord, siteB_ord, by=c("siteA"="siteB"))
 
-fsts_out$siteA <- factor(fsts_out$siteA, levels=siteA_ord)
-fsts_out$siteB <- factor(fsts_out$siteB, levels=siteB_ord)
+#fsts_out$siteA <- factor(fsts_out$siteA, levels=siteA_ord)
+#fsts_out$siteB <- factor(fsts_out$siteB, levels=siteB_ord)
 #fsts_out$siteA <- factor(fsts_out$siteA, levels=fsts_out$siteA, labels=fsts_out$admix_groups_A)
 #fsts_out$siteB <- factor(fsts_out$siteB, levels=fsts_out$siteB, labels=fsts_out$admix_groups_B)
 
 
+
+
 # HEATMAP PLOT ------------------------------------------------------------
+
+summary(fsts_out)
 
 # plot
 ggplot() + 
   geom_tile(data = fsts_out, aes(x=sitea, y=siteb, fill=fst_adj)) + ylab("") + xlab("")+
+  #geom_text(data = fsts_out, aes(x=admix_groups_A, y=admix_groups_B, label=fst_adj)) +
   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
@@ -161,8 +179,12 @@ ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, h
 # MAKE MATRIX -------------------------------------------------------------
 
 fst_mat <- fsts_out %>% select(siteA, siteB, fst_adj, admix_groups_A)
-fst_mat$siteA <- as.factor(siteA)
-fst_mat$admix_groups_A <- as.factor(fst_mat$admix_groups_A)
+
+fst_mat <- fsts_out %>% group_by(admix_groups_A, admix_groups_B) %>% 
+  summarize(fst_mean = mean(fst_adj))
+
+#fst_mat$siteA <- as.factor(fst_mat$siteA)
+#fst_mat$admix_groups_A <- as.factor(fst_mat$admix_groups_A)
 #fst_mat <- fst_mat[order(fsts_out$admix_groups_A),]
 
 fst_mat <- fst_mat[,c(1, 2, 3)] %>% as.data.frame()
@@ -171,12 +193,19 @@ fst_mat <- fst_mat[,c(1, 2, 3)] %>% as.data.frame()
 #fst_mat <- list2dist(dat = fst_mat)
 
 # convert to a matrix for other stuff:
-fst_mat <- fsts_out %>% select(siteA, siteB, fst_adj)
-fst_mat <- with(fst_mat,tapply(fst_adj,list(siteA,siteB),"[[",1))
+#fst_mat <- fsts_out %>% select(siteA, siteB, fst_adj)
+#fst_mat <- fsts_out %>% select(admix_groups_A, admix_groups_B, fst_mean)
+fst_mat2 <- with(fst_mat,tapply(fst_mean,list(admix_groups_A, admix_groups_B),"[[",1))
+# replace values:
+fst_mat2[5,3] <- 0.3440526
+fst_mat2[1,3] <- 0.2958155
+fst_mat2[1,5] <- 0.366196
 
-melted_fst <- melt(fst_mat, na.rm = T)
 
 library(reshape2)
+melted_fst <- melt(fst_mat2, na.rm = T)
+
+
 # # Get lower triangle of the correlation matrix
 get_lower_tri<-function(cormat){
 cormat[upper.tri(cormat)] <- NA
@@ -187,7 +216,8 @@ get_upper_tri <- function(cormat){
 cormat[lower.tri(cormat)]<- NA
 return(cormat)
 }
-fst_mat2 <- get_upper_tri(fst_mat)
+
+fst_mat2 <- get_upper_tri(fst_mat2)
 
 
 # PLOT --------------------------------------------------------------------
@@ -195,7 +225,7 @@ fst_mat2 <- get_upper_tri(fst_mat)
 
 # plot
 ggplot() + 
-  geom_tile(data = melted_fst, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
+  geom_tile(data = fst_mat2, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 1))+
@@ -327,47 +357,43 @@ save(final_fst, file = "data_output/fst/final_fst_25k_n3.rda")
 
 # PLOT FST WITH IMAGE -----------------------------------------------------
 
-fsts_only <- fsts_out %>% select(siteA, siteB, fst_adj) %>% as.data.frame()
+fsts_only <- fsts_out %>% select(sitea, siteb, fst_adj) %>% as.data.frame()
 str(fsts_only)
 
-tst <- with(fsts_only, sort(unique(c(as.character(siteA_ord),
-                                     as.character(siteB_ord)))))
-#tst <- with(fsts_only, sort(unique(c(as.character(siteA),
-#                              as.character(siteB)))))
+tst <- with(fsts_only, sort(unique(c(as.character(sitea),
+                                     as.character(siteb)))))
+# dan's code
+
 M <- array(0, c(length(tst), length(tst)), list(tst, tst))
-i <- match(fsts_only$siteA, tst)
-j <- match(fsts_only$siteB, tst)
+i <- match(fsts_only$sitea, tst)
+j <- match(fsts_only$siteb, tst)
 M[cbind(i,j)] <- M[cbind(j,i)] <- fsts_only$fst_adj
+M_df <- M %>% as.data.frame(M)
+#M_df$sites <- row.names(M)
+#M_df <- M_df %>% select(sites, everything())
 
 
+# IMAGE HEAT --------------------------------------------------------------
 
-values = data.frame(Eel_M = values.o$Eel_M, Tri_M = values.o$Tri_M, Tri_P = values.o$Tri_P, Sal_M = values.o$Sal_M, Sal_P = values.o$Sal_P, Rog_M = values.o$Rog_M, Rog_P = values.o$Rog_P, Sou_M = values.o$Sou_M, Nor_P = values.o$Nor_P, Sil_M = values.o$Sil_M, Sil_P = values.o$Sil_P, Puy_M = values.o$Puy_M, Puy_P = values.o$Puy_P, Noo_M = values.o$Noo_M, Noo_P = values.o$Noo_P, Sou_P = values.o$Sou_P)
-rownames(fsts_values) <- siteA_ord
-  fst_values$Sou_P <- NULL
-  fst_values <- head(fst_values,-1)
-  siteA_ord <- head(siteA_ord, -1)
+image(1:nrow(M), 1:ncol(M), M, axes = FALSE, 
+      xlab="", ylab="", col = viridis(20))
 
-n1<-nrow(values)-1
-n2<-ncol(values)-1
-key <- c(seq(from = 0.015, to = 0.22, by = (0.205/n1)))
-values$key <- key
-values <- rbind(values, key)
-values <- as.matrix(values)
-key <- round(key,2)
-colv <- colorRampPalette(c("black", "white"))
+axis(1, 1:nrow(M), rownames(M), cex.axis = 0.7, las=3, family="Roboto Condensed")
+axis(2, 1:nrow(M), colnames(M), cex.axis = 0.5, las=1, family="Roboto Condensed")
+axis(3, 1:nrow(M), colnames(M), cex.axis = 0.5, las=2, family="Roboto Condensed", cex.lab=0.001)
 
 
-# Plot
-output.file = paste("plots/",spp, "_fst.pdf", sep = "")
+library(fields)
+
+output.file = paste0("figs/",spp, "_fst.pdf", sep = "")
 pdf(file = output.file, height = 6.5/2.54, width = 6.5/2.54)
-par(mar=c(5,5,5,5), cex= 0.3)
-image(x=seq(0,n1+1), y=seq(0,n2+1), col=colv(1000), z=(-values), axes = F, xlab = "", ylab = "")
-axis(1, at = c(0:(n1)), labels = order, las =2)
-axis(2, at = c(0:(n1)), labels = order, las =2)
-axis(1, at = c(n1+1), labels = c("key"), las =2)
-axis(2, at = c(n1+1), labels = c("key"), las =2)
-axis(3, at = c(0:(n1)), labels = key, las =2, cex.lab= 0.0001)
-axis(4, at = c(0:(n1)), labels = key, las =2, cex.lab= 0.0001)
-dev.off();
+par(mar=c(3,8,8,3))
+image.plot(1:nrow(M), 1:ncol(M), M, axes = FALSE, 
+xlab="", ylab="", col = viridis(200))
 
+#axis(1, 1:nrow(M), rownames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+axis(2, 1:nrow(M), colnames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+axis(3, 1:nrow(M), colnames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+#axis(4, 1:nrow(M), colnames(M), cex.axis = 0.5, las=1, family="Roboto Condensed")
+dev.off()
 

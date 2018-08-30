@@ -455,7 +455,7 @@ library(cowplot)
 
 (kplots <- plot_grid(plotk3, plotk4, plotk5, plotk6, plotk7, plotk8, plotk9,  align = "hv", ncol = 1))#labels = "AUTO"))
 
-save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k3-9",".png"), base_width = 6, base_height=3, base_aspect_ratio = 1.1, dpi=300)
+save_plot(plot = kplots , filename = paste0("figs/admix/admix_", bamfile, "_k3-9",".png"), base_width = 6, base_height=6, base_aspect_ratio = 1.1, dpi=300)
 
 (kplots <- plot_grid(plotk7, plotk8, plotk9, nrow=3, labels = "AUTO"))
 

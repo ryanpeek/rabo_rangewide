@@ -13,7 +13,7 @@ library(smoothr)
 # GET BAMLIST AND METADATA ------------------------------------------------
 
 #bamfile <- "all_rabo_filt_100k"
-bamfile <- "all_rabo_filt10_1_100k"
+bamfile <- "all_rabo_filt10_1_100k" # all_rabo_filt_1_100k
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -84,7 +84,7 @@ annot_sf <- annot %>% filter(!is.na(lat)) %>%
 annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, admix_orig, lat, lon, HUC_6, county, n) %>% 
   dplyr::rename("clade" = admix_groups, "n_samples"=n)
 
-write_csv(annot_out, path = paste0("data_output/table_site_localities_clades_", bamfile, ".csv"))
+#write_csv(annot_out, path = paste0("data_output/table_site_localities_clades_", bamfile, ".csv"))
 #knitr::kable(annot_out
 
 # make sf:
@@ -97,12 +97,12 @@ annot_sf <- st_as_sf(annot_sf,
 st_crs(annot_sf)
 
 # write out and delete there's a file with same name (will give warning if first time saving)
-# st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
+#st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
 
 # MAKE QUICK MAP ----------------------------------------------------------
 
 # make a quick mapview map
-mapview(annot_sf, zcol="admix_orig") %>% addMouseCoordinates()
+mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 
 # 01. GET SHAPES --------------------------------------------------------------
 
@@ -270,6 +270,7 @@ ggplot() +
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
   geom_sf(data=CA, fill="gray20") + xlab("") +
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
+  geom_sf(data=rb_range, col="gray40", fill="gray50", alpha=0.6) +
   geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
   geom_sf(data=annot_sf, aes(fill=admix_groups), size=2.4, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
@@ -283,8 +284,8 @@ ggplot() +
                      #"Unknown"=cbbPalette[9]), # SFAmerican
                      labels = c("S. Sierra (E)", # E
                                 "N. Sierra (NE)", # NE
-                                "N. Coast (NW)", # NW
                                 "N. Sierra-Feather", #N Feather
+                                "N. Coast (NW)", # NW
                                 "S. Coast (W)",  # W
                                 #"Unknown",
                                 "C. Coast (SW)")) +
@@ -320,3 +321,6 @@ ggplot() +
 
 ggsave(filename = paste0("figs/maps_", bamfile, "_clades.png"), width = 8, height = 11, 
        units = "in", dpi = 300)
+
+
+mapview(annot_sf, zcol="admix_groups") + mapview(rb_range) + mapview(counties)# %>% addMouseCoordinates()
