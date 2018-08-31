@@ -124,19 +124,22 @@ library(Rmisc)
 (CIs <- as.data.frame(group.CI(Tdiff~admix_groups, thetas)))
 CIs %>% mutate_at(2:4, round, digits=4)
 
-ggplot() + 
+(tdiffplot <- ggplot() + 
+  geom_hline(yintercept = 0, col="gray40", lty=2, lwd=0.7) +
   geom_pointrange(data=CIs, aes(x=admix_groups, y=Tdiff.mean, ymin=Tdiff.lower, 
                                   ymax=Tdiff.upper, color=admix_groups), size=1, show.legend = F) +
   scale_color_manual("Groups", 
                     values = c("East"=cbbPalette[1], 
                                "North-East"=cbbPalette[2], 
                                "North-West"=cbbPalette[3],
-                               "Feather-North"=cbbPalette[4],
+                               "North-Feather"=cbbPalette[4],
                                "West"=cbbPalette[5], 
                                "South-West"=cbbPalette[6])) +
+  
   theme_bw(base_family = "Roboto Condensed") +
   ylab(label = expression(paste("Tajima's ", theta, " - Watterson's ", theta, " (", Delta, " ", theta, ")"))) +
-  xlab("Region")
+  xlab("") +
+  coord_flip())
 
 
 (CIsTp <- as.data.frame(group.CI(Tp~admix_groups, thetas)))
@@ -145,7 +148,7 @@ CIsTp[1,2] <- .008
 CIsTp[1,4] <- .005
 
 # Tpi
-tpplot <- ggplot() + 
+(tpplot <- ggplot() + 
   geom_pointrange(data=CIsTp, aes(x=admix_groups, y=Tp.mean, ymin=Tp.lower, 
                                 ymax=Tp.upper, color=admix_groups), size=1, show.legend = F) +
   scale_color_manual("Groups", 
@@ -158,7 +161,8 @@ tpplot <- ggplot() +
   theme_bw(base_family = "Roboto Condensed") +
   ylim(c(0.004,.011))+
   ylab(label = expression(paste("Tajima's ", theta))) +
-  xlab("Region")
+  xlab("") + 
+    coord_flip())
 
 (CIsTw <- as.data.frame(group.CI(Tw~admix_groups, thetas)))
 CIsTw %>% mutate_at(2:4, round, digits=4)
@@ -180,14 +184,17 @@ CIsTw[1,4] <- .004
                                 "South-West"=cbbPalette[6])) +
   theme_bw(base_family = "Roboto Condensed") +
   ylab(label = expression(paste("Watterson's ", theta))) +
-  xlab("Region"))
+  xlab("") + 
+    coord_flip())
 
 
 library(cowplot)
-thetaplot <- plot_grid(tpplot, twplot, nrow = 2, labels = "AUTO")
+
+#thetaplot <- plot_grid(tpplot, twplot, nrow = 2, labels = "AUTO")
+thetaplot <- plot_grid(tpplot, twplot, tdiffplot, nrow = 3, labels = "AUTO")
 thetaplot
 
-save_plot(thetaplot , filename = "figs/thetas_taj_watt_95CI.png", base_width = 5,
+save_plot(thetaplot , filename = "figs/thetas_taj_watt_tdiff_95CI.png", base_width = 4, base_height = 5,
           base_aspect_ratio = 1.5, dpi = 300)
 
 # MAKE THETA PLOTS --------------------------------------------------------

@@ -219,7 +219,6 @@ axis(3, 1:nrow(M), colnames(M), cex.axis = 0.7, las=2, family="Roboto Condensed"
 dev.off()
 
 
-
 # Calculate distances -----------------------------------------------------
 
 # load the metadata and join to sites:
@@ -326,8 +325,188 @@ final_fst_dist <- left_join(final_fst_dist, fsts_out[,c("sitepair", "sitea", "si
 
 # SAVE OUT ----------------------------------------------------------------
 
-save(final_fst_dist, file = "data_output/fst/final_fst_all_rabo_filt_100k.rda") 
+#save(final_fst_dist, file = "data_output/fst/final_fst_all_rabo_filt_100k.rda") 
 
 # LOOK AT PLOTTING BOTH? --------------------------------------------------
+
+load("data_output/fst/final_fst_all_rabo_filt_100k.rda")
+
+fsts_dist <- final_fst_dist %>% select(sitea, siteb, dist_km) %>% as.data.frame()
+
+fst <- with(fsts_dist, sort(unique(c(as.character(sitea),
+                                     as.character(siteb)))))
+# fst_dist
+fst_Mdist <- array(0, c(length(fst), length(fst)), list(fst, fst))
+i <- match(fsts_dist$sitea, fst)
+j <- match(fsts_dist$siteb, fst)
+fst_Mdist[cbind(i,j)] <- fst_Mdist[cbind(j,i)] <- fsts_dist[,3]
+fst_Mdist_df <- fst_Mdist %>% as.data.frame(fst_Mdist)
+
+# fst_fst
+fsts_gen <- final_fst_dist %>% select(sitea, siteb, fst_adj) %>% as.data.frame()
+
+fst <- with(fsts_gen, sort(unique(c(as.character(sitea),
+                                     as.character(siteb)))))
+
+# fst_dist
+fst_Mfst <- array(0, c(length(fst), length(fst)), list(fst, fst))
+i <- match(fsts_gen$sitea, fst)
+j <- match(fsts_gen$siteb, fst)
+fst_Mfst[cbind(i,j)] <- fst_Mfst[cbind(j,i)] <- fsts_gen[,3]
+fst_Mfst_df <- fst_Mfst %>% as.data.frame(fst_Mdist)
+
+#fst_M_df$sites <- row.names(fst_M)
+#fst_M_df <- fst_M_df %>% select(sites, everything())
+
+# # Get lower triangle of the correlation matrix
+get_lower_tri<-function(cormat){
+  cormat[upper.tri(cormat)] <- NA
+  return(cormat)
+}
+# Get upper triangle of the correlation matrix
+get_upper_tri <- function(cormat){
+  cormat[lower.tri(cormat)]<- NA
+  return(cormat)
+}
+
+# get upper triangle
+fst_M_upper <- get_upper_tri(fst_Mfst) # genetic dist
+fst_M_lower <- get_lower_tri(fst_Mdist) # geographic dist
+
+# MELT FOR LONG FORMAT ----------------------------------------------------
+
+library(reshape2)
+melted_fst_upper <- melt(fst_M_upper, na.rm=T) # genetic
+melted_dist_lower <- melt(fst_M_lower, na.rm=T) # geographic
+
+# library(ggdendro) # see here for vignette: https://jcoliver.github.io/learn-r/008-ggplot-dendrograms-and-heatmaps.html
+# 
+# # make a tree plot of same thing
+# fst.dendro <- as.dendrogram(hclust(d = dist(x = melted_fst_upper)))
+# (fstdendro.plot <- ggdendrogram(data = fst.dendro, rotate = TRUE, leaf_labels = F, labels = F) +
+#     theme(axis.text.y = element_blank()))
+# 
+# # make tree plot
+# fst.dist <- as.dendrogram(hclust(d = dist(x = melted_dist_lower)))
+# (distdendro.plot <- ggdendrogram(data = fst.dist, rotate = TRUE, leaf_labels = F, labels=F) + 
+#     theme(axis.text.y = element_blank()))
+# #distorder <- order.dendrogram(fst.dist)
+
+# make a heatmap
+
+# (fstheat <- ggplot() + 
+#   geom_tile(data = melted_fst_upper, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
+#   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
+#   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
+#   scale_x_discrete(position = "top") +
+#   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 0))+
+#   coord_fixed() + 
+#   #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
+#   # add text
+#   theme(
+#     axis.title.x = element_blank(),
+#     axis.title.y = element_blank(),
+#     panel.grid.major = element_blank(),
+#     panel.border = element_blank(),
+#     panel.background = element_blank(),
+#     axis.ticks = element_blank(),
+#     legend.justification = c(1, 0),
+#     legend.position = c(0.9, 0.1),
+#     legend.direction = "vertical"))
+#   #guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+#   #                             title.position = "top", title.hjust = 0.5)))
+# 
+
+# # (fstdist <- ggplot() + 
+# #   geom_tile(data = melted_dist_lower, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
+# #   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
+# #   scale_fill_viridis("Dist (km)",option = "A") + #limit = c(0,.4),
+# #   #scale_x_discrete(position = "top") +
+# #   #theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 0))+
+# #   coord_fixed() + 
+# #   #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
+# #   # add text
+# #   theme(
+# #     axis.title.x = element_blank(),
+# #     axis.title.y = element_blank(),
+# #     axis.text.x = element_blank(),
+# #     panel.grid.major = element_blank(),
+# #     panel.border = element_blank(),
+# #     panel.background = element_blank(),
+# #     axis.ticks = element_blank(),
+# #     legend.justification = c(1, 0),
+# #     legend.position = "right",
+# #     legend.direction = "vertical"))
+# 
+# #ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
+# 
+# # put both on one plot:
+# library(grid)
+# grid.newpage()
+# print(fstheat, vp = viewport(x = 0.4, y = 0.5, width = 0.8, height = 1.0))
+# print(distdendro.plot, vp = viewport(x = 0.80, y = 0.4, width = 0.2, height = 0.99))
+
+
+# POINT PLOT --------------------------------------------------------------
+
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+# make admix cols with tidyr
+fst_summary <- final_fst_dist %>% 
+  separate(sitea, c("admixA"), sep = "_", extra = "drop", remove = F) %>% 
+  separate(siteb, c("admixB"), sep = "_", extra="drop", remove=F) %>% 
+  select(sitea, siteb, admixA, admixB, dist_km, fst_adj) %>% 
+  mutate(within = if_else(admixA == admixB, "Y", "N"),
+         admix_pair = paste0(admixA, "_", admixB))
+
+# PLOT
+
+#plotly::ggplotly(
+
+ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
+                             text=paste0("siteA: ", sitea, " <br> siteB: ", siteb),
+                             color=within)) + #color=as.factor(admix_pair))) + 
+  geom_point(size=4, alpha=0.7) +
+  #ggrepel::geom_label_repel(data=fst_summary, aes(x=dist_km, y=fst_adj, label=admix_pair)) +
+  scale_color_manual("", values = c("Y"=cbbPalette[3], "N"=cbbPalette[2]), labels=c("Between Clade", "Within Clade")) +
+  
+  theme_bw(base_family = "Helvetica", base_size = 9) +
+  labs(#title=expression(paste("Mean F" ["ST"], " vs Mean Distance (km)")),
+    y=expression(paste("Mean F" ["ST"], " / (1 - Mean F" ["ST"],")")),
+    x="Euclidean Distance (km)") +
+  theme(legend.position = c(0.85, 0.18)) +
+  facet_wrap(admixB ~ .)
+
+#)
+
+#ggsave(filename = "figs/fst_vs_dist_by_clade.png", width = 3.42, height= 2.9, units = "in", dpi = 600, scale=1.3)
+ggsave(filename = "figs/fst_vs_dist_by_clade_facet_admixB.png", width = 6, height= 5, units = "in", dpi = 300)
+
+
+# summarize
+fst_summaryA <- fst_summary %>% 
+  group_by(admixA, within) %>% 
+  summarize(fst_admixA = mean(fst_adj, na.rm=T),
+         dist_admixA = mean(dist_km, na.rm = T))
+
+fst_summaryB <- fst_summary %>% 
+  group_by(admixB, within) %>% 
+  summarize(fst_admixB = mean(fst_adj, na.rm=T),
+         dist_admixB = mean(dist_km, na.rm = T))
+
+# ggplot() + geom_point(data=fst_summaryA, aes(x=dist_admixA, y=fst_admixA, fill=fst_admixA), pch=21, size=4, alpha=0.7) + 
+#   ggrepel::geom_label_repel(data=fst_summaryA, aes(x=dist_admixA, y=fst_admixA, label=admixA)) + 
+#   scale_fill_viridis() +
+#   geom_point(data=fst_summaryB, aes(x=dist_admixB, y=fst_admixB, fill=fst_admixB), pch=21, size=4, alpha=0.8) + 
+#   ggrepel::geom_label_repel(data=fst_summaryB, aes(x=dist_admixB, y=fst_admixB, label=admixB), fill="cornsilk") + 
+#   scale_fill_viridis()
+# ggsave(filename = "figs/fst_vs_eucDist_by_admix_groupsAB.png", width = 7, height = 5, units = "in", dpi=300)
+
+
+
+
+
+
+
 
 
