@@ -33,13 +33,17 @@ metadat <- metadat %>%
   separate(seqID, into = c("barcode", "wellcode"), drop=T) %>% 
   mutate(Seq = paste0("SOMM163_", barcode, "_RA_GG", wellcode, "TGCAGG"))
 
+# unique localities?
+metadat %>% distinct(Locality) %>% tally
+#metadat %>% distinct(Locality) %>% arrange(Locality) %>% View
+
 # add groups based on Shaffer and PCA splits:
 metadat<- metadat %>% 
   mutate(
     admix_orig = case_when(
       grepl("STAN|TUO|CALAV", River) ~ "East", # southern siera
-      grepl("SFA", River) ~ "Unknown",
-      grepl("NFF|FEA|ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("SFA|ANTV", River) ~ "Unknown",
+      grepl("NFF|FEA|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
       grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
       #grepl("NFF|FEA", River) ~ "North-Feather", # feather
       grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
@@ -54,11 +58,17 @@ metadat<- metadat %>%
   )
 
 
+
 # SET BAMLIST AND COVMAT --------------------------------------------------
 
 # set site/reads for bamlist/covar filepaths:
 reads <- "100k_thresh"
-site <-  "all_rabo" # "all_rabo_filt"
+site <-  "all_rabo_filt10_1" 
+# all_rabo_filt : all rabo samples minus outliers
+# all_rabo_filt_1 : all rabo minus outliers and all localties
+# all_rabo_filt10_1 : all rabo minus outliers and all subsampled to 10 or less samples
+# all_rabo_filt10 : all rabo minus outliers and samples > 2 per location
+
 (covarpath<- paste0(here(), "/data_output/pca/", site, "_", reads, ".covMat"))
 (bampath <- paste0(here(), "/data_output/bamlists/", site, "_", reads, ".bamlist"))
 
@@ -101,7 +111,7 @@ PC <- PC %>% dplyr::filter(!ID=="RAP-111")
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#CFCFCF")
 
 # define PCs
-pcs <- c(3,4)
+pcs <- c(1,2)
 colvar <- "admix_orig" #"admix_groups"
 
 # PC's:
@@ -119,6 +129,9 @@ title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc
                                      text=quote((paste0("ID: ", ID, " <br> River: ", Locality))))) +
   
   geom_point(size=4, alpha=0.8) +
+   # need to do this to get the lassen point to show up
+   geom_point(data=PC[PC$ID=="RAP-327",], aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2),
+                                  color=colvar), size=4, alpha=0.8) +
   #ggforce::geom_mark_ellipsis(data=PC, aes_string(x=paste0("PC",pc1), y=paste0("PC",pc2), color=colvar, group=colvar))+
   theme_bw(base_family = "Roboto Condensed") +
   theme(legend.position="bottom") +
@@ -147,11 +160,12 @@ title <- paste("PC",pc1," (",signif(eig$val[pc1], digits=3)*100,"%)"," / PC", pc
 # SAVE OUT ----------------------------------------------------------------
 
 ggpca_12 <-ggpca
-ggpca_34 <-ggpca
-ggpca_56 <-ggpca
+#ggpca_34 <-ggpca
+#ggpca_56 <-ggpca
 
 plotly::ggplotly(ggpca_12)
 
+ggpca_12
 ggpca_34
 
 ggsave(filename = paste0("figs/pca_", site, "_", reads, "_pc",pcs[1],"-",pcs[2], "_orig.png"), width = 7, height = 5, 
@@ -181,7 +195,9 @@ plotLeg <- get_legend(ggpca_12)
     annotate("text", x = 0.3, y=.85, label="Feather", col="gray30", size=3.5, fontface="italic") +
     annotate("text", x = 0.4, y=0.65, col="gray30", label="SF American",fontface="italic", size=3.5) +
     annotate("text", x = 0.85, y=0.45, label="Feather", col="gray30", size=3.5, fontface="italic") +
-    annotate("text", x = 0.75, y=0.85, col="gray30", label="SF American",fontface="italic", size=3.5))
+    annotate("text", x = 0.75, y=0.85, col="gray30", label="SF American",fontface="italic", size=3.5) +
+    annotate("text", x = 0.71, y=0.35, col="gray30", label="Lassen",fontface="italic", size=3.5) +
+    annotate("text", x = 0.37, y=0.78, col="gray30", label="Lassen",fontface="italic", size=3.5))
 
 
 # filt_100k try annotate? wow this is cool

@@ -210,10 +210,16 @@ save_plot(thetaplot , filename = "figs/thetas_taj_watt_tdiff_95CI.png", base_wid
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 # Tw vs. Tpi by River -----------------------------------------------------
+# reverse the order for plotting purposes
+ords_admix_grps <- c("East", "North-East", "North-Feather","North-West", "South-West", "West")
 
-ggplot() + theme_bw(base_size = 9) +
+thetas$admix_groups <- factor(thetas$admix_groups, levels = rev(ords_admix_grps))
+
+levels(thetas$admix_groups)
+
+(theta_by_site <- ggplot() + theme_bw(base_size = 9) +
   #geom_point(data=thetas, aes(y = River, x = Tw), color="gray40", size = 3, shape=21) +
-  geom_point(data=thetas, aes(y = as.factor(IDnumber), x = Tdiff, fill=admix_groups), size = 3, shape=21, show.legend = T) +
+  geom_point(data=thetas, aes(y = as.factor(IDnumber), x = Tdiff, fill=admix_groups), size = 3, shape=21, show.legend = F) +
   xlab(label = expression(paste(hat(theta)," per base"))) + ylab("") + 
   scale_fill_manual("Groups", 
                     values = c("East"=cbbPalette[1], 
@@ -227,10 +233,28 @@ ggplot() + theme_bw(base_size = 9) +
         axis.ticks.y = element_blank()) +
   ggrepel::geom_text_repel(data=thetas, aes(y=as.factor(IDnumber), x=Tdiff, label=IDnumber), point.padding = 0.25, size=2.8) +
   xlab(label = expression(paste("Tajima's ", theta, " - Watterson's ", theta, " (", Delta, " ", theta, ")"))) +
-  facet_grid(admix_groups~.,scales = "free_y")
+  facet_grid(admix_groups~.,scales = "free_y"))
 
-#ggsave(filename = paste0("figs/thetas_tdiff_100k.png"), width = 8, height = 7, units = "in", dpi=300)
+ggsave(filename = paste0("figs/thetas_tdiff_100k.png"), width = 8, height = 7, units = "in", dpi=300)
 
+
+# COMBINE PLOTS FOR FIGURE 7 ----------------------------------------------
+
+theta_by_site
+thetaplot
+
+(p2_theta <- plot_grid(theta_by_site + theme(legend.position="none"), labels = "D"))
+
+(combined_thetaplot <- plot_grid(thetaplot, p2_theta, nrow = 1,rel_widths = c(0.7, 1)))
+
+# save it
+save_plot(combined_thetaplot , filename = "figs/thetas_taj_watt_tdiff_95CI_fig07.png", base_width = 7, base_height = 5,
+          base_aspect_ratio = 1.5, dpi = 300)
+
+
+# EVERYTHING PAST THIS IS FOR FUN -----------------------------------------
+
+# PLOTLY ------------------------------------------------------------------
 
 library(plotly)
 ggplotly(ggplot() + theme_bw(base_size = 9) +

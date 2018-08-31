@@ -11,32 +11,34 @@ library(stringr)
 library(here)
 library(viridis)
 
-# GET DATA ----------------------------------------------------------------
+# skip steps 00-07 and load data at step 08.
+
+# 00. DATA PREP -----------------------------------------------------------
+
+## GET DATA
 
 # make spaces to tab delimited
 # :%s/ /\t/g
 # :%s/_100k\.folded\.finalFSTout//g
 # need pop 1, pop 2, fst for perlscript
 
-dat <- read_tsv("data_output/fst/all_rabo_100k_folded_adj_fst.txt", col_names = c("fst_unad", "fst_adj", "filenames"))
+dat <- read_tsv("data_output/fst/all_rabo_100k_folded_adj_fst.txt", 
+                col_names = c("fst_unad", "fst_adj", "filenames"))
 
-# FIX WEIRD TXT -----------------------------------------------------------
+## Fix Text
 
 dat$filenames <- gsub(x = dat$filenames, pattern = "_100k.folded.finalFSTout", replacement = "")
 
-# SEPARATE COLS -----------------------------------------------------------
-
-# separate and cleanup
+## Separate and Cleanup
 fsts <- dat %>% 
   separate(col = filenames, into = c("siteA", "siteB"), sep = "\\.") %>% 
   mutate(sitepair = paste0(siteA, "_", siteB))
 
+# quick tally
 fsts %>% group_by(siteA) %>% tally
 fsts %>% group_by(siteA) %>% tally
 
-#fsts_only <- fsts %>% select(siteA, siteB, fst_adj)
-
-# Get Metadata and Clean --------------------------------------------------
+## MERGE WITH METADATA
 
 # load the metadata
 metadat <- read_rds(paste0(here(), "/data_output/rapture_metadata_rabo_quant.rds"))
@@ -68,11 +70,11 @@ metadat <- metadat %>%
   mutate(mccartClades = case_when(
     grepl("sfa-cami", Locality) ~ "NE",
     grepl("stan-roseck|tuo-clavey", Locality) ~ "E",
-    grepl("North-Feather", admix_groups) ~ "NE",
-    grepl("North-East", admix_groups) ~ "NE",
-    grepl("North-West", admix_groups) ~ "NW",
-    grepl("South-West", admix_groups) ~"SW",
-    grepl("West", admix_groups) ~ "W")
+    grepl("N-Fea", admix_groups) ~ "NE",
+    grepl("NE", admix_groups) ~ "NE",
+    grepl("NW", admix_groups) ~ "NW",
+    grepl("SW", admix_groups) ~"SW",
+    grepl("W", admix_groups) ~ "W")
   ) %>%   select(Seq, admix_groups, mccartClades, Locality, lat, lon: NHD_Tot_DA_sqkm, River, Site, EcoRegion)
 
 # set order in way that you want
@@ -81,8 +83,7 @@ ords_admix_grps <- c("E", "NE", "N-Fea","NW", "SW", "W")
 metadat$admix_groups <- factor(metadat$admix_groups, levels = ords_admix_grps)
 levels(metadat$admix_groups)
 
-
-# GET BAMILES -------------------------------------------------------------
+## GET AND MERGE WITH BAMFILES
 
 bamfile <- "all_rabo_filt_100k"
 
@@ -93,57 +94,67 @@ bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file exten
 annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
 
 annot %>% group_by(Locality) %>% tally
+annot %>% distinct(Locality) %>% arrange
 
 # get only the sites for pairings
 annot <- annot %>% distinct(Locality, .keep_all = T)
 annot$Locality <- tolower(annot$Locality)
 
-# JOIN DATA ---------------------------------------------------------------
+# 01. JOIN DATA ----------------------------------------------------
+
+# get LOCALITY ID and make label column
+loc_ID  <- read_csv("data_output/table_site_localities_clades.csv") %>% 
+  mutate(Locality = tolower(Locality),
+         Locality = gsub(pattern="deer-clearck", replacement = "deer-clec", Locality))
+  
+
+# join with annot
+annot2 <- left_join(annot, loc_ID[,c(1:2)], by="Locality")
+
+
+annot_fst <- annot2 %>% select(admix_groups, Locality, siteID) #lat, lon, HUC_6, EcoRegion)
 
 # now join with fst data:
-annot_fst <- annot %>% select(admix_groups, Locality) #lat, lon, HUC_6, EcoRegion)
-
 fstsA <- left_join(fsts, annot_fst, by=c("siteA"="Locality")) %>% 
-  rename_at(c("admix_groups"), funs( paste0(., "_A")))
+  rename_at(c("admix_groups", "siteID"), funs( paste0(., "_A")))
   #rename_at(c("admix_groups","lat","lon", "HUC_6","EcoRegion"), funs( paste0(., "_A")))
 
 fsts_out <- left_join(fstsA, annot_fst, by=c("siteB"="Locality")) %>% 
-  rename_at(c("admix_groups"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A) %>% 
+  rename_at(c("admix_groups", "siteID"), funs( paste0(., "_B"))) %>% arrange(admix_groups_A) %>% 
   as.data.frame()
 
 # append to site names based on admix groups:
 fsts_out <- fsts_out %>% 
   mutate(sitea = paste0(admix_groups_A,"_",siteA),
-         siteb = paste0(admix_groups_B, "_", siteB))
+         siteb = paste0(admix_groups_B, "_", siteB),
+         siteida = paste0(admix_groups_A, "-",siteID_A),
+         siteidb = paste0(admix_groups_B, "-",siteID_B))
 
-# could add locality NUMBER here instead of site name
+# remove unused objects
+rm(fstsA, bams, dat, loc_ID, annot, annot2, annot_fst, fsts)
 
-head(fsts_out)
+# 02. CONVERT TO MATRIX --------------------------------------------------
 
-rm(fstsA)
+# select only sites and fsts value
+fsts_only <- fsts_out %>% select(siteida, siteidb, fst_adj) %>% as.data.frame()
 
-# siteA_ord <- c("sfa-cami", "tuo-clavey", "bear", "bear-grhn", "bear-sth2", "bear-stha", "bear-sthc", "deer-clec", "mfa-amec", "mfa-gasc", "mfa-todc", "mfy-oregck", "mfy-us-oh", "nfa-bunc", "nfa-euchds", "nfa-euchus", "nfa-indc", "nfa", "nfa-pond", "nfa-robr", "nfa-saic", "nfa-shic", "nfa-slar", "nfmfa-sc", "nfy", "nfy-slate-cgrav", "rub-lc-us", "rub-usph", "sfy-fallck", "sfy-loga", "sfy-misc", "sfy-rockck", "sfy-shadyck", "sfy-springck", "fea-beanck", "fea-spanish-bgulch", "fea-spanishck", "fea-spanish-silverck", "nff-poe", "eel", "mad-mapleck", "mad-redwoodck2", "mad-redwoodck", "mat-bearriver", "mat-lowermattole", "put-cold", "put-wildhorseck", "russ-mwsprngck", "sfeel-cedar", "smith-hurdygurdyck", "ssantiam", "trin-sftrinity-sandybar", "trin-sftrinity", "trin-tishtang", "vandz-dinsmore", "vandz-rootcreek", "salin-losburros", "sancarp-dutrack", "ala-arroyomocho", "paj-clearck", "paj-sanbenito", "soquel-ebsc")
-# 
-# siteB_ord <- c("sfeel-cedar", "sfy-fallck", "sfy-loga", "sfy-misc", "sfy-rockck", "sfy-shadyck", "sfy-springck", "smith-hurdygurdyck", "soquel-ebsc", "ssantiam", "trin-sftrinity", "trin-sftrinity-sandybar", "trin-tishtang", "tuo-clavey", "vandz-dinsmore", "vandz-rootcreek", "vandz-shanty", "bear-grhn", "bear-sth2", "bear-stha", "bear-sthc", "deer-clec", "eel", "fea-beanck", "fea-spanish-bgulch", "fea-spanishck", "fea-spanish-silverck", "mad-mapleck", "mad-redwoodck", "mad-redwoodck2", "mat-bearriver", "mat-lowermattole", "mfa-amec", "mfa-gasc", "mfa-todc", "mfy-oregck", "mfy-us-oh", "nfa", "nfa-bunc", "nfa-euchds", "nfa-euchus", "nfa-indc", "nfa-pond", "nfa-robr", "nfa-saic", "nfa-shic", "nfa-slar", "nff-poe", "nfmfa-sc", "nfy", "nfy-slate-cgrav", "paj-clearck", "paj-sanbenito", "put-cold", "put-wildhorseck", "rub-lc-us", "rub-usph", "russ-mwsprngck", "salin-losburros", "sancarp-dutrack", "sfa-cami", "bear") 
+# get list of site names for row/cols
+fst <- with(fsts_only, sort(unique(c(as.character(siteida),
+                                     as.character(siteidb)))))
 
-#anti_join(siteA_ord, siteB_ord, by=c("siteA"="siteB"))
-
-
-
-# CONVERT TO MATRIX -------------------------------------------------------
-
-fsts_only <- fsts_out %>% select(sitea, siteb, fst_adj) %>% as.data.frame()
-
-fst <- with(fsts_only, sort(unique(c(as.character(sitea),
-                                     as.character(siteb)))))
-
+# set up a matrix array based on length/width of data
 fst_M <- array(0, c(length(fst), length(fst)), list(fst, fst))
-i <- match(fsts_only$sitea, fst)
-j <- match(fsts_only$siteb, fst)
-fst_M[cbind(i,j)] <- fst_M[cbind(j,i)] <- fsts_only$fst_adj
-fst_M_df <- fst_M %>% as.data.frame(fst_M)
+i <- match(fsts_only$siteida, fst) # fill vectors with matching names
+j <- match(fsts_only$siteidb, fst)
+fst_M[cbind(i,j)] <- fst_M[cbind(j,i)] <- fsts_only$fst_adj # now add value for matrix
+fst_M_df <- fst_M %>% as.data.frame(fst_M) # back to a wide dataframe if you want
+
 #fst_M_df$sites <- row.names(fst_M)
 #fst_M_df <- fst_M_df %>% select(sites, everything())
+
+
+# 03. MELT TO LONG FORMAT -------------------------------------------------
+
 
 # # Get lower triangle of the correlation matrix
 get_lower_tri<-function(cormat){
@@ -159,21 +170,20 @@ get_upper_tri <- function(cormat){
 # get upper triangle
 fst_M_upper <- get_upper_tri(fst_M)
 
-
-# MELT FOR LONG FORMAT ----------------------------------------------------
-
+# melt data from wide to long
 library(reshape2)
 melted_fst <- melt(fst_M, na.rm = T)
 
 melted_fst_upper <- melt(fst_M_upper, na.rm=T)
 
-# GGPLOT --------------------------------------------------------------------
+
+# 04. GGPLOT OF PAIRWISE MATRIX -------------------------------------------
 
 # plot
-ggplot() + 
-  geom_tile(data = melted_fst_upper, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
-  theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
-  scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
+ggfstmat <- ggplot() + 
+  geom_tile(data = melted_fst_upper, aes(x=Var1, y=Var2, fill=(value/(1-value)))) + ylab("") + xlab("")+
+  theme_minimal(base_size = 9, base_family = "Roboto Condensed") +
+  scale_fill_viridis("Fst Weighted") + #limit = c(0,.4)) +
   scale_x_discrete(position = "top") +
   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 0))+
   coord_fixed() + 
@@ -181,51 +191,53 @@ ggplot() +
 # add text
   theme(
     axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 6),
     axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 6),
     panel.grid.major = element_blank(),
     panel.border = element_blank(),
     panel.background = element_blank(),
     axis.ticks = element_blank(),
     legend.justification = c(1, 0),
-    legend.position = c(0.9, 0.1),
-    legend.direction = "horizontal")+
-  guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
-                               title.position = "top", title.hjust = 0.5))
+    legend.position = c(1, 0.65),
+    legend.direction = "vertical")
+  #guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
+  #                             title.position = "top", title.hjust = 0.5))
+ggfstmat
 
 ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
 
-
 # IMAGE HEAT --------------------------------------------------------------
 
-image(1:nrow(M), 1:ncol(M), M, axes = FALSE, 
+# alternate option for plotting
+image(1:nrow(fst_M), 1:ncol(fst_M), fst_M, axes = FALSE, 
       xlab="", ylab="", col = viridis(20))
 
-axis(1, 1:nrow(M), rownames(M), cex.axis = 0.7, las=3, family="Roboto Condensed")
-axis(2, 1:nrow(M), colnames(M), cex.axis = 0.5, las=1, family="Roboto Condensed")
-axis(3, 1:nrow(M), colnames(M), cex.axis = 0.5, las=2, family="Roboto Condensed", cex.lab=0.001)
+axis(1, 1:nrow(fst_M), rownames(fst_M), cex.axis = 0.7, las=3, family="Roboto Condensed")
+axis(2, 1:nrow(fst_M), colnames(fst_M), cex.axis = 0.5, las=1, family="Roboto Condensed")
+axis(3, 1:nrow(fst_M), colnames(fst_M), cex.axis = 0.5, las=2, family="Roboto Condensed", cex.lab=0.001)
 
 
 library(fields)
 
-pdf(file = paste0("figs/fst_matrix_heatmap_all_rabo_filt_100k.png"), height = 6.5/2.54, width = 6.5/2.54)
+#pdf(file = paste0("figs/fst_matrix_heatmap_all_rabo_filt_100k.png"), height = 6.5/2.54, width = 6.5/2.54)
 par(mar=c(3,8,8,3))
-image.plot(1:nrow(M), 1:ncol(M), M, axes = FALSE, 
+image.plot(1:nrow(fst_M), 1:ncol(fst_M), fst_M, axes = FALSE, 
            xlab="", ylab="", col = viridis(200))
 
-#axis(1, 1:nrow(M), rownames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
-axis(2, 1:nrow(M), colnames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
-axis(3, 1:nrow(M), colnames(M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
-#axis(4, 1:nrow(M), colnames(M), cex.axis = 0.5, las=1, family="Roboto Condensed")
-dev.off()
+#axis(1, 1:nrow(fst_M), rownames(fst_M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+axis(2, 1:nrow(fst_M), colnames(fst_M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+axis(3, 1:nrow(fst_M), colnames(fst_M), cex.axis = 0.7, las=2, family="Roboto Condensed", cex.lab=0.001)
+#axis(4, 1:nrow(fst_M), colnames(fst_M), cex.axis = 0.5, las=1, family="Roboto Condensed")
+#dev.off()
 
-
-# Calculate distances -----------------------------------------------------
+# 05. Calculate distances -----------------------------------------------------
 
 # load the metadata and join to sites:
 library(sf)
 library(Imap)
 
-sites <- st_read("data_output/sites_all_rabo_filt10_1_100k.shp") %>% arrange(Localty)
+sites <- st_read("data_output/sites_all_rabo_filt_100k.shp") %>% arrange(Localty)
 sites$River <- tolower(sites$River)
 sites$Site <- tolower(sites$Site)
 sites$Localty <- tolower(sites$Localty)
@@ -233,8 +245,9 @@ sites$Localty <- tolower(sites$Localty)
 # fix space:
 unique(sites$Localty)
 sites$Localty<-gsub(pattern = "[[:space:]]", replacement = "-", x = sites$Localty)
+sites$Localty<-gsub("deer-clearck", replacement = "deer-clec", x = sites$Localty)
 
-# Functions ---------------------------------------------------------------
+## Functions 
 
 # calculate the matrix of distances between each pairwise comparison (each set of sites).
 ReplaceLowerOrUpperTriangle <- function(m, triangle.to.replace){
@@ -296,7 +309,7 @@ head(site_distmatrix)
 colnames(site_distmatrix)<-sites$Localty
 rownames(site_distmatrix)<-sites$Localty
 
-# Plot
+# Plot distances in matrix
 image(1:nrow(site_distmatrix), 1:ncol(site_distmatrix), site_distmatrix, axes = FALSE, 
       xlab="", ylab="", col = terrain.colors(100))
 
@@ -304,7 +317,6 @@ axis(1, 1:nrow(site_distmatrix), rownames(site_distmatrix), cex.axis = 0.7, las=
 axis(2, 1:nrow(site_distmatrix), colnames(site_distmatrix), cex.axis = 0.5, las=1, family="Roboto Condensed")
 #text(expand.grid(1:nrow(site_distmatrix), 1:ncol(site_distmatrix)), sprintf("%0.1f", site_distmatrix), cex=0.6, family="Roboto Condensed")
 title("Euclidean Distance matrix (km) \n for RABO Sites", cex.main=0.8, family="Roboto Condensed")
-
 
 # transform to longwise:
 site_dist_df <- data.frame(site= t(combn(colnames(site_distmatrix), 2)), dist=t(site_distmatrix)[lower.tri(site_distmatrix)])
@@ -315,26 +327,26 @@ site_dist_df <- site_dist_df %>%
   mutate_at(.vars = c("siteA", "siteB"), .funs = as.character) %>% 
   mutate(sitepair = paste0(siteA, "_", siteB))
 
-# JOIN DATA ---------------------------------------------------------------
+# 06. JOIN DATA ---------------------------------------------------------------
 
-final_fst_dist <- left_join(fsts, site_dist_df, by="sitepair") %>% select(siteA.x:sitepair, dist_km, fst_adj) %>% 
+final_fst_dist <- left_join(fsts_out, site_dist_df, by="sitepair") %>% 
+  select(siteA.x:sitepair, siteida, siteidb, dist_km, fst_adj) %>% 
   rename(siteA=siteA.x, siteB=siteB.x)
 
-# join with admix groups:
-final_fst_dist <- left_join(final_fst_dist, fsts_out[,c("sitepair", "sitea", "siteb")], by="sitepair")
+glimpse(final_fst_dist)
 
-# SAVE OUT ----------------------------------------------------------------
+# 07. SAVE OUT -----------------------------------------------------------
 
-#save(final_fst_dist, file = "data_output/fst/final_fst_all_rabo_filt_100k.rda") 
+#save(melted_fst_upper, melted_fst, fst_M, ggfstmat, final_fst_dist, file = "data_output/fst/final_fst_all_rabo_filt_100k.rda") 
 
-# LOOK AT PLOTTING BOTH? --------------------------------------------------
+# 08. FINAL COMBINE PLOTS ------------------------------------------------
 
 load("data_output/fst/final_fst_all_rabo_filt_100k.rda")
 
-fsts_dist <- final_fst_dist %>% select(sitea, siteb, dist_km) %>% as.data.frame()
+fsts_dist <- final_fst_dist %>% select(siteida, siteidb, dist_km) %>% as.data.frame()
 
-fst <- with(fsts_dist, sort(unique(c(as.character(sitea),
-                                     as.character(siteb)))))
+fst <- with(fsts_dist, sort(unique(c(as.character(siteida),
+                                     as.character(siteidb)))))
 # fst_dist
 fst_Mdist <- array(0, c(length(fst), length(fst)), list(fst, fst))
 i <- match(fsts_dist$sitea, fst)
@@ -343,15 +355,15 @@ fst_Mdist[cbind(i,j)] <- fst_Mdist[cbind(j,i)] <- fsts_dist[,3]
 fst_Mdist_df <- fst_Mdist %>% as.data.frame(fst_Mdist)
 
 # fst_fst
-fsts_gen <- final_fst_dist %>% select(sitea, siteb, fst_adj) %>% as.data.frame()
+fsts_gen <- final_fst_dist %>% select(siteida, siteidb, fst_adj) %>% as.data.frame()
 
-fst <- with(fsts_gen, sort(unique(c(as.character(sitea),
-                                     as.character(siteb)))))
+fst <- with(fsts_gen, sort(unique(c(as.character(siteida),
+                                     as.character(siteidb)))))
 
 # fst_dist
 fst_Mfst <- array(0, c(length(fst), length(fst)), list(fst, fst))
-i <- match(fsts_gen$sitea, fst)
-j <- match(fsts_gen$siteb, fst)
+i <- match(fsts_gen$siteida, fst)
+j <- match(fsts_gen$siteidb, fst)
 fst_Mfst[cbind(i,j)] <- fst_Mfst[cbind(j,i)] <- fsts_gen[,3]
 fst_Mfst_df <- fst_Mfst %>% as.data.frame(fst_Mdist)
 
@@ -373,89 +385,21 @@ get_upper_tri <- function(cormat){
 fst_M_upper <- get_upper_tri(fst_Mfst) # genetic dist
 fst_M_lower <- get_lower_tri(fst_Mdist) # geographic dist
 
-# MELT FOR LONG FORMAT ----------------------------------------------------
-
+# melt for plots
 library(reshape2)
 melted_fst_upper <- melt(fst_M_upper, na.rm=T) # genetic
 melted_dist_lower <- melt(fst_M_lower, na.rm=T) # geographic
 
-# library(ggdendro) # see here for vignette: https://jcoliver.github.io/learn-r/008-ggplot-dendrograms-and-heatmaps.html
-# 
-# # make a tree plot of same thing
-# fst.dendro <- as.dendrogram(hclust(d = dist(x = melted_fst_upper)))
-# (fstdendro.plot <- ggdendrogram(data = fst.dendro, rotate = TRUE, leaf_labels = F, labels = F) +
-#     theme(axis.text.y = element_blank()))
-# 
-# # make tree plot
-# fst.dist <- as.dendrogram(hclust(d = dist(x = melted_dist_lower)))
-# (distdendro.plot <- ggdendrogram(data = fst.dist, rotate = TRUE, leaf_labels = F, labels=F) + 
-#     theme(axis.text.y = element_blank()))
-# #distorder <- order.dendrogram(fst.dist)
 
-# make a heatmap
-
-# (fstheat <- ggplot() + 
-#   geom_tile(data = melted_fst_upper, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
-#   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
-#   scale_fill_viridis("Fst Weighted", limit = c(0,.4)) +
-#   scale_x_discrete(position = "top") +
-#   theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 0))+
-#   coord_fixed() + 
-#   #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
-#   # add text
-#   theme(
-#     axis.title.x = element_blank(),
-#     axis.title.y = element_blank(),
-#     panel.grid.major = element_blank(),
-#     panel.border = element_blank(),
-#     panel.background = element_blank(),
-#     axis.ticks = element_blank(),
-#     legend.justification = c(1, 0),
-#     legend.position = c(0.9, 0.1),
-#     legend.direction = "vertical"))
-#   #guides(fill = guide_colorbar(barwidth = 7, barheight = 1,
-#   #                             title.position = "top", title.hjust = 0.5)))
-# 
-
-# # (fstdist <- ggplot() + 
-# #   geom_tile(data = melted_dist_lower, aes(x=Var1, y=Var2, fill=value)) + ylab("") + xlab("")+
-# #   theme_minimal(base_size = 8, base_family = "Roboto Condensed") +
-# #   scale_fill_viridis("Dist (km)",option = "A") + #limit = c(0,.4),
-# #   #scale_x_discrete(position = "top") +
-# #   #theme(axis.text.x = element_text(angle = 90, vjust = 1, hjust = 0))+
-# #   coord_fixed() + 
-# #   #geom_text(data=melted_fst, aes(x=Var1, y=Var2, label = round(value, digits = 3)), color = "black", size = 1.2) +
-# #   # add text
-# #   theme(
-# #     axis.title.x = element_blank(),
-# #     axis.title.y = element_blank(),
-# #     axis.text.x = element_blank(),
-# #     panel.grid.major = element_blank(),
-# #     panel.border = element_blank(),
-# #     panel.background = element_blank(),
-# #     axis.ticks = element_blank(),
-# #     legend.justification = c(1, 0),
-# #     legend.position = "right",
-# #     legend.direction = "vertical"))
-# 
-# #ggsave(filename = "figs/fst_matrix_heatmap_all_rabo_filt_100k.png", width = 8, height=7, units = "in", dpi=300)
-# 
-# # put both on one plot:
-# library(grid)
-# grid.newpage()
-# print(fstheat, vp = viewport(x = 0.4, y = 0.5, width = 0.8, height = 1.0))
-# print(distdendro.plot, vp = viewport(x = 0.80, y = 0.4, width = 0.2, height = 0.99))
-
-
-# POINT PLOT --------------------------------------------------------------
+# 08a. Make point plot --------------------------------------------------------------
 
 cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
 
 # make admix cols with tidyr
 fst_summary <- final_fst_dist %>% 
-  separate(sitea, c("admixA"), sep = "_", extra = "drop", remove = F) %>% 
-  separate(siteb, c("admixB"), sep = "_", extra="drop", remove=F) %>% 
-  select(sitea, siteb, admixA, admixB, dist_km, fst_adj) %>% 
+  separate(siteida, c("admixA"), sep = "-", extra = "drop", remove = F) %>% 
+  separate(siteidb, c("admixB"), sep = "-", extra="drop", remove=F) %>% 
+  select(siteida, siteidb, admixA, admixB, dist_km, fst_adj) %>% 
   mutate(within = if_else(admixA == admixB, "Y", "N"),
          admix_pair = paste0(admixA, "_", admixB))
 
@@ -463,8 +407,8 @@ fst_summary <- final_fst_dist %>%
 
 #plotly::ggplotly(
 
-ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
-                             text=paste0("siteA: ", sitea, " <br> siteB: ", siteb),
+(pt_fst <- ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
+                             text=paste0("siteA: ", siteida, " <br> siteB: ", siteidb),
                              color=within)) + #color=as.factor(admix_pair))) + 
   geom_point(size=4, alpha=0.7) +
   #ggrepel::geom_label_repel(data=fst_summary, aes(x=dist_km, y=fst_adj, label=admix_pair)) +
@@ -474,8 +418,7 @@ ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
   labs(#title=expression(paste("Mean F" ["ST"], " vs Mean Distance (km)")),
     y=expression(paste("Mean F" ["ST"], " / (1 - Mean F" ["ST"],")")),
     x="Euclidean Distance (km)") +
-  theme(legend.position = c(0.85, 0.18)) +
-  facet_wrap(admixB ~ .)
+  theme(legend.position = c(0.75, 0.18)))
 
 #)
 
@@ -483,16 +426,40 @@ ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
 ggsave(filename = "figs/fst_vs_dist_by_clade_facet_admixB.png", width = 6, height= 5, units = "in", dpi = 300)
 
 
-# summarize
-fst_summaryA <- fst_summary %>% 
-  group_by(admixA, within) %>% 
-  summarize(fst_admixA = mean(fst_adj, na.rm=T),
-         dist_admixA = mean(dist_km, na.rm = T))
+# 09. COMBINE WITH COWPLOT ------------------------------------------------
+library(cowplot)
 
-fst_summaryB <- fst_summary %>% 
-  group_by(admixB, within) %>% 
-  summarize(fst_admixB = mean(fst_adj, na.rm=T),
-         dist_admixB = mean(dist_km, na.rm = T))
+pt_fst
+ggfstmat
+
+#extract legend from a single plot
+fst_legend <- get_legend(ggfstmat)
+
+# make into one plot
+(combined_fst_cowplot <- ggdraw() +
+  draw_plot(ggfstmat + theme(legend.justification = c(0, 0.6),
+                             legend.position = c(0.85, 0.75)), 0, 0, 1, 1) + 
+              #theme(legend.justification = "bottom"), 0, 0, 1, 1) +
+  draw_plot(pt_fst, 0.54, 0.02, 0.43, 0.42, scale = 1.1) +
+  draw_plot_label(c("A", "B"), c(0.07, 0.52), c(0.98, 0.46), size = 12))
+
+# save it
+save_plot(combined_fst_cowplot , filename = "figs/combined_fst_cowplot.png", base_width = 8, base_height = 7,
+          #base_aspect_ratio = 1.5, 
+          dpi = 300)
+
+
+# OTHER STUFF -------------------------------------------------------------
+# summarize
+# fst_summaryA <- fst_summary %>% 
+#   group_by(admixA, within) %>% 
+#   summarize(fst_admixA = mean(fst_adj, na.rm=T),
+#          dist_admixA = mean(dist_km, na.rm = T)) 
+# 
+# fst_summaryB <- fst_summary %>% 
+#   group_by(admixB, within) %>% 
+#   summarize(fst_admixB = mean(fst_adj, na.rm=T),
+#          dist_admixB = mean(dist_km, na.rm = T))
 
 # ggplot() + geom_point(data=fst_summaryA, aes(x=dist_admixA, y=fst_admixA, fill=fst_admixA), pch=21, size=4, alpha=0.7) + 
 #   ggrepel::geom_label_repel(data=fst_summaryA, aes(x=dist_admixA, y=fst_admixA, label=admixA)) + 

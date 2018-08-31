@@ -12,8 +12,8 @@ library(smoothr)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-#bamfile <- "all_rabo_filt_100k"
-bamfile <- "all_rabo_filt10_1_100k" # all_rabo_filt_1_100k
+bamfile <- "all_rabo_filt_100k" # all_rabo_filt10_1_100k
+#bamfile <- "all_rabo_filt10_1_100k" # all_rabo_filt_1_100k
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -35,17 +35,7 @@ annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with 
 annot[duplicated(annot$V2),]
 metadat[duplicated(metadat$Seq),]
 
-# change ecoregion to factor
-annot$EcoRegion <- as.factor(annot$EcoRegion)
-
-# make factor
-# length(annot[is.na(annot$EcoRegion),])
-# annot[is.na(annot$EcoRegion),] 
-# summary(annot$EcoRegion)
-
-# recode levels based on Shaffer paper (E=Southern Sierra Nevada, NE=Northern Sierra Nevada, NW=North Coast, W=Central Coast, SW=South Coast, NEW::::Sierra/Basin Range)
-
-
+# add admix groupings
 annot<- annot %>% 
   mutate(
     admix_orig = case_when(
