@@ -121,6 +121,33 @@ library(Rmisc)
 #options(scipen=4)
 
 # calc quantiles for 95 CI (middle 95% so .05/2 on either side)
+
+# rm NAs from Td group
+thetas_tD <- thetas %>% filter(!tD==-Inf)
+(CIstD <- as.data.frame(group.CI(tD~admix_groups, thetas_tD)))
+CIstD %>% mutate_at(2:4, round, digits=4)
+CIstD
+
+(tDplot <- ggplot() + 
+    geom_hline(yintercept = 0, col="gray40", lty=2, lwd=0.7) +
+    geom_pointrange(data=CIstD, aes(x=admix_groups, y=tD.mean, ymin=tD.lower, 
+                                  ymax=tD.upper, color=admix_groups), size=1, show.legend = F) +
+    scale_color_manual("Groups", 
+                       values = c("East"=cbbPalette[1], 
+                                  "North-East"=cbbPalette[2], 
+                                  "North-West"=cbbPalette[3],
+                                  "North-Feather"=cbbPalette[4],
+                                  "West"=cbbPalette[5], 
+                                  "South-West"=cbbPalette[6])) +
+    
+    theme_bw(base_family = "Roboto Condensed") +
+    ylab(label = "Tajima's D") +
+    xlab("") +
+    coord_flip())
+tDplot
+
+
+# calc quantiles for 95 CI (middle 95% so .05/2 on either side)
 (CIs <- as.data.frame(group.CI(Tdiff~admix_groups, thetas)))
 CIs %>% mutate_at(2:4, round, digits=4)
 
@@ -146,6 +173,7 @@ CIs %>% mutate_at(2:4, round, digits=4)
 CIsTp %>% mutate_at(2:4, round, digits=4)
 CIsTp[1,2] <- .008
 CIsTp[1,4] <- .005
+CIsTp
 
 # Tpi
 (tpplot <- ggplot() + 
@@ -168,7 +196,7 @@ CIsTp[1,4] <- .005
 CIsTw %>% mutate_at(2:4, round, digits=4)
 CIsTw[1,2] <- .007
 CIsTw[1,4] <- .004
-
+CIsTw
 
 # Tw
 (twplot <- ggplot() + 

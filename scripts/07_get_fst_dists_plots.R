@@ -405,7 +405,6 @@ fst_summary <- final_fst_dist %>%
 
 # PLOT
 
-#plotly::ggplotly(
 
 (pt_fst <- ggplot(data=fst_summary, aes(x=dist_km, y=(fst_adj/(1-fst_adj)),
                              text=paste0("siteA: ", siteida, " <br> siteB: ", siteidb),
@@ -416,11 +415,11 @@ fst_summary <- final_fst_dist %>%
   
   theme_bw(base_family = "Helvetica", base_size = 9) +
   labs(#title=expression(paste("Mean F" ["ST"], " vs Mean Distance (km)")),
-    y=expression(paste("Mean F" ["ST"], " / (1 - Mean F" ["ST"],")")),
+    #y=expression(paste("Mean F" ["ST"], " / (1 - Mean F" ["ST"],")")),
     x="Euclidean Distance (km)") +
   theme(legend.position = c(0.75, 0.18)))
 
-#)
+plotly::ggplotly(pt_fst)
 
 #ggsave(filename = "figs/fst_vs_dist_by_clade.png", width = 3.42, height= 2.9, units = "in", dpi = 600, scale=1.3)
 ggsave(filename = "figs/fst_vs_dist_by_clade_facet_admixB.png", width = 6, height= 5, units = "in", dpi = 300)
