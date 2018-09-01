@@ -1,5 +1,5 @@
 
-# GET MAP AND PLOT ------------------------------------------------------
+# LIBRARIES
 
 library(tidyverse)
 library(mapview)
@@ -12,8 +12,10 @@ library(smoothr)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
-bamfile <- "all_rabo_filt_100k" # all_rabo_filt10_1_100k
-#bamfile <- "all_rabo_filt10_1_100k" # all_rabo_filt_1_100k
+bamfile <- "all_rabo_filt10_1_100k"
+# all_rabo_filt_100k
+# all_rabo_filt10_1_100k
+# all_rabo_filt_1_100k
 
 # Get ID and pop info for each individual from bamlists
 bams <- read.table(paste0("data_output/bamlists/",bamfile, "_thresh.bamlist"),stringsAsFactors = F, header = F)
@@ -88,29 +90,20 @@ st_crs(annot_sf)
 
 # write out and delete there's a file with same name (will give warning if first time saving)
 #st_write(annot_sf, paste0("data_output/sites_",bamfile, ".shp"), delete_dsn = T)
+#save(annot_sf, file = paste0("data_output/sites_",bamfile, ".rda"))
 
 # MAKE QUICK MAP ----------------------------------------------------------
 
 # make a quick mapview map
 mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 
-# 01. GET SHAPES --------------------------------------------------------------
-
-# get name
-#bamfile <- "all_rabo_filt_100k"
-
-# get shp file with data
-#annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
-#st_crs(annot_sf)
+# SIMPLIFY FIX RANGE -----------------------------------------------------------
 
 # get shp of range
 #rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) %>% 
 #   st_transform(crs = 4326)
 #file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
 #st_crs(rb_range)
-
-
-# 02. SIMPLIFY FIX SHPS -------------------------------------------------------
 
 # # simplify
 # rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
@@ -166,6 +159,30 @@ mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 # rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
 
 
+# 01. GET SHAPES --------------------------------------------------------------
+
+#bamfile <- "all_rabo_filt_100k"
+bamfile <- "all_rabo_filt10_1_100k"
+
+# get shp file with data
+#annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
+#st_crs(annot_sf)
+
+# revised range
+rb_range <- st_read("data/shps/rabo_range_simple_v2.shp")
+st_crs(rb_range)
+# load annot_sf data:
+load(paste0("data_output/sites_",bamfile, ".rda"))
+
+# lakes and streams
+lakes <- st_read("data/shps/NHDWaterbody_lakes_greater_15sqkm.shp") 
+lakes <- st_transform(lakes, crs = 4326)
+st_crs(lakes)
+
+rivers <- st_read("data/shps/CA_major_river_SJV_disconnected.shp")
+rivers <- st_transform(rivers, crs = 4326)
+st_crs(rivers)
+
 # 03. GET SHAFFER SITES -------------------------------------------------------
 
 # get shaffer sites:
@@ -182,7 +199,6 @@ st_crs(shaff_sf)
 
 # quick map
 #mapview(shaff_sf) + mapview(annot_sf)
-
 
 # GET STATE AND COUNTIES --------------------------------------------------
 
@@ -208,7 +224,6 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 # get range of lat/longs from for mapping
 mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
 
-rb_range <- st_read("data_output/rabo_range_simple.shp")
 
 # FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
 
@@ -217,6 +232,8 @@ ggplot() +
   geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
   geom_sf(data=CA, fill="gray20") + xlab("")+
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
+  #geom_sf(data=lakes, col="deepskyblue4", fill="deepskyblue4") +
+  #geom_sf(data=rivers, col="darkblue", alpha=0.5) +
   geom_sf(data=rb_range, col="orange", fill="orange", alpha=0.7) +
   geom_sf(data=annot_sf, aes(fill="black"), alpha=0.7,size=2.6, pch=21, show.legend = 'point') +
   ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
@@ -250,7 +267,7 @@ ggplot() +
            st.size = 2.5, st.dist = .2)
 
 
-ggsave(filename = paste0("figs/maps_", bamfile, "_range_localities.png"), width = 8, height = 11, 
+ggsave(filename = paste0("figs/maps_", bamfile, "_revrange_localities.png"), width = 8, height = 11, 
               units = "in", dpi = 300)
 
 # FIG OF ADMIX GROUPS -----------------------------------------------------
@@ -261,8 +278,9 @@ ggplot() +
   geom_sf(data=CA, fill="gray20") + xlab("") +
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
   geom_sf(data=rb_range, col="gray40", fill="gray50", alpha=0.6) +
-  geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
-  geom_sf(data=annot_sf, aes(fill=admix_groups), size=2.4, pch=21, show.legend = 'point') +
+  #geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
+  #ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
+  geom_sf(data=annot_sf, aes(fill=admix_groups), size=2, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
   scale_fill_manual("Groups",
                      values = c("East"=cbbPalette[1], # E
@@ -309,7 +327,11 @@ ggplot() +
            y.min = 32.4, y.max = 33.7, height = .15,
            st.size = 2.5, st.dist = .2)
 
+# with site ID's on map
 ggsave(filename = paste0("figs/maps_", bamfile, "_clades.png"), width = 8, height = 11, 
+       units = "in", dpi = 300)
+# without site ID's on map
+ggsave(filename = paste0("figs/maps_", bamfile, "_clades_localities.png"), width = 8, height = 11, 
        units = "in", dpi = 300)
 
 
