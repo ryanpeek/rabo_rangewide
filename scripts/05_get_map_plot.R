@@ -24,11 +24,41 @@ bams$V2 <- sub('\\..*$', '', basename(bams$V1)) # remove the path and file exten
 # get metadat and fix sandy bar space and deer ck
 metadat <- read_rds(path = "data_output/rapture_metadata_rabo_quant.rds")
 
+# fix erroneous Lassen Locality
+# metadat <- metadat %>% mutate(Locality_details=if_else(SampleID=="RAP-327", "Mineral Bar, Iowa Hill Rd, at NF American River, Placer County, el 2400 feet, 5 July, 1994", Locality_details),
+#                               Locality = if_else(SampleID=="RAP-327", "NFA", Locality),
+#                               River = if_else(SampleID=="RAP-327","NFA", River),
+#                               Site = if_else(SampleID =="RAP-327", as.character(NA), Site),
+#                               lat = if_else(SampleID=="RAP-327", as.numeric(39.11115), lat),
+#                               lon = if_else(SampleID=="RAP-327", as.numeric(-120.9168), lon),
+#                               elev_m = if_else(SampleID=="RAP-327", 386.4710, elev_m),
+#                               HUC_6 = if_else(SampleID=="RAP-327", as.integer(180201), HUC_6),
+#                               HUC_8 = if_else(SampleID=="RAP-327", as.integer(18020128), HUC_8),
+#                               HUC_10 = if_else(SampleID=="RAP-327", as.integer(1802012801), HUC_10),
+#                               HU_6_NAME = if_else(SampleID=="RAP-327", "Lower Sacramento", HU_6_NAME),
+#                               HU_8_NAME = if_else(SampleID=="RAP-327", "North Fork American", HU_8_NAME),
+#                               HU_10_NAME = if_else(SampleID=="RAP-327", "Upper North Fork American River", HU_10_NAME),
+#                               HU_12_NAME = if_else(SampleID=="RAP-327", "Indian Creek-North Fork American River", HU_12_NAME),
+#                               county = if_else(SampleID == "RAP-327", "Placer", county),
+#                               dist2stream_m = if_else(SampleID == "RAP-327", as.numeric(37.22), dist2stream_m),
+#                               COMID = if_else(SampleID == "RAP-327", as.integer(14992581), COMID),
+#                               GNIS_ID = if_else(SampleID == "RAP-327", as.integer(267066), GNIS_ID),
+#                               GNIS_NAME = if_else(SampleID == "RAP-327", "North Fork American River", GNIS_NAME),
+#                               NHDlength_km = if_else(SampleID == "RAP-327", as.numeric(3.238), NHDlength_km),
+#                               NHD_StreamLevel = if_else(SampleID == "RAP-327", as.integer(2), NHD_StreamLevel),
+#                               NHD_StreamOrder = if_else(SampleID == "RAP-327", as.integer(4), NHD_StreamOrder),
+#                               NHD_Tot_DA_sqkm = if_else(SampleID == "RAP-327", as.numeric(605.3175), NHD_Tot_DA_sqkm),
+#                               EcoRegion = if_else(SampleID == "RAP-327", "Sierra Nevada", EcoRegion))
+# 
+
 # fix trinity spaces
-metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
+# metadat$Locality<-gsub(pattern = "[[:space:]]", replacement = "-", x = metadat$Locality)
 
 # fix deer-clearck/ deer-clec
-metadat$Locality <- gsub(pattern="deer-clearck", replacement = "deer-clec", x=metadat$Locality)
+# metadat$Locality <- gsub(pattern="deer-clearck", replacement = "deer-clec", x=metadat$Locality)
+
+# save metadat back out:
+# write_rds(metadat, path = "data_output/rapture_metadata_rabo_quant.rds")
 
 # join together
 annot <- left_join(bams, metadat, by=c("V2"="Seq")) %>% select(-V1) # join with the metadata
@@ -50,7 +80,7 @@ annot<- annot %>%
       grepl("SANCARP|SALIN", River) ~ "South-West"), # South Coast
     admix_groups = case_when(
       grepl("STAN|TUO|CALAV|SFA", River) ~ "East", # southern siera
-      grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
       grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
       grepl("NFF|FEA", River) ~ "North-Feather", # feather
       grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
@@ -77,7 +107,7 @@ annot_out <- select(annot_sf, siteID, Locality, River, Site, admix_groups, admix
   dplyr::rename("clade" = admix_groups, "n_samples"=n)
 
 #write_csv(annot_out, path = paste0("data_output/table_site_localities_clades_", bamfile, ".csv"))
-#knitr::kable(annot_out
+
 
 # make sf:
 annot_sf <- st_as_sf(annot_sf, 
@@ -100,63 +130,64 @@ mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
 # SIMPLIFY FIX RANGE -----------------------------------------------------------
 
 # get shp of range
-#rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) %>% 
-#   st_transform(crs = 4326)
-#file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
-#st_crs(rb_range)
+rb_range <- st_read(unzip("data/shps/Rb_Potential_Range_CAandOR.zip")) %>% 
+   st_transform(crs = 4326)
+file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
+st_crs(rb_range)
+plot(rb_range$geometry)
 
-# # simplify
-# rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
-# plot(rb_range_simple$geometry, col="skyblue")
-# 
-# # smooth
-# rb_smooth <- smooth(rb_range_simple, method = "ksmooth") # or spline / ksmooth
-# plot(rb_smooth$geometry, col="maroon")
-# 
-# # rm small bits
-# area_thresh <- units::set_units(400, km^2)
-# rb_dropped <- drop_crumbs(rb_smooth, threshold = area_thresh)
-# plot(rb_dropped$geometry, col="orange")
-# 
-# #fill holes
-# area_thresh <- units::set_units(800, km^2)
-# rb_filled <- fill_holes(rb_dropped, threshold = area_thresh)
-# plot(rb_filled$geometry, col="purple")
-# 
-# # now add fields
-# rb_filled <- rb_filled %>% 
-#   mutate(state = case_when(
-#     SEASON=="Y" ~ "CA",
-#     is.na(SEASON) ~ "OR"),
-#     keeppoly = "Y") %>% 
-#   select(-SEASON, -SHAPE_NAME, -Id)
-# 
-# # get OR
-# or_rb <- rb_filled %>% filter(state=="OR")
-# or_rb_buff <- st_buffer(or_rb, dist = .08)
-# 
-# plot(rb_filled$geometry, border="gray", lwd=1)
-# plot(or_rb_buff$geometry, border="blue", add=T)
-# #plot(or_rb$geometry, border="red", add=T)
-# 
-# # get CA only
-# ca_rb <- rb_filled %>% filter(state=="CA")
-# 
-# # combine
-# rb_all <- st_union(or_rb_buff, ca_rb, by_feature = "state")
-# plot(rb_all$geometry, col="pink")
-# 
-# rb_diss <- rb_all %>% 
-#   group_by(keeppoly) %>% 
-#   summarize()
-# 
-# plot(rb_diss$geometry, col="purple")
-# 
-# # write out
-# st_write(rb_diss, "data_output/rabo_range_simple.shp", delete_dsn = T)
-# 
-# # rm interm files:
-# rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
+# simplify
+rb_range_simple <- st_simplify(rb_range, dTolerance = .05)
+plot(rb_range_simple$geometry, col="skyblue")
+ 
+# smooth
+rb_smooth <- smooth(rb_range_simple, method = "ksmooth") # or spline / ksmooth
+plot(rb_smooth$geometry, col="maroon")
+ 
+# rm small bits
+area_thresh <- units::set_units(400, km^2)
+rb_dropped <- drop_crumbs(rb_smooth, threshold = area_thresh)
+plot(rb_dropped$geometry, col="orange")
+ 
+# fill holes
+area_thresh <- units::set_units(800, km^2)
+rb_filled <- fill_holes(rb_dropped, threshold = area_thresh)
+plot(rb_filled$geometry, col="purple")
+ 
+# now add fields
+rb_filled <- rb_filled %>% 
+  mutate(state = case_when(
+    SEASON=="Y" ~ "CA",
+    is.na(SEASON) ~ "OR"),
+    keeppoly = "Y") %>%
+  select(-SEASON, -SHAPE_NAME, -Id)
+ 
+# get OR
+or_rb <- rb_filled %>% filter(state=="OR")
+or_rb_buff <- st_buffer(or_rb, dist = .08)
+ 
+plot(rb_filled$geometry, border="gray", lwd=1)
+plot(or_rb_buff$geometry, border="blue", add=T)
+plot(or_rb$geometry, border="red", add=T)
+ 
+# get CA only
+ca_rb <- rb_filled %>% filter(state=="CA")
+ 
+# combine
+rb_all <- st_union(or_rb_buff, ca_rb, by_feature = "state")
+plot(rb_all$geometry, col="pink")
+ 
+rb_diss <- rb_all %>%
+  group_by(keeppoly) %>%
+  summarize()
+
+plot(rb_diss$geometry, col="purple")
+
+# write out
+st_write(rb_diss, "data_output/rabo_range_simple.shp", delete_dsn = T)
+
+# rm interm files:
+rm(ca_rb, or_rb, or_rb_buff, rb_all, rb_dropped, rb_filled, rb_range, rb_range_simple, rb_smooth)
 
 
 # 01. GET SHAPES --------------------------------------------------------------
@@ -168,9 +199,15 @@ bamfile <- "all_rabo_filt10_1_100k"
 #annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
 #st_crs(annot_sf)
 
-# revised range
-rb_range <- st_read("data/shps/rabo_range_simple_v2.shp")
+# revised range:
+rb_range <- st_read("data/rabo_range_simple.shp")
+# revised range modified in GIS to include LASSEN
+# rb_range <- st_read("data/shps/rabo_range_simple_v2.shp") # 
+
+
 st_crs(rb_range)
+plot(rb_range$geometry, border="orange", lwd=2) 
+
 # load annot_sf data:
 load(paste0("data_output/sites_",bamfile, ".rda"))
 
@@ -224,8 +261,20 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 # get range of lat/longs from for mapping
 mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
 
+# save data out for map:
+save(bgSTs, CA, counties, rb_range, 
+     #lakes, rivers,
+     annot_sf, shaff_sf, mapRange, cbbPalette, file = "data_output/rangewide_map_data.rda")
 
 # FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
+
+load("data_output/rangewide_map_data.rda")
+#rb_diss <- st_read("data_output/rabo_range_simple.shp")
+
+# resave:
+# save(bgSTs, CA, counties, lakes, rivers, rb_range, rb_diss,
+#        annot_sf, shaff_sf, mapRange, cbbPalette, file = "data_output/rangewide_map_data.rda")
+
 
 # plot
 ggplot() + 
@@ -335,4 +384,6 @@ ggsave(filename = paste0("figs/maps_", bamfile, "_clades_localities.png"), width
        units = "in", dpi = 300)
 
 
-mapview(annot_sf, zcol="admix_groups") + mapview(rb_range) + mapview(counties)# %>% addMouseCoordinates()
+mapview(annot_sf, zcol="admix_groups", layer.name=c("Genetic Groups")) + 
+  mapview(rb_range, col.regions="orange", alpha.regions=0.7) + 
+  mapview(counties, col.regions="gray")# %>% addMouseCoordinates()
