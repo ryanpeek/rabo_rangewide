@@ -328,7 +328,7 @@ ggplot() +
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
   geom_sf(data=rb_range, col="gray40", fill="gray50", alpha=0.6) +
   #geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
-  #ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
+  ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
   geom_sf(data=annot_sf, aes(fill=admix_groups), size=2, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
   scale_fill_manual("Groups",
