@@ -9,6 +9,7 @@ library(purrr)
 library(ggsn)
 library(dplyr)
 library(smoothr)
+library(ggspatial)
 
 # GET BAMLIST AND METADATA ------------------------------------------------
 
@@ -71,24 +72,25 @@ metadat[duplicated(metadat$Seq),]
 annot<- annot %>% 
   mutate(
     admix_orig = case_when(
-      grepl("STAN|TUO|CALAV", River) ~ "East", # southern siera
+      grepl("STAN|TUO|CALAV", River) ~ "S. Sierra",# "East", # southern siera
       grepl("SFA", River) ~ "Unknown",
-      grepl("NFF|FEA|ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
-      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
+      grepl("NFF|FEA|ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "N. Sierra",  #"North-East", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "N. Coast", # "North-West", # North Coast
       #grepl("NFF|FEA", River) ~ "North-Feather", # feather
-      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-      grepl("SANCARP|SALIN", River) ~ "South-West"), # South Coast
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "C. Coast",  #"West", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "S. Coast"),  #"South-West"), # South Coast
     admix_groups = case_when(
-      grepl("STAN|TUO|CALAV|SFA", River) ~ "East", # southern siera
-      grepl("BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
-      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
-      grepl("NFF|FEA", River) ~ "North-Feather", # feather
-      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
-      grepl("SANCARP|SALIN", River) ~ "South-West") # South Coast
+      grepl("STAN|TUO|CALAV|SFA", River) ~ "S. Sierra",  #"East", # southern siera
+      grepl("BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "N. Sierra", # northern sierra
+      grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "N. Coast", # "North-West", # North Coast
+      grepl("NFF|FEA", River) ~ "Feather", # feather
+      grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "C. Coast", # Central Coast
+      grepl("SANCARP|SALIN", River) ~ "S. Coast") # South Coast
   )
 
-ords_admix_grps <- c("East", "North-East", "North-Feather", "North-West", "South-West", "West")
-
+#ords_admix_grps <- c("East", "North-East", "Feather", "North-West", "South-West", "West")
+ords_admix_grps <- c("N. Sierra", "S. Sierra", "Feather", "N. Coast", "S. Coast", "C. Coast")
+table(annot$admix_groups)
 annot$admix_groups <- factor(annot$admix_groups, levels = ords_admix_grps)
 
 # MAKE SPATIAL ------------------------------------------------------------
@@ -123,9 +125,15 @@ st_crs(annot_sf)
 #save(annot_sf, file = paste0("data_output/sites_",bamfile, ".rda"))
 
 # MAKE QUICK MAP ----------------------------------------------------------
-
+#save()
 # make a quick mapview map
-mapview(annot_sf, zcol="admix_groups") %>% addMouseCoordinates()
+mapview(annot_sf, layer.name="R. boylii Groups",zcol="admix_groups") %>% addMouseCoordinates() %>% 
+  addLogo("",
+          position = "bottomleft",
+          offset.x = 5,
+          offset.y = 40,
+          width = 100,
+          height = 100)
 
 # SIMPLIFY FIX RANGE -----------------------------------------------------------
 
@@ -253,6 +261,8 @@ counties <- us_counties(resolution = "low", states=state_names) %>% # use list o
   mutate(lon=map_dbl(geometry, ~st_centroid(.x)[[1]]), # add centroid values for labels
          lat=map_dbl(geometry, ~st_centroid(.x)[[2]])) # add centroid values for labels
 
+st_crs(counties)
+
 # SET UP COLOR AND RANGE --------------------------------------------------
 
 # add color palette: 
@@ -262,9 +272,9 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 mapRange <- c(range(st_coordinates(counties)[,1]),range(st_coordinates(counties)[,2]))
 
 # save data out for map:
-save(bgSTs, CA, counties, rb_range, 
-     #lakes, rivers,
-     annot_sf, shaff_sf, mapRange, cbbPalette, file = "data_output/rangewide_map_data.rda")
+# save(bgSTs, CA, counties, rb_range, 
+#      #lakes, rivers,
+#      annot_sf, shaff_sf, mapRange, cbbPalette, file = "data_output/rangewide_map_data.rda")
 
 # FIRST MAP OF SHAFF VS ANNOT SITES ---------------------------------------
 
@@ -309,8 +319,7 @@ ggplot() +
         y.min = 33, y.max = 34.5,
         location = "bottomleft", scale = 0.5) +
   # add scale bar
-  scalebar(location = "bottomleft", dist = 200,
-           dd2km = TRUE, model = 'WGS84',           
+  scalebar(location = "bottomleft", dist = 200, transform = TRUE, dist_unit = "m",
            x.min = -124, x.max = -121,
            y.min = 32.4, y.max = 33.7, height = .15,
            st.size = 2.5, st.dist = .2)
@@ -328,7 +337,7 @@ ggplot() +
   geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") +
   geom_sf(data=rb_range, col="gray40", fill="gray50", alpha=0.6) +
   #geom_sf(data=shaff_sf, fill="white", col="gray30", size=1.2, pch=21, show.legend = 'point') +
-  ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
+  #ggrepel::geom_text_repel(data=annot_sf, aes(x=lon, y=lat, label=siteID), size=1.7, segment.size = .25) +
   geom_sf(data=annot_sf, aes(fill=admix_groups), size=2, pch=21, show.legend = 'point') +
   #coord_sf(datum=sf::st_crs(4326), ndiscr = 5) + # include for graticule
   scale_fill_manual("Groups",
@@ -370,19 +379,21 @@ ggplot() +
         y.min = 33, y.max = 34.5,
         location = "bottomleft", scale = 0.5) +
   # add scale bar
-  scalebar(location = "bottomleft", dist = 200,
-           dd2km = TRUE, model = 'WGS84',           
+  scalebar(location = "bottomleft", dist = 200, transform = TRUE, dist_unit = "km",
            x.min = -124, x.max = -121,
            y.min = 32.4, y.max = 33.7, height = .15,
            st.size = 2.5, st.dist = .2)
 
 # with site ID's on map
 ggsave(filename = paste0("figs/maps_", bamfile, "_clades.png"), width = 8, height = 11, 
-       units = "in", dpi = 300)
+       units = "in", dpi = 600)
 # without site ID's on map
 ggsave(filename = paste0("figs/maps_", bamfile, "_clades_localities.png"), width = 8, height = 11, 
-       units = "in", dpi = 300)
+       units = "in", dpi = 600)
 
+# a pdf
+ggsave(filename = paste0("figs/maps_", bamfile, "_clades_localities.pdf"), width = 8, height = 11, 
+       units = "in")
 
 mapview(annot_sf, zcol="admix_groups", layer.name=c("Genetic Groups")) + 
   mapview(rb_range, col.regions="orange", alpha.regions=0.7) + 

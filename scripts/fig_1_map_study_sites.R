@@ -5,9 +5,13 @@ library(purrr)
 library(sf)
 library(ggsn)
 library(ggrepel)
+library(ggspatial)
 
 # get name
-bamfile <- "all_rabo_filt_100k"
+bamfile <- "all_rabo_filt10_1_100k"
+
+# GET DATA
+load("~/Documents/github/rabo_rangewide/data_output/rangewide_map_data.rda")
 
 # get shp file with data
 annot_sf <- st_read(paste0("data_output/sites_", bamfile, ".shp"))
@@ -19,9 +23,9 @@ annot_sf <- annot_sf %>% distinct(Localty, .keep_all = T) %>%
   mutate(localityID=row_number())
 
 # get shp of range
-rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) 
-file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
-rb_range <- rb_range %>% st_transform(crs = 4326)
+#rb_range <- st_read(unzip("data/Rb_Potential_Range_CAandOR.zip")) 
+#file.remove(list.files(pattern="Rb_Potential_Range_CAandOR", recursive = F))
+#rb_range <- rb_range %>% st_transform(crs = 4326)
 st_crs(rb_range)
 rb_range_simple <- st_simplify(rb_range, dTolerance = 0.05)
 #plot(rb_range_simple$geom, col = "orange")
@@ -74,8 +78,27 @@ ggplot() +
            st.size = 2.5, st.dist = .2)
 
 
-ggsave(filename = paste0("figs/fig1_maps_", bamfile, "_sites_range.png"), width = 8, height = 11, 
+## VERSION 2
+ggplot() + 
+  #annotation_map_tile(zoom = 3) + 
+  geom_sf(data=bgSTs, fill="gray90", col="gray50", lty=1.2) +
+  geom_sf(data=CA, fill="gray20", alpha=0.3) + 
+  geom_sf(data=counties, col="gray50", alpha=0.9) + ylab("") + xlab("")+
+  geom_sf(data=rb_range_simple, fill="orange", alpha=0.5)+
+  geom_sf(data=annot_sf, col="gray50", fill="black", size=1.5, pch=21, show.legend = 'point') +
+  geom_text_repel(data=annot_sf, aes(x = lon, y=lat, label=localityID), segment.size = 0.2, size=2) +
+  coord_sf(xlim = c(-125,-114), ylim=c(31,46))+
+  # spatial-aware automagic scale bar
+  annotation_scale(location = "br",style = "ticks") +
+  # spatial-aware automagic north arrow
+  annotation_north_arrow(width = unit(.3,"in"), pad_y = unit(.3, "in"),location = "br", which_north = "true")
+
+
+ggsave(filename = paste0("figs/fig1_maps_", bamfile, "_sites_range_v2.png"), width = 8, height = 11, 
        units = "in", dpi = 300)
 
 
 
+## Save data required
+save(bgSTs, CA, counties, rb_range, rb_range_simple, annot_sf, 
+     shaff_sf, file = "data_output/fig_1_rangewide_sites_maps.rda")

@@ -50,7 +50,7 @@ metadat<- metadat %>%
       grepl("SANCARP|SALIN", River) ~ "South-West"), # South Coast
     admix_groups = case_when(
       grepl("STAN|TUO|CALAV|SFA", River) ~ "East", # southern siera
-      grepl("ANTV|BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
+      grepl("BEAR|DEER|MFA|MFY|NFA|NFMFA|NFY|SFY|RUB", River) ~ "North-East", # northern sierra
       grepl("CHETCO|SFEEL|COW|VANDZ|TRIN|MAT|KLAM|SSANTIAM|PUT|^MAD$|LAGUN|SUMPQUA|RUSS|SMITH|EEL", River) ~ "North-West", # North Coast
       grepl("NFF|FEA", River) ~ "North-Feather", # feather
       grepl("PAJ|ALA|DRY|SOQUEL", River) ~ "West", # Central Coast
